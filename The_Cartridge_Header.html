@@ -1,0 +1,465 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Cartridge Header - Pan Docs</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The single, most comprehensive technical reference to Game Boy available to the public.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="custom/style.css">
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><a href="About.html">Foreword</a></li><li class="chapter-item affix "><a href="Authors.html">Authors</a></li><li class="chapter-item affix "><li class="part-title">Overview</li><li class="chapter-item "><a href="Specifications.html"><strong aria-hidden="true">1.</strong> Specifications</a></li><li class="chapter-item "><a href="Memory_Map.html"><strong aria-hidden="true">2.</strong> Memory Map</a></li><li class="chapter-item affix "><li class="part-title">I/O Ports</li><li class="chapter-item "><a href="Rendering.html"><strong aria-hidden="true">3.</strong> Rendering</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Tile_Data.html"><strong aria-hidden="true">3.1.</strong> Tile Data</a></li><li class="chapter-item "><a href="BG_Maps.html"><strong aria-hidden="true">3.2.</strong> BG Maps</a></li><li class="chapter-item "><a href="OAM.html"><strong aria-hidden="true">3.3.</strong> OAM</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="OAM_DMA_Transfer.html"><strong aria-hidden="true">3.3.1.</strong> OAM DMA Transfer</a></li></ol></li><li class="chapter-item "><a href="LCDC.html"><strong aria-hidden="true">3.4.</strong> LCD Control</a></li><li class="chapter-item "><a href="STAT.html"><strong aria-hidden="true">3.5.</strong> LCD Status</a></li><li class="chapter-item "><a href="Scrolling.html"><strong aria-hidden="true">3.6.</strong> Scrolling</a></li><li class="chapter-item "><a href="Palettes.html"><strong aria-hidden="true">3.7.</strong> Palettes</a></li><li class="chapter-item "><a href="pixel_fifo.html"><strong aria-hidden="true">3.8.</strong> Pixel FIFO</a></li></ol></li><li class="chapter-item "><a href="Sound_Controller.html"><strong aria-hidden="true">4.</strong> Sound Controller</a></li><li class="chapter-item "><a href="Joypad_Input.html"><strong aria-hidden="true">5.</strong> Joypad Input</a></li><li class="chapter-item "><a href="Serial_Data_Transfer_(Link_Cable).html"><strong aria-hidden="true">6.</strong> Serial Data Transfer</a></li><li class="chapter-item "><a href="Timer_and_Divider_Registers.html"><strong aria-hidden="true">7.</strong> Timer and Divider Registers</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Timer_Obscure_Behaviour.html"><strong aria-hidden="true">7.1.</strong> Timer Obscure Behaviour</a></li></ol></li><li class="chapter-item "><a href="Interrupts.html"><strong aria-hidden="true">8.</strong> Interrupts</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Interrupt_Sources.html"><strong aria-hidden="true">8.1.</strong> Interrupt Sources</a></li></ol></li><li class="chapter-item "><a href="CGB_Registers.html"><strong aria-hidden="true">9.</strong> CGB Registers</a></li><li class="chapter-item "><a href="SGB_Functions.html"><strong aria-hidden="true">10.</strong> SGB Functions</a></li><li class="chapter-item affix "><li class="part-title">CPU Specifications</li><li class="chapter-item "><a href="CPU_Registers_and_Flags.html"><strong aria-hidden="true">11.</strong> CPU Registers and Flags</a></li><li class="chapter-item "><a href="CPU_Instruction_Set.html"><strong aria-hidden="true">12.</strong> CPU Instruction Set</a></li><li class="chapter-item "><a href="CPU_Comparison_with_Z80.html"><strong aria-hidden="true">13.</strong> CPU Comparison with Z80</a></li><li class="chapter-item affix "><li class="part-title">Cartridges</li><li class="chapter-item expanded "><a href="The_Cartridge_Header.html" class="active"><strong aria-hidden="true">14.</strong> The Cartridge Header</a></li><li class="chapter-item "><a href="MBCs.html"><strong aria-hidden="true">15.</strong> MBCs</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="nombc.html"><strong aria-hidden="true">15.1.</strong> No MBC</a></li><li class="chapter-item "><a href="MBC1.html"><strong aria-hidden="true">15.2.</strong> MBC1</a></li><li class="chapter-item "><a href="MBC2.html"><strong aria-hidden="true">15.3.</strong> MBC2</a></li><li class="chapter-item "><a href="MBC3.html"><strong aria-hidden="true">15.4.</strong> MBC3</a></li><li class="chapter-item "><a href="MBC5.html"><strong aria-hidden="true">15.5.</strong> MBC5</a></li><li class="chapter-item "><a href="MBC6.html"><strong aria-hidden="true">15.6.</strong> MBC6</a></li><li class="chapter-item "><a href="MBC7.html"><strong aria-hidden="true">15.7.</strong> MBC7</a></li><li class="chapter-item "><a href="HuC1.html"><strong aria-hidden="true">15.8.</strong> HuC1</a></li><li class="chapter-item "><a href="othermbc.html"><strong aria-hidden="true">15.9.</strong> Other MBCs</a></li></ol></li><li class="chapter-item "><li class="part-title">Accessories</li><li class="chapter-item "><a href="Gameboy_Printer.html"><strong aria-hidden="true">16.</strong> Game Boy Printer</a></li><li class="chapter-item "><a href="Gameboy_Camera.html"><strong aria-hidden="true">17.</strong> Game Boy Camera</a></li><li class="chapter-item "><div><strong aria-hidden="true">18.</strong> Game Genie/Shark Cheats</div></li><li class="chapter-item affix "><li class="part-title">Other</li><li class="chapter-item "><a href="Power_Up_Sequence.html"><strong aria-hidden="true">19.</strong> Power-Up Sequence</a></li><li class="chapter-item "><a href="Reducing_Power_Consumption.html"><strong aria-hidden="true">20.</strong> Reducing Power Consumption</a></li><li class="chapter-item "><a href="Accessing_VRAM_and_OAM.html"><strong aria-hidden="true">21.</strong> Accessing VRAM and OAM</a></li><li class="chapter-item "><a href="OAM_Corruption_Bug.html"><strong aria-hidden="true">22.</strong> OAM Corruption Bug</a></li><li class="chapter-item "><a href="External_Connectors.html"><strong aria-hidden="true">23.</strong> External Connectors</a></li><li class="chapter-item "><a href="GBC_Approval_Process.html"><strong aria-hidden="true">24.</strong> GBC Approval Process</a></li><li class="chapter-item affix "><a href="References.html">References</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Pan Docs</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        <a href="https://github.com/gbdev/pandocs" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                        
+                        <a href="https://github.com/gbdev/pandocs/edit/develop/src/The_Cartridge_Header.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="the-cartridge-header"><a class="header" href="#the-cartridge-header">The Cartridge Header</a></h1>
+<p>An internal information area is located at $0100-014F in each cartridge.
+It contains the following values:</p>
+<h2 id="0100-0103---entry-point"><a class="header" href="#0100-0103---entry-point">0100-0103 - Entry Point</a></h2>
+<p>After displaying the Nintendo Logo, the built-in boot procedure jumps to
+this address ($0100), which should then jump to the actual main program
+in the cartridge. Usually this 4 byte area contains a <code>nop</code> instruction,
+followed by a <code>jp $0150</code> instruction. But not always.</p>
+<h2 id="0104-0133---nintendo-logo"><a class="header" href="#0104-0133---nintendo-logo">0104-0133 - Nintendo Logo</a></h2>
+<p>These bytes define the bitmap of the Nintendo logo that is displayed
+when the Game Boy gets turned on. The hex dump of this bitmap is:</p>
+<pre><code> CE ED 66 66 CC 0D 00 0B 03 73 00 83 00 0C 00 0D
+ 00 08 11 1F 88 89 00 0E DC CC 6E E6 DD DD D9 99
+ BB BB 67 63 6E 0E EC CC DD DC 99 9F BB B9 33 3E
+</code></pre>
+<p>The Game Boy’s boot procedure verifies the content of this bitmap
+(after it has displayed it), and LOCKS ITSELF UP if these bytes are
+incorrect. A CGB verifies only the first half ($18 bytes of) the bitmap, but
+others (for example a Game Boy pocket) verify all $30 bytes, as does the
+Game Boy Advance.</p>
+<h2 id="0134-0143---title"><a class="header" href="#0134-0143---title">0134-0143 - Title</a></h2>
+<p>Title of the game in UPPER CASE ASCII. If it is less than 16 characters
+then the remaining bytes are filled with $00 bytes. When inventing the CGB,
+Nintendo has reduced the length of this area to 15 characters, and some
+months later they had the fantastic idea to reduce it to 11 characters
+only. The new meaning of the ex-title bytes is described below.</p>
+<h2 id="013f-0142---manufacturer-code"><a class="header" href="#013f-0142---manufacturer-code">013F-0142 - Manufacturer Code</a></h2>
+<p>In older cartridges this area has been part of the Title (see above), in
+newer cartridges this area contains an 4 character uppercase
+manufacturer code. Purpose and Deeper Meaning unknown.</p>
+<h2 id="0143---cgb-flag"><a class="header" href="#0143---cgb-flag">0143 - CGB Flag</a></h2>
+<p>In older cartridges this byte has been part of the Title (see above). In
+CGB cartridges the upper bit is used to enable CGB functions. This is
+required, otherwise the CGB switches itself into Non-CGB-Mode. Typical
+values are:</p>
+<pre><code> 80h - Game supports CGB functions, but also works on old Game Boys.
+ C0h - Game works on CGB only (physically the same as $80).
+</code></pre>
+<p>Values with Bit 7 set, and either Bit 2 or 3 set, will switch the
+Game Boy into a special non-CGB-mode called “PGB mode”.</p>
+<p>TODO: research and document PGB modes...</p>
+<h2 id="0144-0145---new-licensee-code"><a class="header" href="#0144-0145---new-licensee-code">0144-0145 - New Licensee Code</a></h2>
+<p>Specifies a two-character ASCII licensee code, indicating the company or
+publisher of the game. These two bytes are used in newer games only
+(games that have been released after the SGB has been invented). Older
+games are using the header entry at <code>$014B</code> instead.</p>
+<p>Sample licensee codes:</p>
+<table><thead><tr><th>Code</th><th>Publisher</th></tr></thead><tbody>
+<tr><td><code>00</code></td><td>None</td></tr>
+<tr><td><code>01</code></td><td>Nintendo R&amp;D1</td></tr>
+<tr><td><code>08</code></td><td>Capcom</td></tr>
+<tr><td><code>13</code></td><td>Electronic Arts</td></tr>
+<tr><td><code>18</code></td><td>Hudson Soft</td></tr>
+<tr><td><code>19</code></td><td>b-ai</td></tr>
+<tr><td><code>20</code></td><td>kss</td></tr>
+<tr><td><code>22</code></td><td>pow</td></tr>
+<tr><td><code>24</code></td><td>PCM Complete</td></tr>
+<tr><td><code>25</code></td><td>san-x</td></tr>
+<tr><td><code>28</code></td><td>Kemco Japan</td></tr>
+<tr><td><code>29</code></td><td>seta</td></tr>
+<tr><td><code>30</code></td><td>Viacom</td></tr>
+<tr><td><code>31</code></td><td>Nintendo</td></tr>
+<tr><td><code>32</code></td><td>Bandai</td></tr>
+<tr><td><code>33</code></td><td>Ocean/Acclaim</td></tr>
+<tr><td><code>34</code></td><td>Konami</td></tr>
+<tr><td><code>35</code></td><td>Hector</td></tr>
+<tr><td><code>37</code></td><td>Taito</td></tr>
+<tr><td><code>38</code></td><td>Hudson</td></tr>
+<tr><td><code>39</code></td><td>Banpresto</td></tr>
+<tr><td><code>41</code></td><td>Ubi Soft</td></tr>
+<tr><td><code>42</code></td><td>Atlus</td></tr>
+<tr><td><code>44</code></td><td>Malibu</td></tr>
+<tr><td><code>46</code></td><td>angel</td></tr>
+<tr><td><code>47</code></td><td>Bullet-Proof</td></tr>
+<tr><td><code>49</code></td><td>irem</td></tr>
+<tr><td><code>50</code></td><td>Absolute</td></tr>
+<tr><td><code>51</code></td><td>Acclaim</td></tr>
+<tr><td><code>52</code></td><td>Activision</td></tr>
+<tr><td><code>53</code></td><td>American sammy</td></tr>
+<tr><td><code>54</code></td><td>Konami</td></tr>
+<tr><td><code>55</code></td><td>Hi tech entertainment</td></tr>
+<tr><td><code>56</code></td><td>LJN</td></tr>
+<tr><td><code>57</code></td><td>Matchbox</td></tr>
+<tr><td><code>58</code></td><td>Mattel</td></tr>
+<tr><td><code>59</code></td><td>Milton Bradley</td></tr>
+<tr><td><code>60</code></td><td>Titus</td></tr>
+<tr><td><code>61</code></td><td>Virgin</td></tr>
+<tr><td><code>64</code></td><td>LucasArts</td></tr>
+<tr><td><code>67</code></td><td>Ocean</td></tr>
+<tr><td><code>69</code></td><td>Electronic Arts</td></tr>
+<tr><td><code>70</code></td><td>Infogrames</td></tr>
+<tr><td><code>71</code></td><td>Interplay</td></tr>
+<tr><td><code>72</code></td><td>Broderbund</td></tr>
+<tr><td><code>73</code></td><td>sculptured</td></tr>
+<tr><td><code>75</code></td><td>sci</td></tr>
+<tr><td><code>78</code></td><td>THQ</td></tr>
+<tr><td><code>79</code></td><td>Accolade</td></tr>
+<tr><td><code>80</code></td><td>misawa</td></tr>
+<tr><td><code>83</code></td><td>lozc</td></tr>
+<tr><td><code>86</code></td><td>Tokuma Shoten Intermedia</td></tr>
+<tr><td><code>87</code></td><td>Tsukuda Original</td></tr>
+<tr><td><code>91</code></td><td>Chunsoft</td></tr>
+<tr><td><code>92</code></td><td>Video system</td></tr>
+<tr><td><code>93</code></td><td>Ocean/Acclaim</td></tr>
+<tr><td><code>95</code></td><td>Varie</td></tr>
+<tr><td><code>96</code></td><td>Yonezawa/s’pal</td></tr>
+<tr><td><code>97</code></td><td>Kaneko</td></tr>
+<tr><td><code>99</code></td><td>Pack in soft</td></tr>
+<tr><td><code>A4</code></td><td>Konami (Yu-Gi-Oh!)</td></tr>
+</tbody></table>
+<h2 id="0146---sgb-flag"><a class="header" href="#0146---sgb-flag">0146 - SGB Flag</a></h2>
+<p>Specifies whether the game supports SGB functions, common values are:</p>
+<ul>
+<li><code>$00</code>: No SGB functions (Normal Game Boy or CGB only game)</li>
+<li><code>$03</code>: Game supports SGB functions</li>
+</ul>
+<p>The SGB disables its SGB functions if this byte is set to a value other than <code>$03</code>.</p>
+<h2 id="0147---cartridge-type"><a class="header" href="#0147---cartridge-type">0147 - Cartridge Type</a></h2>
+<p>Specifies which Memory Bank Controller (if any) is used in the
+cartridge, and if further external hardware exists in the cartridge.</p>
+<table><thead><tr><th>Code</th><th>Type</th></tr></thead><tbody>
+<tr><td>$00</td><td>ROM ONLY</td></tr>
+<tr><td>$01</td><td>MBC1</td></tr>
+<tr><td>$02</td><td>MBC1+RAM</td></tr>
+<tr><td>$03</td><td>MBC1+RAM+BATTERY</td></tr>
+<tr><td>$05</td><td>MBC2</td></tr>
+<tr><td>$06</td><td>MBC2+BATTERY</td></tr>
+<tr><td>$08</td><td>ROM+RAM *</td></tr>
+<tr><td>$09</td><td>ROM+RAM+BATTERY *</td></tr>
+<tr><td>$0B</td><td>MMM01</td></tr>
+<tr><td>$0C</td><td>MMM01+RAM</td></tr>
+<tr><td>$0D</td><td>MMM01+RAM+BATTERY</td></tr>
+<tr><td>$0F</td><td>MBC3+TIMER+BATTERY</td></tr>
+<tr><td>$10</td><td>MBC3+TIMER+RAM+BATTERY **</td></tr>
+<tr><td>$11</td><td>MBC3</td></tr>
+<tr><td>$12</td><td>MBC3+RAM **</td></tr>
+<tr><td>$13</td><td>MBC3+RAM+BATTERY **</td></tr>
+<tr><td>$19</td><td>MBC5</td></tr>
+<tr><td>$1A</td><td>MBC5+RAM</td></tr>
+<tr><td>$1B</td><td>MBC5+RAM+BATTERY</td></tr>
+<tr><td>$1C</td><td>MBC5+RUMBLE</td></tr>
+<tr><td>$1D</td><td>MBC5+RUMBLE+RAM</td></tr>
+<tr><td>$1E</td><td>MBC5+RUMBLE+RAM+BATTERY</td></tr>
+<tr><td>$20</td><td>MBC6</td></tr>
+<tr><td>$22</td><td>MBC7+SENSOR+RUMBLE+RAM+BATTERY</td></tr>
+<tr><td>$FC</td><td>POCKET CAMERA</td></tr>
+<tr><td>$FD</td><td>BANDAI TAMA5</td></tr>
+<tr><td>$FE</td><td>HuC3</td></tr>
+<tr><td>$FF</td><td>HuC1+RAM+BATTERY</td></tr>
+</tbody></table>
+<p>* No licensed cartridge makes use of this option. Exact behaviour is unknown.<br />
+** MBC3 with RAM size 64 KByte refers to MBC30, used only in <em>Pocket Monsters Crystal Version</em> for Japan.</p>
+<h2 id="0148---rom-size"><a class="header" href="#0148---rom-size">0148 - ROM Size</a></h2>
+<p>Specifies the ROM Size of the cartridge. Typically calculated as “N such that 32 KiB
+&lt;&lt; N”.</p>
+<table><thead><tr><th>Code</th><th>Size</th><th>Amount of banks</th></tr></thead><tbody>
+<tr><td>$00</td><td>32 KByte</td><td>2 (No ROM banking)</td></tr>
+<tr><td>$01</td><td>64 KByte</td><td>4</td></tr>
+<tr><td>$02</td><td>128 KByte</td><td>8</td></tr>
+<tr><td>$03</td><td>256 KByte</td><td>16</td></tr>
+<tr><td>$04</td><td>512 KByte</td><td>32</td></tr>
+<tr><td>$05</td><td>1 MByte</td><td>64</td></tr>
+<tr><td>$06</td><td>2 MByte</td><td>128</td></tr>
+<tr><td>$07</td><td>4 MByte</td><td>256</td></tr>
+<tr><td>$08</td><td>8 MByte</td><td>512</td></tr>
+<tr><td>$52</td><td>1.1 MByte</td><td>72 *</td></tr>
+<tr><td>$53</td><td>1.2 MByte</td><td>80 *</td></tr>
+<tr><td>$54</td><td>1.5 MByte</td><td>96 *</td></tr>
+</tbody></table>
+<p>* Only listed in unofficial docs. No cartridges or ROM files using these sizes are known.
+As the other ROM sizes are all powers of 2, these are likely inaccurate. The source for these
+values is unknown.</p>
+<h2 id="0149---ram-size"><a class="header" href="#0149---ram-size">0149 - RAM Size</a></h2>
+<p>Specifies the size of the external RAM in the cartridge (if any).</p>
+<table><thead><tr><th>Code</th><th>Size</th><th>Comment</th></tr></thead><tbody>
+<tr><td>$00</td><td>0</td><td>No RAM *</td></tr>
+<tr><td>$01</td><td>-</td><td>Unused **</td></tr>
+<tr><td>$02</td><td>8 KB</td><td>1 bank</td></tr>
+<tr><td>$03</td><td>32 KB</td><td>4 banks of 8 KB each</td></tr>
+<tr><td>$04</td><td>128 KB</td><td>16 banks of 8 KB each</td></tr>
+<tr><td>$05</td><td>64 KB</td><td>8 banks of 8 KB each</td></tr>
+</tbody></table>
+<p>* When using a MBC2 chip, $00 must be specified as the RAM Size, even though
+the MBC2 includes a built-in RAM of 512 x 4 bits.</p>
+<p>** Listed in various unofficial docs as 2KB. However, a 2KB RAM chip was never used in a cartridge.
+The source for this value is unknown.</p>
+<p>Various “PD” ROMs (”Public Domain” homebrew ROMs generally tagged “(PD)”
+in the filename) are known to use the $01 RAM Size tag, but this is believed
+to have been a mistake with early homebrew tools and the PD ROMs often don’t use
+cartridge RAM at all.</p>
+<h2 id="014a---destination-code"><a class="header" href="#014a---destination-code">014A - Destination Code</a></h2>
+<p>Specifies if this version of the game is supposed to be sold in Japan,
+or anywhere else. Only two values are defined.</p>
+<ul>
+<li>$00: Japanese</li>
+<li>$01: Non-Japanese</li>
+</ul>
+<h2 id="014b---old-licensee-code"><a class="header" href="#014b---old-licensee-code">014B - Old Licensee Code</a></h2>
+<p>Specifies the games company/publisher code in range $00-FF. A value of
+$33 signals that the New Licensee Code (in header bytes $0144-0145) is
+used instead. (Super Game Boy functions won’t work if &lt;&gt; $33.) A list
+of licensee codes can be found
+<a href="https://raw.githubusercontent.com/gb-archive/salvage/master/txt-files/gbrom.txt">here</a>.</p>
+<h2 id="014c---mask-rom-version-number"><a class="header" href="#014c---mask-rom-version-number">014C - Mask ROM Version number</a></h2>
+<p>Specifies the version number of the game. That is usually $00.</p>
+<h2 id="014d---header-checksum"><a class="header" href="#014d---header-checksum">014D - Header Checksum</a></h2>
+<p>Contains an 8 bit checksum across the cartridge header bytes $0134-014C.
+The boot ROM computes <code>x</code> as follows:</p>
+<pre><code>x = 0
+i = $0134
+while i &lt;= $014C
+	x = x - [i] - 1
+</code></pre>
+<p>If the byte at $014D does not match the lower 8 bits of <code>x</code>, the boot ROM will lock up,
+and the cartridge program <strong>won’t run</strong>.</p>
+<h2 id="014e-014f---global-checksum"><a class="header" href="#014e-014f---global-checksum">014E-014F - Global Checksum</a></h2>
+<p>Contains a 16 bit checksum (upper byte first) across the whole cartridge
+ROM. Produced by adding all bytes of the cartridge (except for the two
+checksum bytes). The Game Boy doesn’t verify this checksum.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="CPU_Comparison_with_Z80.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="MBCs.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="CPU_Comparison_with_Z80.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="MBCs.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

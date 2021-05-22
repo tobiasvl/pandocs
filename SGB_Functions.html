@@ -1,0 +1,1149 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>SGB Functions - Pan Docs</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The single, most comprehensive technical reference to Game Boy available to the public.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="custom/style.css">
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><a href="About.html">Foreword</a></li><li class="chapter-item affix "><a href="Authors.html">Authors</a></li><li class="chapter-item affix "><li class="part-title">Overview</li><li class="chapter-item "><a href="Specifications.html"><strong aria-hidden="true">1.</strong> Specifications</a></li><li class="chapter-item "><a href="Memory_Map.html"><strong aria-hidden="true">2.</strong> Memory Map</a></li><li class="chapter-item affix "><li class="part-title">I/O Ports</li><li class="chapter-item "><a href="Rendering.html"><strong aria-hidden="true">3.</strong> Rendering</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Tile_Data.html"><strong aria-hidden="true">3.1.</strong> Tile Data</a></li><li class="chapter-item "><a href="BG_Maps.html"><strong aria-hidden="true">3.2.</strong> BG Maps</a></li><li class="chapter-item "><a href="OAM.html"><strong aria-hidden="true">3.3.</strong> OAM</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="OAM_DMA_Transfer.html"><strong aria-hidden="true">3.3.1.</strong> OAM DMA Transfer</a></li></ol></li><li class="chapter-item "><a href="LCDC.html"><strong aria-hidden="true">3.4.</strong> LCD Control</a></li><li class="chapter-item "><a href="STAT.html"><strong aria-hidden="true">3.5.</strong> LCD Status</a></li><li class="chapter-item "><a href="Scrolling.html"><strong aria-hidden="true">3.6.</strong> Scrolling</a></li><li class="chapter-item "><a href="Palettes.html"><strong aria-hidden="true">3.7.</strong> Palettes</a></li><li class="chapter-item "><a href="pixel_fifo.html"><strong aria-hidden="true">3.8.</strong> Pixel FIFO</a></li></ol></li><li class="chapter-item "><a href="Sound_Controller.html"><strong aria-hidden="true">4.</strong> Sound Controller</a></li><li class="chapter-item "><a href="Joypad_Input.html"><strong aria-hidden="true">5.</strong> Joypad Input</a></li><li class="chapter-item "><a href="Serial_Data_Transfer_(Link_Cable).html"><strong aria-hidden="true">6.</strong> Serial Data Transfer</a></li><li class="chapter-item "><a href="Timer_and_Divider_Registers.html"><strong aria-hidden="true">7.</strong> Timer and Divider Registers</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Timer_Obscure_Behaviour.html"><strong aria-hidden="true">7.1.</strong> Timer Obscure Behaviour</a></li></ol></li><li class="chapter-item "><a href="Interrupts.html"><strong aria-hidden="true">8.</strong> Interrupts</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Interrupt_Sources.html"><strong aria-hidden="true">8.1.</strong> Interrupt Sources</a></li></ol></li><li class="chapter-item "><a href="CGB_Registers.html"><strong aria-hidden="true">9.</strong> CGB Registers</a></li><li class="chapter-item expanded "><a href="SGB_Functions.html" class="active"><strong aria-hidden="true">10.</strong> SGB Functions</a></li><li class="chapter-item affix "><li class="part-title">CPU Specifications</li><li class="chapter-item "><a href="CPU_Registers_and_Flags.html"><strong aria-hidden="true">11.</strong> CPU Registers and Flags</a></li><li class="chapter-item "><a href="CPU_Instruction_Set.html"><strong aria-hidden="true">12.</strong> CPU Instruction Set</a></li><li class="chapter-item "><a href="CPU_Comparison_with_Z80.html"><strong aria-hidden="true">13.</strong> CPU Comparison with Z80</a></li><li class="chapter-item affix "><li class="part-title">Cartridges</li><li class="chapter-item "><a href="The_Cartridge_Header.html"><strong aria-hidden="true">14.</strong> The Cartridge Header</a></li><li class="chapter-item "><a href="MBCs.html"><strong aria-hidden="true">15.</strong> MBCs</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="nombc.html"><strong aria-hidden="true">15.1.</strong> No MBC</a></li><li class="chapter-item "><a href="MBC1.html"><strong aria-hidden="true">15.2.</strong> MBC1</a></li><li class="chapter-item "><a href="MBC2.html"><strong aria-hidden="true">15.3.</strong> MBC2</a></li><li class="chapter-item "><a href="MBC3.html"><strong aria-hidden="true">15.4.</strong> MBC3</a></li><li class="chapter-item "><a href="MBC5.html"><strong aria-hidden="true">15.5.</strong> MBC5</a></li><li class="chapter-item "><a href="MBC6.html"><strong aria-hidden="true">15.6.</strong> MBC6</a></li><li class="chapter-item "><a href="MBC7.html"><strong aria-hidden="true">15.7.</strong> MBC7</a></li><li class="chapter-item "><a href="HuC1.html"><strong aria-hidden="true">15.8.</strong> HuC1</a></li><li class="chapter-item "><a href="othermbc.html"><strong aria-hidden="true">15.9.</strong> Other MBCs</a></li></ol></li><li class="chapter-item "><li class="part-title">Accessories</li><li class="chapter-item "><a href="Gameboy_Printer.html"><strong aria-hidden="true">16.</strong> Game Boy Printer</a></li><li class="chapter-item "><a href="Gameboy_Camera.html"><strong aria-hidden="true">17.</strong> Game Boy Camera</a></li><li class="chapter-item "><div><strong aria-hidden="true">18.</strong> Game Genie/Shark Cheats</div></li><li class="chapter-item affix "><li class="part-title">Other</li><li class="chapter-item "><a href="Power_Up_Sequence.html"><strong aria-hidden="true">19.</strong> Power-Up Sequence</a></li><li class="chapter-item "><a href="Reducing_Power_Consumption.html"><strong aria-hidden="true">20.</strong> Reducing Power Consumption</a></li><li class="chapter-item "><a href="Accessing_VRAM_and_OAM.html"><strong aria-hidden="true">21.</strong> Accessing VRAM and OAM</a></li><li class="chapter-item "><a href="OAM_Corruption_Bug.html"><strong aria-hidden="true">22.</strong> OAM Corruption Bug</a></li><li class="chapter-item "><a href="External_Connectors.html"><strong aria-hidden="true">23.</strong> External Connectors</a></li><li class="chapter-item "><a href="GBC_Approval_Process.html"><strong aria-hidden="true">24.</strong> GBC Approval Process</a></li><li class="chapter-item affix "><a href="References.html">References</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Pan Docs</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        <a href="https://github.com/gbdev/pandocs" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                        
+                        <a href="https://github.com/gbdev/pandocs/edit/develop/src/SGB_Functions.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="sgb-description"><a class="header" href="#sgb-description">SGB Description</a></h1>
+<h2 id="general-description"><a class="header" href="#general-description">General Description</a></h2>
+<p>Basically, the SGB (Super Game Boy) is an adapter cartridge that allows
+to play Game Boy games on a SNES (Super Nintendo Entertainment System)
+gaming console. In detail, you plug the Game Boy cartridge into the SGB
+cartridge, then plug the SGB cartridge into the SNES, and then connect
+the SNES to your TV Set. In result, games can be played and viewed on
+the TV Set, and are controlled by using the SNES joypad(s).</p>
+<h2 id="more-technical-description"><a class="header" href="#more-technical-description">More Technical Description</a></h2>
+<p>The SGB cartridge just contains a normal Game Boy CPU and normal Game Boy
+video controller. Normally the video signal from this controller would
+be sent to the LCD screen, however, in this special case the SNES read
+out the video signal and displays it on the TV set by using a special
+SNES BIOS ROM which is located in the SGB cartridge. Also, normal
+Game Boy sound output is forwared to the SNES and output to the TV Set,
+vice versa, joypad input is forwared from the SNES controller(s) to the
+Game Boy joypad inputs.</p>
+<h2 id="normal-monochrome-games"><a class="header" href="#normal-monochrome-games">Normal Monochrome Games</a></h2>
+<p>Any Game Boy games which have been designed for monochrome handheld
+Game Boy systems will work with the SGB hardware as well. The SGB will
+apply a four color palette to these games by replacing the normal four
+grayshades. The 160x144 pixel gamescreen is displayed in the middle of
+the 256x224 pixel SNES screen (the unused area is filled by a screen
+border bitmap). The user may access built-in menues, allowing to change
+color palette data, to select between several pre-defined borders, etc.</p>
+<p>Games that have been designed to support SGB functions may also access
+the following additional features:</p>
+<h2 id="colorized-game-screen"><a class="header" href="#colorized-game-screen">Colorized Game Screen</a></h2>
+<p>There’s limited ability to colorize the gamescreen by assigning custom
+color palettes to each 20x18 display characters, however, this works
+mainly for static display data such like title screens or status bars,
+the 20x18 color attribute map is non-scrollable, and it is not possible
+to assign separate colors to moveable foreground sprites (OBJs), so that
+animated screen regions will be typically restricted to using a single
+palette of four colors only.</p>
+<h2 id="snes-foreground-sprites"><a class="header" href="#snes-foreground-sprites">SNES Foreground Sprites</a></h2>
+<p>Up to 24 foreground sprites (OBJs) of 8x8 or 16x16 pixels, 16 colors can
+be displayed. When replacing (or just overlaying) the normal Game Boy
+OBJs by SNES OBJs it’d be thus possible to display OBJs with other
+colors than normal background area. This method doesn’t appear to be
+very popular, even though it appears to be quite easy to implement,
+however, the bottommost character line of the gamescreen will be masked
+out because this area is used to transfer OAM data to the SNES.</p>
+<h2 id="the-sgb-border"><a class="header" href="#the-sgb-border">The SGB Border</a></h2>
+<p>The possibly most popular and most impressive feature is to replace the
+default SGB screen border by a custom bitmap which is stored in the game
+cartridge.</p>
+<h2 id="multiple-joypads"><a class="header" href="#multiple-joypads">Multiple Joypads</a></h2>
+<p>Up to four joypads can be conected to the SNES, and SGB software may
+read-out each of these joypads separately, allowing up to four players
+to play the same game simultaneously. Unlike for multiplayer handheld
+games, this requires only one game cartridge and only one SGB/SNES, and
+no link cables are required, the downside is that all players must share
+the same display screen.</p>
+<h2 id="sound-functions"><a class="header" href="#sound-functions">Sound Functions</a></h2>
+<p>Beside for normal Game Boy sound, a number of digital sound effects is
+pre-defined in the SNES BIOS, these effects may be accessed quite
+easily. Programmers whom are familiar with SNES sounds may also access
+the SNES sound chip, or use the SNES MIDI engine directly in order to
+produce other sound effects or music.</p>
+<h2 id="taking-control-of-the-snes-cpu"><a class="header" href="#taking-control-of-the-snes-cpu">Taking Control of the SNES CPU</a></h2>
+<p>Finally, it is possible to write program code or data into SNES memory,
+and to execute such program code by using the SNES CPU.</p>
+<h2 id="sgb-system-clock"><a class="header" href="#sgb-system-clock">SGB System Clock</a></h2>
+<p>Because the SGB is synchronized to the SNES CPU, the Game Boy system
+clock is directly chained to the SNES system clock. In result, the
+Game Boy CPU, video controller, timers, and sound frequencies will be all
+operated approx 2.4% faster than handheld systems. Basically, this
+should be no problem, and the game will just run a little bit faster.
+However sensitive musicians may notice that sound frequencies are a bit
+too high, programs that support SGB functions may avoid this effect by
+reducing frequencies of Game Boy sounds when having detected SGB
+hardware. Also, “PAL version” SNES models which use a
+50Hz display refresh rate (rather than 60Hz) result in
+respectively slower Game Boy timings.</p>
+<ul>
+<li>NTSC SGB: 21.477 MHz master clock, 4.2955 MHz GB clock, 2.41% fast</li>
+<li>PAL SGB: 21.281 MHz master clock, 4.2563 MHz GB clock, 1.48% fast</li>
+<li>NTSC SGB2: Separate 20.972 MHz crystal, correct speed</li>
+</ul>
+<h2 id="sgb-unlocking-and-detecting-sgb-functions"><a class="header" href="#sgb-unlocking-and-detecting-sgb-functions">SGB Unlocking and Detecting SGB Functions</a></h2>
+<h3 id="cartridge-header"><a class="header" href="#cartridge-header">Cartridge Header</a></h3>
+<p>SGB games are required to have a cartridge header with Nintendo and
+proper checksum just as normal Game Boy games. Also, two special entries
+must be set in order to unlock SGB functions:</p>
+<ul>
+<li>146h - SGB Flag - Must be set to 03h for SGB games</li>
+<li>14Bh - Old Licensee Code - Must be set 33h for SGB games</li>
+</ul>
+<p>When these entries aren’t set, the game will still work just like all
+“monochrome” Game Boy games, but it cannot access any of the special
+SGB functions.</p>
+<h3 id="detecting-sgb-hardware"><a class="header" href="#detecting-sgb-hardware">Detecting SGB hardware</a></h3>
+<p>The recommended detection method is to send a MLT_REQ command which
+enables two (or four) joypads. A normal handheld Game Boy will ignore
+this command, a SGB will now return incrementing joypad IDs each time
+when deselecting keyboard lines (see MLT_REQ description for details).
+Now read-out joypad state/IDs several times, and if the ID-numbers are
+changing, then it is a SGB (a normal Game Boy would typically always
+return 0Fh as ID). Finally, when not intending to use more than one
+joypad, send another MLT_REQ command in order to re-disable the
+multi-controller mode. Detection works regardless of whether and how
+many joypads are physically connected to the SNES. However, detection
+works only when having unlocked SGB functions in the cartridge header,
+as described above.</p>
+<h3 id="separating-between-sgb-and-sgb2"><a class="header" href="#separating-between-sgb-and-sgb2">Separating between SGB and SGB2</a></h3>
+<p>It is also possible to separate between SGB and SGB2 models by examining
+the inital value of the accumulator (register A) directly after startup.</p>
+<table><thead><tr><th>Value</th><th>Console</th></tr></thead><tbody>
+<tr><td>$01</td><td>SGB or original Game Boy (DMG)</td></tr>
+<tr><td>$FF</td><td>SGB2 or Game Boy Pocket</td></tr>
+<tr><td>$11</td><td>CGB or GBA</td></tr>
+</tbody></table>
+<p>Because values 01h and FFh are shared for both handhelds and SGBs, it is
+still required to use the above MLT_REQ detection procedure. As far as
+I know the SGB2 doesn’t have any extra features which’d require
+separate SGB2 detection except for curiosity purposes, for example, the
+game “Tetris DX” chooses to display an alternate SGB border on SGB2s.</p>
+<p>Only the SGB2 contains a link port.</p>
+<h2 id="sgb-command-packet-transfers"><a class="header" href="#sgb-command-packet-transfers">SGB Command Packet Transfers</a></h2>
+<p>Command packets (aka Register Files) are transferred from the Game Boy to
+the SNES by using P14 and P15 output lines of the JOYPAD register
+(FF00h).  These same lines are also used to select the two rows in the
+Game Boy keyboard matrix (which still works).</p>
+<h3 id="transferring-bits"><a class="header" href="#transferring-bits">Transferring Bits</a></h3>
+<p>A command packet transfer must be initiated by setting both P14 and P15
+to LOW, this will reset and start the SNES packet receiving program.
+Data is then transferred (LSB first), setting P14=LOW will indicate a
+“0” bit, and setting P15=LOW will indicate a “1” bit. For example:</p>
+<pre><code>    RESET  0   0   1   1   0   1   0
+P14  --_---_---_-----------_-------_--...
+P15  --_-----------_---_-------_------...
+</code></pre>
+<p>Data and reset pulses must be kept LOW for at least 5us. P14 and P15
+must be kept both HIGH for at least 15us between any pulses. Obviously,
+it’d be no good idea to access the JOYPAD register during the transfer,
+for example, in case that your VBlank interrupt procedure reads-out
+joypad states each frame, be sure to disable that interrupt during the
+transfer (or disable only the joypad procedure by using a software
+flag).</p>
+<h3 id="transferring-packets"><a class="header" href="#transferring-packets">Transferring Packets</a></h3>
+<p>Each packet is invoked by a RESET pulse, then 128 bits of data are
+transferred (16 bytes, LSB of first byte first), and finally, a
+“0” bit must be transferred as stop bit. The structure of normal
+packets thus is:</p>
+<ol>
+<li>1 pulse: Start signal</li>
+<li>1 byte: Header byte (Command Code * 8 + Length)</li>
+<li>15 bytes: Parameter Data</li>
+<li>1 bit: Stop Bit (0)</li>
+</ol>
+<p>The above “Length” indicates the total number of packets (1-7,
+including the first packet) which will be sent.  If more than 15
+parameter bytes are used, then further packet(s) will follow, as such:</p>
+<ol>
+<li>1 pulse: Start signal</li>
+<li>16 bytes: Parameter Data</li>
+<li>1 bit: Stop Bit (0)</li>
+</ol>
+<p>By using all 7 packets, up to 111 data bytes (15+16*6) may be sent.
+Unused bytes at the end of the last packet don’t matter. A 60ms (4
+frames) delay should be invoked between each packet transfer.</p>
+<h2 id="sgb-vram-transfers"><a class="header" href="#sgb-vram-transfers">SGB VRAM Transfers</a></h2>
+<h3 id="overview"><a class="header" href="#overview">Overview</a></h3>
+<p>Beside for the packet transfer method, larger data blocks of 4KBytes can
+be transferred by using the video signal. These transfers are invoked by
+first sending one of the commands with the ending _TRN (by using normal
+packet transfer), the 4K data block is then read-out by the SNES from
+Game Boy display memory during the next frame.</p>
+<h3 id="transfer-data"><a class="header" href="#transfer-data">Transfer Data</a></h3>
+<p>Normally, transfer data should be stored at 8000h-8FFFh in Game Boy VRAM,
+even though the SNES receives the data in from display scanlines, it
+will automatically re-produce the same ordering of bits and bytes, as
+being originally stored at 8000h-8FFFh in Game Boy memory.</p>
+<h3 id="preparing-the-display"><a class="header" href="#preparing-the-display">Preparing the Display</a></h3>
+<p>The above method works only when recursing the following things: BG Map
+must display unsigned characters 00h-FFh on the screen; 00h..13h in
+first line, 14h..27h in next line, etc. The Game Boy display must be
+enabled, the display may not be scrolled, OBJ sprites should not overlap
+the background tiles, the BGP palette register must be set to E4h.</p>
+<h3 id="transfer-time"><a class="header" href="#transfer-time">Transfer Time</a></h3>
+<p>Note that the transfer data should be prepared in VRAM <strong>before</strong> sending
+the transfer command packet. The actual transfer starts at the beginning
+of the next frame after the command has been sent, and the transfer ends
+at the end of the 5th frame after the command has been sent (not
+counting the frame in which the command has been sent). The displayed
+data must not be modified during the transfer, as the SGB reads it in
+multiple chunks.</p>
+<h3 id="avoiding-screen-garbage"><a class="header" href="#avoiding-screen-garbage">Avoiding Screen Garbage</a></h3>
+<p>The display will contain “garbage” during the transfer, this
+dirt-effect can be avoided by freezing the screen (in the state which
+has been displayed before the transfer) by using the MASK_EN command.
+Of course, this works only when actually executing the game on a SGB
+(and not on handheld Game Boy systems), it’d be thus required to detect
+the presence of SGB hardware before blindly sending VRAM data.</p>
+<h2 id="sgb-color-palettes-overview"><a class="header" href="#sgb-color-palettes-overview">SGB Color Palettes Overview</a></h2>
+<h3 id="available-snes-palettes"><a class="header" href="#available-snes-palettes">Available SNES Palettes</a></h3>
+<p>The SGB/SNES provides 8 palettes of 16 colors each, each color may be
+defined out of a selection of 32768 colors (15 bit). Palettes 0-3 are
+used to colorize the gamescreen, only the first four colors of each of
+these palettes are used. Palettes 4-7 are used for the SGB Border, all
+16 colors of each of these palettes may be used.</p>
+<h3 id="color-format"><a class="header" href="#color-format">Color format</a></h3>
+<p>Colors are encoded as 16-bit RGB numbers, in the following way:</p>
+<pre><code>FEDC BA98 7654 3210
+0BBB BBGG GGGR RRRR
+</code></pre>
+<p>Here’s a formula to convert 24-bit RGB into SNES format:
+<code>(color &amp; 0xF8) &lt;&lt; 7 | (color &amp; 0xF800) &gt;&gt; 6 | (color &amp; 0xF80000) &gt;&gt; 19</code></p>
+<p>The palettes are encoded <strong>little-endian</strong>, thus, the R/G byte comes
+first in memory.</p>
+<h3 id="color-0-restriction"><a class="header" href="#color-0-restriction">Color 0 Restriction</a></h3>
+<p>Color 0 of each of the eight palettes is transparent, causing the
+backdrop color to be displayed instead. The backdrop color is typically
+defined by the most recently color being assigned to Color 0 (regardless
+of the palette number being used for that operation). Effectively,
+gamescreen palettes can have only three custom colors each, and SGB
+border palettes only 15 colors each, additionally, color 0 can be used
+for for all palettes, which will then all share the same color though.</p>
+<h3 id="translation-of-grayshades-into-colors"><a class="header" href="#translation-of-grayshades-into-colors">Translation of Grayshades into Colors</a></h3>
+<p>Because the SGB/SNES reads out the Game Boy video controllers display
+signal, it translates the different grayshades from the signal into SNES
+colors as such:</p>
+<pre><code>White       --&gt;  Color #0
+Light Gray  --&gt;  Color #1
+Dark Gray   --&gt;  Color #2
+Black       --&gt;  Color #3
+</code></pre>
+<p>Note that Game Boy colors 0-3 are assigned to user-selectable grayshades
+by the Game Boy’s BGP, OBP0, and OBP1 registers. There is thus no fixed
+relationship between Game Boy colors 0-3 and SNES colors 0-3.</p>
+<h4 id="using-game-boy-bgpobp-registers"><a class="header" href="#using-game-boy-bgpobp-registers">Using Game Boy BGP/OBP Registers</a></h4>
+<p>A direct translation of GB color 0-3 into SNES color 0-3 may be produced
+by setting BGP/OBPx registers to a value of 0E4h each. However, in case
+that your program uses black background for example, then you may
+internally assign background as “White” at the Game Boy side by BGP/OBP
+registers (which is then interpreted as SNES color 0, which is shared
+for all SNES palettes). The advantage is that you may define Color 0 as
+Black at the SNES side, and may assign custom colors for Colors 1-3 of
+each SNES palette.</p>
+<h3 id="system-color-palette-memory"><a class="header" href="#system-color-palette-memory">System Color Palette Memory</a></h3>
+<p>Beside for the actually visible palettes, up to 512 palettes of 4 colors
+each may be defined in SNES RAM. The palettes are just stored in RAM
+without any relationship to the displayed picture; however, these
+pre-defined colors may be transferred to actually visible palettes
+slightly faster than when transferring palette data by separate command
+packets.</p>
+<h2 id="sgb-command-summary"><a class="header" href="#sgb-command-summary">SGB Command Summary</a></h2>
+<h3 id="sgb-system-command-table"><a class="header" href="#sgb-system-command-table">SGB System Command Table</a></h3>
+<table><thead><tr><th>Code</th><th>Name</th><th>Explanation</th></tr></thead><tbody>
+<tr><td>$00</td><td>PAL01</td><td>Set SGB Palette 0 &amp; 1</td></tr>
+<tr><td>$01</td><td>PAL23</td><td>Set SGB Palette 2 &amp; 3</td></tr>
+<tr><td>$02</td><td>PAL03</td><td>Set SGB Palette 0 &amp; 3</td></tr>
+<tr><td>$03</td><td>PAL12</td><td>Set SGB Palette 1 &amp; 2</td></tr>
+<tr><td>$04</td><td>ATTR_BLK</td><td>“Block” Area Designation Mode</td></tr>
+<tr><td>$05</td><td>ATTR_LIN</td><td>“Line” Area Designation Mode</td></tr>
+<tr><td>$06</td><td>ATTR_DIV</td><td>“Divide” Area Designation Mode</td></tr>
+<tr><td>$07</td><td>ATTR_CHR</td><td>“1CHR” Area Designation Mode</td></tr>
+<tr><td>$08</td><td>SOUND</td><td>Sound On/Off</td></tr>
+<tr><td>$09</td><td>SOU_TRN</td><td>Transfer Sound PRG/DATA</td></tr>
+<tr><td>$0A</td><td>PAL_SET</td><td>Set SGB Palette Indirect</td></tr>
+<tr><td>$0B</td><td>PAL_TRN</td><td>Set System Color Palette Data</td></tr>
+<tr><td>$0C</td><td>ATRC_EN</td><td>Enable/disable Attraction Mode</td></tr>
+<tr><td>$0D</td><td>TEST_EN</td><td>Speed Function</td></tr>
+<tr><td>$0E</td><td>ICON_EN</td><td>SGB Function</td></tr>
+<tr><td>$0F</td><td>DATA_SND</td><td>SUPER NES WRAM Transfer 1</td></tr>
+<tr><td>$10</td><td>DATA_TRN</td><td>SUPER NES WRAM Transfer 2</td></tr>
+<tr><td>$11</td><td>MLT_REG</td><td>Controller 2 Request</td></tr>
+<tr><td>$12</td><td>JUMP</td><td>Set SNES Program Counter</td></tr>
+<tr><td>$13</td><td>CHR_TRN</td><td>Transfer Character Font Data</td></tr>
+<tr><td>$14</td><td>PCT_TRN</td><td>Set Screen Data Color Data</td></tr>
+<tr><td>$15</td><td>ATTR_TRN</td><td>Set Attribute from ATF</td></tr>
+<tr><td>$16</td><td>ATTR_SET</td><td>Set Data to ATF</td></tr>
+<tr><td>$17</td><td>MASK_EN</td><td>Game Boy Window Mask</td></tr>
+<tr><td>$18</td><td>OBJ_TRN</td><td>Super NES OBJ Mode</td></tr>
+</tbody></table>
+<h3 id="sgb-palette-commands"><a class="header" href="#sgb-palette-commands">SGB Palette Commands</a></h3>
+<h4 id="sgb-command-00h---pal01"><a class="header" href="#sgb-command-00h---pal01">SGB Command 00h - PAL01</a></h4>
+<p>Transmit color data for SGB palette 0, color 0-3, and for SGB palette 1,
+color 1-3 (without separate color 0).</p>
+<pre><code> Byte  Content
+ 0     Command*8+Length (fixed length=01h)
+ 1-E   Color Data for 7 colors of 2 bytes (16 bits) each:
+         Bit 0-4   - Red Intensity   (0-31)
+         Bit 5-9   - Green Intensity (0-31)
+         Bit 10-14 - Blue Intensity  (0-31)
+         Bit 15    - Not used (zero)
+ F     Not used (00h)
+</code></pre>
+<p>This is the same RGB5 format as <a href="Palettes.html#lcd-color-palettes-cgb-only">Game Boy Color palette
+entry</a>, though
+without the LCD correction. The value transferred as color 0 will be
+applied for all four palettes.</p>
+<h4 id="sgb-command-01h---pal23"><a class="header" href="#sgb-command-01h---pal23">SGB Command 01h - PAL23</a></h4>
+<p>Same as above PAL01, but for Palettes 2 and 3 respectively.</p>
+<h4 id="sgb-command-02h---pal03"><a class="header" href="#sgb-command-02h---pal03">SGB Command 02h - PAL03</a></h4>
+<p>Same as above PAL01, but for Palettes 0 and 3 respectively.</p>
+<h4 id="sgb-command-03h---pal12"><a class="header" href="#sgb-command-03h---pal12">SGB Command 03h - PAL12</a></h4>
+<p>Same as above PAL01, but for Palettes 1 and 2 respectively.</p>
+<h4 id="sgb-command-0ah---pal_set"><a class="header" href="#sgb-command-0ah---pal_set">SGB Command 0Ah - PAL_SET</a></h4>
+<p>Used to copy pre-defined palette data from SGB system color palettes to
+actual SNES palettes.</p>
+<p>Note: all palette numbers are little-endian.</p>
+<pre><code> Byte  Content
+ 0     Command*8+Length (fixed length=1)
+ 1-2   System Palette number for SGB Color Palette 0 (0-511)
+ 3-4   System Palette number for SGB Color Palette 1 (0-511)
+ 5-6   System Palette number for SGB Color Palette 2 (0-511)
+ 7-8   System Palette number for SGB Color Palette 3 (0-511)
+ 9     Attribute File
+         Bit 0-5 - Attribute File Number (00h-2Ch) (Used only if Bit7=1)
+         Bit 6   - Cancel Mask           (0=No change, 1=Yes)
+         Bit 7   - Use Attribute File    (0=No, 1=Apply above ATF Number)
+ A-F   Not used (zero)
+</code></pre>
+<p>Before using this function, System Palette data should be initialized by
+PAL_TRN command, and (when used) Attribute File data should be
+initialized by ATTR_TRN.</p>
+<h4 id="sgb-command-0bh---pal_trn"><a class="header" href="#sgb-command-0bh---pal_trn">SGB Command 0Bh - PAL_TRN</a></h4>
+<p>Used to initialize SGB system color palettes in SNES RAM. System color
+palette memory contains 512 pre-defined palettes, these palettes do not
+directly affect the display, however, the PAL_SET command may be later
+used to transfer four of these “logical” palettes to actual visible
+“physical” SGB palettes. Also, the OBJ_TRN function will use groups
+of 4 System Color Palettes (4*4 colors) for SNES OBJ palettes (16
+colors).</p>
+<pre><code> Byte  Content
+ 0     Command*8+Length (fixed length=1)
+ 1-F   Not used (zero)
+</code></pre>
+<p>The palette data is sent by VRAM-Transfer (4 KBytes).</p>
+<pre><code> 000-FFF  Data for System Color Palette 0-511
+</code></pre>
+<p>Each Palette consists of four 16-bit color definitions (8 bytes). Note:
+The data is stored at 3000h-3FFFh in SNES memory.</p>
+<h3 id="sgb-color-attribute-commands"><a class="header" href="#sgb-color-attribute-commands">SGB Color Attribute Commands</a></h3>
+<h4 id="sgb-command-04h---attr_blk"><a class="header" href="#sgb-command-04h---attr_blk">SGB Command 04h - ATTR_BLK</a></h4>
+<p>Used to specify color attributes for the inside or outside of one or
+more rectangular screen regions.</p>
+<pre><code> Byte  Content
+ 0     Command*8+Length (length=1..7)
+ 1     Number of Data Sets (01h..12h)
+ 2-7   Data Set #1
+         Byte 0 - Control Code (0-7)
+           Bit 0 - Change Colors inside of surrounded area     (1=Yes)
+           Bit 1 - Change Colors of surrounding character line (1=Yes)
+           Bit 2 - Change Colors outside of surrounded area    (1=Yes)
+           Bit 3-7 - Not used (zero)
+           Exception: When changing only the Inside or Outside, then the
+           Surrounding line becomes automatically changed to same color.
+         Byte 1 - Color Palette Designation
+           Bit 0-1 - Palette Number for inside of surrounded area
+           Bit 2-3 - Palette Number for surrounding character line
+           Bit 4-5 - Palette Number for outside of surrounded area
+           Bit 6-7 - Not used (zero)
+         Data Set Byte 2 - Coordinate X1 (left)
+         Data Set Byte 3 - Coordinate Y1 (upper)
+         Data Set Byte 4 - Coordinate X2 (right)
+         Data Set Byte 5 - Coordinate Y2 (lower)
+           Specifies the coordinates of the surrounding rectangle.
+ 8-D   Data Set #2 (if any)
+ E-F   Data Set #3 (continued at 0-3 in next packet) (if any)
+</code></pre>
+<p>When sending three or more data sets, data is continued in further
+packet(s). Unused bytes at the end of the last packet should be set to
+zero. The format of the separate Data Sets is described below.</p>
+<h4 id="sgb-command-05h---attr_lin"><a class="header" href="#sgb-command-05h---attr_lin">SGB Command 05h - ATTR_LIN</a></h4>
+<p>Used to specify color attributes of one or more horizontal or vertical
+character lines.</p>
+<pre><code> Byte  Content
+ 0     Command*8+Length (length=1..7)
+ 1     Number of Data Sets (01h..6Eh) (one byte each)
+ 2     Data Set #1
+         Bit 0-4 - Line Number    (X- or Y-coordinate, depending on bit 7)
+         Bit 5-6 - Palette Number (0-3)
+         Bit 7   - H/V Mode Bit   (0=Vertical line, 1=Horizontal Line)
+ 3     Data Set #2 (if any)
+ 4     Data Set #3 (if any)
+ etc.
+</code></pre>
+<p>When sending 15 or more data sets, data is continued in further
+packet(s). Unused bytes at the end of the last packet should be set to
+zero. The format of the separate Data Sets (one byte each) is described
+below. The length of each line reaches from one end of the screen to the
+other end. In case that some lines overlap each other, then lines from
+lastmost data sets will overwrite lines from previous data sets.</p>
+<h4 id="sgb-command-06h---attr_div"><a class="header" href="#sgb-command-06h---attr_div">SGB Command 06h - ATTR_DIV</a></h4>
+<p>Used to split the screen into two halfes, and to assign separate color
+attributes to each half, and to the division line between them.</p>
+<pre><code> Byte  Content
+ 0     Command*8+Length   (fixed length=1)
+ 1     Color Palette Numbers and H/V Mode Bit
+         Bit 0-1  Palette Number below/right of division line
+         Bit 2-3  Palette Number above/left of division line
+         Bit 4-5  Palette Number for division line
+         Bit 6    H/V Mode Bit  (0=split left/right, 1=split above/below)
+ 2     X- or Y-Coordinate (depending on H/V bit)
+ 3-F   Not used (zero)
+</code></pre>
+<h4 id="sgb-command-07h---attr_chr"><a class="header" href="#sgb-command-07h---attr_chr">SGB Command 07h - ATTR_CHR</a></h4>
+<p>Used to specify color attributes for separate characters.</p>
+<pre><code> Byte  Content
+ 0     Command*8+Length (length=1..6)
+ 1     Beginning X-Coordinate
+ 2     Beginning Y-Coordinate
+ 3-4   Number of Data Sets (1-360)
+ 5     Writing Style   (0=Left to Right, 1=Top to Bottom)
+ 6     Data Sets 1-4   (Set 1 in MSBs, Set 4 in LSBs)
+ 7     Data Sets 5-8   (if any)
+ 8     Data Sets 9-12  (if any)
+ etc.
+</code></pre>
+<p>When sending 41 or more data sets, data is continued in further
+packet(s). Unused bytes at the end of the last packet should be set to
+zero. Each data set consists of two bits, indicating the palette number
+for one character. Depending on the writing style, data sets are written
+from left to right, or from top to bottom. In either case the function
+wraps to the next row/column when reaching the end of the screen.</p>
+<h4 id="sgb-command-15h---attr_trn"><a class="header" href="#sgb-command-15h---attr_trn">SGB Command 15h - ATTR_TRN</a></h4>
+<p>Used to initialize Attribute Files (ATFs) in SNES RAM. Each ATF consists
+of 20x18 color attributes for the Game Boy screen. This function does not
+directly affect display attributes. Instead, one of the defined ATFs may
+be copied to actual display memory at a later time by using ATTR_SET or
+PAL_SET functions.</p>
+<pre><code> Byte  Content
+ 0     Command*8+Length (fixed length=1)
+ 1-F   Not used (zero)
+</code></pre>
+<p>The ATF data is sent by VRAM-Transfer (4 KBytes).</p>
+<pre><code> 000-FD1  Data for ATF0 through ATF44 (4050 bytes)
+ FD2-FFF  Not used
+</code></pre>
+<p>Each ATF consists of 90 bytes, that are 5 bytes (20x2bits) for each of
+the 18 character lines of the Game Boy window. The two most significant
+bits of the first byte define the color attribute (0-3) for the first
+character of the first line, the next two bits the next character, and
+so on.</p>
+<h4 id="sgb-command-16h---attr_set"><a class="header" href="#sgb-command-16h---attr_set">SGB Command 16h - ATTR_SET</a></h4>
+<p>Used to transfer attributes from Attribute File (ATF) to Game Boy window.</p>
+<pre><code> Byte  Content
+ 0     Command*8+Length (fixed length=1)
+ 1     Attribute File Number (00-2Ch), Bit 6=Cancel Mask
+ 2-F   Not used (zero)
+</code></pre>
+<p>When above Bit 6 is set, the Game Boy screen becomes re-enabled after the
+transfer (in case it has been disabled/frozen by MASK_EN command).
+Note: The same functions may be (optionally) also included in PAL_SET
+commands, as described in the chapter about Color Palette Commands.</p>
+<h3 id="sgb-sound-functions"><a class="header" href="#sgb-sound-functions">SGB Sound Functions</a></h3>
+<h4 id="sgb-command-08h---sound"><a class="header" href="#sgb-command-08h---sound">SGB Command 08h - SOUND</a></h4>
+<p>Used to start/stop internal sound effect, start/stop sound using
+internal tone data.</p>
+<pre><code> Byte  Content
+ 0     Command*8+Length (fixed length=1)
+ 1     Sound Effect A (Port 1) Decrescendo 8-bit Sound Code
+ 2     Sound Effect B (Port 2) Sustain     8-bit Sound Code
+ 3     Sound Effect Attributes
+         Bit 0-1 - Sound Effect A Pitch  (0..3=Low..High)
+         Bit 2-3 - Sound Effect A Volume (0..2=High..Low, 3=Mute on)
+         Bit 4-5 - Sound Effect B Pitch  (0..3=Low..High)
+         Bit 6-7 - Sound Effect B Volume (0..2=High..Low, 3=Not used)
+ 4     Music Score Code (must be zero if not used)
+ 5-F   Not used (zero)
+</code></pre>
+<p>See Sound Effect Tables below for a list of available pre-defined
+effects.</p>
+<p>Notes:</p>
+<ol>
+<li>Mute is only active when both bits D2 and D3 are 1.</li>
+<li>When the volume is set for either Sound Effect A or Sound Effect B,
+mute is turned off.</li>
+<li>When Mute on/off has been executed, the sound fades out/fades in.</li>
+<li>Mute on/off operates on the (BGM) which is reproduced by Sound
+Effect A, Sound Effect B, and the Super NES APU. A “mute off” flag
+does not exist by itself. When mute flag is set, volume and pitch of
+Sound Effect A (port 1) and Sound Effect B (port 2) must be set.</li>
+</ol>
+<h4 id="sgb-command-09h---sou_trn"><a class="header" href="#sgb-command-09h---sou_trn">SGB Command 09h - SOU_TRN</a></h4>
+<p>Used to transfer sound code or data to SNES Audio Processing Unit memory
+(APU-RAM).</p>
+<pre><code> Byte  Content
+ 0     Command*8+Length (fixed length=1)
+ 1-F   Not used (zero)
+</code></pre>
+<p>The sound code/data is sent by VRAM-Transfer (4 KBytes).
+All 16-bit values are little-endian.</p>
+<pre><code> 000-001  Size of transfer data
+ 002-003  Destination address in S-APU RAM (typically $2B00, see below)
+ 004-XXX  Data to be transferred
+ X+1-X+2  &quot;End marker&quot; (???), should be $0000
+ X+3-X+4  S-APU jump address, should be $0400
+ X+5-FFF  Remaining bytes ignored
+</code></pre>
+<p>Possible destinations in APU-RAM are:</p>
+<table><thead><tr><th>Memory range</th><th>Description</th></tr></thead><tbody>
+<tr><td>$0400-2AFF</td><td>APU-RAM Program Area (9.75KBytes)</td></tr>
+<tr><td>$2B00-4AFF</td><td>APU-RAM Sound Score Area (8Kbytes)</td></tr>
+<tr><td>$4DB0-EEFF</td><td>APU-RAM Sampling Data Area (40.25 Kbytes)</td></tr>
+</tbody></table>
+<p>This function may be used to take control of the SNES sound chip, and/or
+to access the SNES MIDI engine. In either case it requires deeper
+knowledge of SNES sound programming.</p>
+<h4 id="sgb-sound-effect-ab-tables"><a class="header" href="#sgb-sound-effect-ab-tables">SGB Sound Effect A/B Tables</a></h4>
+<p>Below lists the digital sound effects that are pre-defined in the
+SGB BIOS, and which can be used with the SGB “SOUND” Command.
+Effect A and B may be simultaneously used.
+Sound Effect A uses channels 6 and 7, Sound Effect B uses channels
+0, 1, 4 and 5. Effects that use less channels will use only the upper channels
+(eg. 4 and 5 for a B Effect with only two channels).</p>
+<h4 id="sound-effect-a-flag-table"><a class="header" href="#sound-effect-a-flag-table">Sound Effect A Flag Table</a></h4>
+<table><thead><tr><th>Code</th><th>Description</th><th>Recommended pitch</th><th>Nb of channels used</th></tr></thead><tbody>
+<tr><td>00</td><td>Dummy flag, re-trigger</td><td>-</td><td>2</td></tr>
+<tr><td>01</td><td>Nintendo</td><td>3</td><td>1</td></tr>
+<tr><td>02</td><td>Game Over</td><td>3</td><td>2</td></tr>
+<tr><td>03</td><td>Drop</td><td>3</td><td>1</td></tr>
+<tr><td>04</td><td>OK ... A</td><td>3</td><td>2</td></tr>
+<tr><td>05</td><td>OK ... B</td><td>3</td><td>2</td></tr>
+<tr><td>06</td><td>Select...A</td><td>3</td><td>2</td></tr>
+<tr><td>07</td><td>Select...B</td><td>3</td><td>1</td></tr>
+<tr><td>08</td><td>Select...C</td><td>2</td><td>2</td></tr>
+<tr><td>09</td><td>Mistake...Buzzer</td><td>2</td><td>1</td></tr>
+<tr><td>0A</td><td>Catch Item</td><td>2</td><td>2</td></tr>
+<tr><td>0B</td><td>Gate squeaks 1 time</td><td>2</td><td>2</td></tr>
+<tr><td>0C</td><td>Explosion...small</td><td>1</td><td>2</td></tr>
+<tr><td>0D</td><td>Explosion...medium</td><td>1</td><td>2</td></tr>
+<tr><td>0E</td><td>Explosion...large</td><td>1</td><td>2</td></tr>
+<tr><td>0F</td><td>Attacked...A</td><td>3</td><td>1</td></tr>
+<tr><td>10</td><td>Attacked...B</td><td>3</td><td>2</td></tr>
+<tr><td>11</td><td>Hit (punch)...A</td><td>0</td><td>2</td></tr>
+<tr><td>12</td><td>Hit (punch)...B</td><td>0</td><td>2</td></tr>
+<tr><td>13</td><td>Breath in air</td><td>3</td><td>2</td></tr>
+<tr><td>14</td><td>Rocket Projectile...A</td><td>3</td><td>2</td></tr>
+<tr><td>15</td><td>Rocket Projectile...B</td><td>3</td><td>2</td></tr>
+<tr><td>16</td><td>Escaping Bubble</td><td>2</td><td>1</td></tr>
+<tr><td>17</td><td>Jump</td><td>3</td><td>1</td></tr>
+<tr><td>18</td><td>Fast Jump</td><td>3</td><td>1</td></tr>
+<tr><td>19</td><td>Jet (rocket) takeoff</td><td>0</td><td>1</td></tr>
+<tr><td>1A</td><td>Jet (rocket) landing</td><td>0</td><td>1</td></tr>
+<tr><td>1B</td><td>Cup breaking</td><td>2</td><td>2</td></tr>
+<tr><td>1C</td><td>Glass breaking</td><td>1</td><td>2</td></tr>
+<tr><td>1D</td><td>Level UP</td><td>2</td><td>2</td></tr>
+<tr><td>1E</td><td>Insert air</td><td>1</td><td>1</td></tr>
+<tr><td>1F</td><td>Sword swing</td><td>1</td><td>1</td></tr>
+<tr><td>20</td><td>Water falling</td><td>2</td><td>1</td></tr>
+<tr><td>21</td><td>Fire</td><td>1</td><td>1</td></tr>
+<tr><td>22</td><td>Wall collapsing</td><td>1</td><td>2</td></tr>
+<tr><td>23</td><td>Cancel</td><td>1</td><td>2</td></tr>
+<tr><td>24</td><td>Walking</td><td>1</td><td>2</td></tr>
+<tr><td>25</td><td>Blocking strike</td><td>1</td><td>2</td></tr>
+<tr><td>26</td><td>Picture floats on &amp; off</td><td>3</td><td>2</td></tr>
+<tr><td>27</td><td>Fade in</td><td>0</td><td>2</td></tr>
+<tr><td>28</td><td>Fade out</td><td>0</td><td>2</td></tr>
+<tr><td>29</td><td>Window being opened</td><td>1</td><td>2</td></tr>
+<tr><td>2A</td><td>Window being closed</td><td>0</td><td>2</td></tr>
+<tr><td>2B</td><td>Big Laser</td><td>3</td><td>2</td></tr>
+<tr><td>2C</td><td>Stone gate closes/opens</td><td>0</td><td>2</td></tr>
+<tr><td>2D</td><td>Teleportation</td><td>3</td><td>1</td></tr>
+<tr><td>2E</td><td>Lightning</td><td>0</td><td>2</td></tr>
+<tr><td>2F</td><td>Earthquake</td><td>0</td><td>2</td></tr>
+<tr><td>30</td><td>Small Laser</td><td>2</td><td>2</td></tr>
+<tr><td>80</td><td>Effect A, stop/silent</td><td>-</td><td>2</td></tr>
+</tbody></table>
+<p>Sound effect A is used for formanto sounds (percussion sounds).</p>
+<h4 id="sound-effect-b-flag-table"><a class="header" href="#sound-effect-b-flag-table">Sound Effect B Flag Table</a></h4>
+<table><thead><tr><th>Code</th><th>Description</th><th>Recommended pitch</th><th>Nb of channels used</th></tr></thead><tbody>
+<tr><td>00</td><td>Dummy flag, re-trigger</td><td>-</td><td>4</td></tr>
+<tr><td>01</td><td>Applause...small group</td><td>2</td><td>1</td></tr>
+<tr><td>02</td><td>Applause...medium group</td><td>2</td><td>2</td></tr>
+<tr><td>03</td><td>Applause...large group</td><td>2</td><td>4</td></tr>
+<tr><td>04</td><td>Wind</td><td>1</td><td>2</td></tr>
+<tr><td>05</td><td>Rain</td><td>1</td><td>1</td></tr>
+<tr><td>06</td><td>Storm</td><td>1</td><td>3</td></tr>
+<tr><td>07</td><td>Storm with wind/thunder</td><td>2</td><td>4</td></tr>
+<tr><td>08</td><td>Lightning</td><td>0</td><td>2</td></tr>
+<tr><td>09</td><td>Earthquake</td><td>0</td><td>2</td></tr>
+<tr><td>0A</td><td>Avalanche</td><td>0</td><td>2</td></tr>
+<tr><td>0B</td><td>Wave</td><td>0</td><td>1</td></tr>
+<tr><td>0C</td><td>River</td><td>3</td><td>2</td></tr>
+<tr><td>0D</td><td>Waterfall</td><td>2</td><td>2</td></tr>
+<tr><td>0E</td><td>Small character running</td><td>3</td><td>1</td></tr>
+<tr><td>0F</td><td>Horse running</td><td>3</td><td>1</td></tr>
+<tr><td>10</td><td>Warning sound</td><td>1</td><td>1</td></tr>
+<tr><td>11</td><td>Approaching car</td><td>0</td><td>1</td></tr>
+<tr><td>12</td><td>Jet flying</td><td>1</td><td>1</td></tr>
+<tr><td>13</td><td>UFO flying</td><td>2</td><td>1</td></tr>
+<tr><td>14</td><td>Electromagnetic waves</td><td>0</td><td>1</td></tr>
+<tr><td>15</td><td>Score UP</td><td>3</td><td>1</td></tr>
+<tr><td>16</td><td>Fire</td><td>2</td><td>1</td></tr>
+<tr><td>17</td><td>Camera shutter, formanto</td><td>3</td><td>4</td></tr>
+<tr><td>18</td><td>Write, formanto</td><td>0</td><td>1</td></tr>
+<tr><td>19</td><td>Show up title, formanto</td><td>0</td><td>1</td></tr>
+<tr><td>80</td><td>Effect B, stop/silent</td><td>-</td><td>4</td></tr>
+</tbody></table>
+<p>Sound effect B is mainly used for looping sounds (sustained sounds).</p>
+<h3 id="sgb-system-control-commands"><a class="header" href="#sgb-system-control-commands">SGB System Control Commands</a></h3>
+<h4 id="sgb-command-17h---mask_en"><a class="header" href="#sgb-command-17h---mask_en">SGB Command 17h - MASK_EN</a></h4>
+<p>Used to mask the Game Boy window, among others this can be used to freeze
+the Game Boy screen before transferring data through VRAM (the SNES then
+keeps displaying the Game Boy screen, even though VRAM doesn’t contain
+meaningful display information during the transfer).</p>
+<pre><code> Byte  Content
+ 0     Command*8+Length (fixed length=1)
+ 1     Game Boy Screen Mask (0-3)
+         0  Cancel Mask   (Display activated)
+         1  Freeze Screen (Keep displaying current picture)
+         2  Blank Screen  (Black)
+         3  Blank Screen  (Color 0)
+ 2-F   Not used (zero)
+</code></pre>
+<p>Freezing works only if the SNES has stored a picture, that is, if necessary
+wait one or two frames before freezing (rather than freezing directly
+after having displayed the picture). The Cancel Mask function may be
+also invoked (optionally) by completion of PAL_SET and ATTR_SET
+commands.</p>
+<h4 id="sgb-command-0ch---atrc_en"><a class="header" href="#sgb-command-0ch---atrc_en">SGB Command 0Ch - ATRC_EN</a></h4>
+<p>Used to enable/disable Attraction mode, which is enabled by default.</p>
+<p>Built-in borders other than the Game Boy frame and the plain black
+border have a “screen saver” activated by pressing R, L, L, L, L, R or
+by leaving the controller alone for roughly 7 minutes (tested with 144p
+Test Suite). It is speculated that the animation may have interfered
+with rarely-used SGB features, such as OBJ_TRN or JUMP, and that
+Attraction Disable disables this animation.</p>
+<pre><code> Byte  Content
+ 0     Command*8+Length    (fixed length=1)
+ 1     Attraction Disable  (0=Enable, 1=Disable)
+ 2-F   Not used (zero)
+</code></pre>
+<h4 id="sgb-command-0dh---test_en"><a class="header" href="#sgb-command-0dh---test_en">SGB Command 0Dh - TEST_EN</a></h4>
+<p>Used to enable/disable test mode for “SGB-CPU variable clock speed
+function”. This function is disabled by default.</p>
+<p>This command does nothing on some SGB revisions. (SGBv2 confirmed,
+unknown on others)</p>
+<pre><code> Byte  Content
+ 0     Command*8+Length    (fixed length=1)
+ 1     Test Mode Enable    (0=Disable, 1=Enable)
+ 2-F   Not used (zero)
+</code></pre>
+<p>Maybe intended to determine whether SNES operates at 50Hz or 60Hz
+display refresh rate ??? Possibly result can be read-out from joypad
+register ???</p>
+<h4 id="sgb-command-0eh---icon_en"><a class="header" href="#sgb-command-0eh---icon_en">SGB Command 0Eh - ICON_EN</a></h4>
+<p>Used to enable/disable ICON function. Possibly meant to enable/disable
+SGB/SNES popup menues which might otherwise activated during Game Boy
+game play. By default all functions are enabled (0).</p>
+<pre><code> Byte  Content
+ 0     Command*8+Length    (fixed length=1)
+ 1     Disable Bits
+         Bit 0 - Use of SGB-Built-in Color Palettes    (1=Disable)
+         Bit 1 - Controller Set-up Screen    (0=Enable, 1=Disable)
+         Bit 2 - SGB Register File Transfer (0=Receive, 1=Disable)
+         Bit 3-6 - Not used (zero)
+ 2-F   Not used (zero)
+</code></pre>
+<p>Above Bit 2 will suppress all further packets/commands when set, this
+might be useful when starting a monochrome game from inside of the
+SGB-menu of a multi-gamepak which contains a collection of different
+games.</p>
+<h4 id="sgb-command-0fh---data_snd"><a class="header" href="#sgb-command-0fh---data_snd">SGB Command 0Fh - DATA_SND</a></h4>
+<p>Used to write one or more bytes directly into SNES Work RAM.</p>
+<pre><code> Byte  Content
+ 0     Command*8+Length    (fixed length=1)
+ 1     SNES Destination Address, low
+ 2     SNES Destination Address, high
+ 3     SNES Destination Address, bank number
+ 4     Number of bytes to write (01h-0Bh)
+ 5     Data Byte #1
+ 6     Data Byte #2 (if any)
+ 7     Data Byte #3 (if any)
+ etc.
+</code></pre>
+<p>Unused bytes at the end of the packet should be set to zero, this
+function is restricted to a single packet, so that not more than 11
+bytes can be defined at once. Free Addresses in SNES memory are Bank 0
+1800h-1FFFh, Bank 7Fh 0000h-FFFFh.</p>
+<h4 id="sgb-command-10h---data_trn"><a class="header" href="#sgb-command-10h---data_trn">SGB Command 10h - DATA_TRN</a></h4>
+<p>Used to transfer binary code or data directly into SNES RAM.</p>
+<pre><code> Byte  Content
+ 0     Command*8+Length    (fixed length=1)
+ 1     SNES Destination Address, low
+ 2     SNES Destination Address, high
+ 3     SNES Destination Address, bank number
+ 4-F   Not used (zero)
+</code></pre>
+<p>The data is sent by VRAM-Transfer (4 KBytes).</p>
+<pre><code> 000-FFF  Data
+</code></pre>
+<p>Free Addresses in SNES memory are Bank 0 1800h-1FFFh, Bank 7Fh
+0000h-FFFFh. The transfer length is fixed at 4KBytes ???, so that
+directly writing to the free 2KBytes at 0:1800h would be a not so good
+idea ???</p>
+<h4 id="sgb-command-12h---jump"><a class="header" href="#sgb-command-12h---jump">SGB Command 12h - JUMP</a></h4>
+<p>Used to set the SNES program counter and NMI (vblank interrupt) handler
+to specific addresses.</p>
+<pre><code> Byte  Content
+ 0     Command*8+Length    (fixed length=1)
+ 1     SNES Program Counter, low
+ 2     SNES Program Counter, high
+ 3     SNES Program Counter, bank number
+ 4     SNES NMI Handler, low
+ 5     SNES NMI Handler, high
+ 6     SNES NMI Handler, bank number
+ 7-F   Not used, zero
+</code></pre>
+<p>The game <em>Space Invaders</em> uses this function when selecting “Arcade
+mode” to execute SNES program code which has been previously
+transferred from the SGB to the SNES. The SNES CPU is a Ricoh 5A22,
+which combines a 65C816 core licensed from WDC with a custom memory
+controller. For more information, see <a href="https://problemkaputt.de/fullsnes.htm">“fullsnes” by
+nocash</a>.</p>
+<p>Some notes for intrepid Super NES programmers seeking to use a flash
+cartridge in a Super Game Boy as a storage server:</p>
+<ul>
+<li>JUMP overwrites the NMI handler even if it is $000000.</li>
+<li>The SGB system software does not appear to use NMIs.</li>
+<li>JUMP can return to SGB system software via a 16-bit RTS. To do this,
+JML to a location in bank $00 containing byte value $60, such as
+any of the <a href="SGB_Functions.html#stubbed-commands">stubbed commands</a>.</li>
+<li>IRQs and COP and BRK instructions are not useful because their
+handlers still point into SGB ROM. Use SEI WAI.</li>
+<li>If a program called through JUMP does not intend to return to SGB
+system software, it can overwrite all Super NES RAM except $0000BB
+through $0000BD, the NMI vector.</li>
+<li>To enter APU boot ROM, write $FE to $2140. Echo will still be on
+though.</li>
+</ul>
+<h3 id="sgb-multiplayer-command"><a class="header" href="#sgb-multiplayer-command">SGB Multiplayer Command</a></h3>
+<h4 id="sgb-command-11h---mlt_req"><a class="header" href="#sgb-command-11h---mlt_req">SGB Command 11h - MLT_REQ</a></h4>
+<p>Used to request multiplayer mode (that is, input from more than one joypad).
+Because this function provides feedback from the SGB/SNES to the Game
+Boy program, it is also used to detect SGB hardware.</p>
+<pre><code> Byte  Content
+ 0     Command*8+Length    (fixed length=1)
+ 1     Multiplayer Control (0-3) (Bit0=Enable, Bit1=Two/Four Players)
+         0 = One player
+         1 = Two players
+         3 = Four players
+ 2-F   Not used (zero)
+</code></pre>
+<p>In one player mode, the second joypad (if any) is used for the SGB
+system program. In two player mode, both joypads are used for the game.
+Because SNES have only two joypad sockets, four player mode requires an
+external “Multiplayer 5” adapter.</p>
+<p>Changing the number of active players ANDs the currently selected player
+minus one with the number of players in that mode minus one. For example
+if you go from four players to two players and player 4 was active
+player 2 will then be active because 3 AND 1 is 1. However, sending the
+MLT_REQ command will increment the counter several times so results may
+not be exactly as expected. The most frequent case is going from one
+player to two-or-four player which will always start with player 1
+active.</p>
+<h4 id="reading-multiple-controllers-joypads"><a class="header" href="#reading-multiple-controllers-joypads">Reading Multiple Controllers (Joypads)</a></h4>
+<p>When having enabled multiple controllers by MLT_REQ, data for each
+joypad can be read out through JOYPAD register (FF00) as follows: First
+set P14 and P15 both HIGH (deselect both Buttons and Cursor keys), you
+can now read the lower 4 bits of $FF00 which indicate the joypad ID for
+the following joypad input:</p>
+<table><thead><tr><th>Byte</th><th>Player #</th></tr></thead><tbody>
+<tr><td>$0F</td><td>1</td></tr>
+<tr><td>$0E</td><td>2</td></tr>
+<tr><td>$0D</td><td>3</td></tr>
+<tr><td>$0C</td><td>4</td></tr>
+</tbody></table>
+<p>Next, read joypad state as normally. When completed, set P14 and P15
+back HIGH, this automatically increments the joypad number (or restarts
+counting once reached the lastmost joypad). Repeat the procedure until
+you have read-out states for all two (or four) joypads.</p>
+<p>If for whatever reason you want to increment the joypad number without
+reading the joypad state you only need to set P15 to LOW before setting
+it back to HIGH. Adjusting P14 does not affect whether or not the joypad
+number will advance, However, if you set P15 to LOW then HIGH then LOW
+again without bringing both P14 and P15 HIGH at any point, it cancels
+the increment until P15 is lowered again. There are games, such as
+Pokémon Yellow, which rely on this cancelling when detecting the SGB.</p>
+<h3 id="sgb-border-and-obj-commands"><a class="header" href="#sgb-border-and-obj-commands">SGB Border and OBJ Commands</a></h3>
+<h4 id="sgb-command-13h---chr_trn"><a class="header" href="#sgb-command-13h---chr_trn">SGB Command 13h - CHR_TRN</a></h4>
+<p>Used to transfer tile data (characters) to SNES Tile memory in VRAM.
+This normally used to define BG tiles for the SGB Border (see PCT_TRN),
+but might be also used to define moveable SNES foreground sprites (see
+OBJ_TRN).</p>
+<pre><code> Byte  Content
+ 0     Command*8+Length    (fixed length=1)
+ 1     Tile Transfer Destination
+         Bit 0   - Tile Numbers   (0=Tiles 00h-7Fh, 1=Tiles 80h-FFh)
+         Bit 1   - Tile Type      (0=BG Tiles, 1=OBJ Tiles)
+         Bit 2-7 - Not used (zero)
+ 2-F   Not used (zero)
+</code></pre>
+<p>The tile data is sent by VRAM-Transfer (4 KBytes).</p>
+<pre><code> 000-FFF  Bitmap data for 128 Tiles
+</code></pre>
+<p>Each tile occupies 32 bytes (8x8 pixels, 16 colors each). When intending
+to transfer more than 128 tiles, call this function twice (once for
+tiles 00h-7Fh, and once for tiles 80h-FFh). Note: The BG/OBJ Bit seems
+to have no effect and writes to the same VRAM addresses for both BG and
+OBJ ???</p>
+<p>TODO: explain tile format</p>
+<h4 id="sgb-command-14h---pct_trn"><a class="header" href="#sgb-command-14h---pct_trn">SGB Command 14h - PCT_TRN</a></h4>
+<p>Used to transfer tile map data and palette data to SNES BG Map memory in
+VRAM to be used for the SGB border. The actual tiles must be separately
+transferred by using the CHR_TRN function.</p>
+<pre><code> Byte  Content
+ 0     Command*8+Length    (fixed length=1)
+ 1-F   Not used (zero)
+</code></pre>
+<p>The map data is sent by VRAM-Transfer (4 KBytes).</p>
+<pre><code> 000-6FF  BG Map 32x28 Entries of 16 bits each (1792 bytes)
+ 700-7FF  Not used, don't care
+ 800-87F  BG Palette Data (Palettes 4-7, each 16 colors of 16 bits each)
+ 880-FFF  Not used, don't care
+</code></pre>
+<p>Each BG Map Entry consists of a 16-bit value as such:
+`VH01 PP00 NNNN NNNN```</p>
+<pre><code> Bit 0-9   - Character Number (use only 00h-FFh, upper 2 bits zero)
+ Bit 10-12 - Palette Number   (use only 4-7, officially use only 4-6)
+ Bit 13    - BG Priority      (use only 0)
+ Bit 14    - X-Flip           (0=Normal, 1=Mirror horizontally)
+ Bit 15    - Y-Flip           (0=Normal, 1=Mirror vertically)
+</code></pre>
+<p>The 32x28 map entries correspond to 256x224 pixels of the Super NES
+screen. The 20x18 entries in the center of the 32x28 area should be set
+to a blank (solid color 0) tile as transparent space for the Game Boy
+window to be displayed inside. Non-transparent border data will cover
+the Game Boy window (for example, <em>Mario’s Picross</em> does this, as does
+<em>WildSnake</em> to a lesser extent).</p>
+<p>All borders repeat tiles. Assuming that the blank space for the GB
+screen is a single tile, as is the letterbox in a widescreen border, a
+border defining all unique tiles would have to define this many tiles:</p>
+<ul>
+<li>(256*224-160*144)/64+1 = 537 tiles in fullscreen border</li>
+<li>(256*176-160*144)/64+2 = 346 tiles in widescreen border</li>
+</ul>
+<p>But the CHR RAM allocated by SGB for border holds only 256 tiles. This
+means a fullscreen border must repeat at least 281 tiles and a
+widescreen border at least 90.</p>
+<h4 id="sgb-command-18h---obj_trn"><a class="header" href="#sgb-command-18h---obj_trn">SGB Command 18h - OBJ_TRN</a></h4>
+<p>Used to transfer OBJ attributes to SNES OAM memory. Unlike all other
+functions with the ending _TRN, this function does not use the usual
+one-shot 4KBytes VRAM transfer method. Instead, when enabled (below
+execute bit set), data is permanently (each frame) read out from the
+lower character line of the Game Boy screen. To suppress garbage on the
+display, the lower line is masked, and only the upper 20x17 characters
+of the Game Boy window are used - the masking method is unknwon - frozen,
+black, or recommended to be covered by the SGB border, or else ??? Also,
+when the function is enabled, “system attract mode is not performed” -
+whatever that means ???</p>
+<p>This command does nothing on some SGB revisions. (SGBv2, SGB2?)</p>
+<pre><code> Byte  Content
+ 0     Command*8+Length (fixed length=1)
+ 1     Control Bits
+         Bit 0   - SNES OBJ Mode enable (0=Cancel, 1=Enable)
+         Bit 1   - Change OBJ Color     (0=No, 1=Use definitions below)
+         Bit 2-7 - Not used (zero)
+ 2-3   System Color Palette Number for OBJ Palette 4 (0-511)
+ 4-5   System Color Palette Number for OBJ Palette 5 (0-511)
+ 6-7   System Color Palette Number for OBJ Palette 6 (0-511)
+ 8-9   System Color Palette Number for OBJ Palette 7 (0-511)
+         These color entries are ignored if above Control Bit 1 is zero.
+         Because each OBJ palette consists of 16 colors, four system
+         palette entries (of 4 colors each) are transferred into each
+         OBJ palette. The system palette numbers are not required to be
+         aligned to a multiple of four, and will wrap to palette number
+         0 when exceeding 511. For example, a value of 511 would copy
+         system palettes 511, 0, 1, 2 to the SNES OBJ palette.
+ A-F   Not used (zero)
+</code></pre>
+<p>The recommended method is to “display” Game Boy BG tiles F9h..FFh from
+left to right as first 7 characters of the bottom-most character line of
+the Game Boy screen. As for normal 4KByte VRAM transfers, this area
+should not be scrolled, should not be overlapped by Game Boy OBJs, and
+the Game Boy BGP palette register should be set up properly. By following
+that method, SNES OAM data can be defined in the 70h bytes of the
+Game Boy BG tile memory at following addresses:</p>
+<pre><code> 8F90-8FEF  SNES OAM, 24 Entries of 4 bytes each (96 bytes)
+ 8FF0-8FF5  SNES OAM MSBs, 24 Entries of 2 bits each (6 bytes)
+ 8FF6-8FFF  Not used, don't care (10 bytes)
+</code></pre>
+<p>The format of SNES OAM Entries is:</p>
+<pre><code>  Byte 0  OBJ X-Position (0-511, MSB is separately stored, see below)
+  Byte 1  OBJ Y-Position (0-255)
+  Byte 2-3  Attributes (16bit)
+    Bit 0-8    Tile Number     (use only 00h-FFh, upper bit zero)
+    Bit 9-11   Palette Number  (use only 4-7)
+    Bit 12-13  OBJ Priority    (use only 3)
+    Bit 14     X-Flip          (0=Normal, 1=Mirror horizontally)
+    Bit 15     Y-Flip          (0=Normal, 1=Mirror vertically)
+</code></pre>
+<p>The format of SNES OAM MSB Entries is:</p>
+<p>Actually, the format is unknown ??? However, 2 bits are used per entry:
+One bit is the most significant bit of the OBJ X-Position.
+The other bit specifies the OBJ size (8x8 or 16x16 pixels).</p>
+<h2 id="undocumented-sgb-commands"><a class="header" href="#undocumented-sgb-commands">Undocumented SGB commands</a></h2>
+<p>The following information has been extracted from disassembling a SGB1v2
+firmware; it should be verified on other SGB revisions.</p>
+<p>The SGB firmware explicitly ignores all commands with ID &gt;= $1E. This
+leaves undocumented commands $19 to $1D inclusive.</p>
+<h3 id="stubbed-commands"><a class="header" href="#stubbed-commands">Stubbed commands</a></h3>
+<p>Commands $1A to $1F (inclusive)’s handlers are stubs (only contain a
+<code>RTS</code>). This is interesting, since the command-processing function
+explicitly ignores commands $1E and $1F.</p>
+<h3 id="sgb-command-19h"><a class="header" href="#sgb-command-19h">SGB command 19h</a></h3>
+<p>The game <em>Donkey Kong</em> (1994) appears to send this command, and it appears
+to set a flag in the SGB’s memory. It’s not known yet what it does,
+though.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="CGB_Registers.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="CPU_Registers_and_Flags.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="CGB_Registers.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="CPU_Registers_and_Flags.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

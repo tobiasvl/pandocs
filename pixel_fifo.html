@@ -1,0 +1,462 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Pixel FIFO - Pan Docs</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The single, most comprehensive technical reference to Game Boy available to the public.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="custom/style.css">
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><a href="About.html">Foreword</a></li><li class="chapter-item affix "><a href="Authors.html">Authors</a></li><li class="chapter-item affix "><li class="part-title">Overview</li><li class="chapter-item "><a href="Specifications.html"><strong aria-hidden="true">1.</strong> Specifications</a></li><li class="chapter-item "><a href="Memory_Map.html"><strong aria-hidden="true">2.</strong> Memory Map</a></li><li class="chapter-item affix "><li class="part-title">I/O Ports</li><li class="chapter-item expanded "><a href="Rendering.html"><strong aria-hidden="true">3.</strong> Rendering</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Tile_Data.html"><strong aria-hidden="true">3.1.</strong> Tile Data</a></li><li class="chapter-item "><a href="BG_Maps.html"><strong aria-hidden="true">3.2.</strong> BG Maps</a></li><li class="chapter-item "><a href="OAM.html"><strong aria-hidden="true">3.3.</strong> OAM</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="OAM_DMA_Transfer.html"><strong aria-hidden="true">3.3.1.</strong> OAM DMA Transfer</a></li></ol></li><li class="chapter-item "><a href="LCDC.html"><strong aria-hidden="true">3.4.</strong> LCD Control</a></li><li class="chapter-item "><a href="STAT.html"><strong aria-hidden="true">3.5.</strong> LCD Status</a></li><li class="chapter-item "><a href="Scrolling.html"><strong aria-hidden="true">3.6.</strong> Scrolling</a></li><li class="chapter-item "><a href="Palettes.html"><strong aria-hidden="true">3.7.</strong> Palettes</a></li><li class="chapter-item expanded "><a href="pixel_fifo.html" class="active"><strong aria-hidden="true">3.8.</strong> Pixel FIFO</a></li></ol></li><li class="chapter-item "><a href="Sound_Controller.html"><strong aria-hidden="true">4.</strong> Sound Controller</a></li><li class="chapter-item "><a href="Joypad_Input.html"><strong aria-hidden="true">5.</strong> Joypad Input</a></li><li class="chapter-item "><a href="Serial_Data_Transfer_(Link_Cable).html"><strong aria-hidden="true">6.</strong> Serial Data Transfer</a></li><li class="chapter-item "><a href="Timer_and_Divider_Registers.html"><strong aria-hidden="true">7.</strong> Timer and Divider Registers</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Timer_Obscure_Behaviour.html"><strong aria-hidden="true">7.1.</strong> Timer Obscure Behaviour</a></li></ol></li><li class="chapter-item "><a href="Interrupts.html"><strong aria-hidden="true">8.</strong> Interrupts</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Interrupt_Sources.html"><strong aria-hidden="true">8.1.</strong> Interrupt Sources</a></li></ol></li><li class="chapter-item "><a href="CGB_Registers.html"><strong aria-hidden="true">9.</strong> CGB Registers</a></li><li class="chapter-item "><a href="SGB_Functions.html"><strong aria-hidden="true">10.</strong> SGB Functions</a></li><li class="chapter-item affix "><li class="part-title">CPU Specifications</li><li class="chapter-item "><a href="CPU_Registers_and_Flags.html"><strong aria-hidden="true">11.</strong> CPU Registers and Flags</a></li><li class="chapter-item "><a href="CPU_Instruction_Set.html"><strong aria-hidden="true">12.</strong> CPU Instruction Set</a></li><li class="chapter-item "><a href="CPU_Comparison_with_Z80.html"><strong aria-hidden="true">13.</strong> CPU Comparison with Z80</a></li><li class="chapter-item affix "><li class="part-title">Cartridges</li><li class="chapter-item "><a href="The_Cartridge_Header.html"><strong aria-hidden="true">14.</strong> The Cartridge Header</a></li><li class="chapter-item "><a href="MBCs.html"><strong aria-hidden="true">15.</strong> MBCs</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="nombc.html"><strong aria-hidden="true">15.1.</strong> No MBC</a></li><li class="chapter-item "><a href="MBC1.html"><strong aria-hidden="true">15.2.</strong> MBC1</a></li><li class="chapter-item "><a href="MBC2.html"><strong aria-hidden="true">15.3.</strong> MBC2</a></li><li class="chapter-item "><a href="MBC3.html"><strong aria-hidden="true">15.4.</strong> MBC3</a></li><li class="chapter-item "><a href="MBC5.html"><strong aria-hidden="true">15.5.</strong> MBC5</a></li><li class="chapter-item "><a href="MBC6.html"><strong aria-hidden="true">15.6.</strong> MBC6</a></li><li class="chapter-item "><a href="MBC7.html"><strong aria-hidden="true">15.7.</strong> MBC7</a></li><li class="chapter-item "><a href="HuC1.html"><strong aria-hidden="true">15.8.</strong> HuC1</a></li><li class="chapter-item "><a href="othermbc.html"><strong aria-hidden="true">15.9.</strong> Other MBCs</a></li></ol></li><li class="chapter-item "><li class="part-title">Accessories</li><li class="chapter-item "><a href="Gameboy_Printer.html"><strong aria-hidden="true">16.</strong> Game Boy Printer</a></li><li class="chapter-item "><a href="Gameboy_Camera.html"><strong aria-hidden="true">17.</strong> Game Boy Camera</a></li><li class="chapter-item "><div><strong aria-hidden="true">18.</strong> Game Genie/Shark Cheats</div></li><li class="chapter-item affix "><li class="part-title">Other</li><li class="chapter-item "><a href="Power_Up_Sequence.html"><strong aria-hidden="true">19.</strong> Power-Up Sequence</a></li><li class="chapter-item "><a href="Reducing_Power_Consumption.html"><strong aria-hidden="true">20.</strong> Reducing Power Consumption</a></li><li class="chapter-item "><a href="Accessing_VRAM_and_OAM.html"><strong aria-hidden="true">21.</strong> Accessing VRAM and OAM</a></li><li class="chapter-item "><a href="OAM_Corruption_Bug.html"><strong aria-hidden="true">22.</strong> OAM Corruption Bug</a></li><li class="chapter-item "><a href="External_Connectors.html"><strong aria-hidden="true">23.</strong> External Connectors</a></li><li class="chapter-item "><a href="GBC_Approval_Process.html"><strong aria-hidden="true">24.</strong> GBC Approval Process</a></li><li class="chapter-item affix "><a href="References.html">References</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Pan Docs</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        <a href="https://github.com/gbdev/pandocs" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                        
+                        <a href="https://github.com/gbdev/pandocs/edit/develop/src/pixel_fifo.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="pixel-fifo"><a class="header" href="#pixel-fifo">Pixel FIFO</a></h1>
+<div class="box tip">
+<p class="box-title">TERMINOLOGY</p><p>All references to a cycle are meant as T-cycles (4.19 MHz) and cycle
+counts are doubled on CGB in double speed mode. When it is stated that a
+certain action <em>lengthens mode 3</em> it means that mode 0 (hblank) is
+shortened to make up for the additional time in mode 3, as shown in the following diagram.</p>
+</div>
+<p><img src="imgs/game-boy-lcd-refresh-diagram-2.svg" alt="" title="imgs/game-boy-lcd-refresh-diagram-2.svg" /></p>
+<h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
+<p>FIFO stands for <em>First In, First Out</em>. The first pixel to be pushed to the
+FIFO is the first pixel to be popped off. In theory that sounds great,
+in practice there are a lot of intricacies.</p>
+<p>There are two pixel FIFOs. One for background pixels and one for OAM
+(sprite) pixels. These two FIFOs are not shared. They are independent
+of each other. The two FIFOs are mixed only when popping items. Sprites
+take priority unless they’re transparent (color 0) which will be
+explained in detail later. Each FIFO can hold up to 16 pixels. The FIFO
+and Pixel Fetcher work together to ensure that the FIFO always contains
+at least 8 pixels at any given time, as 8 pixels are required for the
+Pixel Rendering operation to take place. Each FIFO is manipulated only
+during mode 3 (pixel transfer).</p>
+<p>Each pixel in the FIFO has four properties:</p>
+<ul>
+<li>Color: a value between 0 and 3</li>
+<li>Palette: on CGB a value between 0 and 7 and on DMG this only applies to sprites</li>
+<li>Sprite Priority: on CGB this is the OAM index for the sprite and on DMG this doesn’t exist</li>
+<li>Background Priority: holds the value of the <a href="OAM.html#vram-sprite-attribute-table-oam">OBJ-to-BG Priority</a> bit</li>
+</ul>
+<h2 id="fifo-pixel-fetcher"><a class="header" href="#fifo-pixel-fetcher">FIFO Pixel Fetcher</a></h2>
+<p>The fetcher fetches a row of 8 background or window pixels and queues
+them up to be mixed with sprite pixels. The pixel fetcher has 5 steps.
+The first four steps take 2 cycles each and the fifth step is attempted
+every cycle until it succeeds. The order of the steps are as follows:</p>
+<ul>
+<li>Get tile</li>
+<li>Get tile data low</li>
+<li>Get tile data high</li>
+<li>Sleep</li>
+<li>Push</li>
+</ul>
+<h3 id="get-tile"><a class="header" href="#get-tile">Get Tile</a></h3>
+<p>This step determines which background/window tile to fetch pixels from.
+By default the tilemap used is the one at $9800 but certain conditions
+can change that.</p>
+<p>When LCDC.3 is enabled and the X coordinate of the current scanline is
+not inside the window then tilemap $9C00 is used.</p>
+<p>When LCDC.6 is enabled and the X coordinate of the current scanline is
+inside the window then tilemap $9C00 is used.</p>
+<p>The fetcher keeps track of which X and Y coordinate of the tile it’s on:</p>
+<p>If the current tile is a window tile, the X coordinate for the window
+tile is used, otherwise the following formula is used to calculate
+the X coordinate: ((SCX / 8) + fetcher’s X coordinate) &amp; $1F. Because of
+this formula, fetcherX can be between 0 and 31.</p>
+<p>If the current tile is a window tile, the Y coordinate for the window
+tile is used, otherwise the following formula is used to calculate
+the Y coordinate: (currentScanline + SCY) &amp; 255. Because of this formula,
+fetcherY can be between 0 and 159.</p>
+<p>The fetcher’s X and Y coordinate can then be used to get the tile from
+VRAM. However, if the PPU’s access to VRAM is <a href="pixel_fifo.html#vram-access">blocked</a>
+then the value for the tile is read as $FF.</p>
+<p>CGB can access both tile index and the attributes in the same clock
+cycle.</p>
+<h3 id="get-tile-data-low"><a class="header" href="#get-tile-data-low">Get Tile Data Low</a></h3>
+<p>Check LCDC.4 for which tilemap to use. At this step CGB also needs to
+check which VRAM bank to use and check if the tile is flipped vertically.
+Once the tilemap, VRAM and vertical flip is calculated the tile data
+is retrieved from VRAM. However, if the PPU’s access to VRAM is
+<a href="pixel_fifo.html#vram-access">blocked</a> then the tile data is read as $FF.</p>
+<p>The tile data retrieved in this step will be used in the push steps.</p>
+<h3 id="get-tile-data-high"><a class="header" href="#get-tile-data-high">Get Tile Data High</a></h3>
+<p>Same as Get Tile Data Low except the tile address is incremented by 1.</p>
+<p>The tile data retrieved in this step will be used in the push steps.</p>
+<p>This also pushes a row of background/window pixels to the FIFO. This
+extra push is not part of the 8 steps, meaning there’s 3 total chances to
+push pixels to the background FIFO every time the complete fetcher steps
+are performed.</p>
+<h3 id="push"><a class="header" href="#push">Push</a></h3>
+<p>Pushes a row of background/window pixels to the FIFO. Since tiles are 8
+pixels wide, a “row” of pixels is 8 pixels from the tile to be rendered
+based on the X and Y coordinates calculated in the previous steps.</p>
+<p>Pixels are only pushed to the background FIFO if it’s empty.</p>
+<p>This is where the tile data retrieved in the two Tile Data steps will
+come in handy. Depending on if the tile is flipped horizontally the
+pixels will be pushed to the background FIFO differently. If the tile
+is flipped horizontally the pixels will be pushed LSB first. Otherwise
+they will be pushed MSB first.</p>
+<h3 id="sleep"><a class="header" href="#sleep">Sleep</a></h3>
+<p>Do nothing.</p>
+<h3 id="vram-access"><a class="header" href="#vram-access">VRAM Access</a></h3>
+<p>At various times during PPU operation read access to VRAM is blocked and
+the value read is $FF:</p>
+<ul>
+<li>LCD turning off</li>
+<li>At scanline 0 on CGB when not in double speed mode</li>
+<li>When switching from mode 3 to mode 0</li>
+<li>On CGB when searching OAM and index 37 is reached</li>
+</ul>
+<p>At various times during PPU operation read access to VRAM is restored:</p>
+<ul>
+<li>At scanline 0 on DMG and CGB when in double speed mode</li>
+<li>On DMG when searching OAM and index 37 is reached</li>
+<li>After switching from mode 2 (oam search) to mode 3 (pixel transfer)</li>
+</ul>
+<p>NOTE: These conditions are checked only when entering STOP mode and the
+PPU’s access to VRAM is always restored upon leaving STOP mode.</p>
+<h2 id="mode-3-operation"><a class="header" href="#mode-3-operation">Mode 3 Operation</a></h2>
+<p>As stated before the pixel FIFO only operates during mode 3 (pixel
+transfer). At the beginning of mode 3 both the background and OAM FIFOs
+are cleared.</p>
+<h3 id="the-window"><a class="header" href="#the-window">The Window</a></h3>
+<p>When rendering the window the background FIFO is cleared and the fetcher
+is reset to step 1. When WX is 0 and the SCX &amp; 7 &gt; 0 mode 3 is shortened
+by 1 cycle.</p>
+<p>When the window has already started rendering there is a bug that occurs
+when WX is changed mid-scanline. When the value of WX changes after the
+window has started rendering and the new value of WX is reached again,
+a pixel with color value of 0 and the lowest priority is pushed onto the
+background FIFO.</p>
+<h3 id="sprites"><a class="header" href="#sprites">Sprites</a></h3>
+<p>The following is performed for each sprite on the current scanline if
+LCDC.1 is enabled (this condition is ignored on CGB) and the X coordinate
+of the current scanline has a sprite on it. If those conditions are not
+met then sprite fetching is <a href="pixel_fifo.html#sprite-fetch-abortion">aborted</a>.</p>
+<p>At this point the <a href="pixel_fifo.html#fifo-pixel-fetcher">fetcher</a> is advanced one step
+until it’s at step 5 or until the background FIFO is not empty. Advancing
+the fetcher one step here lengthens mode 3 by 1 cycle. This process may
+be <a href="pixel_fifo.html#sprite-fetch-abortion">aborted</a> after the fetcher has advanced a
+step.</p>
+<p>When SCX &amp; 7 &gt; 0 and there is a sprite at X coordinate 0 of the current
+scanline then mode 3 is lengthened. The amount of cycles this lengthens
+mode 3 by is whatever the lower 3 bits of SCX are. After this penalty is
+applied object fetching may be aborted. Note that the timing of the
+penalty is not confirmed. It may happen before or after waiting for the
+fetcher. More research needs to be done.</p>
+<p>After checking for sprites at X coordinate 0 the fetcher is advanced two
+steps. The first advancement lengthens mode 3 by 1 cycle and the second
+advancement lengthens mode 3 by 3 cycles. After each fetcher advancement
+there is a chance for a sprite fetch abortion to occur.</p>
+<p>The lower address for the row of pixels of the target object tile is now
+retrieved and lengthens mode 3 by 1 cycle. Once the address is retrieved
+this is the last chance for sprite fetch abortion to occur. Exiting
+object fetch lengthens mode 3 by 1 cycle. The upper address for the
+target object tile is now retrieved and does not shorten mode 3.</p>
+<p>At this point <a href="pixel_fifo.html#vram-access">VRAM Access</a> is checked for the lower and
+upper addresses for the target object. Before any mixing is done, if the
+OAM FIFO doesn’t have at least 8 pixels in it then transparent pixels
+with the lowest priority are pushed onto the OAM FIFO. Once this is done
+each pixel of the target object row is checked. On CGB, horizontal flip
+is checked here. If the target object pixel is not white and the pixel in
+the OAM FIFO <em>is</em> white, or if the pixel in the OAM FIFO has higher
+priority than the target object’s pixel, then the pixel in the OAM FIFO
+is replaced with the target object’s properties.</p>
+<p>Now it’s time to <a href="pixel_fifo.html#pixel-rendering">render a pixel</a>! The same process
+described in Sprite Fetch Abortion is performed: a pixel is rendered and
+the fetcher is advanced one step. This advancement lengthens mode 3 by 1
+cycle if the X coordinate of the current scanline is not 160. If the X
+coordinate is 160 the PPU stops processing sprites (because they won’t be
+visible).</p>
+<p>Everything in this section is repeated for every sprite on the current
+scanline unless it was decided that fetching should be aborted or the
+X coordinate is 160.</p>
+<h3 id="pixel-rendering"><a class="header" href="#pixel-rendering">Pixel Rendering</a></h3>
+<p>This is where the background FIFO and OAM FIFO are mixed. There are
+conditions where either a background pixel or a sprite pixel will have
+display priority.</p>
+<p>If there are pixels in the background and OAM FIFOs then a pixel is
+popped off each. If the OAM pixel is not transparent and LCDC.1 is
+enabled then the OAM pixel’s background priority property is used if it’s
+the same or higher priority as the background pixel’s background priority.</p>
+<p>Pixels won’t be pushed to the LCD if there is nothing in the background
+FIFO or the current pixel is pixel 160 or greater.</p>
+<p>If LCDC.0 is disabled then the background is disabled on DMG and the
+background pixel won’t have priority on CGB. When the background pixel
+is disabled the pixel color value will be 0, otherwise the color value
+will be whatever color pixel was popped off the background FIFO. When the
+pixel popped off the background FIFO has a color value other than 0 and
+it has priority then the sprite pixel will be discarded.</p>
+<p>At this point, on DMG, the color of the pixel is retrieved from the BGP
+register and pushed to the LCD. On CGB when <a href="pixel_fifo.html#cgb-palette-access">palette access</a>
+is blocked a black pixel is pushed to the LCD.</p>
+<p>When a sprite pixel has priority the color value is retrieved from the
+popped pixel from the OAM FIFO. On DMG the color for the pixel is
+retrieved from either the OBP1 or OBP0 register depending on the pixel’s
+palette property. If the palette property is 1 then OBP1 is used,
+otherwise OBP0 is used. The pixel is then pushed to the LCD. On CGB when
+palette access is blocked a black pixel is pushed to the LCD.</p>
+<p>The pixel is then finally pushed to the LCD.</p>
+<h3 id="cgb-palette-access"><a class="header" href="#cgb-palette-access">CGB Palette Access</a></h3>
+<p>At various times during PPU operation read access to the CGB palette is
+blocked and a black pixel pushed to the LCD when rendering pixels:</p>
+<ul>
+<li>LCD turning off</li>
+<li>First HBlank of the frame</li>
+<li>When searching OAM and index 37 is reached</li>
+<li>After switching from mode 2 (oam search) to mode 3 (pixel transfer)</li>
+<li>When entering HBlank (mode 0) and not in double speed mode, blocked 2 cycles later no matter what</li>
+</ul>
+<p>At various times during PPU operation read access to the CGB palette is
+restored and pixels are pushed to the LCD normally when rendering pixels:</p>
+<ul>
+<li>At the end of mode 2 (oam search)</li>
+<li>For only 2 cycles when entering HBlank (mode 0) and in double speed mode</li>
+</ul>
+<div class="box warning">
+<p class="box-title">Note</p><p>These conditions are checked only when entering STOP mode and the
+PPU’s access to CGB palettes is always restored upon leaving STOP mode.</p>
+</div>
+<h3 id="sprite-fetch-abortion"><a class="header" href="#sprite-fetch-abortion">Sprite Fetch Abortion</a></h3>
+<p>Sprite fetching may be aborted if LCDC.1 is disabled while the PPU is
+fetching an object from OAM. This abortion lengthens mode 3 by the amount
+of cycles the previous instruction took plus the residual cycles left for
+the PPU to process. When OAM fetching is aborted a pixel is <a href="pixel_fifo.html#pixel-rendering">rendered</a>,
+the <a href="pixel_fifo.html#fifo-pixel-fetcher">fetcher</a> is advanced one step. This advancement
+lengthens mode 3 by 1 cycle if the current pixel is not 160. If the
+current pixel is 160 the PPU stops processing sprites because they won’t
+be visible.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="Palettes.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="Sound_Controller.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="Palettes.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="Sound_Controller.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
