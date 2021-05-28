@@ -204,12 +204,12 @@ It is a good idea to have the datasheet of the M64282FP, but it is very poorly e
 <h3 id="2000-3fff---rom-bank-number-write-only"><a class="header" href="#2000-3fff---rom-bank-number-write-only">2000-3FFF - ROM Bank Number (Write Only)</a></h3>
 <p>Writing a value of 00-3Fh selects the corresponding ROM Bank for area 4000-7FFF.</p>
 <h3 id="4000-5fff---ram-bank-numbercam-registers-select-write-only"><a class="header" href="#4000-5fff---ram-bank-numbercam-registers-select-write-only">4000-5FFF - RAM Bank Number/CAM Registers Select (Write Only)</a></h3>
-<p>Writing a value in range for 00h-0Fh maps the corresponding external RAM Bank to memory at A000-BFFF. Writing any value with bit 5 set to ‘1’ will select CAM registers. Usually bank 10h is used to select the registers. All registers are mirrored every 80h bytes. RAM bank 0 selected on reset.</p>
+<p>Writing a value in range for 00h-0Fh maps the corresponding external RAM Bank to memory at A000-BFFF. Writing any value with bit 4 set to ‘1’ will select CAM registers. Usually bank 10h is used to select the registers. All registers are mirrored every 80h bytes. RAM bank 0 selected on reset.</p>
 <div class="box tip">
 <p class="box-title">NOTE</p><p>Unlike most games, the GB Camera RAM can only be written when PHI pin = ‘1’. It’s an enable signal for the RAM chip. Most cartridge readers and writers can’t handle PHI pin so they can’t restore a saved backup. It isn’t needed to change ROM banks.</p>
 </div>
 <h2 id="io-registers"><a class="header" href="#io-registers">I/O Registers</a></h2>
-<p>The Game Boy Camera I/O registers are mapped to all banks with bit 4 set to ‘1’. The GB Camera ROM usually changes to bank 16 to use the registers.</p>
+<p>The Game Boy Camera I/O registers are mapped to all banks with bit 4 set to ‘1’. The GB Camera ROM usually changes to bank 16 (10h) to use the registers.</p>
 <p>There are 3 groups of registers:</p>
 <ul>
 <li>The first group is composed by the trigger register A000. This register starts the capture process and returns the current status (working/capture finished).</li>
