@@ -192,7 +192,7 @@ Emulator developers may be also interested in the <a href="https://gekkio.fi/fil
 <p>The <i class="fa fa-edit"></i> icon allows you to suggest a edit on the current page by directly opening the source file in the git repository.</p>
 <p>You can find a one-page printable version of Pan Docs <a href="https://gbdev.io/pandocs/print.html">here</a>. </p>
 <p><br><br>
-<small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/7cf8ae82bf63ad428cc14b0bcb0bcf9d1cf41beb"><code>7cf8ae8</code></a> (2021-05-28 14:28:00 +0200). </small></p>
+<small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/8efaa42298442bb96e824148094b22c656e27341"><code>8efaa42</code></a> (2021-05-30 13:44:56 +0200). </small></p>
 <div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="acknowledgements"><a class="header" href="#acknowledgements">Acknowledgements</a></h1>
 <p>This resource wouldn’t be possible without all the passionate hackers and researchers who contributed on this document in the last three decades.</p>
 <p>We would like to thank everyone in the gbdev community for providing precious feedback, content, support and invaluable knowledge.</p>
@@ -2007,7 +2007,7 @@ would be recommended to use Single Speed whenever possible.</p>
 </ul>
 <p>The CPU stops for 2050 cycles (= 8200 clocks) after the <code>stop</code> instruction is
 executed. During this time, the CPU is in a strange state. <code>DIV</code> does not tick, so
-<em>some</em> audio events are not processed. Additionally, VRAM/OAM/... locking is “frozen”, yielding
+<em>some</em> audio events are not processed. Additionally, VRAM/OAM/… locking is “frozen”, yielding
 different results depending on the <a href="STAT.html#ff41---stat-lcd-status-rw">STAT mode</a> it’s started in:</p>
 <ul>
 <li>HBlank / VBlank (Mode 0 / Mode 1): The PPU cannot access any videomemory, and produces black pixels</li>
@@ -2586,24 +2586,24 @@ Sound Effect A uses channels 6 and 7, Sound Effect B uses channels
 <tr><td>01</td><td>Nintendo</td><td>3</td><td>1</td></tr>
 <tr><td>02</td><td>Game Over</td><td>3</td><td>2</td></tr>
 <tr><td>03</td><td>Drop</td><td>3</td><td>1</td></tr>
-<tr><td>04</td><td>OK ... A</td><td>3</td><td>2</td></tr>
-<tr><td>05</td><td>OK ... B</td><td>3</td><td>2</td></tr>
-<tr><td>06</td><td>Select...A</td><td>3</td><td>2</td></tr>
-<tr><td>07</td><td>Select...B</td><td>3</td><td>1</td></tr>
-<tr><td>08</td><td>Select...C</td><td>2</td><td>2</td></tr>
-<tr><td>09</td><td>Mistake...Buzzer</td><td>2</td><td>1</td></tr>
+<tr><td>04</td><td>OK … A</td><td>3</td><td>2</td></tr>
+<tr><td>05</td><td>OK … B</td><td>3</td><td>2</td></tr>
+<tr><td>06</td><td>Select…A</td><td>3</td><td>2</td></tr>
+<tr><td>07</td><td>Select…B</td><td>3</td><td>1</td></tr>
+<tr><td>08</td><td>Select…C</td><td>2</td><td>2</td></tr>
+<tr><td>09</td><td>Mistake…Buzzer</td><td>2</td><td>1</td></tr>
 <tr><td>0A</td><td>Catch Item</td><td>2</td><td>2</td></tr>
 <tr><td>0B</td><td>Gate squeaks 1 time</td><td>2</td><td>2</td></tr>
-<tr><td>0C</td><td>Explosion...small</td><td>1</td><td>2</td></tr>
-<tr><td>0D</td><td>Explosion...medium</td><td>1</td><td>2</td></tr>
-<tr><td>0E</td><td>Explosion...large</td><td>1</td><td>2</td></tr>
-<tr><td>0F</td><td>Attacked...A</td><td>3</td><td>1</td></tr>
-<tr><td>10</td><td>Attacked...B</td><td>3</td><td>2</td></tr>
-<tr><td>11</td><td>Hit (punch)...A</td><td>0</td><td>2</td></tr>
-<tr><td>12</td><td>Hit (punch)...B</td><td>0</td><td>2</td></tr>
+<tr><td>0C</td><td>Explosion…small</td><td>1</td><td>2</td></tr>
+<tr><td>0D</td><td>Explosion…medium</td><td>1</td><td>2</td></tr>
+<tr><td>0E</td><td>Explosion…large</td><td>1</td><td>2</td></tr>
+<tr><td>0F</td><td>Attacked…A</td><td>3</td><td>1</td></tr>
+<tr><td>10</td><td>Attacked…B</td><td>3</td><td>2</td></tr>
+<tr><td>11</td><td>Hit (punch)…A</td><td>0</td><td>2</td></tr>
+<tr><td>12</td><td>Hit (punch)…B</td><td>0</td><td>2</td></tr>
 <tr><td>13</td><td>Breath in air</td><td>3</td><td>2</td></tr>
-<tr><td>14</td><td>Rocket Projectile...A</td><td>3</td><td>2</td></tr>
-<tr><td>15</td><td>Rocket Projectile...B</td><td>3</td><td>2</td></tr>
+<tr><td>14</td><td>Rocket Projectile…A</td><td>3</td><td>2</td></tr>
+<tr><td>15</td><td>Rocket Projectile…B</td><td>3</td><td>2</td></tr>
 <tr><td>16</td><td>Escaping Bubble</td><td>2</td><td>1</td></tr>
 <tr><td>17</td><td>Jump</td><td>3</td><td>1</td></tr>
 <tr><td>18</td><td>Fast Jump</td><td>3</td><td>1</td></tr>
@@ -2637,9 +2637,9 @@ Sound Effect A uses channels 6 and 7, Sound Effect B uses channels
 <h4 id="sound-effect-b-flag-table"><a class="header" href="#sound-effect-b-flag-table">Sound Effect B Flag Table</a></h4>
 <table><thead><tr><th>Code</th><th>Description</th><th>Recommended pitch</th><th>Nb of channels used</th></tr></thead><tbody>
 <tr><td>00</td><td>Dummy flag, re-trigger</td><td>-</td><td>4</td></tr>
-<tr><td>01</td><td>Applause...small group</td><td>2</td><td>1</td></tr>
-<tr><td>02</td><td>Applause...medium group</td><td>2</td><td>2</td></tr>
-<tr><td>03</td><td>Applause...large group</td><td>2</td><td>4</td></tr>
+<tr><td>01</td><td>Applause…small group</td><td>2</td><td>1</td></tr>
+<tr><td>02</td><td>Applause…medium group</td><td>2</td><td>2</td></tr>
+<tr><td>03</td><td>Applause…large group</td><td>2</td><td>4</td></tr>
 <tr><td>04</td><td>Wind</td><td>1</td><td>2</td></tr>
 <tr><td>05</td><td>Rain</td><td>1</td><td>1</td></tr>
 <tr><td>06</td><td>Storm</td><td>1</td><td>3</td></tr>
@@ -3028,32 +3028,32 @@ by 4, many people specify timings and clock frequency divided by 4,
 called “M-cycles”.</p>
 <h2 id="8-bit-load-instructions"><a class="header" href="#8-bit-load-instructions">8-bit Load instructions</a></h2>
 <table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
-<tr><td>ld   r,r</td><td>xx</td><td>4</td><td>----</td><td>r=r</td></tr>
-<tr><td>ld   r,n</td><td>xx nn</td><td>8</td><td>----</td><td>r=n</td></tr>
-<tr><td>ld   r,(HL)</td><td>xx</td><td>8</td><td>----</td><td>r=(HL)</td></tr>
-<tr><td>ld   (HL),r</td><td>7x</td><td>8</td><td>----</td><td>(HL)=r</td></tr>
-<tr><td>ld   (HL),n</td><td>36 nn</td><td>12</td><td>----</td><td>(HL)=n</td></tr>
-<tr><td>ld   A,(BC)</td><td>0A</td><td>8</td><td>----</td><td>A=(BC)</td></tr>
-<tr><td>ld   A,(DE)</td><td>1A</td><td>8</td><td>----</td><td>A=(DE)</td></tr>
-<tr><td>ld   A,(nn)</td><td>FA</td><td>16</td><td>----</td><td>A=(nn)</td></tr>
-<tr><td>ld   (BC),A</td><td>02</td><td>8</td><td>----</td><td>(BC)=A</td></tr>
-<tr><td>ld   (DE),A</td><td>12</td><td>8</td><td>----</td><td>(DE)=A</td></tr>
-<tr><td>ld   (nn),A</td><td>EA</td><td>16</td><td>----</td><td>(nn)=A</td></tr>
-<tr><td>ld   A,(FF00+n)</td><td>F0 nn</td><td>12</td><td>----</td><td>read from io-port n (memory FF00+n)</td></tr>
-<tr><td>ld   (FF00+n),A</td><td>E0 nn</td><td>12</td><td>----</td><td>write to io-port n (memory FF00+n)</td></tr>
-<tr><td>ld   A,(FF00+C)</td><td>F2</td><td>8</td><td>----</td><td>read from io-port C (memory FF00+C)</td></tr>
-<tr><td>ld   (FF00+C),A</td><td>E2</td><td>8</td><td>----</td><td>write to io-port C (memory FF00+C)</td></tr>
-<tr><td>ldi  (HL),A</td><td>22</td><td>8</td><td>----</td><td>(HL)=A, HL=HL+1</td></tr>
-<tr><td>ldi  A,(HL)</td><td>2A</td><td>8</td><td>----</td><td>A=(HL), HL=HL+1</td></tr>
-<tr><td>ldd  (HL),A</td><td>32</td><td>8</td><td>----</td><td>(HL)=A, HL=HL-1</td></tr>
-<tr><td>ldd  A,(HL)</td><td>3A</td><td>8</td><td>----</td><td>A=(HL), HL=HL-1</td></tr>
+<tr><td>ld   r,r</td><td>xx</td><td>4</td><td>––</td><td>r=r</td></tr>
+<tr><td>ld   r,n</td><td>xx nn</td><td>8</td><td>––</td><td>r=n</td></tr>
+<tr><td>ld   r,(HL)</td><td>xx</td><td>8</td><td>––</td><td>r=(HL)</td></tr>
+<tr><td>ld   (HL),r</td><td>7x</td><td>8</td><td>––</td><td>(HL)=r</td></tr>
+<tr><td>ld   (HL),n</td><td>36 nn</td><td>12</td><td>––</td><td>(HL)=n</td></tr>
+<tr><td>ld   A,(BC)</td><td>0A</td><td>8</td><td>––</td><td>A=(BC)</td></tr>
+<tr><td>ld   A,(DE)</td><td>1A</td><td>8</td><td>––</td><td>A=(DE)</td></tr>
+<tr><td>ld   A,(nn)</td><td>FA</td><td>16</td><td>––</td><td>A=(nn)</td></tr>
+<tr><td>ld   (BC),A</td><td>02</td><td>8</td><td>––</td><td>(BC)=A</td></tr>
+<tr><td>ld   (DE),A</td><td>12</td><td>8</td><td>––</td><td>(DE)=A</td></tr>
+<tr><td>ld   (nn),A</td><td>EA</td><td>16</td><td>––</td><td>(nn)=A</td></tr>
+<tr><td>ld   A,(FF00+n)</td><td>F0 nn</td><td>12</td><td>––</td><td>read from io-port n (memory FF00+n)</td></tr>
+<tr><td>ld   (FF00+n),A</td><td>E0 nn</td><td>12</td><td>––</td><td>write to io-port n (memory FF00+n)</td></tr>
+<tr><td>ld   A,(FF00+C)</td><td>F2</td><td>8</td><td>––</td><td>read from io-port C (memory FF00+C)</td></tr>
+<tr><td>ld   (FF00+C),A</td><td>E2</td><td>8</td><td>––</td><td>write to io-port C (memory FF00+C)</td></tr>
+<tr><td>ldi  (HL),A</td><td>22</td><td>8</td><td>––</td><td>(HL)=A, HL=HL+1</td></tr>
+<tr><td>ldi  A,(HL)</td><td>2A</td><td>8</td><td>––</td><td>A=(HL), HL=HL+1</td></tr>
+<tr><td>ldd  (HL),A</td><td>32</td><td>8</td><td>––</td><td>(HL)=A, HL=HL-1</td></tr>
+<tr><td>ldd  A,(HL)</td><td>3A</td><td>8</td><td>––</td><td>A=(HL), HL=HL-1</td></tr>
 </tbody></table>
 <h2 id="16-bit-load-instructions"><a class="header" href="#16-bit-load-instructions">16-bit Load instructions</a></h2>
 <table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
-<tr><td>ld   rr,nn</td><td>x1 nn nn</td><td>12</td><td>----</td><td>rr=nn (rr may be BC,DE,HL or SP)</td></tr>
-<tr><td>ld   (nn),SP</td><td>08 nn nn</td><td>20</td><td>----</td><td>(nn)=SP</td></tr>
-<tr><td>ld   SP,HL</td><td>F9</td><td>8</td><td>----</td><td>SP=HL</td></tr>
-<tr><td>push rr</td><td>x5</td><td>16</td><td>----</td><td>SP=SP-2  (SP)=rr ; rr may be BC,DE,HL,AF</td></tr>
+<tr><td>ld   rr,nn</td><td>x1 nn nn</td><td>12</td><td>––</td><td>rr=nn (rr may be BC,DE,HL or SP)</td></tr>
+<tr><td>ld   (nn),SP</td><td>08 nn nn</td><td>20</td><td>––</td><td>(nn)=SP</td></tr>
+<tr><td>ld   SP,HL</td><td>F9</td><td>8</td><td>––</td><td>SP=HL</td></tr>
+<tr><td>push rr</td><td>x5</td><td>16</td><td>––</td><td>SP=SP-2  (SP)=rr ; rr may be BC,DE,HL,AF</td></tr>
 <tr><td>pop  rr</td><td>x1</td><td>12</td><td>(AF)</td><td>rr=(SP)  SP=SP+2 ; rr may be BC,DE,HL,AF</td></tr>
 </tbody></table>
 <h2 id="8-bit-arithmeticlogic-instructions"><a class="header" href="#8-bit-arithmeticlogic-instructions">8-bit Arithmetic/Logic instructions</a></h2>
@@ -3092,8 +3092,8 @@ called “M-cycles”.</p>
 <h2 id="16-bit-arithmeticlogic-instructions"><a class="header" href="#16-bit-arithmeticlogic-instructions">16-bit Arithmetic/Logic instructions</a></h2>
 <table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
 <tr><td>add  HL,rr</td><td>x9</td><td>8</td><td>-0hc</td><td>HL = HL+rr     ; rr may be BC,DE,HL,SP</td></tr>
-<tr><td>inc  rr</td><td>x3</td><td>8</td><td>----</td><td>rr = rr+1      ; rr may be BC,DE,HL,SP</td></tr>
-<tr><td>dec  rr</td><td>xB</td><td>8</td><td>----</td><td>rr = rr-1      ; rr may be BC,DE,HL,SP</td></tr>
+<tr><td>inc  rr</td><td>x3</td><td>8</td><td>––</td><td>rr = rr+1      ; rr may be BC,DE,HL,SP</td></tr>
+<tr><td>dec  rr</td><td>xB</td><td>8</td><td>––</td><td>rr = rr-1      ; rr may be BC,DE,HL,SP</td></tr>
 <tr><td>add  SP,dd</td><td>E8</td><td>16</td><td>00hc</td><td>SP = SP +/- dd ; dd is 8-bit signed number</td></tr>
 <tr><td>ld   HL,SP+dd</td><td>F8</td><td>12</td><td>00hc</td><td>HL = SP +/- dd ; dd is 8-bit signed number</td></tr>
 </tbody></table>
@@ -3124,34 +3124,34 @@ called “M-cycles”.</p>
 <table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
 <tr><td>bit  n,r</td><td>CB xx</td><td>8</td><td>z01-</td><td>test bit n</td></tr>
 <tr><td>bit  n,(HL)</td><td>CB xx</td><td>12</td><td>z01-</td><td>test bit n</td></tr>
-<tr><td>set  n,r</td><td>CB xx</td><td>8</td><td>----</td><td>set bit n</td></tr>
-<tr><td>set  n,(HL)</td><td>CB xx</td><td>16</td><td>----</td><td>set bit n</td></tr>
-<tr><td>res  n,r</td><td>CB xx</td><td>8</td><td>----</td><td>reset bit n</td></tr>
-<tr><td>res  n,(HL)</td><td>CB xx</td><td>16</td><td>----</td><td>reset bit n</td></tr>
+<tr><td>set  n,r</td><td>CB xx</td><td>8</td><td>––</td><td>set bit n</td></tr>
+<tr><td>set  n,(HL)</td><td>CB xx</td><td>16</td><td>––</td><td>set bit n</td></tr>
+<tr><td>res  n,r</td><td>CB xx</td><td>8</td><td>––</td><td>reset bit n</td></tr>
+<tr><td>res  n,(HL)</td><td>CB xx</td><td>16</td><td>––</td><td>reset bit n</td></tr>
 </tbody></table>
 <h2 id="cpu-control-instructions"><a class="header" href="#cpu-control-instructions">CPU Control instructions</a></h2>
 <table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
 <tr><td>ccf</td><td>3F</td><td>4</td><td>-00c</td><td>cy=cy xor 1</td></tr>
 <tr><td>scf</td><td>37</td><td>4</td><td>-001</td><td>cy=1</td></tr>
-<tr><td>nop</td><td>00</td><td>4</td><td>----</td><td>no operation</td></tr>
-<tr><td>halt</td><td>76</td><td>N*4</td><td>----</td><td>halt until interrupt occurs (low power)</td></tr>
-<tr><td>stop</td><td>10 00</td><td>?</td><td>----</td><td>low power standby mode (VERY low power)</td></tr>
-<tr><td>di</td><td>F3</td><td>4</td><td>----</td><td>disable interrupts, IME=0</td></tr>
-<tr><td>ei</td><td>FB</td><td>4</td><td>----</td><td>enable interrupts, IME=1</td></tr>
+<tr><td>nop</td><td>00</td><td>4</td><td>––</td><td>no operation</td></tr>
+<tr><td>halt</td><td>76</td><td>N*4</td><td>––</td><td>halt until interrupt occurs (low power)</td></tr>
+<tr><td>stop</td><td>10 00</td><td>?</td><td>––</td><td>low power standby mode (VERY low power)</td></tr>
+<tr><td>di</td><td>F3</td><td>4</td><td>––</td><td>disable interrupts, IME=0</td></tr>
+<tr><td>ei</td><td>FB</td><td>4</td><td>––</td><td>enable interrupts, IME=1</td></tr>
 </tbody></table>
 <h2 id="jump-instructions"><a class="header" href="#jump-instructions">Jump instructions</a></h2>
 <table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
-<tr><td>jp   nn</td><td>C3 nn nn</td><td>16</td><td>----</td><td>jump to nn, PC=nn</td></tr>
-<tr><td>jp   HL</td><td>E9</td><td>4</td><td>----</td><td>jump to HL, PC=HL</td></tr>
-<tr><td>jp   f,nn</td><td>xx nn nn</td><td>16/12</td><td>----</td><td>conditional jump if nz,z,nc,c</td></tr>
-<tr><td>jr   PC+dd</td><td>18 dd</td><td>12</td><td>----</td><td>relative jump to nn (PC=PC+8-bit signed)</td></tr>
-<tr><td>jr   f,PC+dd</td><td>xx dd</td><td>12/8</td><td>----</td><td>conditional relative jump if nz,z,nc,c</td></tr>
-<tr><td>call nn</td><td>CD nn nn</td><td>24</td><td>----</td><td>call to nn, SP=SP-2, (SP)=PC, PC=nn</td></tr>
-<tr><td>call f,nn</td><td>xx nn nn</td><td>24/12</td><td>----</td><td>conditional call if nz,z,nc,c</td></tr>
-<tr><td>ret</td><td>C9</td><td>16</td><td>----</td><td>return, PC=(SP), SP=SP+2</td></tr>
-<tr><td>ret  f</td><td>xx</td><td>20/8</td><td>----</td><td>conditional return if nz,z,nc,c</td></tr>
-<tr><td>reti</td><td>D9</td><td>16</td><td>----</td><td>return and enable interrupts (IME=1)</td></tr>
-<tr><td>rst  n</td><td>xx</td><td>16</td><td>----</td><td>call to 00,08,10,18,20,28,30,38</td></tr>
+<tr><td>jp   nn</td><td>C3 nn nn</td><td>16</td><td>––</td><td>jump to nn, PC=nn</td></tr>
+<tr><td>jp   HL</td><td>E9</td><td>4</td><td>––</td><td>jump to HL, PC=HL</td></tr>
+<tr><td>jp   f,nn</td><td>xx nn nn</td><td>16/12</td><td>––</td><td>conditional jump if nz,z,nc,c</td></tr>
+<tr><td>jr   PC+dd</td><td>18 dd</td><td>12</td><td>––</td><td>relative jump to nn (PC=PC+8-bit signed)</td></tr>
+<tr><td>jr   f,PC+dd</td><td>xx dd</td><td>12/8</td><td>––</td><td>conditional relative jump if nz,z,nc,c</td></tr>
+<tr><td>call nn</td><td>CD nn nn</td><td>24</td><td>––</td><td>call to nn, SP=SP-2, (SP)=PC, PC=nn</td></tr>
+<tr><td>call f,nn</td><td>xx nn nn</td><td>24/12</td><td>––</td><td>conditional call if nz,z,nc,c</td></tr>
+<tr><td>ret</td><td>C9</td><td>16</td><td>––</td><td>return, PC=(SP), SP=SP+2</td></tr>
+<tr><td>ret  f</td><td>xx</td><td>20/8</td><td>––</td><td>conditional return if nz,z,nc,c</td></tr>
+<tr><td>reti</td><td>D9</td><td>16</td><td>––</td><td>return and enable interrupts (IME=1)</td></tr>
+<tr><td>rst  n</td><td>xx</td><td>16</td><td>––</td><td>call to 00,08,10,18,20,28,30,38</td></tr>
 </tbody></table>
 <div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="cpu-comparison-with-z80"><a class="header" href="#cpu-comparison-with-z80">CPU Comparison with Z80</a></h1>
 <h2 id="comparison-with-8080"><a class="header" href="#comparison-with-8080">Comparison with 8080</a></h2>
@@ -3251,7 +3251,7 @@ values are:</p>
 </code></pre>
 <p>Values with Bit 7 set, and either Bit 2 or 3 set, will switch the
 Game Boy into a special non-CGB-mode called “PGB mode”.</p>
-<p>TODO: research and document PGB modes...</p>
+<p>TODO: research and document PGB modes…</p>
 <h2 id="0144-0145---new-licensee-code"><a class="header" href="#0144-0145---new-licensee-code">0144-0145 - New Licensee Code</a></h2>
 <p>Specifies a two-character ASCII licensee code, indicating the company or
 publisher of the game. These two bytes are used in newer games only
@@ -3338,16 +3338,16 @@ cartridge, and if further external hardware exists in the cartridge.</p>
 <tr><td>$03</td><td>MBC1+RAM+BATTERY</td></tr>
 <tr><td>$05</td><td>MBC2</td></tr>
 <tr><td>$06</td><td>MBC2+BATTERY</td></tr>
-<tr><td>$08</td><td>ROM+RAM *</td></tr>
-<tr><td>$09</td><td>ROM+RAM+BATTERY *</td></tr>
+<tr><td>$08</td><td>ROM+RAM <sup class="footnote-reference"><a href="#rom_ram">1</a></sup></td></tr>
+<tr><td>$09</td><td>ROM+RAM+BATTERY <sup class="footnote-reference"><a href="#rom_ram">1</a></sup></td></tr>
 <tr><td>$0B</td><td>MMM01</td></tr>
 <tr><td>$0C</td><td>MMM01+RAM</td></tr>
 <tr><td>$0D</td><td>MMM01+RAM+BATTERY</td></tr>
 <tr><td>$0F</td><td>MBC3+TIMER+BATTERY</td></tr>
-<tr><td>$10</td><td>MBC3+TIMER+RAM+BATTERY **</td></tr>
+<tr><td>$10</td><td>MBC3+TIMER+RAM+BATTERY <sup class="footnote-reference"><a href="#mbc30">2</a></sup></td></tr>
 <tr><td>$11</td><td>MBC3</td></tr>
-<tr><td>$12</td><td>MBC3+RAM **</td></tr>
-<tr><td>$13</td><td>MBC3+RAM+BATTERY **</td></tr>
+<tr><td>$12</td><td>MBC3+RAM <sup class="footnote-reference"><a href="#mbc30">2</a></sup></td></tr>
+<tr><td>$13</td><td>MBC3+RAM+BATTERY <sup class="footnote-reference"><a href="#mbc30">2</a></sup></td></tr>
 <tr><td>$19</td><td>MBC5</td></tr>
 <tr><td>$1A</td><td>MBC5+RAM</td></tr>
 <tr><td>$1B</td><td>MBC5+RAM+BATTERY</td></tr>
@@ -3361,8 +3361,12 @@ cartridge, and if further external hardware exists in the cartridge.</p>
 <tr><td>$FE</td><td>HuC3</td></tr>
 <tr><td>$FF</td><td>HuC1+RAM+BATTERY</td></tr>
 </tbody></table>
-<p>* No licensed cartridge makes use of this option. Exact behaviour is unknown.<br />
-** MBC3 with RAM size 64 KByte refers to MBC30, used only in <em>Pocket Monsters Crystal Version</em> for Japan.</p>
+<div class="footnote-definition" id="rom_ram"><sup class="footnote-definition-label">1</sup>
+<p>No licensed cartridge makes use of this option. Exact behaviour is unknown.</p>
+</div>
+<div class="footnote-definition" id="mbc30"><sup class="footnote-definition-label">2</sup>
+<p>MBC3 with RAM size 64 KByte refers to MBC30, used only in <em>Pocket Monsters Crystal Version</em> for Japan.</p>
+</div>
 <h2 id="0148---rom-size"><a class="header" href="#0148---rom-size">0148 - ROM Size</a></h2>
 <p>Specifies the ROM Size of the cartridge. Typically calculated as “N such that 32 KiB
 &lt;&lt; N”.</p>
@@ -3376,28 +3380,34 @@ cartridge, and if further external hardware exists in the cartridge.</p>
 <tr><td>$06</td><td>2 MByte</td><td>128</td></tr>
 <tr><td>$07</td><td>4 MByte</td><td>256</td></tr>
 <tr><td>$08</td><td>8 MByte</td><td>512</td></tr>
-<tr><td>$52</td><td>1.1 MByte</td><td>72 *</td></tr>
-<tr><td>$53</td><td>1.2 MByte</td><td>80 *</td></tr>
-<tr><td>$54</td><td>1.5 MByte</td><td>96 *</td></tr>
+<tr><td>$52</td><td>1.1 MByte</td><td>72 <sup class="footnote-reference"><a href="#weird_rom_sizes">3</a></sup></td></tr>
+<tr><td>$53</td><td>1.2 MByte</td><td>80 <sup class="footnote-reference"><a href="#weird_rom_sizes">3</a></sup></td></tr>
+<tr><td>$54</td><td>1.5 MByte</td><td>96 <sup class="footnote-reference"><a href="#weird_rom_sizes">3</a></sup></td></tr>
 </tbody></table>
-<p>* Only listed in unofficial docs. No cartridges or ROM files using these sizes are known.
+<div class="footnote-definition" id="weird_rom_sizes"><sup class="footnote-definition-label">3</sup>
+<p>Only listed in unofficial docs. No cartridges or ROM files using these sizes are known.
 As the other ROM sizes are all powers of 2, these are likely inaccurate. The source for these
 values is unknown.</p>
+</div>
 <h2 id="0149---ram-size"><a class="header" href="#0149---ram-size">0149 - RAM Size</a></h2>
 <p>Specifies the size of the external RAM in the cartridge (if any).</p>
 <table><thead><tr><th>Code</th><th>Size</th><th>Comment</th></tr></thead><tbody>
-<tr><td>$00</td><td>0</td><td>No RAM *</td></tr>
-<tr><td>$01</td><td>-</td><td>Unused **</td></tr>
+<tr><td>$00</td><td>0</td><td>No RAM <sup class="footnote-reference"><a href="#mbc2">4</a></sup></td></tr>
+<tr><td>$01</td><td>-</td><td>Unused <sup class="footnote-reference"><a href="#2kib_sram">5</a></sup></td></tr>
 <tr><td>$02</td><td>8 KB</td><td>1 bank</td></tr>
 <tr><td>$03</td><td>32 KB</td><td>4 banks of 8 KB each</td></tr>
 <tr><td>$04</td><td>128 KB</td><td>16 banks of 8 KB each</td></tr>
 <tr><td>$05</td><td>64 KB</td><td>8 banks of 8 KB each</td></tr>
 </tbody></table>
-<p>* When using a MBC2 chip, $00 must be specified as the RAM Size, even though
+<div class="footnote-definition" id="mbc2"><sup class="footnote-definition-label">4</sup>
+<p>When using a MBC2 chip, $00 must be specified as the RAM Size, even though
 the MBC2 includes a built-in RAM of 512 x 4 bits.</p>
-<p>** Listed in various unofficial docs as 2KB. However, a 2KB RAM chip was never used in a cartridge.
+</div>
+<div class="footnote-definition" id="2kib_sram"><sup class="footnote-definition-label">5</sup>
+<p>Listed in various unofficial docs as 2KB. However, a 2KB RAM chip was never used in a cartridge.
 The source for this value is unknown.</p>
-<p>Various “PD” ROMs (”Public Domain” homebrew ROMs generally tagged “(PD)”
+</div>
+<p>Various “PD” ROMs (“Public Domain” homebrew ROMs generally tagged “(PD)”
 in the filename) are known to use the $01 RAM Size tag, but this is believed
 to have been a mistake with early homebrew tools and the PD ROMs often don’t use
 cartridge RAM at all.</p>
@@ -3531,7 +3541,7 @@ between the two modes at any time.</p>
 01 = RAM Banking Mode / Advanced ROM Banking Mode
 </code></pre>
 <p>In mode 0, the 2-bit secondary banking register can only affect the
-4000-7FFF banked ROM area. If the cart is a “small ROM”/”large RAM” cart
+4000-7FFF banked ROM area. If the cart is a “small ROM”/“large RAM” cart
 (&lt; 1 MiB ROM, &gt; 8 KiB RAM) then 4000-7FFF is unaffected by this register anyway,
 so the practical effect is that RAM banking is disabled and A000-BFFF is
 locked to only be able to access bank 0 of RAM, with the 2-bit secondary
@@ -3599,7 +3609,7 @@ value that is written controls whether the RAM is enabled. When the
 value written to this address range is equal to <code>0Ah</code>, RAM is enabled.
 If any other value is written, RAM is disabled.</p>
 <p>Examples of address that can control RAM: 0000-00FF, 0200-02FF,
-0400-04FF, ..., 3E00-3EFF.</p>
+0400-04FF, …, 3E00-3EFF.</p>
 <p>RAM is disabled by default.</p>
 <h4 id="when-bit-8-is-set"><a class="header" href="#when-bit-8-is-set">When Bit 8 is Set</a></h4>
 <p>When the least significant bit of the upper address byte is one, the
@@ -3608,7 +3618,7 @@ value that is written controls the selected ROM bank at 4000-7FFF.</p>
 range specify the ROM bank number. If bank 0 is written, the resulting
 bank will be bank 1 instead.</p>
 <p>Examples of address that can control ROM: 0100-01FF, 0300-03FF,
-0500-05FF, ..., 3F00-3FFF.</p>
+0500-05FF, …, 3F00-3FFF.</p>
 <p>The ROM bank is set to 1 by default.</p>
 <div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="mbc3"><a class="header" href="#mbc3">MBC3</a></h1>
 <p>(max 2MByte ROM and/or 32KByte RAM and Timer)</p>
@@ -3995,7 +4005,7 @@ two unusual properties:</p>
 <p>First, unlike a usual MBC, it switches the whole 32 kiB ROM area instead
 of just the $4000-$7FFF area. If you want to use the interrupt vectors
 with this cart, you should duplicate them across all banks.
-Additionally, since the initial state of the ‘377 can’t be guaranteed,
+Additionally, since the initial state of the ’377 can’t be guaranteed,
 the ROM header and some code for switching to a known bank should also
 be included in every bank. This also means that the Wisdom Tree mapper
 could be used as a multicart mapper for 32 kiB ROMs, assuming there was
@@ -4011,7 +4021,7 @@ last 5 bytes of all banks are unused, games can be patched as follows:</p>
   ld [hl], a
   jp hl
 </code></pre>
-<p>Second, because the ‘377 latches data on the <em>positive</em> edge, and the
+<p>Second, because the ’377 latches data on the <em>positive</em> edge, and the
 value on the Game Boy data bus is no longer valid when the positive edge
 of the write pulse arrives, the designer of this mapper chose to use the
 A7-A0 address lines for selecting a bank instead of the data lines.
@@ -4038,7 +4048,7 @@ mappers are encouraged to support detection of these values in addition
 to the values described in each section, which are heuristics based on
 ROMs in the wild, which may not always be suitable for newly produced
 software. The values are deliberately chosen to be high entropy
-(”random”) such that the risk of an accidental false positive is
+(“random”) such that the risk of an accidental false positive is
 unlikely.</p>
 <ul>
 <li>$0147 = $c0, $014a = $d1 -&gt; Detect as Wisdom Tree</li>
@@ -4902,7 +4912,7 @@ with one large and one small plug though.</p>
 <tr><td>Base</td><td>Ground</td></tr>
 </tbody></table>
 <h2 id="external-power-supply"><a class="header" href="#external-power-supply">External Power Supply</a></h2>
-<p>...</p>
+<p>…</p>
 <div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="gbc-approval-process"><a class="header" href="#gbc-approval-process">GBC Approval Process</a></h1>
 <p>Game Boy Color hardware applies automatic colorization to monochrome
 games, with one 4-color palette for backgrounds and two 3-color

@@ -218,7 +218,7 @@ two unusual properties:</p>
 <p>First, unlike a usual MBC, it switches the whole 32 kiB ROM area instead
 of just the $4000-$7FFF area. If you want to use the interrupt vectors
 with this cart, you should duplicate them across all banks.
-Additionally, since the initial state of the ‘377 can’t be guaranteed,
+Additionally, since the initial state of the ’377 can’t be guaranteed,
 the ROM header and some code for switching to a known bank should also
 be included in every bank. This also means that the Wisdom Tree mapper
 could be used as a multicart mapper for 32 kiB ROMs, assuming there was
@@ -234,7 +234,7 @@ last 5 bytes of all banks are unused, games can be patched as follows:</p>
   ld [hl], a
   jp hl
 </code></pre>
-<p>Second, because the ‘377 latches data on the <em>positive</em> edge, and the
+<p>Second, because the ’377 latches data on the <em>positive</em> edge, and the
 value on the Game Boy data bus is no longer valid when the positive edge
 of the write pulse arrives, the designer of this mapper chose to use the
 A7-A0 address lines for selecting a bank instead of the data lines.
@@ -261,7 +261,7 @@ mappers are encouraged to support detection of these values in addition
 to the values described in each section, which are heuristics based on
 ROMs in the wild, which may not always be suitable for newly produced
 software. The values are deliberately chosen to be high entropy
-(”random”) such that the risk of an accidental false positive is
+(“random”) such that the risk of an accidental false positive is
 unlikely.</p>
 <ul>
 <li>$0147 = $c0, $014a = $d1 -&gt; Detect as Wisdom Tree</li>

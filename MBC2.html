@@ -206,7 +206,7 @@ value that is written controls whether the RAM is enabled. When the
 value written to this address range is equal to <code>0Ah</code>, RAM is enabled.
 If any other value is written, RAM is disabled.</p>
 <p>Examples of address that can control RAM: 0000-00FF, 0200-02FF,
-0400-04FF, ..., 3E00-3EFF.</p>
+0400-04FF, …, 3E00-3EFF.</p>
 <p>RAM is disabled by default.</p>
 <h4 id="when-bit-8-is-set"><a class="header" href="#when-bit-8-is-set">When Bit 8 is Set</a></h4>
 <p>When the least significant bit of the upper address byte is one, the
@@ -215,7 +215,7 @@ value that is written controls the selected ROM bank at 4000-7FFF.</p>
 range specify the ROM bank number. If bank 0 is written, the resulting
 bank will be bank 1 instead.</p>
 <p>Examples of address that can control ROM: 0100-01FF, 0300-03FF,
-0500-05FF, ..., 3F00-3FFF.</p>
+0500-05FF, …, 3F00-3FFF.</p>
 <p>The ROM bank is set to 1 by default.</p>
 
                     </main>

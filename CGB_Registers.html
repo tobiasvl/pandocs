@@ -313,7 +313,7 @@ would be recommended to use Single Speed whenever possible.</p>
 </ul>
 <p>The CPU stops for 2050 cycles (= 8200 clocks) after the <code>stop</code> instruction is
 executed. During this time, the CPU is in a strange state. <code>DIV</code> does not tick, so
-<em>some</em> audio events are not processed. Additionally, VRAM/OAM/... locking is “frozen”, yielding
+<em>some</em> audio events are not processed. Additionally, VRAM/OAM/… locking is “frozen”, yielding
 different results depending on the <a href="STAT.html#ff41---stat-lcd-status-rw">STAT mode</a> it’s started in:</p>
 <ul>
 <li>HBlank / VBlank (Mode 0 / Mode 1): The PPU cannot access any videomemory, and produces black pixels</li>

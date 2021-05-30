@@ -184,32 +184,32 @@ by 4, many people specify timings and clock frequency divided by 4,
 called “M-cycles”.</p>
 <h2 id="8-bit-load-instructions"><a class="header" href="#8-bit-load-instructions">8-bit Load instructions</a></h2>
 <table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
-<tr><td>ld   r,r</td><td>xx</td><td>4</td><td>----</td><td>r=r</td></tr>
-<tr><td>ld   r,n</td><td>xx nn</td><td>8</td><td>----</td><td>r=n</td></tr>
-<tr><td>ld   r,(HL)</td><td>xx</td><td>8</td><td>----</td><td>r=(HL)</td></tr>
-<tr><td>ld   (HL),r</td><td>7x</td><td>8</td><td>----</td><td>(HL)=r</td></tr>
-<tr><td>ld   (HL),n</td><td>36 nn</td><td>12</td><td>----</td><td>(HL)=n</td></tr>
-<tr><td>ld   A,(BC)</td><td>0A</td><td>8</td><td>----</td><td>A=(BC)</td></tr>
-<tr><td>ld   A,(DE)</td><td>1A</td><td>8</td><td>----</td><td>A=(DE)</td></tr>
-<tr><td>ld   A,(nn)</td><td>FA</td><td>16</td><td>----</td><td>A=(nn)</td></tr>
-<tr><td>ld   (BC),A</td><td>02</td><td>8</td><td>----</td><td>(BC)=A</td></tr>
-<tr><td>ld   (DE),A</td><td>12</td><td>8</td><td>----</td><td>(DE)=A</td></tr>
-<tr><td>ld   (nn),A</td><td>EA</td><td>16</td><td>----</td><td>(nn)=A</td></tr>
-<tr><td>ld   A,(FF00+n)</td><td>F0 nn</td><td>12</td><td>----</td><td>read from io-port n (memory FF00+n)</td></tr>
-<tr><td>ld   (FF00+n),A</td><td>E0 nn</td><td>12</td><td>----</td><td>write to io-port n (memory FF00+n)</td></tr>
-<tr><td>ld   A,(FF00+C)</td><td>F2</td><td>8</td><td>----</td><td>read from io-port C (memory FF00+C)</td></tr>
-<tr><td>ld   (FF00+C),A</td><td>E2</td><td>8</td><td>----</td><td>write to io-port C (memory FF00+C)</td></tr>
-<tr><td>ldi  (HL),A</td><td>22</td><td>8</td><td>----</td><td>(HL)=A, HL=HL+1</td></tr>
-<tr><td>ldi  A,(HL)</td><td>2A</td><td>8</td><td>----</td><td>A=(HL), HL=HL+1</td></tr>
-<tr><td>ldd  (HL),A</td><td>32</td><td>8</td><td>----</td><td>(HL)=A, HL=HL-1</td></tr>
-<tr><td>ldd  A,(HL)</td><td>3A</td><td>8</td><td>----</td><td>A=(HL), HL=HL-1</td></tr>
+<tr><td>ld   r,r</td><td>xx</td><td>4</td><td>––</td><td>r=r</td></tr>
+<tr><td>ld   r,n</td><td>xx nn</td><td>8</td><td>––</td><td>r=n</td></tr>
+<tr><td>ld   r,(HL)</td><td>xx</td><td>8</td><td>––</td><td>r=(HL)</td></tr>
+<tr><td>ld   (HL),r</td><td>7x</td><td>8</td><td>––</td><td>(HL)=r</td></tr>
+<tr><td>ld   (HL),n</td><td>36 nn</td><td>12</td><td>––</td><td>(HL)=n</td></tr>
+<tr><td>ld   A,(BC)</td><td>0A</td><td>8</td><td>––</td><td>A=(BC)</td></tr>
+<tr><td>ld   A,(DE)</td><td>1A</td><td>8</td><td>––</td><td>A=(DE)</td></tr>
+<tr><td>ld   A,(nn)</td><td>FA</td><td>16</td><td>––</td><td>A=(nn)</td></tr>
+<tr><td>ld   (BC),A</td><td>02</td><td>8</td><td>––</td><td>(BC)=A</td></tr>
+<tr><td>ld   (DE),A</td><td>12</td><td>8</td><td>––</td><td>(DE)=A</td></tr>
+<tr><td>ld   (nn),A</td><td>EA</td><td>16</td><td>––</td><td>(nn)=A</td></tr>
+<tr><td>ld   A,(FF00+n)</td><td>F0 nn</td><td>12</td><td>––</td><td>read from io-port n (memory FF00+n)</td></tr>
+<tr><td>ld   (FF00+n),A</td><td>E0 nn</td><td>12</td><td>––</td><td>write to io-port n (memory FF00+n)</td></tr>
+<tr><td>ld   A,(FF00+C)</td><td>F2</td><td>8</td><td>––</td><td>read from io-port C (memory FF00+C)</td></tr>
+<tr><td>ld   (FF00+C),A</td><td>E2</td><td>8</td><td>––</td><td>write to io-port C (memory FF00+C)</td></tr>
+<tr><td>ldi  (HL),A</td><td>22</td><td>8</td><td>––</td><td>(HL)=A, HL=HL+1</td></tr>
+<tr><td>ldi  A,(HL)</td><td>2A</td><td>8</td><td>––</td><td>A=(HL), HL=HL+1</td></tr>
+<tr><td>ldd  (HL),A</td><td>32</td><td>8</td><td>––</td><td>(HL)=A, HL=HL-1</td></tr>
+<tr><td>ldd  A,(HL)</td><td>3A</td><td>8</td><td>––</td><td>A=(HL), HL=HL-1</td></tr>
 </tbody></table>
 <h2 id="16-bit-load-instructions"><a class="header" href="#16-bit-load-instructions">16-bit Load instructions</a></h2>
 <table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
-<tr><td>ld   rr,nn</td><td>x1 nn nn</td><td>12</td><td>----</td><td>rr=nn (rr may be BC,DE,HL or SP)</td></tr>
-<tr><td>ld   (nn),SP</td><td>08 nn nn</td><td>20</td><td>----</td><td>(nn)=SP</td></tr>
-<tr><td>ld   SP,HL</td><td>F9</td><td>8</td><td>----</td><td>SP=HL</td></tr>
-<tr><td>push rr</td><td>x5</td><td>16</td><td>----</td><td>SP=SP-2  (SP)=rr ; rr may be BC,DE,HL,AF</td></tr>
+<tr><td>ld   rr,nn</td><td>x1 nn nn</td><td>12</td><td>––</td><td>rr=nn (rr may be BC,DE,HL or SP)</td></tr>
+<tr><td>ld   (nn),SP</td><td>08 nn nn</td><td>20</td><td>––</td><td>(nn)=SP</td></tr>
+<tr><td>ld   SP,HL</td><td>F9</td><td>8</td><td>––</td><td>SP=HL</td></tr>
+<tr><td>push rr</td><td>x5</td><td>16</td><td>––</td><td>SP=SP-2  (SP)=rr ; rr may be BC,DE,HL,AF</td></tr>
 <tr><td>pop  rr</td><td>x1</td><td>12</td><td>(AF)</td><td>rr=(SP)  SP=SP+2 ; rr may be BC,DE,HL,AF</td></tr>
 </tbody></table>
 <h2 id="8-bit-arithmeticlogic-instructions"><a class="header" href="#8-bit-arithmeticlogic-instructions">8-bit Arithmetic/Logic instructions</a></h2>
@@ -248,8 +248,8 @@ called “M-cycles”.</p>
 <h2 id="16-bit-arithmeticlogic-instructions"><a class="header" href="#16-bit-arithmeticlogic-instructions">16-bit Arithmetic/Logic instructions</a></h2>
 <table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
 <tr><td>add  HL,rr</td><td>x9</td><td>8</td><td>-0hc</td><td>HL = HL+rr     ; rr may be BC,DE,HL,SP</td></tr>
-<tr><td>inc  rr</td><td>x3</td><td>8</td><td>----</td><td>rr = rr+1      ; rr may be BC,DE,HL,SP</td></tr>
-<tr><td>dec  rr</td><td>xB</td><td>8</td><td>----</td><td>rr = rr-1      ; rr may be BC,DE,HL,SP</td></tr>
+<tr><td>inc  rr</td><td>x3</td><td>8</td><td>––</td><td>rr = rr+1      ; rr may be BC,DE,HL,SP</td></tr>
+<tr><td>dec  rr</td><td>xB</td><td>8</td><td>––</td><td>rr = rr-1      ; rr may be BC,DE,HL,SP</td></tr>
 <tr><td>add  SP,dd</td><td>E8</td><td>16</td><td>00hc</td><td>SP = SP +/- dd ; dd is 8-bit signed number</td></tr>
 <tr><td>ld   HL,SP+dd</td><td>F8</td><td>12</td><td>00hc</td><td>HL = SP +/- dd ; dd is 8-bit signed number</td></tr>
 </tbody></table>
@@ -280,34 +280,34 @@ called “M-cycles”.</p>
 <table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
 <tr><td>bit  n,r</td><td>CB xx</td><td>8</td><td>z01-</td><td>test bit n</td></tr>
 <tr><td>bit  n,(HL)</td><td>CB xx</td><td>12</td><td>z01-</td><td>test bit n</td></tr>
-<tr><td>set  n,r</td><td>CB xx</td><td>8</td><td>----</td><td>set bit n</td></tr>
-<tr><td>set  n,(HL)</td><td>CB xx</td><td>16</td><td>----</td><td>set bit n</td></tr>
-<tr><td>res  n,r</td><td>CB xx</td><td>8</td><td>----</td><td>reset bit n</td></tr>
-<tr><td>res  n,(HL)</td><td>CB xx</td><td>16</td><td>----</td><td>reset bit n</td></tr>
+<tr><td>set  n,r</td><td>CB xx</td><td>8</td><td>––</td><td>set bit n</td></tr>
+<tr><td>set  n,(HL)</td><td>CB xx</td><td>16</td><td>––</td><td>set bit n</td></tr>
+<tr><td>res  n,r</td><td>CB xx</td><td>8</td><td>––</td><td>reset bit n</td></tr>
+<tr><td>res  n,(HL)</td><td>CB xx</td><td>16</td><td>––</td><td>reset bit n</td></tr>
 </tbody></table>
 <h2 id="cpu-control-instructions"><a class="header" href="#cpu-control-instructions">CPU Control instructions</a></h2>
 <table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
 <tr><td>ccf</td><td>3F</td><td>4</td><td>-00c</td><td>cy=cy xor 1</td></tr>
 <tr><td>scf</td><td>37</td><td>4</td><td>-001</td><td>cy=1</td></tr>
-<tr><td>nop</td><td>00</td><td>4</td><td>----</td><td>no operation</td></tr>
-<tr><td>halt</td><td>76</td><td>N*4</td><td>----</td><td>halt until interrupt occurs (low power)</td></tr>
-<tr><td>stop</td><td>10 00</td><td>?</td><td>----</td><td>low power standby mode (VERY low power)</td></tr>
-<tr><td>di</td><td>F3</td><td>4</td><td>----</td><td>disable interrupts, IME=0</td></tr>
-<tr><td>ei</td><td>FB</td><td>4</td><td>----</td><td>enable interrupts, IME=1</td></tr>
+<tr><td>nop</td><td>00</td><td>4</td><td>––</td><td>no operation</td></tr>
+<tr><td>halt</td><td>76</td><td>N*4</td><td>––</td><td>halt until interrupt occurs (low power)</td></tr>
+<tr><td>stop</td><td>10 00</td><td>?</td><td>––</td><td>low power standby mode (VERY low power)</td></tr>
+<tr><td>di</td><td>F3</td><td>4</td><td>––</td><td>disable interrupts, IME=0</td></tr>
+<tr><td>ei</td><td>FB</td><td>4</td><td>––</td><td>enable interrupts, IME=1</td></tr>
 </tbody></table>
 <h2 id="jump-instructions"><a class="header" href="#jump-instructions">Jump instructions</a></h2>
 <table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
-<tr><td>jp   nn</td><td>C3 nn nn</td><td>16</td><td>----</td><td>jump to nn, PC=nn</td></tr>
-<tr><td>jp   HL</td><td>E9</td><td>4</td><td>----</td><td>jump to HL, PC=HL</td></tr>
-<tr><td>jp   f,nn</td><td>xx nn nn</td><td>16/12</td><td>----</td><td>conditional jump if nz,z,nc,c</td></tr>
-<tr><td>jr   PC+dd</td><td>18 dd</td><td>12</td><td>----</td><td>relative jump to nn (PC=PC+8-bit signed)</td></tr>
-<tr><td>jr   f,PC+dd</td><td>xx dd</td><td>12/8</td><td>----</td><td>conditional relative jump if nz,z,nc,c</td></tr>
-<tr><td>call nn</td><td>CD nn nn</td><td>24</td><td>----</td><td>call to nn, SP=SP-2, (SP)=PC, PC=nn</td></tr>
-<tr><td>call f,nn</td><td>xx nn nn</td><td>24/12</td><td>----</td><td>conditional call if nz,z,nc,c</td></tr>
-<tr><td>ret</td><td>C9</td><td>16</td><td>----</td><td>return, PC=(SP), SP=SP+2</td></tr>
-<tr><td>ret  f</td><td>xx</td><td>20/8</td><td>----</td><td>conditional return if nz,z,nc,c</td></tr>
-<tr><td>reti</td><td>D9</td><td>16</td><td>----</td><td>return and enable interrupts (IME=1)</td></tr>
-<tr><td>rst  n</td><td>xx</td><td>16</td><td>----</td><td>call to 00,08,10,18,20,28,30,38</td></tr>
+<tr><td>jp   nn</td><td>C3 nn nn</td><td>16</td><td>––</td><td>jump to nn, PC=nn</td></tr>
+<tr><td>jp   HL</td><td>E9</td><td>4</td><td>––</td><td>jump to HL, PC=HL</td></tr>
+<tr><td>jp   f,nn</td><td>xx nn nn</td><td>16/12</td><td>––</td><td>conditional jump if nz,z,nc,c</td></tr>
+<tr><td>jr   PC+dd</td><td>18 dd</td><td>12</td><td>––</td><td>relative jump to nn (PC=PC+8-bit signed)</td></tr>
+<tr><td>jr   f,PC+dd</td><td>xx dd</td><td>12/8</td><td>––</td><td>conditional relative jump if nz,z,nc,c</td></tr>
+<tr><td>call nn</td><td>CD nn nn</td><td>24</td><td>––</td><td>call to nn, SP=SP-2, (SP)=PC, PC=nn</td></tr>
+<tr><td>call f,nn</td><td>xx nn nn</td><td>24/12</td><td>––</td><td>conditional call if nz,z,nc,c</td></tr>
+<tr><td>ret</td><td>C9</td><td>16</td><td>––</td><td>return, PC=(SP), SP=SP+2</td></tr>
+<tr><td>ret  f</td><td>xx</td><td>20/8</td><td>––</td><td>conditional return if nz,z,nc,c</td></tr>
+<tr><td>reti</td><td>D9</td><td>16</td><td>––</td><td>return and enable interrupts (IME=1)</td></tr>
+<tr><td>rst  n</td><td>xx</td><td>16</td><td>––</td><td>call to 00,08,10,18,20,28,30,38</td></tr>
 </tbody></table>
 
                     </main>
