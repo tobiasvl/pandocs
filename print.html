@@ -192,7 +192,7 @@ Emulator developers may be also interested in the <a href="https://gekkio.fi/fil
 <p>The <i class="fa fa-edit"></i> icon allows you to suggest an edit on the current page by directly opening the source file in the git repository.</p>
 <p>You can find a one-page printable version of Pan Docs <a href="https://gbdev.io/pandocs/print.html">here</a>. </p>
 <p><br><br>
-<small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/308ee4ee4c22c7f945b3c356a7d34272bf9abc8d"><code>308ee4e</code></a> (2021-07-06 14:35:30 +0200). </small></p>
+<small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/495734465be408899a3330a797cbf22e2fbdd408"><code>4957344</code></a> (2021-07-13 09:19:52 +0200). </small></p>
 <div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="acknowledgements"><a class="header" href="#acknowledgements">Acknowledgements</a></h1>
 <p>This resource wouldn’t be possible without all the passionate hackers and researchers who contributed on this document in the last three decades.</p>
 <p>We would like to thank everyone in the gbdev community for providing precious feedback, content, support and invaluable knowledge.</p>
@@ -3076,9 +3076,9 @@ called “M-cycles”.</p>
 <tr><td>xor  r</td><td>Ax</td><td>4</td><td>z000</td><td>A=A xor r</td></tr>
 <tr><td>xor  n</td><td>EE nn</td><td>8</td><td>z000</td><td>A=A xor n</td></tr>
 <tr><td>xor  (HL)</td><td>AE</td><td>8</td><td>z000</td><td>A=A xor (HL)</td></tr>
-<tr><td>or   r</td><td>Bx</td><td>4</td><td>z000</td><td>A=A</td></tr>
-<tr><td>or   n</td><td>F6 nn</td><td>8</td><td>z000</td><td>A=A</td></tr>
-<tr><td>or   (HL)</td><td>B6</td><td>8</td><td>z000</td><td>A=A</td></tr>
+<tr><td>or   r</td><td>Bx</td><td>4</td><td>z000</td><td>A=A | r</td></tr>
+<tr><td>or   n</td><td>F6 nn</td><td>8</td><td>z000</td><td>A=A | n</td></tr>
+<tr><td>or   (HL)</td><td>B6</td><td>8</td><td>z000</td><td>A=A | (HL)</td></tr>
 <tr><td>cp   r</td><td>Bx</td><td>4</td><td>z1hc</td><td>compare A-r</td></tr>
 <tr><td>cp   n</td><td>FE nn</td><td>8</td><td>z1hc</td><td>compare A-n</td></tr>
 <tr><td>cp   (HL)</td><td>BE</td><td>8</td><td>z1hc</td><td>compare A-(HL)</td></tr>
