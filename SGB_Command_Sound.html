@@ -1,0 +1,392 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Sound Functions - Pan Docs</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The single, most comprehensive technical reference to Game Boy available to the public.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="custom/style.css">
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><a href="About.html">Foreword</a></li><li class="chapter-item affix "><a href="Authors.html">Acknowledgements</a></li><li class="chapter-item affix "><a href="History.html">History</a></li><li class="spacer"></li><li class="chapter-item affix "><li class="part-title">Overview</li><li class="chapter-item "><a href="Specifications.html"><strong aria-hidden="true">1.</strong> Specifications</a></li><li class="chapter-item "><a href="Memory_Map.html"><strong aria-hidden="true">2.</strong> Memory Map</a></li><li class="chapter-item affix "><li class="part-title">I/O Ports</li><li class="chapter-item "><a href="Rendering.html"><strong aria-hidden="true">3.</strong> Rendering</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Tile_Data.html"><strong aria-hidden="true">3.1.</strong> Tile Data</a></li><li class="chapter-item "><a href="Tile_Maps.html"><strong aria-hidden="true">3.2.</strong> Tile Maps</a></li><li class="chapter-item "><a href="OAM.html"><strong aria-hidden="true">3.3.</strong> OAM</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="OAM_DMA_Transfer.html"><strong aria-hidden="true">3.3.1.</strong> OAM DMA Transfer</a></li></ol></li><li class="chapter-item "><a href="LCDC.html"><strong aria-hidden="true">3.4.</strong> LCD Control</a></li><li class="chapter-item "><a href="STAT.html"><strong aria-hidden="true">3.5.</strong> LCD Status</a></li><li class="chapter-item "><a href="Scrolling.html"><strong aria-hidden="true">3.6.</strong> Scrolling</a></li><li class="chapter-item "><a href="Palettes.html"><strong aria-hidden="true">3.7.</strong> Palettes</a></li><li class="chapter-item "><a href="pixel_fifo.html"><strong aria-hidden="true">3.8.</strong> Pixel FIFO</a></li></ol></li><li class="chapter-item "><a href="Sound_Controller.html"><strong aria-hidden="true">4.</strong> Sound Controller</a></li><li class="chapter-item "><a href="Joypad_Input.html"><strong aria-hidden="true">5.</strong> Joypad Input</a></li><li class="chapter-item "><a href="Serial_Data_Transfer_(Link_Cable).html"><strong aria-hidden="true">6.</strong> Serial Data Transfer</a></li><li class="chapter-item "><a href="Timer_and_Divider_Registers.html"><strong aria-hidden="true">7.</strong> Timer and Divider Registers</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Timer_Obscure_Behaviour.html"><strong aria-hidden="true">7.1.</strong> Timer Obscure Behaviour</a></li></ol></li><li class="chapter-item "><a href="Interrupts.html"><strong aria-hidden="true">8.</strong> Interrupts</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Interrupt_Sources.html"><strong aria-hidden="true">8.1.</strong> Interrupt Sources</a></li></ol></li><li class="chapter-item "><a href="CGB_Registers.html"><strong aria-hidden="true">9.</strong> CGB Registers</a></li><li class="chapter-item expanded "><a href="SGB_Functions.html"><strong aria-hidden="true">10.</strong> SGB Functions</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="SGB_Unlocking.html"><strong aria-hidden="true">10.1.</strong> Unlocking and Detecting SGB Functions</a></li><li class="chapter-item "><a href="SGB_Command_Packet.html"><strong aria-hidden="true">10.2.</strong> Command Packet Transfers</a></li><li class="chapter-item "><a href="SGB_VRAM_Transfer.html"><strong aria-hidden="true">10.3.</strong> VRAM Transfers</a></li><li class="chapter-item "><a href="SGB_Color_Palettes.html"><strong aria-hidden="true">10.4.</strong> Color Palettes Overview</a></li><li class="chapter-item expanded "><a href="SGB_Command_Summary.html"><strong aria-hidden="true">10.5.</strong> Command Summary</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="SGB_Command_Pallete.html"><strong aria-hidden="true">10.5.1.</strong> Palette Commands</a></li><li class="chapter-item "><a href="SGB_Command_Attribute.html"><strong aria-hidden="true">10.5.2.</strong> Color Attribute Commands</a></li><li class="chapter-item expanded "><a href="SGB_Command_Sound.html" class="active"><strong aria-hidden="true">10.5.3.</strong> Sound Functions</a></li><li class="chapter-item "><a href="SGB_Command_System.html"><strong aria-hidden="true">10.5.4.</strong> System Control Commands</a></li><li class="chapter-item "><a href="SGB_Command_Multiplayer.html"><strong aria-hidden="true">10.5.5.</strong> Multiplayer Command</a></li><li class="chapter-item "><a href="SGB_Command_Border.html"><strong aria-hidden="true">10.5.6.</strong> Border and OBJ Commands</a></li><li class="chapter-item "><a href="SGB_Command_Undocumented.html"><strong aria-hidden="true">10.5.7.</strong> Undocumented SGB commands</a></li></ol></li></ol></li><li class="chapter-item "><li class="part-title">CPU Specifications</li><li class="chapter-item "><a href="CPU_Registers_and_Flags.html"><strong aria-hidden="true">11.</strong> CPU Registers and Flags</a></li><li class="chapter-item "><a href="CPU_Instruction_Set.html"><strong aria-hidden="true">12.</strong> CPU Instruction Set</a></li><li class="chapter-item "><a href="CPU_Comparison_with_Z80.html"><strong aria-hidden="true">13.</strong> CPU Comparison with Z80</a></li><li class="chapter-item affix "><li class="part-title">Cartridges</li><li class="chapter-item "><a href="The_Cartridge_Header.html"><strong aria-hidden="true">14.</strong> The Cartridge Header</a></li><li class="chapter-item "><a href="MBCs.html"><strong aria-hidden="true">15.</strong> MBCs</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="nombc.html"><strong aria-hidden="true">15.1.</strong> No MBC</a></li><li class="chapter-item "><a href="MBC1.html"><strong aria-hidden="true">15.2.</strong> MBC1</a></li><li class="chapter-item "><a href="MBC2.html"><strong aria-hidden="true">15.3.</strong> MBC2</a></li><li class="chapter-item "><a href="MBC3.html"><strong aria-hidden="true">15.4.</strong> MBC3</a></li><li class="chapter-item "><a href="MBC5.html"><strong aria-hidden="true">15.5.</strong> MBC5</a></li><li class="chapter-item "><a href="MBC6.html"><strong aria-hidden="true">15.6.</strong> MBC6</a></li><li class="chapter-item "><a href="MBC7.html"><strong aria-hidden="true">15.7.</strong> MBC7</a></li><li class="chapter-item "><a href="HuC1.html"><strong aria-hidden="true">15.8.</strong> HuC1</a></li><li class="chapter-item "><a href="othermbc.html"><strong aria-hidden="true">15.9.</strong> Other MBCs</a></li></ol></li><li class="chapter-item "><li class="part-title">Accessories</li><li class="chapter-item "><a href="Gameboy_Printer.html"><strong aria-hidden="true">16.</strong> Game Boy Printer</a></li><li class="chapter-item "><a href="Gameboy_Camera.html"><strong aria-hidden="true">17.</strong> Game Boy Camera</a></li><li class="chapter-item "><a href="Shark_Cheats.html"><strong aria-hidden="true">18.</strong> Game Genie/Shark Cheats</a></li><li class="chapter-item affix "><li class="part-title">Other</li><li class="chapter-item "><a href="Power_Up_Sequence.html"><strong aria-hidden="true">19.</strong> Power-Up Sequence</a></li><li class="chapter-item "><a href="Reducing_Power_Consumption.html"><strong aria-hidden="true">20.</strong> Reducing Power Consumption</a></li><li class="chapter-item "><a href="Accessing_VRAM_and_OAM.html"><strong aria-hidden="true">21.</strong> Accessing VRAM and OAM</a></li><li class="chapter-item "><a href="OAM_Corruption_Bug.html"><strong aria-hidden="true">22.</strong> OAM Corruption Bug</a></li><li class="chapter-item "><a href="External_Connectors.html"><strong aria-hidden="true">23.</strong> External Connectors</a></li><li class="chapter-item "><a href="GBC_Approval_Process.html"><strong aria-hidden="true">24.</strong> GBC Approval Process</a></li><li class="spacer"></li><li class="chapter-item affix "><a href="References.html">References</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Pan Docs</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        <a href="https://github.com/gbdev/pandocs" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                        
+                        <a href="https://github.com/gbdev/pandocs/edit/master/src/SGB_Command_Sound.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="sound-functions"><a class="header" href="#sound-functions">Sound Functions</a></h1>
+<h2 id="sgb-command-08h---sound"><a class="header" href="#sgb-command-08h---sound">SGB Command 08h - SOUND</a></h2>
+<p>Used to start/stop internal sound effect, start/stop sound using
+internal tone data.</p>
+<pre><code> Byte  Content
+ 0     Command*8+Length (fixed length=1)
+ 1     Sound Effect A (Port 1) Decrescendo 8-bit Sound Code
+ 2     Sound Effect B (Port 2) Sustain     8-bit Sound Code
+ 3     Sound Effect Attributes
+         Bit 0-1 - Sound Effect A Pitch  (0..3=Low..High)
+         Bit 2-3 - Sound Effect A Volume (0..2=High..Low, 3=Mute on)
+         Bit 4-5 - Sound Effect B Pitch  (0..3=Low..High)
+         Bit 6-7 - Sound Effect B Volume (0..2=High..Low, 3=Not used)
+ 4     Music Score Code (must be zero if not used)
+ 5-F   Not used (zero)
+</code></pre>
+<p>See Sound Effect Tables below for a list of available pre-defined
+effects.</p>
+<p>Notes:</p>
+<ol>
+<li>Mute is only active when both bits D2 and D3 are 1.</li>
+<li>When the volume is set for either Sound Effect A or Sound Effect B,
+mute is turned off.</li>
+<li>When Mute on/off has been executed, the sound fades out/fades in.</li>
+<li>Mute on/off operates on the (BGM) which is reproduced by Sound
+Effect A, Sound Effect B, and the Super NES APU. A “mute off” flag
+does not exist by itself. When mute flag is set, volume and pitch of
+Sound Effect A (port 1) and Sound Effect B (port 2) must be set.</li>
+</ol>
+<h2 id="sgb-command-09h---sou_trn"><a class="header" href="#sgb-command-09h---sou_trn">SGB Command 09h - SOU_TRN</a></h2>
+<p>Used to transfer sound code or data to SNES Audio Processing Unit memory
+(APU-RAM).</p>
+<pre><code> Byte  Content
+ 0     Command*8+Length (fixed length=1)
+ 1-F   Not used (zero)
+</code></pre>
+<p>The sound code/data is sent by VRAM-Transfer (4 KBytes).
+All 16-bit values are little-endian.</p>
+<pre><code> 000-001  Size of transfer data
+ 002-003  Destination address in S-APU RAM (typically $2B00, see below)
+ 004-XXX  Data to be transferred
+ X+1-X+2  &quot;End marker&quot; (???), should be $0000
+ X+3-X+4  S-APU jump address, should be $0400
+ X+5-FFF  Remaining bytes ignored
+</code></pre>
+<p>Possible destinations in APU-RAM are:</p>
+<table><thead><tr><th>Memory range</th><th>Description</th></tr></thead><tbody>
+<tr><td>$0400-2AFF</td><td>APU-RAM Program Area (9.75KBytes)</td></tr>
+<tr><td>$2B00-4AFF</td><td>APU-RAM Sound Score Area (8Kbytes)</td></tr>
+<tr><td>$4DB0-EEFF</td><td>APU-RAM Sampling Data Area (40.25 Kbytes)</td></tr>
+</tbody></table>
+<p>This function may be used to take control of the SNES sound chip, and/or
+to access the SNES MIDI engine. In either case it requires deeper
+knowledge of SNES sound programming.</p>
+<h2 id="sgb-sound-effect-ab-tables"><a class="header" href="#sgb-sound-effect-ab-tables">SGB Sound Effect A/B Tables</a></h2>
+<p>Below lists the digital sound effects that are pre-defined in the
+SGB BIOS, and which can be used with the SGB “SOUND” Command.
+Effect A and B may be simultaneously used.
+Sound Effect A uses channels 6 and 7, Sound Effect B uses channels
+0, 1, 4 and 5. Effects that use less channels will use only the upper channels
+(eg. 4 and 5 for a B Effect with only two channels).</p>
+<h2 id="sound-effect-a-flag-table"><a class="header" href="#sound-effect-a-flag-table">Sound Effect A Flag Table</a></h2>
+<table><thead><tr><th>Code</th><th>Description</th><th>Recommended pitch</th><th>Nb of channels used</th></tr></thead><tbody>
+<tr><td>00</td><td>Dummy flag, re-trigger</td><td>-</td><td>2</td></tr>
+<tr><td>01</td><td>Nintendo</td><td>3</td><td>1</td></tr>
+<tr><td>02</td><td>Game Over</td><td>3</td><td>2</td></tr>
+<tr><td>03</td><td>Drop</td><td>3</td><td>1</td></tr>
+<tr><td>04</td><td>OK … A</td><td>3</td><td>2</td></tr>
+<tr><td>05</td><td>OK … B</td><td>3</td><td>2</td></tr>
+<tr><td>06</td><td>Select…A</td><td>3</td><td>2</td></tr>
+<tr><td>07</td><td>Select…B</td><td>3</td><td>1</td></tr>
+<tr><td>08</td><td>Select…C</td><td>2</td><td>2</td></tr>
+<tr><td>09</td><td>Mistake…Buzzer</td><td>2</td><td>1</td></tr>
+<tr><td>0A</td><td>Catch Item</td><td>2</td><td>2</td></tr>
+<tr><td>0B</td><td>Gate squeaks 1 time</td><td>2</td><td>2</td></tr>
+<tr><td>0C</td><td>Explosion…small</td><td>1</td><td>2</td></tr>
+<tr><td>0D</td><td>Explosion…medium</td><td>1</td><td>2</td></tr>
+<tr><td>0E</td><td>Explosion…large</td><td>1</td><td>2</td></tr>
+<tr><td>0F</td><td>Attacked…A</td><td>3</td><td>1</td></tr>
+<tr><td>10</td><td>Attacked…B</td><td>3</td><td>2</td></tr>
+<tr><td>11</td><td>Hit (punch)…A</td><td>0</td><td>2</td></tr>
+<tr><td>12</td><td>Hit (punch)…B</td><td>0</td><td>2</td></tr>
+<tr><td>13</td><td>Breath in air</td><td>3</td><td>2</td></tr>
+<tr><td>14</td><td>Rocket Projectile…A</td><td>3</td><td>2</td></tr>
+<tr><td>15</td><td>Rocket Projectile…B</td><td>3</td><td>2</td></tr>
+<tr><td>16</td><td>Escaping Bubble</td><td>2</td><td>1</td></tr>
+<tr><td>17</td><td>Jump</td><td>3</td><td>1</td></tr>
+<tr><td>18</td><td>Fast Jump</td><td>3</td><td>1</td></tr>
+<tr><td>19</td><td>Jet (rocket) takeoff</td><td>0</td><td>1</td></tr>
+<tr><td>1A</td><td>Jet (rocket) landing</td><td>0</td><td>1</td></tr>
+<tr><td>1B</td><td>Cup breaking</td><td>2</td><td>2</td></tr>
+<tr><td>1C</td><td>Glass breaking</td><td>1</td><td>2</td></tr>
+<tr><td>1D</td><td>Level UP</td><td>2</td><td>2</td></tr>
+<tr><td>1E</td><td>Insert air</td><td>1</td><td>1</td></tr>
+<tr><td>1F</td><td>Sword swing</td><td>1</td><td>1</td></tr>
+<tr><td>20</td><td>Water falling</td><td>2</td><td>1</td></tr>
+<tr><td>21</td><td>Fire</td><td>1</td><td>1</td></tr>
+<tr><td>22</td><td>Wall collapsing</td><td>1</td><td>2</td></tr>
+<tr><td>23</td><td>Cancel</td><td>1</td><td>2</td></tr>
+<tr><td>24</td><td>Walking</td><td>1</td><td>2</td></tr>
+<tr><td>25</td><td>Blocking strike</td><td>1</td><td>2</td></tr>
+<tr><td>26</td><td>Picture floats on &amp; off</td><td>3</td><td>2</td></tr>
+<tr><td>27</td><td>Fade in</td><td>0</td><td>2</td></tr>
+<tr><td>28</td><td>Fade out</td><td>0</td><td>2</td></tr>
+<tr><td>29</td><td>Window being opened</td><td>1</td><td>2</td></tr>
+<tr><td>2A</td><td>Window being closed</td><td>0</td><td>2</td></tr>
+<tr><td>2B</td><td>Big Laser</td><td>3</td><td>2</td></tr>
+<tr><td>2C</td><td>Stone gate closes/opens</td><td>0</td><td>2</td></tr>
+<tr><td>2D</td><td>Teleportation</td><td>3</td><td>1</td></tr>
+<tr><td>2E</td><td>Lightning</td><td>0</td><td>2</td></tr>
+<tr><td>2F</td><td>Earthquake</td><td>0</td><td>2</td></tr>
+<tr><td>30</td><td>Small Laser</td><td>2</td><td>2</td></tr>
+<tr><td>80</td><td>Effect A, stop/silent</td><td>-</td><td>2</td></tr>
+</tbody></table>
+<p>Sound effect A is used for formanto sounds (percussion sounds).</p>
+<h2 id="sound-effect-b-flag-table"><a class="header" href="#sound-effect-b-flag-table">Sound Effect B Flag Table</a></h2>
+<table><thead><tr><th>Code</th><th>Description</th><th>Recommended pitch</th><th>Nb of channels used</th></tr></thead><tbody>
+<tr><td>00</td><td>Dummy flag, re-trigger</td><td>-</td><td>4</td></tr>
+<tr><td>01</td><td>Applause…small group</td><td>2</td><td>1</td></tr>
+<tr><td>02</td><td>Applause…medium group</td><td>2</td><td>2</td></tr>
+<tr><td>03</td><td>Applause…large group</td><td>2</td><td>4</td></tr>
+<tr><td>04</td><td>Wind</td><td>1</td><td>2</td></tr>
+<tr><td>05</td><td>Rain</td><td>1</td><td>1</td></tr>
+<tr><td>06</td><td>Storm</td><td>1</td><td>3</td></tr>
+<tr><td>07</td><td>Storm with wind/thunder</td><td>2</td><td>4</td></tr>
+<tr><td>08</td><td>Lightning</td><td>0</td><td>2</td></tr>
+<tr><td>09</td><td>Earthquake</td><td>0</td><td>2</td></tr>
+<tr><td>0A</td><td>Avalanche</td><td>0</td><td>2</td></tr>
+<tr><td>0B</td><td>Wave</td><td>0</td><td>1</td></tr>
+<tr><td>0C</td><td>River</td><td>3</td><td>2</td></tr>
+<tr><td>0D</td><td>Waterfall</td><td>2</td><td>2</td></tr>
+<tr><td>0E</td><td>Small character running</td><td>3</td><td>1</td></tr>
+<tr><td>0F</td><td>Horse running</td><td>3</td><td>1</td></tr>
+<tr><td>10</td><td>Warning sound</td><td>1</td><td>1</td></tr>
+<tr><td>11</td><td>Approaching car</td><td>0</td><td>1</td></tr>
+<tr><td>12</td><td>Jet flying</td><td>1</td><td>1</td></tr>
+<tr><td>13</td><td>UFO flying</td><td>2</td><td>1</td></tr>
+<tr><td>14</td><td>Electromagnetic waves</td><td>0</td><td>1</td></tr>
+<tr><td>15</td><td>Score UP</td><td>3</td><td>1</td></tr>
+<tr><td>16</td><td>Fire</td><td>2</td><td>1</td></tr>
+<tr><td>17</td><td>Camera shutter, formanto</td><td>3</td><td>4</td></tr>
+<tr><td>18</td><td>Write, formanto</td><td>0</td><td>1</td></tr>
+<tr><td>19</td><td>Show up title, formanto</td><td>0</td><td>1</td></tr>
+<tr><td>80</td><td>Effect B, stop/silent</td><td>-</td><td>4</td></tr>
+</tbody></table>
+<p>Sound effect B is mainly used for looping sounds (sustained sounds).</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="SGB_Command_Attribute.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="SGB_Command_System.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="SGB_Command_Attribute.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="SGB_Command_System.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
