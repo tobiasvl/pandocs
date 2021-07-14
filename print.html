@@ -4,51 +4,31 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Pan Docs</title>
-        
         <meta name="robots" content="noindex" />
-        
-        
-
-
         <!-- Custom HTML head -->
         
-
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="The single, most comprehensive technical reference to Game Boy available to the public.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        
         <link rel="icon" href="favicon.svg">
-        
-        
         <link rel="shortcut icon" href="favicon.png">
-        
         <link rel="stylesheet" href="css/variables.css">
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
-        
         <link rel="stylesheet" href="css/print.css" media="print">
-        
-
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        
         <link rel="stylesheet" href="fonts/fonts.css">
-        
-
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
         <link rel="stylesheet" href="tomorrow-night.css">
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        
         <link rel="stylesheet" href="custom/style.css">
-        
-
-        
     </head>
     <body>
         <!-- Provide site root to javascript -->
@@ -124,32 +104,23 @@
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
-                        
                         <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
                         </button>
-                        
                     </div>
 
                     <h1 class="menu-title">Pan Docs</h1>
 
                     <div class="right-buttons">
-                        
                         <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-                        
-                        
                         <a href="https://github.com/gbdev/pandocs" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
-                        
-                        
-
                     </div>
                 </div>
 
-                
                 <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
                         <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
@@ -160,8 +131,6 @@
                         </ul>
                     </div>
                 </div>
-                
-
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script type="text/javascript">
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
@@ -191,9 +160,8 @@ Emulator developers may be also interested in the <a href="https://gekkio.fi/fil
 <p>You can search anywhere by pressing <kbd>s</kbd> on your keyboard or clicking the <i class="fa fa-search"></i> icon.</p>
 <p>The <i class="fa fa-edit"></i> icon allows you to suggest an edit on the current page by directly opening the source file in the git repository.</p>
 <p>You can find a one-page printable version of Pan Docs <a href="https://gbdev.io/pandocs/print.html">here</a>. </p>
-<p><br><br>
-<small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/99354c9888d99e5d7a42a84d1e23e346507de88f"><code>99354c9</code></a> (2021-07-13 18:47:17 +0200). </small></p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="acknowledgements"><a class="header" href="#acknowledgements">Acknowledgements</a></h1>
+<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/e0695ba7203e29b8f84b293c72e80811f07f1295"><code>e0695ba</code></a> (2021-07-14 13:53:59 +0200). </small></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="acknowledgements"><a class="header" href="#acknowledgements">Acknowledgements</a></h1>
 <p>This resource wouldn’t be possible without all the passionate hackers and researchers who contributed on this document in the last three decades.</p>
 <p>We would like to thank everyone in the gbdev community for providing precious feedback, content, support and invaluable knowledge.</p>
 <p>We are also grateful to <a href="https://www.digitalocean.com/">DigitalOcean</a>, sponsoring this initiative and lifting us from any hosting and infrastructural cost in the last few years.</p>
@@ -203,7 +171,7 @@ Emulator developers may be also interested in the <a href="https://gekkio.fi/fil
 <p>Antonio Niño Díaz, Antonio Vivace, Beannaich, Cory Sandlin, Eldred “ISSOtm” Habert, Elizafox, Furrtek, Gekkio, Jeff Frohwein, John Harrison, Lior “LIJI32” Halphon, Mantidactyle, Marat Fayzullin, Martin “nocash” Korth, Pan of ATX, Pascal Felber, Paul Robson, T4g1, TechFalcon, endrift, exezin, jrra, kOOPa, mattcurrie, nitro2k01, pinobatch, Pat Fagan, Alvaro Burnett.</p>
 <h2 id="special-thanks"><a class="header" href="#special-thanks">Special thanks</a></h2>
 <p>FrankenGraphics, zeta0134.</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="history"><a class="header" href="#history">History</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="history"><a class="header" href="#history">History</a></h1>
 <p>Pan Docs - also known as <code>GAMEBOY.TXT</code> or <code>GBSPEC.TXT</code> - is an old document dating back to early 1995 originally written by <em>Pan of Anthrox</em>. It has been one of the most important references for Game Boy hackers, emulators and homebrew developers during the last 25 years.</p>
 <p align="center">
 <img src="https://raw.githubusercontent.com/gbdev/pandocs/master/historical/1995-Jan-28-ATX-GBI/ADDRESS1.png">
@@ -214,7 +182,7 @@ Emulator developers may be also interested in the <a href="https://gekkio.fi/fil
 <p>In 2008, a <strong>wikified</strong> version (using Martin Korth’s 2001 revision as a baseline) has been published. The document was split into different articles and it continued being maintained and updated in that form.</p>
 <p>In 2020, after this <a href="https://github.com/gbdev/awesome-gbdev/issues/153">RFC</a> we migrated the last updated version to <strong>plain Markdown</strong> and made <a href="https://github.com/gbdev/pandocs">github.com/gbdev/pandocs</a> the new home of this resource, where it can receive new public discussions and contributions, maintain its legacy and historical relevance, while making use of modern tools and workflows to be visualized and distributed.</p>
 <p>We are releasing everything (content, sources, code, figures) under the CC0 license (Public Domain).</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="specifications"><a class="header" href="#specifications">Specifications</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="specifications"><a class="header" href="#specifications">Specifications</a></h1>
 <table><thead><tr><th>﻿</th><th>Game Boy</th><th>Game Boy Pocket</th><th>Game Boy Color</th><th>Super Game Boy</th></tr></thead><tbody>
 <tr><td>CPU</td><td>8-bit Sharp LR35902</td><td></td><td></td><td></td></tr>
 <tr><td>Clock</td><td>4.194304 MHz</td><td></td><td>8.388608 MHz</td><td>4.295454MHz (SGB1, NTSC)</td></tr>
@@ -230,7 +198,7 @@ Emulator developers may be also interested in the <a href="https://gekkio.fi/fil
 <tr><td>Sound</td><td>4 channels with stereo sound</td><td></td><td></td><td></td></tr>
 <tr><td>Power</td><td>DC6V 0.7W</td><td>DC3V 0.7W</td><td>DC3V 0.6W</td><td></td></tr>
 </tbody></table>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="memory-map"><a class="header" href="#memory-map">Memory Map</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="memory-map"><a class="header" href="#memory-map">Memory Map</a></h1>
 <p>The Game Boy has a 16-bit address bus, which is used to address ROM, RAM, and I/O.</p>
 <table><thead><tr><th>Start</th><th>End</th><th>Description</th><th>Notes</th></tr></thead><tbody>
 <tr><td>0000</td><td>3FFF</td><td>16 KiB ROM bank 00</td><td>From cartridge, usually a fixed bank</td></tr>
@@ -313,7 +281,7 @@ with a revision-specific value.</p>
 <p>On CGB revision E, AGB, AGS, and GBP, it returns the high nibble of the
 lower address byte twice, e.g. FFAx returns AA, FFBx returns BB, and so
 forth.</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="rendering-overview"><a class="header" href="#rendering-overview">Rendering Overview</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="rendering-overview"><a class="header" href="#rendering-overview">Rendering Overview</a></h1>
 <p>The Game Boy outputs graphics to a 160x144 pixel LCD, using a quite complex
 mechanism to facilitate rendering.</p>
 <div class="box warning">
@@ -374,7 +342,7 @@ Use of the term has since become more general.</p>
 <li><strong>Object</strong>, an entry in object attribute memory, composed of 1 or 2
 tiles. Independent from the background.</li>
 </ul>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="vram-tile-data"><a class="header" href="#vram-tile-data">VRAM Tile Data</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="vram-tile-data"><a class="header" href="#vram-tile-data">VRAM Tile Data</a></h1>
 <p>Tile data is stored in VRAM in the memory area at $8000-$97FF; with each tile
 taking 16 bytes, this area defines data for 384 tiles. In CGB Mode,
 this is doubled (768 tiles) because of the two VRAM banks.</p>
@@ -465,7 +433,7 @@ and
 <a href="Palettes.html#ff6a---ocpsobpi-object-color-palette-specification-or-sprite-palette-index-ff6b---ocpdobpd-object-color-palette-data-or-sprite-palette-data---both-cgb-mode-only">OCPS/OBPI and
 OCPD/OBPD</a>
 (CGB Mode).</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="vram-tile-maps"><a class="header" href="#vram-tile-maps">VRAM Tile Maps</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="vram-tile-maps"><a class="header" href="#vram-tile-maps">VRAM Tile Maps</a></h1>
 <p>The Game Boy contains two 32x32 tile maps in VRAM at
 the memory areas <code>$9800-$9BFF</code> and <code>$9C00-$9FFF</code>. Any of these maps can be used to
 display the Background or the Window.</p>
@@ -523,7 +491,7 @@ for the definition of “Window visibility”.)</p>
 <p class="box-title">Window Internal Line Counter</p><p>The window keeps an internal line counter that’s functionally similar to <code>LY</code>, and increments alongside it. However, it only gets incremented when the window is visible, as described <a href="Scrolling.html#ff4a---wy-window-y-position-rw-ff4b---wx-window-x-position--7-rw">here</a>.</p>
 <p>This line counter determines what window line is to be rendered on the current scanline.</p>
 </div>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="vram-sprite-attribute-table-oam"><a class="header" href="#vram-sprite-attribute-table-oam">VRAM Sprite Attribute Table (OAM)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="vram-sprite-attribute-table-oam"><a class="header" href="#vram-sprite-attribute-table-oam">VRAM Sprite Attribute Table (OAM)</a></h1>
 <p>The Game Boy PPU can display up to 40 sprites either in 8x8 or
 in 8x16 pixels. Because of a limitation of hardware, only ten sprites
 can be displayed per scan line. Sprite tiles have the same format as
@@ -602,7 +570,7 @@ through DMA register (FF46). Besides, it is also possible to
 write data directly to the OAM area by using normal LD instructions, but this
 works only during the HBlank and VBlank periods. The current state of
 the LCD controller can be read out from the STAT register (FF41).</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="oam-dma-transfer"><a class="header" href="#oam-dma-transfer">OAM DMA Transfer</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="oam-dma-transfer"><a class="header" href="#oam-dma-transfer">OAM DMA Transfer</a></h1>
 <h2 id="ff46---dma-dma-transfer-and-start-address-rw"><a class="header" href="#ff46---dma-dma-transfer-and-start-address-rw">FF46 - DMA (DMA Transfer and Start Address) (R/W)</a></h2>
 <p>Writing to this register launches a DMA transfer from ROM or RAM to OAM
 (Object Attribute Memory). The written value specifies the
@@ -652,7 +620,7 @@ run_dma_hrampart:
 </code></pre>
 <p>This saves 5 bytes of HRAM, but is slightly slower in most cases due to
 the jump into the HRAM part.</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="lcd-control"><a class="header" href="#lcd-control">LCD Control</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lcd-control"><a class="header" href="#lcd-control">LCD Control</a></h1>
 <h2 id="ff40---lcdc-lcd-control-rw"><a class="header" href="#ff40---lcdc-lcd-control-rw">FF40 - LCDC (LCD Control) (R/W)</a></h2>
 <p><strong>LCDC</strong> is the main <strong>LCD C</strong>ontrol register. Its bits toggle what
 elements are displayed on the screen, and how.</p>
@@ -742,7 +710,7 @@ the textbox/status bar is “alone” on its scanlines:</p>
 </ul>
 <p>Usually, these bars are either at the top or bottom of the screen, so
 the bit can be set by the VBlank handler.</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="lcd-status-register"><a class="header" href="#lcd-status-register">LCD Status Register</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lcd-status-register"><a class="header" href="#lcd-status-register">LCD Status Register</a></h1>
 <div class="box tip">
 <p class="box-title">TERMINOLOGY</p><p>A <em>dot</em> is the shortest period over which the PPU can output one pixel: is it equivalent to 1 T-state on DMG or on CGB single-speed mode or 2 T-states on CGB double-speed mode. On each dot during mode 3, either the PPU outputs a pixel or the fetcher is stalling the <a href="pixel_fifo.html#pixel-fifo">FIFOs</a>.</p>
 </div>
@@ -811,7 +779,7 @@ written for one cycle, and then the written value were written the next
 cycle. Because the GBC in DMG mode does not have this quirk, two games
 that depend on this quirk (Ocean’s <em>Road Rash</em> and Vic Tokai’s <em>Xerd
 no Densetsu</em>) will not run on a GBC.</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="lcd-position-and-scrolling"><a class="header" href="#lcd-position-and-scrolling">LCD Position and Scrolling</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lcd-position-and-scrolling"><a class="header" href="#lcd-position-and-scrolling">LCD Position and Scrolling</a></h1>
 <p>These registers can be accessed even during Mode 3, but they have no
 effect until the end of the current scanline.</p>
 <h2 id="ff42---scy-scroll-y-rw-ff43---scx-scroll-x-rw"><a class="header" href="#ff42---scy-scroll-y-rw-ff43---scx-scroll-x-rw">FF42 - SCY (Scroll Y) (R/W), FF43 - SCX (Scroll X) (R/W)</a></h2>
@@ -848,7 +816,7 @@ should try it yourself.)</p>
 <p>If the WY condition has already been triggered and at the the start of a row the window enable bit was set
 then resetting that bit before the WX condition gets triggered on that row yields a nice window glitch pixel where the window would have been activated.</p>
 </div>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="palettes-1"><a class="header" href="#palettes-1">Palettes</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="palettes-1"><a class="header" href="#palettes-1">Palettes</a></h1>
 <h2 id="lcd-monochrome-palettes"><a class="header" href="#lcd-monochrome-palettes">LCD Monochrome Palettes</a></h2>
 <h3 id="ff47---bgp-bg-palette-data-rw---non-cgb-mode-only"><a class="header" href="#ff47---bgp-bg-palette-data-rw---non-cgb-mode-only">FF47 - BGP (BG Palette Data) (R/W) - Non CGB Mode Only</a></h3>
 <p>This register assigns gray shades to the color indexes of the BG and
@@ -946,7 +914,7 @@ ways better than no conversion.</p>
 <p>This problem with low brightness levels does not affect later GBA SP
 units and Game Boy Player. Thus ideally, the player should have control
 of this brightness correction.</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="pixel-fifo"><a class="header" href="#pixel-fifo">Pixel FIFO</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="pixel-fifo"><a class="header" href="#pixel-fifo">Pixel FIFO</a></h1>
 <div class="box tip">
 <p class="box-title">TERMINOLOGY</p><p>All references to a cycle are meant as T-cycles (4.19 MHz) and cycle
 counts are doubled on CGB in double speed mode. When it is stated that a
@@ -1162,7 +1130,7 @@ the <a href="pixel_fifo.html#fifo-pixel-fetcher">fetcher</a> is advanced one ste
 lengthens mode 3 by 1 cycle if the current pixel is not 160. If the
 current pixel is 160 the PPU stops processing sprites because they won’t
 be visible.</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="sound-controller"><a class="header" href="#sound-controller">Sound Controller</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sound-controller"><a class="header" href="#sound-controller">Sound Controller</a></h1>
 <p>There are two sound channels connected to the output terminals SO1 and
 SO2. There is also a input terminal Vin connected to the cartridge. It
 can be routed to either of both output terminals. Game Boy circuitry
@@ -1446,7 +1414,7 @@ converted to an analog signal and an offset is added (see SOUNDBIAS in
 for more details).</p>
 <p>This means that the APU has no DACs, or if modelling the GBA as a GB,
 they’re always on.</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="joypad-input"><a class="header" href="#joypad-input">Joypad Input</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="joypad-input"><a class="header" href="#joypad-input">Joypad Input</a></h1>
 <h2 id="ff00---p1joyp---joypad-rw"><a class="header" href="#ff00---p1joyp---joypad-rw">FF00 - P1/JOYP - Joypad (R/W)</a></h2>
 <p>The eight Game Boy action/direction buttons are arranged as a 2x4
 matrix. Select either action or direction buttons by writing to this
@@ -1470,7 +1438,7 @@ and only the value from the last read is actually used).</p>
 output SGB command packets to the SNES, also, SGB programs may read out
 gamepad states from up to four different joypads which can be connected
 to the SNES. See SGB description for details.</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="serial-data-transfer-link-cable"><a class="header" href="#serial-data-transfer-link-cable">Serial Data Transfer (Link Cable)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="serial-data-transfer-link-cable"><a class="header" href="#serial-data-transfer-link-cable">Serial Data Transfer (Link Cable)</a></h1>
 <p>Communication between two Game Boy systems happens one byte at a time. One
 Game Boy generates a clock signal internally and thus controls when the
 exchange happens. In SPI terms, the Game Boy generating the clock is
@@ -1553,7 +1521,7 @@ Start Flag, regardless of the value of this flag on the other device.
 This bit is automatically set to 0 (on both) at the end of transfer.
 Reading this bit can be used to determine if the transfer is still
 active.</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="timer-and-divider-registers"><a class="header" href="#timer-and-divider-registers">Timer and Divider Registers</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="timer-and-divider-registers"><a class="header" href="#timer-and-divider-registers">Timer and Divider Registers</a></h1>
 <div class="box tip">
 <p class="box-title">NOTE</p><p>The Timer described below is the built-in timer in the gameboy. It has
 nothing to do with the MBC3s battery buffered Real Time Clock - that’s
@@ -1593,7 +1561,7 @@ Bits 1-0 - Input Clock Select
 <div class="box tip">
 <p class="box-title">NOTE</p><p>The “Timer Enable” bit only affects the timer (TIMA). The divider (DIV) is <strong>always</strong> counting.</p>
 </div>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="timer-obscure-behaviour"><a class="header" href="#timer-obscure-behaviour">Timer obscure behaviour</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="timer-obscure-behaviour"><a class="header" href="#timer-obscure-behaviour">Timer obscure behaviour</a></h1>
 <h2 id="timer-global-circuit"><a class="header" href="#timer-global-circuit">Timer Global Circuit</a></h2>
 <p><img src="imgs/timer_simplified.svg" alt="" title="imgs/timer_simplified.svg" /></p>
 <h2 id="relation-between-timer-and-divider-register"><a class="header" href="#relation-between-timer-and-divider-register">Relation between Timer and Divider register</a></h2>
@@ -1699,7 +1667,7 @@ TIMA and TMA:</p>
 That explains that when TMA is written and TIMA is being incremented,
 the value written to TMA is also written to TIMA. It doesnt affect the
 IF flag, though.</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="interrupts"><a class="header" href="#interrupts">Interrupts</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="interrupts"><a class="header" href="#interrupts">Interrupts</a></h1>
 <h2 id="ime---interrupt-master-enable-flag-write-only"><a class="header" href="#ime---interrupt-master-enable-flag-write-only">IME - Interrupt Master Enable Flag (Write Only)</a></h2>
 <pre><code>0 - Disable all interrupts
 1 - Enable all interrupts that are enabled in the IE register (FFFF)
@@ -1785,7 +1753,7 @@ However, if you want any other interrupts (of any priority)
 to be allowed to be executed from inside the interrupt
 handler, then you can use the EI instruction in the interrupt
 handler.</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="interrupt-sources"><a class="header" href="#interrupt-sources">Interrupt Sources</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="interrupt-sources"><a class="header" href="#interrupt-sources">Interrupt Sources</a></h1>
 <h2 id="int-40---vblank-interrupt"><a class="header" href="#int-40---vblank-interrupt">INT 40 - VBlank Interrupt</a></h2>
 <p>This interrupt is requested every time the Game Boy enters VBlank (<a href="STAT.html#ff41---stat-lcd-status-rw">Mode 1</a>).</p>
 <p>The VBlank interrupt occurs ca. 59.7 times a second on a handheld Game
@@ -1869,7 +1837,7 @@ make no difference. The only meaningful purpose of the Joypad
 interrupt would be to terminate the STOP (low power) standby state. GBA SP,
 because of the different buttons used, seems to not be affected by
 switch bounce.</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="cgb-registers"><a class="header" href="#cgb-registers">CGB Registers</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="cgb-registers"><a class="header" href="#cgb-registers">CGB Registers</a></h1>
 <p>This chapter describes only Game Boy Color (GBC or CGB) registers that didn’t
 fit into normal categories - most CGB registers are described in the
 chapter about Video Display (Color Palettes, VRAM Bank, VRAM DMA
@@ -2071,7 +2039,7 @@ initial value is 0.</p>
 #1’s PCM amplitude, the high nibble a copy of sound channel #2’s.</p>
 <h3 id="ff77---pcm34---pcm-amplitudes-3--4-read-only"><a class="header" href="#ff77---pcm34---pcm-amplitudes-3--4-read-only">FF77 - PCM34 - PCM amplitudes 3 &amp; 4 (Read Only)</a></h3>
 <p>Same, but with channels 3 and 4.</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="sgb-description"><a class="header" href="#sgb-description">SGB Description</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sgb-description"><a class="header" href="#sgb-description">SGB Description</a></h1>
 <h2 id="general-description"><a class="header" href="#general-description">General Description</a></h2>
 <p>Basically, the SGB (Super Game Boy) is an adapter cartridge that allows
 to play Game Boy games on a SNES (Super Nintendo Entertainment System)
@@ -2151,7 +2119,7 @@ respectively slower Game Boy timings.</p>
 <li>PAL SGB: 21.281 MHz master clock, 4.2563 MHz GB clock, 1.48% fast</li>
 <li>NTSC SGB2: Separate 20.972 MHz crystal, correct speed</li>
 </ul>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="unlocking-and-detecting-sgb-functions"><a class="header" href="#unlocking-and-detecting-sgb-functions">Unlocking and Detecting SGB Functions</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="unlocking-and-detecting-sgb-functions"><a class="header" href="#unlocking-and-detecting-sgb-functions">Unlocking and Detecting SGB Functions</a></h1>
 <h2 id="cartridge-header"><a class="header" href="#cartridge-header">Cartridge Header</a></h2>
 <p>SGB games are required to have a cartridge header with Nintendo and
 proper checksum just as normal Game Boy games. Also, two special entries
@@ -2190,7 +2158,7 @@ I know the SGB2 doesn’t have any extra features which’d require
 separate SGB2 detection except for curiosity purposes, for example, the
 game “Tetris DX” chooses to display an alternate SGB border on SGB2s.</p>
 <p>Only the SGB2 contains a link port.</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="command-packet-transfers"><a class="header" href="#command-packet-transfers">Command Packet Transfers</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="command-packet-transfers"><a class="header" href="#command-packet-transfers">Command Packet Transfers</a></h1>
 <p>Command packets (aka Register Files) are transferred from the Game Boy to
 the SNES by using P14 and P15 output lines of the JOYPAD register
 (FF00h).  These same lines are also used to select the two rows in the
@@ -2233,7 +2201,7 @@ parameter bytes are used, then further packet(s) will follow, as such:</p>
 <p>By using all 7 packets, up to 111 data bytes (15+16*6) may be sent.
 Unused bytes at the end of the last packet don’t matter. A 60ms (4
 frames) delay should be invoked between each packet transfer.</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="vram-transfers"><a class="header" href="#vram-transfers">VRAM Transfers</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="vram-transfers"><a class="header" href="#vram-transfers">VRAM Transfers</a></h1>
 <h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
 <p>Beside for the packet transfer method, larger data blocks of 4KBytes can
 be transferred by using the video signal. These transfers are invoked by
@@ -2266,7 +2234,7 @@ has been displayed before the transfer) by using the MASK_EN command.
 Of course, this works only when actually executing the game on a SGB
 (and not on handheld Game Boy systems), it’d be thus required to detect
 the presence of SGB hardware before blindly sending VRAM data.</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="color-palettes-overview"><a class="header" href="#color-palettes-overview">Color Palettes Overview</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="color-palettes-overview"><a class="header" href="#color-palettes-overview">Color Palettes Overview</a></h1>
 <h2 id="available-snes-palettes"><a class="header" href="#available-snes-palettes">Available SNES Palettes</a></h2>
 <p>The SGB/SNES provides 8 palettes of 16 colors each, each color may be
 defined out of a selection of 32768 colors (15 bit). Palettes 0-3 are
@@ -2318,7 +2286,7 @@ without any relationship to the displayed picture; however, these
 pre-defined colors may be transferred to actually visible palettes
 slightly faster than when transferring palette data by separate command
 packets.</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="command-summary"><a class="header" href="#command-summary">Command Summary</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="command-summary"><a class="header" href="#command-summary">Command Summary</a></h1>
 <h2 id="sgb-system-command-table"><a class="header" href="#sgb-system-command-table">SGB System Command Table</a></h2>
 <table><thead><tr><th>Code</th><th>Name</th><th>Explanation</th></tr></thead><tbody>
 <tr><td>$00</td><td>PAL01</td><td>Set SGB Palette 0 &amp; 1</td></tr>
@@ -2347,7 +2315,7 @@ packets.</p>
 <tr><td>$17</td><td>MASK_EN</td><td>Game Boy Window Mask</td></tr>
 <tr><td>$18</td><td>OBJ_TRN</td><td>Super NES OBJ Mode</td></tr>
 </tbody></table>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="palette-commands"><a class="header" href="#palette-commands">Palette Commands</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="palette-commands"><a class="header" href="#palette-commands">Palette Commands</a></h1>
 <h2 id="sgb-command-00h---pal01"><a class="header" href="#sgb-command-00h---pal01">SGB Command 00h - PAL01</a></h2>
 <p>Transmit color data for SGB palette 0, color 0-3, and for SGB palette 1,
 color 1-3 (without separate color 0).</p>
@@ -2406,7 +2374,7 @@ colors).</p>
 </code></pre>
 <p>Each Palette consists of four 16-bit color definitions (8 bytes). Note:
 The data is stored at 3000h-3FFFh in SNES memory.</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="color-attribute-commands"><a class="header" href="#color-attribute-commands">Color Attribute Commands</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="color-attribute-commands"><a class="header" href="#color-attribute-commands">Color Attribute Commands</a></h1>
 <h2 id="sgb-command-04h---attr_blk"><a class="header" href="#sgb-command-04h---attr_blk">SGB Command 04h - ATTR_BLK</a></h2>
 <p>Used to specify color attributes for the inside or outside of one or
 more rectangular screen regions.</p>
@@ -2519,7 +2487,7 @@ so on.</p>
 transfer (in case it has been disabled/frozen by MASK_EN command).
 Note: The same functions may be (optionally) also included in PAL_SET
 commands, as described in the chapter about Color Palette Commands.</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="sound-functions-1"><a class="header" href="#sound-functions-1">Sound Functions</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sound-functions-1"><a class="header" href="#sound-functions-1">Sound Functions</a></h1>
 <h2 id="sgb-command-08h---sound"><a class="header" href="#sgb-command-08h---sound">SGB Command 08h - SOUND</a></h2>
 <p>Used to start/stop internal sound effect, start/stop sound using
 internal tone data.</p>
@@ -2665,7 +2633,7 @@ Sound Effect A uses channels 6 and 7, Sound Effect B uses channels
 <tr><td>80</td><td>Effect B, stop/silent</td><td>-</td><td>4</td></tr>
 </tbody></table>
 <p>Sound effect B is mainly used for looping sounds (sustained sounds).</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="system-control-commands"><a class="header" href="#system-control-commands">System Control Commands</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="system-control-commands"><a class="header" href="#system-control-commands">System Control Commands</a></h1>
 <h2 id="sgb-command-17h---mask_en"><a class="header" href="#sgb-command-17h---mask_en">SGB Command 17h - MASK_EN</a></h2>
 <p>Used to mask the Game Boy window, among others this can be used to freeze
 the Game Boy screen before transferring data through VRAM (the SNES then
@@ -2796,7 +2764,7 @@ through $0000BD, the NMI vector.</li>
 <li>To enter APU boot ROM, write $FE to $2140. Echo will still be on
 though.</li>
 </ul>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="multiplayer-command"><a class="header" href="#multiplayer-command">Multiplayer Command</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="multiplayer-command"><a class="header" href="#multiplayer-command">Multiplayer Command</a></h1>
 <h2 id="sgb-command-11h---mlt_req"><a class="header" href="#sgb-command-11h---mlt_req">SGB Command 11h - MLT_REQ</a></h2>
 <p>Used to request multiplayer mode (that is, input from more than one joypad).
 Because this function provides feedback from the SGB/SNES to the Game
@@ -2844,7 +2812,7 @@ number will advance, However, if you set P15 to LOW then HIGH then LOW
 again without bringing both P14 and P15 HIGH at any point, it cancels
 the increment until P15 is lowered again. There are games, such as
 Pokémon Yellow, which rely on this cancelling when detecting the SGB.</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="border-and-obj-commands"><a class="header" href="#border-and-obj-commands">Border and OBJ Commands</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="border-and-obj-commands"><a class="header" href="#border-and-obj-commands">Border and OBJ Commands</a></h1>
 <h2 id="sgb-command-13h---chr_trn"><a class="header" href="#sgb-command-13h---chr_trn">SGB Command 13h - CHR_TRN</a></h2>
 <p>Used to transfer tile data (characters) to SNES Tile memory in VRAM.
 This normally used to define BG tiles for the SGB Border (see PCT_TRN),
@@ -2961,7 +2929,7 @@ Game Boy BG tile memory at following addresses:</p>
 <p>Actually, the format is unknown ??? However, 2 bits are used per entry:
 One bit is the most significant bit of the OBJ X-Position.
 The other bit specifies the OBJ size (8x8 or 16x16 pixels).</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="undocumented-sgb-commands"><a class="header" href="#undocumented-sgb-commands">Undocumented SGB commands</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="undocumented-sgb-commands"><a class="header" href="#undocumented-sgb-commands">Undocumented SGB commands</a></h1>
 <p>The following information has been extracted from disassembling a SGB1v2
 firmware; it should be verified on other SGB revisions.</p>
 <p>The SGB firmware explicitly ignores all commands with ID &gt;= $1E. This
@@ -2974,7 +2942,7 @@ explicitly ignores commands $1E and $1F.</p>
 <p>The game <em>Donkey Kong</em> (1994) appears to send this command, and it appears
 to set a flag in the SGB’s memory. It’s not known yet what it does,
 though.</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="cpu-registers-and-flags"><a class="header" href="#cpu-registers-and-flags">CPU registers and flags</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="cpu-registers-and-flags"><a class="header" href="#cpu-registers-and-flags">CPU registers and flags</a></h1>
 <h2 id="registers"><a class="header" href="#registers">Registers</a></h2>
 <table><thead><tr><th>16-bit</th><th>Hi</th><th>Lo</th><th>Name/Function</th></tr></thead><tbody>
 <tr><td>AF</td><td>A</td><td>-</td><td>Accumulator &amp; Flags</td></tr>
@@ -3019,7 +2987,7 @@ numbers range from $00 to $99 rather than $00 to $FF. Because only two flags
 (C and H) exist to indicate carry-outs of BCD digits, DAA is ineffective for
 16-bit operations (which have 4 digits), and use for INC/DEC operations
 (which do not affect C-flag) has limits.</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="cpu-instruction-set"><a class="header" href="#cpu-instruction-set">CPU Instruction Set</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="cpu-instruction-set"><a class="header" href="#cpu-instruction-set">CPU Instruction Set</a></h1>
 <p>Tables below specify the mnemonic, encoding, clock cycles, affected
 flags (ordered as znhc), and description. The timings assume a CPU
 clock frequency of 4.194304 MHz (or 8.4 MHz for CGB in double speed
@@ -3153,7 +3121,7 @@ called “M-cycles”.</p>
 <tr><td>reti</td><td>D9</td><td>16</td><td>––</td><td>return and enable interrupts (IME=1)</td></tr>
 <tr><td>rst  n</td><td>xx</td><td>16</td><td>––</td><td>call to 00,08,10,18,20,28,30,38</td></tr>
 </tbody></table>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="cpu-comparison-with-z80"><a class="header" href="#cpu-comparison-with-z80">CPU Comparison with Z80</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="cpu-comparison-with-z80"><a class="header" href="#cpu-comparison-with-z80">CPU Comparison with Z80</a></h1>
 <h2 id="comparison-with-8080"><a class="header" href="#comparison-with-8080">Comparison with 8080</a></h2>
 <p>The Game Boy CPU has a bit more in common with an older Intel 8080 CPU
 than the more powerful Zilog Z80 CPU. It is missing a handful of 8080
@@ -3211,7 +3179,7 @@ rounded up to a multiple of 4 cycles.</p>
 <tr><td>CB 3X</td><td>SLL  r/(HL)</td><td>SWAP r/(HL)</td></tr>
 </tbody></table>
 <p>Note: The unused (-) opcodes will lock up the Game Boy CPU when used.</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="the-cartridge-header"><a class="header" href="#the-cartridge-header">The Cartridge Header</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="the-cartridge-header"><a class="header" href="#the-cartridge-header">The Cartridge Header</a></h1>
 <p>An internal information area is located at $0100-014F in each cartridge.
 It contains the following values:</p>
 <h2 id="0100-0103---entry-point"><a class="header" href="#0100-0103---entry-point">0100-0103 - Entry Point</a></h2>
@@ -3440,7 +3408,7 @@ and the cartridge program <strong>won’t run</strong>.</p>
 <p>Contains a 16 bit checksum (upper byte first) across the whole cartridge
 ROM. Produced by adding all bytes of the cartridge (except for the two
 checksum bytes). The Game Boy doesn’t verify this checksum.</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="mbcs"><a class="header" href="#mbcs">MBCs</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mbcs"><a class="header" href="#mbcs">MBCs</a></h1>
 <p>As the Game Boy’s 16-bit address bus offers only limited space for
 ROM and RAM addressing, many games are using Memory Bank Controllers
 (MBCs) to expand the available address space by bank switching.
@@ -3458,13 +3426,13 @@ so, it might be nevertheless possible to use Double Speed during periods
 which use only code and data which is located in internal RAM. However,
 despite of the above, a self-made MBC1-EPROM card appears to work stable
 and fine even in Double Speed Mode though.</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="no-mbc"><a class="header" href="#no-mbc">No MBC</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="no-mbc"><a class="header" href="#no-mbc">No MBC</a></h1>
 <p>(32 KiB ROM only)</p>
 <p>Small games of not more than 32 KiB ROM do not require a MBC chip for
 ROM banking. The ROM is directly mapped to memory at $0000-7FFF.
 Optionally up to 8 KiB of RAM could be connected at $A000-BFFF, using
 a discrete logic decoder <!--74HC138?--> in place of a full MBC chip.</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="mbc1"><a class="header" href="#mbc1">MBC1</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mbc1"><a class="header" href="#mbc1">MBC1</a></h1>
 <p>(max 2MByte ROM and/or 32 KiB RAM)</p>
 <p>This is the first MBC chip for the Game Boy. Any newer MBC chips
 work similarly, so it is relatively easy to upgrade a program from one
@@ -3578,7 +3546,7 @@ There is a known bad dump of the Mortal Kombat I &amp; II collection around.</p>
 by increasing the ROM size to 2MB and duplicating each sub-rom - 00-0Fh
 duplicated into $10-$1F, the original $10-$1F placed in $20-$2F and
 duplicated into $30-$3F and so on.</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="mbc2"><a class="header" href="#mbc2">MBC2</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mbc2"><a class="header" href="#mbc2">MBC2</a></h1>
 <p>(max 256 KiB ROM and 512x4 bits RAM)</p>
 <h2 id="memory-1"><a class="header" href="#memory-1">Memory</a></h2>
 <h3 id="0000-3fff---rom-bank-00-read-only"><a class="header" href="#0000-3fff---rom-bank-00-read-only">0000-3FFF - ROM Bank 00 (Read Only)</a></h3>
@@ -3620,7 +3588,7 @@ bank will be bank 1 instead.</p>
 <p>Examples of address that can control ROM: 0100-01FF, 0300-03FF,
 0500-05FF, …, 3F00-3FFF.</p>
 <p>The ROM bank is set to 1 by default.</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="mbc3"><a class="header" href="#mbc3">MBC3</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mbc3"><a class="header" href="#mbc3">MBC3</a></h1>
 <p>(max 2MByte ROM and/or 32KByte RAM and Timer)</p>
 <p>Beside for the ability to access up to 2MB ROM (128 banks), and 32KB RAM
 (4 banks), the MBC3 also includes a built-in Real Time Clock (RTC). The
@@ -3688,7 +3656,7 @@ Year-10000-Proof, provided that the cartridge gets used at least every
 <h3 id="delays"><a class="header" href="#delays">Delays</a></h3>
 <p>When accessing the RTC Registers it is recommended to execute a 4ms
 delay (4 Cycles in Normal Speed Mode) between the separate accesses.</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="mbc5"><a class="header" href="#mbc5">MBC5</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mbc5"><a class="header" href="#mbc5">MBC5</a></h1>
 <p>It can map up to 64 Mbits (8 MiB) of ROM.</p>
 <p>MBC5 (Memory Bank Controller 5) is the 4th generation MBC. There
 apparently was no MBC4, presumably because of the superstition about the
@@ -3726,7 +3694,7 @@ bit to 1 enables the rumble motor and keeps it enabled until the bit is reset ag
 as seen with these two examples from Pokémon Pinball:</p>
 <img src="imgs/MBC5_Rumble_Mild.svg" width="950px"> 
 <img src="imgs/MBC5_Rumble_Strong.svg" width="950px">
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="mbc6"><a class="header" href="#mbc6">MBC6</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mbc6"><a class="header" href="#mbc6">MBC6</a></h1>
 <p>MBC6 (Memory Bank Controller 6) is an unusual MBC that contains two
 separately switchable ROM banks ($4000 and $6000) and RAM banks
 ($A000 and $B000), SRAM and an 8 Mbit Macronix MX29F008TC-14 flash
@@ -3819,7 +3787,7 @@ Flash Write Enable should be set to 0.</p>
 <ul>
 <li>Source: <a href="http://gbdev.gg8.se/forums/viewtopic.php?id=544">GBDev Forums thread by endrift</a></li>
 </ul>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="mbc7"><a class="header" href="#mbc7">MBC7</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mbc7"><a class="header" href="#mbc7">MBC7</a></h1>
 <p>MBC7 (Memory Bank Controller 7) is an MBC containing a 2-axis
 accelerometer (ADXL202E) and a 256 byte EEPROM
 (<a href="http://www.microchip.com/wwwproducts/en/en010904">93LC56</a>). A000-BFFF
@@ -3923,7 +3891,7 @@ enable section as well (0000-1FFF)</p>
 <ul>
 <li>Source: <a href="http://gbdev.gg8.se/forums/viewtopic.php?id=448">GBDev Forums thread by endrift</a></li>
 </ul>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="huc1"><a class="header" href="#huc1">HuC1</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="huc1"><a class="header" href="#huc1">HuC1</a></h1>
 <p>HuC1 is an MBC used by some Game Boy games which besides doing the usual
 MBC stuff, also provides IR comms. A lot of sources on the internet said
 that HuC1 was “similar to MBC1”, but they didn’t provide any detail.
@@ -3962,7 +3930,7 @@ RAM.</p>
 <ul>
 <li><a href="http://jrra.zone/blog/huc1.html">Source on jrra.zone</a></li>
 </ul>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="other-mbcs"><a class="header" href="#other-mbcs">Other MBCs</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="other-mbcs"><a class="header" href="#other-mbcs">Other MBCs</a></h1>
 <h2 id="multicart-mbcs"><a class="header" href="#multicart-mbcs">Multicart MBCs</a></h2>
 <p><strong>MBC1M</strong> uses the MBC1 IC, but the board does not connect the MBC1’s
 A18 address output to the ROM. This allows including multiple 2 Mbit (16
@@ -4055,7 +4023,7 @@ unlikely.</p>
 <li>$0147 = $1b, $014a = $e1 -&gt; Detect as EMS multicart</li>
 <li>$0147 = $be -&gt; Detect as Bung multicart</li>
 </ul>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="game-boy-printer"><a class="header" href="#game-boy-printer">Game Boy Printer</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="game-boy-printer"><a class="header" href="#game-boy-printer">Game Boy Printer</a></h1>
 <p>The Game Boy Printer is a portable thermal printer made by
 <a href="http://www.sii.co.jp">SII</a> for Nintendo, which a few games used to
 print out bonus artwork, certificates, pictures (<a href="Gameboy_Camera.html#game-boy-camera">Game Boy
@@ -4162,7 +4130,7 @@ before nor after) to allow for continuous printing.</li>
 <p>Some sort of RLE? The GB Camera doesn’t use it.</p>
 <p>(<a href="http://furrtek.free.fr/?a=gbprinter&amp;i=2">Details and pictures</a>, need
 to be copied here)</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="game-boy-camera"><a class="header" href="#game-boy-camera">Game Boy Camera</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="game-boy-camera"><a class="header" href="#game-boy-camera">Game Boy Camera</a></h1>
 <div class="box tip">
 <p class="box-title">SOURCE</p><p>This section was originally compiled by Antonio Niño Díaz during his work on reverse engineering the Game Boy Camera. The upstream source can be found <a href="https://github.com/AntonioND/gbcam-rev-engineer">here</a>.</p>
 </div>
@@ -4543,7 +4511,7 @@ static void GB_CameraTakePicture(void)
 
 //--------------------------------------------------------------------
 </code></pre>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><p>Game Shark and Game Genie are external cartridge adapters that can be
+<div style="break-before: page; page-break-before: always;"></div><p>Game Shark and Game Genie are external cartridge adapters that can be
 plugged in between the Game Boy and the actual game cartridge.</p>
 <h2 id="game-genie-rom-patches"><a class="header" href="#game-genie-rom-patches">Game Genie (ROM patches)</a></h2>
 <p>Game Genie codes consist of nine-digit hex numbers, formatted as
@@ -4572,7 +4540,7 @@ ABCDEFGH, the meaning of the separate digits is:</p>
 VBlank interrupt handler, and re-writing RAM values each frame. The
 downside is that this method steals some CPU time, also, it cannot be
 used to patch program code in ROM. 10-25 codes can be used simultaneously.</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="power-up-sequence"><a class="header" href="#power-up-sequence">Power-Up Sequence</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="power-up-sequence"><a class="header" href="#power-up-sequence">Power-Up Sequence</a></h1>
 <p>When the Game Boy is powered up, a 256 byte program starting at memory location 0 is executed. This program is located in a ROM inside the GameBoy. The first thing the program does is read the cartridge locations from $104 to $133 and place this graphic of a Nintendo logo on the screen at the top.</p>
 <p>This image is then scrolled until it is in the middle of the screen. Two musical notes are then played on the internal speaker. Again, the cartridge locations $104 to $133 are read but this time they are compared with a table in the internal rom.</p>
 <p>If any byte fails to compare, then the Game Boy stops comparing bytes and simply halts all operations.</p>
@@ -4621,7 +4589,7 @@ used to patch program code in ROM. 10-25 codes can be used simultaneously.</p>
 <p>All of the Game Boy emulators tend to set all RAM to value $00 on entry.</p>
 <p>Cart RAM the first time it is accessed on a real Game Boy contains random data.
 It will only contain known data if the Game Boy code initializes it to some value.</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="reducing-power-consumption"><a class="header" href="#reducing-power-consumption">Reducing Power Consumption</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="reducing-power-consumption"><a class="header" href="#reducing-power-consumption">Reducing Power Consumption</a></h1>
 <p>The following programming techniques can be used to reduce the power
 consumption of the Game Boy hardware and extend the life of the
 batteries.</p>
@@ -4706,7 +4674,7 @@ power and these techniques will not have as big as an effect.</p>
 page</a>,
 although it applies to the original Z80 CPU, so one must adapt the
 optimizations to the GBZ80.</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="accessing-vram-and-oam"><a class="header" href="#accessing-vram-and-oam">Accessing VRAM and OAM</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="accessing-vram-and-oam"><a class="header" href="#accessing-vram-and-oam">Accessing VRAM and OAM</a></h1>
 <div class="box warning">
 <p>When the PPU is drawing the screen it is directly reading
 from Video Memory (VRAM) and from the Sprite Attribute Table (OAM).
@@ -4779,7 +4747,7 @@ The downside is that the screen is blank (white) during this
 period, so disabling the display would be recommended only during
 initialization.</p>
 </div>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="oam-corruption-bug"><a class="header" href="#oam-corruption-bug">OAM Corruption Bug</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="oam-corruption-bug"><a class="header" href="#oam-corruption-bug">OAM Corruption Bug</a></h1>
 <p>There is a flaw in the Game Boy hardware that causes trash to be written
 to OAM RAM if the following instructions are used while their 16-bit content
 (before the operation) is in the range $FE00–$FEFF and the PPU is in mode 2:</p>
@@ -4875,7 +4843,7 @@ accessed row and to two rows before the currently accessed row</li>
 <li>Regardless of wether the previous corruption occurred or not, a
 normal read corruption is then applied.</li>
 </ul>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="external-connectors"><a class="header" href="#external-connectors">External Connectors</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="external-connectors"><a class="header" href="#external-connectors">External Connectors</a></h1>
 <h2 id="cartridge-slot"><a class="header" href="#cartridge-slot">Cartridge Slot</a></h2>
 <table><thead><tr><th>Pin</th><th>Name</th><th>Explanation</th></tr></thead><tbody>
 <tr><td>1</td><td>VDD</td><td>Power Supply +5V DC</td></tr>
@@ -4913,7 +4881,7 @@ with one large and one small plug though.</p>
 </tbody></table>
 <h2 id="external-power-supply"><a class="header" href="#external-power-supply">External Power Supply</a></h2>
 <p>…</p>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="gbc-approval-process"><a class="header" href="#gbc-approval-process">GBC Approval Process</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="gbc-approval-process"><a class="header" href="#gbc-approval-process">GBC Approval Process</a></h1>
 <p>Game Boy Color hardware applies automatic colorization to monochrome
 games, with one 4-color palette for backgrounds and two 3-color
 palettes for sprites.  Because of past underuse of Super Game Boy
@@ -4945,7 +4913,7 @@ other aspects of game design.</p>
 <li><a href="https://sidequestions.medium.com/making-snoopy-tennis-nintendo-gameboy-color-infogrames-mermaid-11bed971526d">“The Making of Snoopy Tennis”</a> by Alexander Hughes</li>
 <li><a href="https://contracts.onecle.com/thq/nintendo.lic.1999.03.09.shtml">“License Agreement for Game Boy (Western Hemisphere)”</a></li>
 </ul>
-<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="references"><a class="header" href="#references">References</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="references"><a class="header" href="#references">References</a></h1>
 <ul>
 <li><a href="https://github.com/AntonioND/giibiiadvance/tree/master/docs">Antonio Niño Díaz - The Cycle-Accurate Game Boy Docs</a></li>
 <li><a href="https://github.com/AntonioND/gbcam-rev-engineer">Antonio Niño Díaz - Game Boy Camera RE</a></li>
@@ -4969,59 +4937,31 @@ other aspects of game design.</p>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                        
-
-                        
-
                         <div style="clear: both"></div>
                     </nav>
                 </div>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                
-
-                
             </nav>
 
         </div>
 
-        
-
-        
-
-        
-
-        
         <script type="text/javascript">
             window.playground_copyable = true;
         </script>
-        
-
-        
-
-        
         <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
-        
-
         <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
         <script src="book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
-        
-
-        
-        
         <script type="text/javascript">
         window.addEventListener('load', function() {
             window.setTimeout(window.print, 100);
         });
         </script>
-        
-        
-
     </body>
 </html>
