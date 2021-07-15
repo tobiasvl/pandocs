@@ -205,6 +205,11 @@ the current screen.</p>
 reason, d-pad and/or button inputs should be enabled by writing $00,
 $10 or $20 to the <code>P1</code> register before entering STOP (depending on which
 buttons you want to terminate the STOP on).</p>
+<p align="center">
+<img src="imgs/gb_stop.png">
+<br>
+  <i>Source: Lior Halphon</i>
+</p>
 <h2 id="disabling-the-sound-controller"><a class="header" href="#disabling-the-sound-controller">Disabling the Sound Controller</a></h2>
 <p>If your program doesn’t use sound at all (or during some periods) then
 write 00h to register FF26 to save 16% or more on GB power consumption.
