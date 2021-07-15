@@ -160,7 +160,7 @@ Emulator developers may be also interested in the <a href="https://gekkio.fi/fil
 <p>You can search anywhere by pressing <kbd>s</kbd> on your keyboard or clicking the <i class="fa fa-search"></i> icon.</p>
 <p>The <i class="fa fa-edit"></i> icon allows you to suggest an edit on the current page by directly opening the source file in the git repository.</p>
 <p>You can find a one-page printable version of Pan Docs <a href="https://gbdev.io/pandocs/print.html">here</a>. </p>
-<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/5777a7577aa4dfaed2f7ff04604e0066038cf0e6"><code>5777a75</code></a> (2021-07-15 20:30:09 +0200). </small></p>
+<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/4c6826fd4e95b678aef6478d6b28f812c524030b"><code>4c6826f</code></a> (2021-07-15 20:33:44 +0200). </small></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="acknowledgements"><a class="header" href="#acknowledgements">Acknowledgements</a></h1>
 <p>This resource wouldn’t be possible without all the passionate hackers and researchers who contributed on this document in the last three decades.</p>
 <p>We would like to thank everyone in the gbdev community for providing precious feedback, content, support and invaluable knowledge.</p>
@@ -1235,7 +1235,7 @@ square wave. This channel doesn’t have a volume envelope register.</p>
 <h3 id="ff1a---nr30---channel-3-sound-onoff-rw"><a class="header" href="#ff1a---nr30---channel-3-sound-onoff-rw">FF1A - NR30 - Channel 3 Sound on/off (R/W)</a></h3>
 <pre><code>Bit 7 - Sound Channel 3 Off  (0=Stop, 1=Playback)  (Read/Write)
 </code></pre>
-<h3 id="ff1b---nr31---channel-3-sound-length"><a class="header" href="#ff1b---nr31---channel-3-sound-length">FF1B - NR31 - Channel 3 Sound Length</a></h3>
+<h3 id="ff1b---nr31---channel-3-sound-length-rw"><a class="header" href="#ff1b---nr31---channel-3-sound-length-rw">FF1B - NR31 - Channel 3 Sound Length (R/W)</a></h3>
 <pre><code>Bit 7-0 - Sound length (t1: 0 - 255)
 </code></pre>
 <p>Sound Length = (256-t1)*(1/256) seconds This value is used only if Bit
