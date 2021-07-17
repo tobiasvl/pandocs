@@ -218,15 +218,23 @@ FF) and checking if said value is mirrored in Echo RAM and not cart SRAM.</p>
 </tbody></table>
 <h2 id="fea0-feff-range"><a class="header" href="#fea0-feff-range">FEA0-FEFF range</a></h2>
 <p>Nintendo indicates use of this area is prohibited.  This area returns
-FF when OAM is blocked, and otherwise the behavior depends on the
+$FF when OAM is blocked, and otherwise the behavior depends on the
 hardware revision.</p>
-<p>On DMG, MGB, SGB, and SGB2, reads during OAM block trigger the sprite
-bug. Reads otherwise return 00.</p>
+<ul>
+<li>
+<p>On DMG, MGB, SGB, and SGB2, reads during OAM block trigger <a href="OAM_Corruption_Bug.html#oam-corruption-bug">OAM corruption</a>.
+Reads otherwise return $00.</p>
+</li>
+<li>
 <p>On CGB revisions 0-D, this area is a unique RAM area, but is masked
 with a revision-specific value.</p>
+</li>
+<li>
 <p>On CGB revision E, AGB, AGS, and GBP, it returns the high nibble of the
-lower address byte twice, e.g. FFAx returns AA, FFBx returns BB, and so
+lower address byte twice, e.g. FFAx returns $AA, FFBx returns $BB, and so
 forth.</p>
+</li>
+</ul>
 
                     </main>
 

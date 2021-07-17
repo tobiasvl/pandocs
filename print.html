@@ -160,7 +160,7 @@ Emulator developers may be also interested in the <a href="https://gekkio.fi/fil
 <p>You can search anywhere by pressing <kbd>s</kbd> on your keyboard or clicking the <i class="fa fa-search"></i> icon.</p>
 <p>The <i class="fa fa-edit"></i> icon allows you to suggest an edit on the current page by directly opening the source file in the git repository.</p>
 <p>You can find a one-page printable version of Pan Docs <a href="https://gbdev.io/pandocs/print.html">here</a>. </p>
-<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/7da292659fd33535dae5fa610b1a38cb991796a8"><code>7da2926</code></a> (2021-07-15 20:54:14 +0200). </small></p>
+<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/14e4b12956414bca3c4ffe22927e9fbf2687e155"><code>14e4b12</code></a> (2021-07-18 01:23:47 +0200). </small></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="acknowledgements"><a class="header" href="#acknowledgements">Acknowledgements</a></h1>
 <p>This resource wouldn’t be possible without all the passionate hackers and researchers who contributed on this document in the last three decades.</p>
 <p>We would like to thank everyone in the gbdev community for providing precious feedback, content, support and invaluable knowledge.</p>
@@ -272,15 +272,23 @@ FF) and checking if said value is mirrored in Echo RAM and not cart SRAM.</p>
 </tbody></table>
 <h2 id="fea0-feff-range"><a class="header" href="#fea0-feff-range">FEA0-FEFF range</a></h2>
 <p>Nintendo indicates use of this area is prohibited.  This area returns
-FF when OAM is blocked, and otherwise the behavior depends on the
+$FF when OAM is blocked, and otherwise the behavior depends on the
 hardware revision.</p>
-<p>On DMG, MGB, SGB, and SGB2, reads during OAM block trigger the sprite
-bug. Reads otherwise return 00.</p>
+<ul>
+<li>
+<p>On DMG, MGB, SGB, and SGB2, reads during OAM block trigger <a href="OAM_Corruption_Bug.html#oam-corruption-bug">OAM corruption</a>.
+Reads otherwise return $00.</p>
+</li>
+<li>
 <p>On CGB revisions 0-D, this area is a unique RAM area, but is masked
 with a revision-specific value.</p>
+</li>
+<li>
 <p>On CGB revision E, AGB, AGS, and GBP, it returns the high nibble of the
-lower address byte twice, e.g. FFAx returns AA, FFBx returns BB, and so
+lower address byte twice, e.g. FFAx returns $AA, FFBx returns $BB, and so
 forth.</p>
+</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="rendering-overview"><a class="header" href="#rendering-overview">Rendering Overview</a></h1>
 <p>The Game Boy outputs graphics to a 160x144 pixel LCD, using a quite complex
 mechanism to facilitate rendering.</p>
