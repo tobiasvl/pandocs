@@ -160,7 +160,7 @@ Emulator developers may be also interested in the <a href="https://gekkio.fi/fil
 <p>You can search anywhere by pressing <kbd>s</kbd> on your keyboard or clicking the <i class="fa fa-search"></i> icon.</p>
 <p>The <i class="fa fa-edit"></i> icon allows you to suggest an edit on the current page by directly opening the source file in the git repository.</p>
 <p>You can find a one-page printable version of Pan Docs <a href="https://gbdev.io/pandocs/print.html">here</a>. </p>
-<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/89c9e1c75ae5da7c2bcc18e2166a0db4835e6abe"><code>89c9e1c</code></a> (2021-07-20 11:02:47 +0200). </small></p>
+<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/c144b4e95409228a773793b65dc8348fb7cb278c"><code>c144b4e</code></a> (2021-07-20 13:01:56 +0200). </small></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="acknowledgements"><a class="header" href="#acknowledgements">Acknowledgements</a></h1>
 <p>This resource wouldn’t be possible without all the passionate hackers and researchers who contributed on this document in the last three decades.</p>
 <p>We would like to thank everyone in the gbdev community for providing precious feedback, content, support and invaluable knowledge.</p>
@@ -4779,7 +4779,7 @@ running monochrome software.</p>
 <h2 id="accurate-description"><a class="header" href="#accurate-description">Accurate Description</a></h2>
 <p>The OAM Corruption Bug (or OAM Bug) actually consists of two different bugs:</p>
 <ul>
-<li>Attempting to read or write from OAM (Including the $FFA0-$FEFF
+<li>Attempting to read or write from OAM (Including the $FEA0-$FEFF
 region) while the PPU is in mode 2 (OAM mode) will corrupt it.</li>
 <li>Performing an increase or decrease operation on any 16-bit register
 (BC, DE, HL, SP or PC) while that register is in the OAM range
