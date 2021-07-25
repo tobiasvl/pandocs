@@ -145,54 +145,283 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="power-up-sequence"><a class="header" href="#power-up-sequence">Power-Up Sequence</a></h1>
-<p>When the Game Boy is powered up, a 256 byte program starting at memory location 0 is executed. This program is located in a ROM inside the GameBoy. The first thing the program does is read the cartridge locations from $104 to $133 and place this graphic of a Nintendo logo on the screen at the top.</p>
-<p>This image is then scrolled until it is in the middle of the screen. Two musical notes are then played on the internal speaker. Again, the cartridge locations $104 to $133 are read but this time they are compared with a table in the internal rom.</p>
-<p>If any byte fails to compare, then the Game Boy stops comparing bytes and simply halts all operations.</p>
-<p>If all locations compare the same, then the GameBoy starts adding all of the bytes in the cartridge from $134 to $14d. A value of 25 decimal is added to this total.</p>
-<p>If the least significant byte of the result is a not a zero, then the Game Boy will stop doing anything.</p>
-<p>If it is a zero, then the internal ROM is disabled and cartridge program execution begins at location $100 with the following register values:</p>
-<pre><code>  AF=$01B0
-  BC=$0013
-  DE=$00D8
-  HL=$014D
-  Stack Pointer=$FFFE
-  [$FF05] = $00   ; TIMA
-  [$FF06] = $00   ; TMA
-  [$FF07] = $00   ; TAC
-  [$FF10] = $80   ; NR10
-  [$FF11] = $BF   ; NR11
-  [$FF12] = $F3   ; NR12
-  [$FF14] = $BF   ; NR14
-  [$FF16] = $3F   ; NR21
-  [$FF17] = $00   ; NR22
-  [$FF19] = $BF   ; NR24
-  [$FF1A] = $7F   ; NR30
-  [$FF1B] = $FF   ; NR31
-  [$FF1C] = $9F   ; NR32
-  [$FF1E] = $BF   ; NR34
-  [$FF20] = $FF   ; NR41
-  [$FF21] = $00   ; NR42
-  [$FF22] = $00   ; NR43
-  [$FF23] = $BF   ; NR44
-  [$FF24] = $77   ; NR50
-  [$FF25] = $F3   ; NR51
-  [$FF26] = $F1-GB, $F0-SGB ; NR52
-  [$FF40] = $91   ; LCDC
-  [$FF42] = $00   ; SCY
-  [$FF43] = $00   ; SCX
-  [$FF45] = $00   ; LYC
-  [$FF47] = $FC   ; BGP
-  [$FF48] = $FF   ; OBP0
-  [$FF49] = $FF   ; OBP1
-  [$FF4A] = $00   ; WY
-  [$FF4B] = $00   ; WX
-  [$FFFF] = $00   ; IE
-</code></pre>
-<p>It is not a good idea to assume the above values will always exist. A later version Game Boy could contain different values than these at reset. Always set these registers on reset rather than assume they are as above.</p>
-<p>Please note that Game Boy internal RAM on power up contains random data.</p>
-<p>All of the Game Boy emulators tend to set all RAM to value $00 on entry.</p>
-<p>Cart RAM the first time it is accessed on a real Game Boy contains random data.
-It will only contain known data if the Game Boy code initializes it to some value.</p>
+<p>When the Game Boy is powered up, the CPU actually does not start executing instructions at $0100, but actually at $0000.
+A program called the <em>boot ROM</em>, burned inside the CPU, is mapped “over” the cartridge ROM at first.
+This program is responsible for the boot-up animation played before control is handed over to the cartridge’s ROM.
+Since the boot ROM hands off control to the game ROM at address $0100, and developers typically need not care about the boot ROM, the “start address” is usually documented as $0100 and not $0000.</p>
+<p>8 different known official boot ROMs are known to exist:</p>
+<table><thead><tr><th>Name</th><th>Size (bytes)</th><th>Notes</th></tr></thead><tbody>
+<tr><td>DMG0</td><td>256</td><td>Blinks on failed checks, no ®</td></tr>
+<tr><td>DMG</td><td>256</td><td></td></tr>
+<tr><td>MGB</td><td>256</td><td>One-byte difference to DMG</td></tr>
+<tr><td>SGB</td><td>256</td><td>Only forwards logo to SGB BIOS, performs no checks</td></tr>
+<tr><td>SGB2</td><td>256</td><td>Same difference to SGB than between MGB and DMG</td></tr>
+<tr><td>CGB0</td><td>256 + 1792</td><td>Does not init <a href="Sound_Controller.html#ff30-ff3f---wave-pattern-ram">wave RAM</a></td></tr>
+<tr><td>CGB</td><td>256 + 1792</td><td>Split in two parts, with the cartridge header in the middle</td></tr>
+<tr><td>AGB</td><td>256 + 1792</td><td>Fixes <a href="Power_Up_Sequence.html#bypass">“logo TOCTTOU”</a></td></tr>
+</tbody></table>
+<p><a href="https://github.com/ISSOtm/gb-bootroms">A disassembly of all of them is available online.</a></p>
+<h2 id="monochrome-models-dmg0-dmg-mgb"><a class="header" href="#monochrome-models-dmg0-dmg-mgb">Monochrome models (DMG0, DMG, MGB)</a></h2>
+<p>The monochrome boot ROMs read <a href="The_Cartridge_Header.html#0104-0133---nintendo-logo">the logo from the header</a>, unpack it into VRAM, and then start slowly scrolling it down.
+Since reads from an absent cartridge usually return $FF, this explains why powering the console on without a cartridge scrolls a black box.
+Additionally, fauly or dirty connections can cause the data read to be corrupted, resulting in a jumbled-up logo.</p>
+<p><em>Once the logo has finished scrolling</em>, the boot ROM plays the famous “ba-ding!” sound, and reads the logo <strong>again</strong>, this time comparing it to a copy it stores.
+Then, it also computes the header checksum, and compares it to <a href="The_Cartridge_Header.html#014d---header-checksum">the checksum stored in the header</a>.
+If either of these checks fail, the boot ROM <strong>locks up</strong>, and control is never passed to the cartridge ROM.</p>
+<p>Finally, the boot ROM writes to the <code>BANK</code> register at $FF50, which unmaps the boot ROM.
+The <code>ldh [$FF50], a</code> instruction being located at $00FE (and being two bytes long), <a href="The_Cartridge_Header.html#0100-0103---entry-point">the first instruction executed from the cartridge ROM is at $0100</a>.</p>
+<p>Since the A register is used to write to $FF50, its value is passed to the cartridge ROM; the only difference between the DMG and MGB boot ROMs is that the former writes $01, and the latter uses $FF.</p>
+<h3 id="dmg0"><a class="header" href="#dmg0">DMG0</a></h3>
+<p>The DMG0 is a rare “early bird” variant of the DMG boot ROM present in few early DMGs.
+The behavior of the boot ROM is globally the same, but significant portions of the code have been rearranged.</p>
+<p>Interestingly, the DMG0 boot ROM performs both the logo and checksum checks before displaying anything.
+If either verification fails, the screen is made to blink while the boot ROM locks up, alternating between solid white and solid black.</p>
+<p>The DMG0 boot ROM also lacks the ® symbol next to the Nintendo logo.</p>
+<h2 id="super-game-boy-sgb-sgb2"><a class="header" href="#super-game-boy-sgb-sgb2">Super Game Boy (SGB, SGB2)</a></h2>
+<p>These boot ROMs are fairly unique in that they do <em>not</em> perform header checks.
+Instead, they set up the Nintendo logo in VRAM from the header just like the monochrome boot ROMs, but then they send the entire header to the SGB BIOS via <a href="SGB_Command_Packet.html#command-packet-transfers">the standard packet-transferring procedure</a>, using packet header bytes $F1, $F3, $F5, $F7, $F9, and $FB, in that order.
+(These packet IDs are otherwise invalid and never used in regular SGB operation, though it seems that not all SGB BIOS revisions filter them out.)</p>
+<p>The boot ROM then unmaps itself and hands off execution to the cartridge ROM without performing any checks.
+The SGB BIOS, the program running on the SNES, actually verifies the Nintendo logo and header checksum itself.
+If either verification fails, the BIOS itself locks up, repeatedly resetting the SGB CPU within the cartridge.</p>
+<p>As the DMG and MGB boot ROMs, the SGB and SGB2 boot ROMs write $01 and $FF respectively to $FF50, and this is also the only difference between these two boot ROMs.</p>
+<p>The way the packet-sending routine works makes transferring a set bit <em>one cycle</em> faster than transferring a reset bit; this means that the time taken by the SGB boot ROMs <em>depends on the cartridge’s header</em>.
+The relationship between the header and the time taken is made more complex by the fact that the boot ROM waits for 4 VBlanks after transferring each packet, mostly but not entirely grouping the timings.</p>
+<h2 id="color-models-cgb0-cgb-agb"><a class="header" href="#color-models-cgb0-cgb-agb">Color models (CGB0, CGB, AGB)</a></h2>
+<p>The color boot ROMs are much more complicated, notably because of the compatibility behavior.</p>
+<h3 id="size"><a class="header" href="#size">Size</a></h3>
+<p>The boot ROM is larger, as indicated in the table at the top: 2048 bytes total.
+It still has to be mapped starting at $0000, since this is where the CPU starts, but it must also access the cartridge header at $0100-014F.
+Thus, the boot ROM is actually split in two parts, a $0000-00FF one, and a $0200-08FF one.</p>
+<h3 id="behavior"><a class="header" href="#behavior">Behavior</a></h3>
+<p>First, the boot ROMs unpack the Nintendo logo to VRAM like the monochrome models, likely for compatibility, and copies the logo to a buffer in HRAM at the same time.
+(It is speculated that HRAM was used due to it being embedded within the CPU, unlike WRAM, so that it couldn’t be tampered with.)</p>
+<p>Then, the logo is read and decompressed <em>again</em>, but with no resizing, yielding the much smaller logo placed below the big “GAME BOY” one.
+The boot ROM then sets up compatibility palettes, as described further below, and plays the logo animation with the “ba-ding!” sound.</p>
+<p>During the logo animation, and if bit 7 of <a href="The_Cartridge_Header.html#0143---cgb-flag">the CGB compatibility byte</a> is reset (indicating a monochrome-only game), the user is allowed to pick a palette to override the one chosen for compatibility.
+Each new choice prevents the animation from ending for 30 frames, potentially delaying the checks and fade-out.</p>
+<p>Then, like the monochrome boot ROMs, the header logo is checked <em>from the buffer in HRAM</em>, and the header checksum is verified.
+For unknown reasons, however, only the first half of the logo is checked, despite the full logo being present in the HRAM buffer.</p>
+<p>Finally, the boot ROM fades all BG palettes to white, and sets the hardware to compatibility mode.
+If <a href="The_Cartridge_Header.html#0143---cgb-flag">the CGB compatibility byte</a> indicates CGB compatibility, the byte is written directly to <code>KEY0</code> ($FF4C), potentially enabling PGB mode; otherwise, $04 is written to <code>KEY0</code> (enabling DMG compatibility mode in the CPU), $01 is written to <a href="CGB_Registers.html#ff6c---opri---cgb-mode-only---object-priority-mode"><code>OPRI</code></a> (enabling [DMG OBJ priority](#Sprite Priorities and Conflicts)), and the <a href="Power_Up_Sequence.html#compatibility-palettes">compatibility palettes</a> are written.
+Additionally, the DMG logo tilemap is written if the compatibility requests it.</p>
+<p>Like all other boot ROMs, the last thing the color boot ROMs do is hand off execution at the same time as they unmap themselves, though they write $11 instead of $01 or $FF.</p>
+<h3 id="cgb0"><a class="header" href="#cgb0">CGB0</a></h3>
+<p>Like the DMG0 boot ROM, some early CGBs contain a different boot ROM.
+Unlike DMG0 and DMG, the differences between the CGB0 and CGB boot ROM, are very minor, with no change in the layout of the ROM.</p>
+<p>The most notable change is that the CGB0 boot ROM does <em>not</em> init <a href="Sound_Controller.html#ff30-ff3f---wave-pattern-ram">wave RAM</a>.
+This is known to cause, for example, a different title screen music in the game <em>R-Type</em>.</p>
+<p>The CGB0 boot ROM also writes copies of other variables to some locations in WRAM that are not otherwise run from anywhere.
+It is speculated that this may be debug remnants.</p>
+<h3 id="compatibility-palettes"><a class="header" href="#compatibility-palettes">Compatibility palettes</a></h3>
+<p>The boot ROM is responsible for the automatic colorization of monochrome-only games when run on a GBC.</p>
+<p>When in DMG compatibility mode, the <a href="Palettes.html#lcd-color-palettes-cgb-only">CGB palettes</a> are still being used: the background uses BG palette 0 (likely because the entire <a href="Tile_Maps.html#bg-map-attributes-cgb-mode-only">attribute map</a> is set to all zeros), and objects use OBJ palette 0 or 1 depending on bit 4 of <a href="OAM.html#byte3---attributesflags">their attribute</a>.
+<a href="Palettes.html#lcd-monochrome-palettes"><code>BGP</code>, <code>OBP0</code>, and <code>OBP1</code></a> actually index into the CGB palettes instead of the DMG’s shades of grey.</p>
+<p>The boot ROM picks a compatibility palette using an ID computed using the following algorithm:</p>
+<ol>
+<li>
+<p>Check if the <a href="The_Cartridge_Header.html#014b---old-licensee-code">old licensee code</a> is $33.</p>
+<ul>
+<li>If yes, the <a href="The_Cartridge_Header.html#0144-0145---new-licensee-code">new licensee code</a> must be used. Check that it equals the ASCII string <code>&quot;01&quot;</code>.</li>
+<li>If not, check that it equals $01.</li>
+</ul>
+<p>In effect, this checks that the licensee in the header is Nintendo.</p>
+<ul>
+<li>If this check fails, palettes ID $00 is used.</li>
+<li>Otherwise, the algorithm proceeds.</li>
+</ul>
+</li>
+<li>
+<p>Compute the sum of all 16 <a href="The_Cartridge_Header.html#0134-0143---title">game title</a> bytes, storing this as the “title checksum”.</p>
+</li>
+<li>
+<p>Find the title checksum <a href="https://github.com/ISSOtm/gb-bootroms/blob/443d7f057ae06e8d1d76fa8083650cf0be2cd0ae/src/cgb.asm#L1221-L1230">in a table</a>, and record its index within the table.</p>
+<p>An almost-complete list of titles corresponding to the different checksums can be found in <a href="https://github.com/LIJI32/SameBoy/blob/1d7692cff5552e296be5e1ab075c4f187f57132c/BootROMs/cgb_boot.asm#L230-L328">Liji’s free CGB boot ROM reimplementation</a>.</p>
+<ul>
+<li>If not found, palettes ID $00 is used.</li>
+<li>If the index is 64 or below, the index is used as-is as the palettes ID, and the algorithm ends.</li>
+<li>Otherwise, it must be further corrected based on the title’s fourth letter; proceed to the step below.</li>
+</ul>
+</li>
+<li>
+<p>The fourth letter is searched for in <a href="https://github.com/ISSOtm/gb-bootroms/blob/443d7f057ae06e8d1d76fa8083650cf0be2cd0ae/src/cgb.asm#L1232-L1240">another table</a>.</p>
+<ul>
+<li>If the letter can’t be found, palettes ID $00 is used.</li>
+<li>If the letter is found, the index obtained in the previous step is increased by 14 times the row index to get the palettes ID.
+(So, if the letter was found in the first row, the index is unchanged; if it’s found in the second row, it’s increased by 14, and so on.)</li>
+</ul>
+</li>
+</ol>
+<p>The resulting palettes ID is used to pick 3 palettes out of a table via a fairly complex mechanism.
+The user can override this choice using certain button combinations during the logo animation; some of these manual choices are identical to auto-colorizations, <a href="https://tcrf.net/Notes:Game_Boy_Color_Bootstrap_ROM#Manual_Select_Palette_Configurations">but others are unique</a>.</p>
+<div class="box tip">
+<p>A table of checksums (and tie-breaker fourth letters when applicable) and the corresponding palettes can be found <a href="https://tcrf.net/Notes:Game_Boy_Color_Bootstrap_ROM#Assigned_Palette_Configurations">on TCRF</a>.</p>
+</div>
+<p>If the ID is either $43 or $58, then the Nintendo logo’s tilemap is written to VRAM.
+This is intended for games that perform some kind of animation with the Nintendo logo; it suddenly appears in the middle of the screen, though, so it may look better for homebrew not to use this mechanism.</p>
+<h3 id="scrapped-palette-switching-menu"><a class="header" href="#scrapped-palette-switching-menu">Scrapped palette switching menu</a></h3>
+<p>Remnants of a functionality designed to allow switching the CGB palettes while the game is running exist in the CGB CPU.</p>
+<h2 id="stadium-2"><a class="header" href="#stadium-2">Stadium 2</a></h2>
+<p>Pokémon Stadium 2’s “GB Tower” emulator contains a very peculiar boot ROM.
+It can be found at offset $015995F0 in the US release, and is only 1008 bytes long.
+Its purpose is unknown.</p>
+<p>This boot ROM does roughly the same setup as a regular CGB boot ROM, but writes to $FF50 very early, and said write is followed by a lock-up loop.
+Further, the boot ROM contains a valid header, which is mostly blank save for the logo, compatibility flag (which indicates dual compatibility), and header checksum.</p>
+<h2 id="logo-check"><a class="header" href="#logo-check">Logo check</a></h2>
+<p>While it may make sense for the boot ROM to at least partially verify the ROM’s integrity via the header check, one may wonder why the logo is checked more stringently.</p>
+<h3 id="legal-implications"><a class="header" href="#legal-implications">Legal implications</a></h3>
+<div class="box warning">
+<p class="box-title">Caution</p><p>The following is advisory, but <strong>is not legal advice</strong>.
+If necessary (e.g. commercial releases with logos on the boxes), consult a lawyer.</p>
+</div>
+<p>The logo check was meant to deter piracy using trademark law.
+Unlike nowadays, the Game Boy’s technology was not sufficient to require Nintendo’s approval to make a game run on it, and Nintendo decided against hardware protection like the NES’ <a href="https://wiki.nesdev.com/w/index.php/CIC_lockout_chip">lockout chip</a> likely for cost and/or power consumption reasons.</p>
+<p>Instead, the boot ROM’s logo check forces each ROM intended to run on the system to contain an (encoded) copy of the Nintendo logo, which is displayed on startup.
+Nintendo’s strategy was to threaten pirate developers with suing for trademark infringement.</p>
+<p>Fortunately, <a href="https://en.wikipedia.org/wiki/Sega_v._Accolade"><em>Sega v. Accolade</em></a> ruled (in the US) that use of a trademarked logo is okay if it is <em>necessary</em> for running programs on the console, so there is no danger for homebrew developers.</p>
+<p>That said, if you want to explicitly mark the lack of licensing from Nintendo, you can add some text to the logo screen once the boot ROM hands off control, for example like this:</p>
+<p><img src="imgs/not_licensed.png" alt="Mockup screenshot of an endorsement disambiguation screen" /></p>
+<h3 id="bypass"><a class="header" href="#bypass">Bypass</a></h3>
+<p>The Nintendo logo check has been <a href="http://fuji.drillspirits.net/?post=87">circumvented many times</a>, be it to avoid legal action from Nintendo or for the swag, and there are basically two ways of doing so.</p>
+<p>One is to exploit a <a href="https://en.wikipedia.org/wiki/TOCTTOU">TOCTTOU</a> vulnerability in the way the console reads the logo (doing so once to draw it, and the other time to check it), which has however been patched on the AGB.
+This requires custom hardware in the cartridge, however, and is made difficult by the timing and order of the reads varying greatly between boot ROMs.
+Some implementations use a custom mapper, others use a capacitor holding some of the address lines to redirect reads to a separate region of ROM containing the modified logo.</p>
+<p>The other way is Game Boy Color (and Advance) exclusive: for some reason, the boot ROM copies the full logo into HRAM, but only compares the first half.
+Thus, a logo whose top half is correct but not the bottom half will get a pass from the CGB boot ROM.
+Strangely, despite correcting the TOCTTOU vulnerability, the CGB-AGB boot ROM does <em>not</em> fix this mistake.</p>
+<h2 id="console-state-after-boot-rom-hand-off"><a class="header" href="#console-state-after-boot-rom-hand-off">Console state after boot ROM hand-off</a></h2>
+<p>Regardless of the console you intend for your game to run on, it is prudent to rely on as little of the following as possible, barring what is mentioned elsewhere in this documentation to detect which system you are running on.
+This ensures maximum compatibility, both across consoles and cartridges (especially flashcarts, which typically run their own menu code before your game), increases reliability, and is generally considered good practice.</p>
+<div class="box warning">
+<p>Some of the information below is highly volatile, due to the complexity of some of the boot ROM behaviors; thus, some of it may contain errors.
+Rely on it at your own risk.</p>
+</div>
+<h3 id="common-remarks"><a class="header" href="#common-remarks">Common remarks</a></h3>
+<p>The console’s WRAM and HRAM are random on power-up.
+<a href="https://twitter.com/CasualPkPlayer/status/1409752977812852736?s=19">Different models tend to exhibit different patterns</a>, but they are random nonetheless, even depending on factors such as the ambient teperature.
+Besides, turning the system off and on again has proven reliable enough <a href="https://www.youtube.com/watch?v=xayxmTLljr8">to carry over RAM from one game to another</a>, so it’s not a good idea to rely on it at all.</p>
+<p>Emulation of uninitialized RAM is inconsistent: some emulators fill RAM with a constant on startup (typically $00 or $FF), some emulators fully randomize RAM, and others attempt to reproduce the patterns observed on hardware.
+It is a good idea to enable your favorite emulator’s “break on uninitialized RAM read” exception (and if it doesn’t have one, to consider using an emulator that does).</p>
+<p>While technically not related to power-on, it is worth noting that external RAM in the cartridge, when present, usually contains random garbage data when first powered on.
+It is strongly advised for the game to put a large enough known sequence of bytes at a fixed location in SRAM, and check its presence before accessing any saved data.</p>
+<h3 id="cpu-registers"><a class="header" href="#cpu-registers">CPU registers</a></h3>
+<table><thead><tr><th align="right">Register</th><th align="center">DMG0</th><th align="center">DMG</th><th align="center">MGB</th><th align="center">SGB</th><th align="center">SGB2</th></tr></thead><tbody>
+<tr><td align="right"><strong>A</strong></td><td align="center">$01</td><td align="center">$01</td><td align="center">$FF</td><td align="center">$01</td><td align="center">$FF</td></tr>
+<tr><td align="right"><strong>F</strong></td><td align="center">Z=0 N=0 H=0 C=0</td><td align="center">Z=1 N=0 H=? C=?<sup class="footnote-reference"><a href="#dmg_c">1</a></sup></td><td align="center">Z=1 N=0 H=? C=?<sup class="footnote-reference"><a href="#dmg_c">1</a></sup></td><td align="center">Z=0 N=0 H=0 C=0</td><td align="center">Z=0 N=0 H=0 C=0</td></tr>
+<tr><td align="right"><strong>B</strong></td><td align="center">$FF</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
+<tr><td align="right"><strong>C</strong></td><td align="center">$13</td><td align="center">$13</td><td align="center">$13</td><td align="center">$14</td><td align="center">$14</td></tr>
+<tr><td align="right"><strong>D</strong></td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
+<tr><td align="right"><strong>E</strong></td><td align="center">$C1</td><td align="center">$D8</td><td align="center">$D8</td><td align="center">$00</td><td align="center">$00</td></tr>
+<tr><td align="right"><strong>H</strong></td><td align="center">$84</td><td align="center">$01</td><td align="center">$01</td><td align="center">$C0</td><td align="center">$C0</td></tr>
+<tr><td align="right"><strong>L</strong></td><td align="center">$03</td><td align="center">$4D</td><td align="center">$4D</td><td align="center">$60</td><td align="center">$60</td></tr>
+<tr><td align="right"><strong>PC</strong></td><td align="center">$0100</td><td align="center">$0100</td><td align="center">$0100</td><td align="center">$0100</td><td align="center">$0100</td></tr>
+<tr><td align="right"><strong>SP</strong></td><td align="center">$FFFE</td><td align="center">$FFFE</td><td align="center">$FFFE</td><td align="center">$FFFE</td><td align="center">$FFFE</td></tr>
+</tbody></table>
+<div class="footnote-definition" id="dmg_c"><sup class="footnote-definition-label">1</sup>
+<p>If the <a href="The_Cartridge_Header.html#014d---header-checksum">header checksum</a> is $00, then the carry and half-carry flags are clear; otherwise, they are both set.</p>
+</div>
+<table><thead><tr><th align="right">Register</th><th align="center">CGB (DMG mode)</th><th align="center">AGB (DMG mode)</th><th align="center">CGB</th><th align="center">AGB</th></tr></thead><tbody>
+<tr><td align="right"><strong>A</strong></td><td align="center">$11</td><td align="center">$11</td><td align="center">$11</td><td align="center">$11</td></tr>
+<tr><td align="right"><strong>F</strong></td><td align="center">Z=1 N=0 H=0 C=0</td><td align="center">Z=? N=0 H=? C=0<sup class="footnote-reference"><a href="#agbdmg_f">2</a></sup></td><td align="center">Z=1 N=0 H=0 C=0</td><td align="center">Z=0 N=0 H=0 C=0</td></tr>
+<tr><td align="right"><strong>B</strong></td><td align="center">??<sup class="footnote-reference"><a href="#cgbdmg_b">3</a></sup></td><td align="center">??<sup class="footnote-reference"><a href="#cgbdmg_b">3</a></sup> + 1</td><td align="center">$00</td><td align="center">$01</td></tr>
+<tr><td align="right"><strong>C</strong></td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
+<tr><td align="right"><strong>D</strong></td><td align="center">$00</td><td align="center">$00</td><td align="center">$FF</td><td align="center">$FF</td></tr>
+<tr><td align="right"><strong>E</strong></td><td align="center">$08</td><td align="center">$08</td><td align="center">$56</td><td align="center">$56</td></tr>
+<tr><td align="right"><strong>H</strong></td><td align="center">$??<sup class="footnote-reference"><a href="#cgbdmg_hl">4</a></sup></td><td align="center">$??<sup class="footnote-reference"><a href="#cgbdmg_hl">4</a></sup></td><td align="center">$00</td><td align="center">$00</td></tr>
+<tr><td align="right"><strong>L</strong></td><td align="center">$??<sup class="footnote-reference"><a href="#cgbdmg_hl">4</a></sup></td><td align="center">$??<sup class="footnote-reference"><a href="#cgbdmg_hl">4</a></sup></td><td align="center">$0D</td><td align="center">$0D</td></tr>
+<tr><td align="right"><strong>PC</strong></td><td align="center">$0100</td><td align="center">$0100</td><td align="center">$0100</td><td align="center">$0100</td></tr>
+<tr><td align="right"><strong>SP</strong></td><td align="center">$FFFE</td><td align="center">$FFFE</td><td align="center">$FFFE</td><td align="center">$FFFE</td></tr>
+</tbody></table>
+<div class="footnote-definition" id="agbdmg_f"><sup class="footnote-definition-label">2</sup>
+<p>To determine the flags, take the B register you would have gotten on CGB<sup class="footnote-reference"><a href="#cgbdmg_b">3</a></sup>, and <code>inc</code> it.
+(To be precise: an <code>inc b</code> is the last operation to touch the flags.)
+The carry and direction flags are always clear, though.</p>
+</div>
+<div class="footnote-definition" id="cgbdmg_b"><sup class="footnote-definition-label">3</sup>
+<p>If the <a href="The_Cartridge_Header.html#014b---old-licensee-code">old licensee code</a> is $01, or the old licensee code is $33 and the <a href="The_Cartridge_Header.html#0144-0145---new-licensee-code">new licensee code</a> is <code>&quot;01&quot;</code> ($30 $31), then B is the sum of all 16 <a href="The_Cartridge_Header.html#0134-0143---title">title</a> bytes.
+Otherwise, B is $00.
+As indicated by the “+ 1” in the “AGB (DMG mode)” column, if on AGB, that value is increased by 1<sup class="footnote-reference"><a href="#agbdmg_f">2</a></sup>.</p>
+</div>
+<div class="footnote-definition" id="cgbdmg_hl"><sup class="footnote-definition-label">4</sup>
+<p>There are two possible cases:</p>
+<ul>
+<li><strong>The B register is $43 or $58 (on CGB) / $44 or $59 (on AGB)</strong>: HL = $991A</li>
+<li><strong>Neither of the above</strong>: HL = $007C</li>
+</ul>
+<!-- How else do I prevent the footnote definition from being too greedy? >_< -->
+</div>
+<p>The tables above were obtained from analysis of <a href="https://github.com/ISSOtm/gb-bootroms">the boot ROM’s disassemblies</a>, and confirmed using Mooneye-GB tests <a href="https://github.com/Gekkio/mooneye-gb/blob/ca7ff30b52fd3de4f1527397f27a729ffd848dfa/tests/acceptance/boot_regs-dmg0.s"><code>acceptance/boot_regs-dmg0</code></a>, <a href="https://github.com/Gekkio/mooneye-gb/blob/ca7ff30b52fd3de4f1527397f27a729ffd848dfa/tests/acceptance/boot_regs-dmgABC.s"><code>acceptance/boot_regs-dmgABC</code></a>, <a href="https://github.com/Gekkio/mooneye-gb/blob/ca7ff30b52fd3de4f1527397f27a729ffd848dfa/tests/acceptance/boot_regs-mgb.s"><code>acceptance/boot_regs-mgb</code></a>, <a href="https://github.com/Gekkio/mooneye-gb/blob/ca7ff30b52fd3de4f1527397f27a729ffd848dfa/tests/acceptance/boot_regs-sgb.s"><code>acceptance/boot_regs-sgb</code></a>, <a href="https://github.com/Gekkio/mooneye-gb/blob/ca7ff30b52fd3de4f1527397f27a729ffd848dfa/tests/acceptance/boot_regs-sgb2.s"><code>acceptance/boot_regs-sgb2</code></a>, <a href="https://github.com/Gekkio/mooneye-gb/blob/ca7ff30b52fd3de4f1527397f27a729ffd848dfa/tests/misc/boot_regs-cgb.s"><code>misc/boot_regs-cgb</code></a>, and <a href="https://github.com/Gekkio/mooneye-gb/blob/ca7ff30b52fd3de4f1527397f27a729ffd848dfa/tests/misc/boot_regs-A.s"><code>misc/boot_regs-A</code></a>, plus some extra testing.</p>
+<h2 id="hardware-registers"><a class="header" href="#hardware-registers">Hardware registers</a></h2>
+<p>As far as timing-sensitive values are concerned, these values are recorded at PC = $0100.</p>
+<table><thead><tr><th align="right">Name</th><th align="center">Address</th><th align="center">DMG0</th><th align="center">DMG / MGB</th><th align="center">SGB / SGB2</th><th align="center">CGB / AGB</th></tr></thead><tbody>
+<tr><td align="right"><a href="Joypad_Input.html#ff00---p1joyp---joypad-rw"><code>P1</code></a></td><td align="center">$FF00</td><td align="center">$CF</td><td align="center">$CF</td><td align="center">$C7 or $CF</td><td align="center">$C7 or $CF</td></tr>
+<tr><td align="right"><a href="Serial_Data_Transfer_(Link_Cable).html#ff01---sb---serial-transfer-data-rw"><code>SB</code></a></td><td align="center">$FF01</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
+<tr><td align="right"><a href="Serial_Data_Transfer_(Link_Cable).html#ff02---sc---serial-transfer-control-rw"><code>SC</code></a></td><td align="center">$FF02</td><td align="center">$7E</td><td align="center">$7E</td><td align="center">$7E</td><td align="center">$7F</td></tr>
+<tr><td align="right"><a href="Timer_and_Divider_Registers.html#ff04---div---divider-register-rw"><code>DIV</code></a></td><td align="center">$FF04</td><td align="center">$18</td><td align="center">$AB</td><td align="center">??<sup class="footnote-reference"><a href="#unk">5</a></sup></td><td align="center">??<sup class="footnote-reference"><a href="#unk_pad">6</a></sup></td></tr>
+<tr><td align="right"><a href="Timer_and_Divider_Registers.html#ff05---tima---timer-counter-rw"><code>TIMA</code></a></td><td align="center">$FF05</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
+<tr><td align="right"><a href="Timer_and_Divider_Registers.html#ff06---tma---timer-modulo-rw"><code>TMA</code></a></td><td align="center">$FF06</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
+<tr><td align="right"><a href="Timer_and_Divider_Registers.html#ff07---tac---timer-control-rw"><code>TAC</code></a></td><td align="center">$FF07</td><td align="center">$F8</td><td align="center">$F8</td><td align="center">$F8</td><td align="center">$F8</td></tr>
+<tr><td align="right"><a href="Interrupts.html#ff0f---if---interrupt-flag-rw"><code>IF</code></a></td><td align="center">$FF0F</td><td align="center">$E1</td><td align="center">$E1</td><td align="center">$E1</td><td align="center">$E1</td></tr>
+<tr><td align="right"><a href="Sound_Controller.html#ff10---nr10---channel-1-sweep-register-rw"><code>NR10</code></a></td><td align="center">$FF10</td><td align="center">$80</td><td align="center">$80</td><td align="center">$80</td><td align="center">$80</td></tr>
+<tr><td align="right"><a href="Sound_Controller.html#ff11---nr11---channel-1-sound-lengthwave-pattern-duty-rw"><code>NR11</code></a></td><td align="center">$FF11</td><td align="center">$BF</td><td align="center">$BF</td><td align="center">$BF</td><td align="center">$BF</td></tr>
+<tr><td align="right"><a href="Sound_Controller.html#ff12---nr12---channel-1-volume-envelope-rw"><code>NR12</code></a></td><td align="center">$FF12</td><td align="center">$F3</td><td align="center">$F3</td><td align="center">$F3</td><td align="center">$F3</td></tr>
+<tr><td align="right"><a href="Sound_Controller.html#ff13---nr13---channel-1-frequency-lo-write-only"><code>NR13</code></a></td><td align="center">$FF13</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
+<tr><td align="right"><a href="Sound_Controller.html#ff14---nr14---channel-1-frequency-hi-rw"><code>NR14</code></a></td><td align="center">$FF14</td><td align="center">$BF</td><td align="center">$BF</td><td align="center">$BF</td><td align="center">$BF</td></tr>
+<tr><td align="right"><a href="Sound_Controller.html#ff16---nr21---channel-2-sound-lengthwave-pattern-duty-rw"><code>NR21</code></a></td><td align="center">$FF16</td><td align="center">$3F</td><td align="center">$3F</td><td align="center">$3F</td><td align="center">$3F</td></tr>
+<tr><td align="right"><a href="Sound_Controller.html#ff17---nr22---channel-2-volume-envelope-rw"><code>NR22</code></a></td><td align="center">$FF17</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
+<tr><td align="right"><a href="Sound_Controller.html#ff18---nr23---channel-2-frequency-lo-data-w"><code>NR23</code></a></td><td align="center">$FF18</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
+<tr><td align="right"><a href="Sound_Controller.html#ff19---nr24---channel-2-frequency-hi-data-rw"><code>NR24</code></a></td><td align="center">$FF19</td><td align="center">$BF</td><td align="center">$BF</td><td align="center">$BF</td><td align="center">$BF</td></tr>
+<tr><td align="right"><a href="Sound_Controller.html#ff1a---nr30---channel-3-sound-onoff-rw"><code>NR30</code></a></td><td align="center">$FF1A</td><td align="center">$7F</td><td align="center">$7F</td><td align="center">$7F</td><td align="center">$7F</td></tr>
+<tr><td align="right"><a href="Sound_Controller.html#ff1b---nr31---channel-3-sound-length-rw"><code>NR31</code></a></td><td align="center">$FF1B</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
+<tr><td align="right"><a href="Sound_Controller.html#ff1c---nr32---channel-3-select-output-level-rw"><code>NR32</code></a></td><td align="center">$FF1C</td><td align="center">$9F</td><td align="center">$9F</td><td align="center">$9F</td><td align="center">$9F</td></tr>
+<tr><td align="right"><a href="Sound_Controller.html#ff1d---nr33---channel-3-frequencys-lower-data-w"><code>NR33</code></a></td><td align="center">$FF1D</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
+<tr><td align="right"><a href="Sound_Controller.html#ff1e---nr34---channel-3-frequencys-higher-data-rw"><code>NR34</code></a></td><td align="center">$FF1E</td><td align="center">$BF</td><td align="center">$BF</td><td align="center">$BF</td><td align="center">$BF</td></tr>
+<tr><td align="right"><a href="Sound_Controller.html#ff20---nr41---channel-4-sound-length-rw"><code>NR41</code></a></td><td align="center">$FF20</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
+<tr><td align="right"><a href="Sound_Controller.html#ff21---nr42---channel-4-volume-envelope-rw"><code>NR42</code></a></td><td align="center">$FF21</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
+<tr><td align="right"><a href="Sound_Controller.html#ff22---nr43---channel-4-polynomial-counter-rw"><code>NR43</code></a></td><td align="center">$FF22</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
+<tr><td align="right"><a href="Sound_Controller.html#ff23---nr44---channel-4-counterconsecutive-inital-rw"><code>NR44</code></a></td><td align="center">$FF23</td><td align="center">$BF</td><td align="center">$BF</td><td align="center">$BF</td><td align="center">$BF</td></tr>
+<tr><td align="right"><a href="Sound_Controller.html#ff24---nr50---channel-control--on-off--volume-rw"><code>NR50</code></a></td><td align="center">$FF24</td><td align="center">$77</td><td align="center">$77</td><td align="center">$77</td><td align="center">$77</td></tr>
+<tr><td align="right"><a href="Sound_Controller.html#ff25---nr51---selection-of-sound-output-terminal-rw"><code>NR51</code></a></td><td align="center">$FF25</td><td align="center">$F3</td><td align="center">$F3</td><td align="center">$F3</td><td align="center">$F3</td></tr>
+<tr><td align="right"><a href="Sound_Controller.html#ff26---nr52---sound-onoff"><code>NR52</code></a></td><td align="center">$FF26</td><td align="center">$F1</td><td align="center">$F1</td><td align="center">$F0</td><td align="center">$F1</td></tr>
+<tr><td align="right"><a href="LCDC.html#ff40---lcdc-lcd-control-rw"><code>LCDC</code></a></td><td align="center">$FF40</td><td align="center">$91</td><td align="center">$91</td><td align="center">$91</td><td align="center">$??</td></tr>
+<tr><td align="right"><a href="STAT.html#ff41---stat-lcd-status-rw"><code>STAT</code></a></td><td align="center">$FF41</td><td align="center">$81</td><td align="center">$85</td><td align="center">??<sup class="footnote-reference"><a href="#unk">5</a></sup></td><td align="center">??<sup class="footnote-reference"><a href="#unk_pad">6</a></sup></td></tr>
+<tr><td align="right"><a href="Scrolling.html#ff42---scy-scroll-y-rw-ff43---scx-scroll-x-rw"><code>SCY</code></a></td><td align="center">$FF42</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
+<tr><td align="right"><a href="Scrolling.html#ff42---scy-scroll-y-rw-ff43---scx-scroll-x-rw"><code>SCX</code></a></td><td align="center">$FF43</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
+<tr><td align="right"><a href="Scrolling.html#ff44---ly-lcd-y-coordinate-r"><code>LY</code></a></td><td align="center">$FF44</td><td align="center">$91</td><td align="center">$00</td><td align="center">??<sup class="footnote-reference"><a href="#unk">5</a></sup></td><td align="center">??<sup class="footnote-reference"><a href="#unk_pad">6</a></sup></td></tr>
+<tr><td align="right"><a href="Scrolling.html#ff45---lyc-ly-compare-rw"><code>LYC</code></a></td><td align="center">$FF45</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
+<tr><td align="right"><a href="OAM_DMA_Transfer.html#ff46---dma-dma-transfer-and-start-address-rw"><code>DMA</code></a></td><td align="center">$FF46</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$00</td></tr>
+<tr><td align="right"><a href="Palettes.html#ff47---bgp-bg-palette-data-rw---non-cgb-mode-only"><code>BGP</code></a></td><td align="center">$FF47</td><td align="center">$FC</td><td align="center">$FC</td><td align="center">$FC</td><td align="center">$FC</td></tr>
+<tr><td align="right"><a href="Palettes.html#ff48---obp0-object-palette-0-data-rw---non-cgb-mode-only"><code>OBP0</code></a></td><td align="center">$FF48</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$00</td></tr>
+<tr><td align="right"><a href="Palettes.html#ff49---obp1-object-palette-1-data-rw---non-cgb-mode-only"><code>OBP1</code></a></td><td align="center">$FF49</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$00</td></tr>
+<tr><td align="right"><a href="Scrolling.html#ff4a---wy-window-y-position-rw-ff4b---wx-window-x-position--7-rw"><code>WY</code></a></td><td align="center">$FF4A</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
+<tr><td align="right"><a href="Scrolling.html#ff4a---wy-window-y-position-rw-ff4b---wx-window-x-position--7-rw"><code>WX</code></a></td><td align="center">$FF4B</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
+<tr><td align="right"><a href="CGB_Registers.html#ff4d---key1---cgb-mode-only---prepare-speed-switch"><code>KEY1</code></a></td><td align="center">$FF4D</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
+<tr><td align="right"><a href="CGB_Registers.html#ff4f---vbk---cgb-mode-only---vram-bank-rw"><code>VBK</code></a></td><td align="center">$FF4F</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
+<tr><td align="right"><a href="CGB_Registers.html#ff51---hdma1-new-dma-source-high-w-ff52---hdma2-new-dma-source-low-w---cgb-mode-only"><code>HDMA1</code></a></td><td align="center">$FF51</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
+<tr><td align="right"><a href="CGB_Registers.html#ff51---hdma1-new-dma-source-high-w-ff52---hdma2-new-dma-source-low-w---cgb-mode-only"><code>HDMA2</code></a></td><td align="center">$FF52</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
+<tr><td align="right"><a href="CGB_Registers.html#ff53---hdma3-new-dma-destination-high-w-ff54---hdma4-new-dma-destination-low-w---cgb-mode-only"><code>HDMA3</code></a></td><td align="center">$FF53</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
+<tr><td align="right"><a href="CGB_Registers.html#ff53---hdma3-new-dma-destination-high-w-ff54---hdma4-new-dma-destination-low-w---cgb-mode-only"><code>HDMA4</code></a></td><td align="center">$FF54</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
+<tr><td align="right"><a href="CGB_Registers.html#ff55---hdma5-new-dma-lengthmodestart-w---cgb-mode-only"><code>HDMA5</code></a></td><td align="center">$FF55</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
+<tr><td align="right"><a href="CGB_Registers.html#ff56---rp---cgb-mode-only---infrared-communications-port"><code>RP</code></a></td><td align="center">$FF56</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
+<tr><td align="right"><a href="Palettes.html#ff68---bcpsbgpi-background-color-palette-specification-or-background-palette-index---cgb-mode-only"><code>BCPS</code></a></td><td align="center">$FF68</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">??<sup class="footnote-reference"><a href="#compat">7</a></sup></td></tr>
+<tr><td align="right"><a href="Palettes.html#ff69---bcpdbgpd-background-color-palette-data-or-background-palette-data---cgb-mode-only"><code>BCPD</code></a></td><td align="center">$FF69</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">??<sup class="footnote-reference"><a href="#compat">7</a></sup></td></tr>
+<tr><td align="right"><a href="Palettes.html#ff6a---ocpsobpi-object-color-palette-specification-or-sprite-palette-index-ff6b---ocpdobpd-object-color-palette-data-or-sprite-palette-data---both-cgb-mode-only"><code>OCPS</code></a></td><td align="center">$FF6A</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">??<sup class="footnote-reference"><a href="#compat">7</a></sup></td></tr>
+<tr><td align="right"><a href="Palettes.html#ff6a---ocpsobpi-object-color-palette-specification-or-sprite-palette-index-ff6b---ocpdobpd-object-color-palette-data-or-sprite-palette-data---both-cgb-mode-only"><code>OCPD</code></a></td><td align="center">$FF6B</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">??<sup class="footnote-reference"><a href="#compat">7</a></sup></td></tr>
+<tr><td align="right"><a href="CGB_Registers.html#ff70---svbk---cgb-mode-only---wram-bank"><code>SVBK</code></a></td><td align="center">$FF70</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
+<tr><td align="right"><a href="Interrupts.html#ffff---ie---interrupt-enable-rw"><code>IE</code></a></td><td align="center">$FFFF</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
+</tbody></table>
+<div class="footnote-definition" id="unk"><sup class="footnote-definition-label">5</sup>
+<p>Since this boot ROM’s duration depends on the header’s contents, a general answer can’t be given.
+The value should be static for a given header, though.</p>
+</div>
+<div class="footnote-definition" id="unk_pad"><sup class="footnote-definition-label">6</sup>
+<p>Since this boot ROM’s duration depends on the header’s contents (and the player’s inputs in compatibility mode), an answer can’t be given.
+Just don’t rely on these.</p>
+</div>
+<div class="footnote-definition" id="compat"><sup class="footnote-definition-label">7</sup>
+<p>These depend on whether compatibility mode is enabled.</p>
+</div>
+<p>The table above was obtained from Mooneye-GB tests <a href="https://github.com/Gekkio/mooneye-gb/blob/ca7ff30b52fd3de4f1527397f27a729ffd848dfa/tests/acceptance/boot_hwio-dmg0.s"><code>acceptance/boot_hwio-dmg0</code></a>, <a href="https://github.com/Gekkio/mooneye-gb/blob/ca7ff30b52fd3de4f1527397f27a729ffd848dfa/tests/acceptance/boot_hwio-dmgABCmgb.s"><code>acceptance/boot_hwio-dmgABCmgb</code></a>, <a href="https://github.com/Gekkio/mooneye-gb/blob/ca7ff30b52fd3de4f1527397f27a729ffd848dfa/tests/acceptance/boot_hwio-S.s"><code>acceptance/boot_hwio-S</code></a>, and <a href="https://github.com/Gekkio/mooneye-gb/blob/ca7ff30b52fd3de4f1527397f27a729ffd848dfa/tests/misc/boot_hwio-C.s"><code>misc/boot_hwio-C</code></a>, plus some extra testing.</p>
 
                     </main>
 
