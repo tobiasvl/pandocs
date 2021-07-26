@@ -160,7 +160,7 @@ Emulator developers may be also interested in the <a href="https://gekkio.fi/fil
 <p>You can search anywhere by pressing <kbd>s</kbd> on your keyboard or clicking the <i class="fa fa-search"></i> icon.</p>
 <p>The <i class="fa fa-edit"></i> icon allows you to suggest an edit on the current page by directly opening the source file in the git repository.</p>
 <p>You can find a one-page printable version of Pan Docs <a href="https://gbdev.io/pandocs/print.html">here</a>. </p>
-<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/935c915f786f86d4fa98cf1f0c765993ffdee79f"><code>935c915</code></a> (2021-07-26 16:00:05 +0200). </small></p>
+<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/53d0457205433f0c174176f9008f5b2f61262ff7"><code>53d0457</code></a> (2021-07-26 16:12:05 +0200). </small></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="acknowledgements"><a class="header" href="#acknowledgements">Acknowledgements</a></h1>
 <p>This resource wouldn’t be possible without all the passionate hackers and researchers who contributed on this document in the last three decades.</p>
 <p>We would like to thank everyone in the gbdev community for providing precious feedback, content, support and invaluable knowledge.</p>
@@ -2809,34 +2809,34 @@ Boy program, it is also used to detect SGB hardware.</p>
          3 = Four players
  2-F   Not used (zero)
 </code></pre>
-<p>In one player mode, the second joypad (if any) is used for the SGB
-system program. In two player mode, both joypads are used for the game.
-Because SNES have only two joypad sockets, four player mode requires an
+<p>In one-player mode, the second joypad (if any) can only be used for
+the SGB BIOS. In two-player mode, both joypads are used for the game.
+Because SNES only has two joypad sockets, four-player mode requires an
 external “Multiplayer 5” adapter.</p>
 <p>Changing the number of active players ANDs the currently selected player
-minus one with the number of players in that mode minus one. For example
-if you go from four players to two players and player 4 was active
-player 2 will then be active because 3 AND 1 is 1. However, sending the
-MLT_REQ command will increment the counter several times so results may
+minus one with the number of players in that mode minus one. For example,
+if you go from four players to two players while player 4 was active,
+player 2 will then be active because <code>3 &amp; 1 = 1</code>. However, sending the
+<code>MLT_REQ</code> command will increment the counter several times so results may
 not be exactly as expected. The most frequent case is going from one
 player to two-or-four player which will always start with player 1
 active.</p>
 <h2 id="reading-multiple-controllers-joypads"><a class="header" href="#reading-multiple-controllers-joypads">Reading Multiple Controllers (Joypads)</a></h2>
-<p>When having enabled multiple controllers by MLT_REQ, data for each
-joypad can be read out through JOYPAD register (FF00) as follows: First
+<p>When having enabled multiple controllers by <code>MLT_REQ</code>, data for each
+joypad can be read out through <a href="Joypad_Input.html#ff00---p1joyp---joypad-rw">the <code>P1</code> register</a> as follows: First
 set P14 and P15 both HIGH (deselect both Buttons and Cursor keys), you
-can now read the lower 4 bits of $FF00 which indicate the joypad ID for
+can now read the lower 4 bits of <code>P1</code>, which indicate the joypad ID for
 the following joypad input:</p>
 <table><thead><tr><th>Byte</th><th>Player #</th></tr></thead><tbody>
-<tr><td>$0F</td><td>1</td></tr>
-<tr><td>$0E</td><td>2</td></tr>
-<tr><td>$0D</td><td>3</td></tr>
-<tr><td>$0C</td><td>4</td></tr>
+<tr><td>$xF</td><td>1</td></tr>
+<tr><td>$xE</td><td>2</td></tr>
+<tr><td>$xD</td><td>3</td></tr>
+<tr><td>$xC</td><td>4</td></tr>
 </tbody></table>
-<p>Next, read joypad state as normally. When completed, set P14 and P15
+<p>Next, read joypad state normally. When completed, set both P14 and P15
 back HIGH, this automatically increments the joypad number (or restarts
-counting once reached the lastmost joypad). Repeat the procedure until
-you have read-out states for all two (or four) joypads.</p>
+counting once the last joypad is reached). Repeat the procedure until
+you have read out all two (or four) joypads.</p>
 <p>If for whatever reason you want to increment the joypad number without
 reading the joypad state you only need to set P15 to LOW before setting
 it back to HIGH. Adjusting P14 does not affect whether or not the joypad
