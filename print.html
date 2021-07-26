@@ -160,7 +160,7 @@ Emulator developers may be also interested in the <a href="https://gekkio.fi/fil
 <p>You can search anywhere by pressing <kbd>s</kbd> on your keyboard or clicking the <i class="fa fa-search"></i> icon.</p>
 <p>The <i class="fa fa-edit"></i> icon allows you to suggest an edit on the current page by directly opening the source file in the git repository.</p>
 <p>You can find a one-page printable version of Pan Docs <a href="https://gbdev.io/pandocs/print.html">here</a>. </p>
-<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/04309880716e706b9b5b720b34cc15b8aca2e120"><code>0430988</code></a> (2021-07-25 23:09:00 +0200). </small></p>
+<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/749af14f9f1fa8493a490b333f7afdd6b155b0df"><code>749af14</code></a> (2021-07-26 14:21:18 +0200). </small></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="acknowledgements"><a class="header" href="#acknowledgements">Acknowledgements</a></h1>
 <p>This resource wouldn’t be possible without all the passionate hackers and researchers who contributed on this document in the last three decades.</p>
 <p>We would like to thank everyone in the gbdev community for providing precious feedback, content, support and invaluable knowledge.</p>
@@ -4631,7 +4631,7 @@ Each new choice prevents the animation from ending for 30 frames, potentially de
 <p>Then, like the monochrome boot ROMs, the header logo is checked <em>from the buffer in HRAM</em>, and the header checksum is verified.
 For unknown reasons, however, only the first half of the logo is checked, despite the full logo being present in the HRAM buffer.</p>
 <p>Finally, the boot ROM fades all BG palettes to white, and sets the hardware to compatibility mode.
-If <a href="The_Cartridge_Header.html#0143---cgb-flag">the CGB compatibility byte</a> indicates CGB compatibility, the byte is written directly to <code>KEY0</code> ($FF4C), potentially enabling PGB mode; otherwise, $04 is written to <code>KEY0</code> (enabling DMG compatibility mode in the CPU), $01 is written to <a href="CGB_Registers.html#ff6c---opri---cgb-mode-only---object-priority-mode"><code>OPRI</code></a> (enabling [DMG OBJ priority](#Sprite Priorities and Conflicts)), and the <a href="Power_Up_Sequence.html#compatibility-palettes">compatibility palettes</a> are written.
+If <a href="The_Cartridge_Header.html#0143---cgb-flag">the CGB compatibility byte</a> indicates CGB compatibility, the byte is written directly to <code>KEY0</code> ($FF4C), potentially enabling PGB mode; otherwise, $04 is written to <code>KEY0</code> (enabling DMG compatibility mode in the CPU), $01 is written to <a href="CGB_Registers.html#ff6c---opri---cgb-mode-only---object-priority-mode"><code>OPRI</code></a> (enabling <a href="OAM.html#object-priority-and-conflicts">DMG OBJ priority</a>), and the <a href="Power_Up_Sequence.html#compatibility-palettes">compatibility palettes</a> are written.
 Additionally, the DMG logo tilemap is written if the compatibility requests it.</p>
 <p>Like all other boot ROMs, the last thing the color boot ROMs do is hand off execution at the same time as they unmap themselves, though they write $11 instead of $01 or $FF.</p>
 <h3 id="cgb0"><a class="header" href="#cgb0">CGB0</a></h3>
