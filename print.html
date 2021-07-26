@@ -160,7 +160,7 @@ Emulator developers may be also interested in the <a href="https://gekkio.fi/fil
 <p>You can search anywhere by pressing <kbd>s</kbd> on your keyboard or clicking the <i class="fa fa-search"></i> icon.</p>
 <p>The <i class="fa fa-edit"></i> icon allows you to suggest an edit on the current page by directly opening the source file in the git repository.</p>
 <p>You can find a one-page printable version of Pan Docs <a href="https://gbdev.io/pandocs/print.html">here</a>. </p>
-<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/749af14f9f1fa8493a490b333f7afdd6b155b0df"><code>749af14</code></a> (2021-07-26 14:21:18 +0200). </small></p>
+<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/935c915f786f86d4fa98cf1f0c765993ffdee79f"><code>935c915</code></a> (2021-07-26 16:00:05 +0200). </small></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="acknowledgements"><a class="header" href="#acknowledgements">Acknowledgements</a></h1>
 <p>This resource wouldn’t be possible without all the passionate hackers and researchers who contributed on this document in the last three decades.</p>
 <p>We would like to thank everyone in the gbdev community for providing precious feedback, content, support and invaluable knowledge.</p>
@@ -4632,14 +4632,14 @@ Each new choice prevents the animation from ending for 30 frames, potentially de
 For unknown reasons, however, only the first half of the logo is checked, despite the full logo being present in the HRAM buffer.</p>
 <p>Finally, the boot ROM fades all BG palettes to white, and sets the hardware to compatibility mode.
 If <a href="The_Cartridge_Header.html#0143---cgb-flag">the CGB compatibility byte</a> indicates CGB compatibility, the byte is written directly to <code>KEY0</code> ($FF4C), potentially enabling PGB mode; otherwise, $04 is written to <code>KEY0</code> (enabling DMG compatibility mode in the CPU), $01 is written to <a href="CGB_Registers.html#ff6c---opri---cgb-mode-only---object-priority-mode"><code>OPRI</code></a> (enabling <a href="OAM.html#object-priority-and-conflicts">DMG OBJ priority</a>), and the <a href="Power_Up_Sequence.html#compatibility-palettes">compatibility palettes</a> are written.
-Additionally, the DMG logo tilemap is written if the compatibility requests it.</p>
+Additionally, the DMG logo tilemap is written <a href="Power_Up_Sequence.html#compatibility-palettes">if the compatibility requests it</a>.</p>
 <p>Like all other boot ROMs, the last thing the color boot ROMs do is hand off execution at the same time as they unmap themselves, though they write $11 instead of $01 or $FF.</p>
 <h3 id="cgb0"><a class="header" href="#cgb0">CGB0</a></h3>
 <p>Like the DMG0 boot ROM, some early CGBs contain a different boot ROM.
-Unlike DMG0 and DMG, the differences between the CGB0 and CGB boot ROM, are very minor, with no change in the layout of the ROM.</p>
+Unlike DMG0 and DMG, the differences between the CGB0 and CGB boot ROM are very minor, with no change in the layout of the ROM.</p>
 <p>The most notable change is that the CGB0 boot ROM does <em>not</em> init <a href="Sound_Controller.html#ff30-ff3f---wave-pattern-ram">wave RAM</a>.
 This is known to cause, for example, a different title screen music in the game <em>R-Type</em>.</p>
-<p>The CGB0 boot ROM also writes copies of other variables to some locations in WRAM that are not otherwise run from anywhere.
+<p>The CGB0 boot ROM also writes copies of other variables to some locations in WRAM that are not otherwise read anywhere.
 It is speculated that this may be debug remnants.</p>
 <h3 id="compatibility-palettes"><a class="header" href="#compatibility-palettes">Compatibility palettes</a></h3>
 <p>The boot ROM is responsible for the automatic colorization of monochrome-only games when run on a GBC.</p>
@@ -4811,7 +4811,7 @@ As indicated by the “+ 1” in the “AGB (DMG mode)” column, if on AGB, tha
 <tr><td align="right"><a href="Sound_Controller.html#ff24---nr50---channel-control--on-off--volume-rw"><code>NR50</code></a></td><td align="center">$FF24</td><td align="center">$77</td><td align="center">$77</td><td align="center">$77</td><td align="center">$77</td></tr>
 <tr><td align="right"><a href="Sound_Controller.html#ff25---nr51---selection-of-sound-output-terminal-rw"><code>NR51</code></a></td><td align="center">$FF25</td><td align="center">$F3</td><td align="center">$F3</td><td align="center">$F3</td><td align="center">$F3</td></tr>
 <tr><td align="right"><a href="Sound_Controller.html#ff26---nr52---sound-onoff"><code>NR52</code></a></td><td align="center">$FF26</td><td align="center">$F1</td><td align="center">$F1</td><td align="center">$F0</td><td align="center">$F1</td></tr>
-<tr><td align="right"><a href="LCDC.html#ff40---lcdc-lcd-control-rw"><code>LCDC</code></a></td><td align="center">$FF40</td><td align="center">$91</td><td align="center">$91</td><td align="center">$91</td><td align="center">$??</td></tr>
+<tr><td align="right"><a href="LCDC.html#ff40---lcdc-lcd-control-rw"><code>LCDC</code></a></td><td align="center">$FF40</td><td align="center">$91</td><td align="center">$91</td><td align="center">$91</td><td align="center">$91</td></tr>
 <tr><td align="right"><a href="STAT.html#ff41---stat-lcd-status-rw"><code>STAT</code></a></td><td align="center">$FF41</td><td align="center">$81</td><td align="center">$85</td><td align="center">??<sup class="footnote-reference"><a href="#unk">5</a></sup></td><td align="center">??<sup class="footnote-reference"><a href="#unk_pad">6</a></sup></td></tr>
 <tr><td align="right"><a href="Scrolling.html#ff42---scy-scroll-y-rw-ff43---scx-scroll-x-rw"><code>SCY</code></a></td><td align="center">$FF42</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
 <tr><td align="right"><a href="Scrolling.html#ff42---scy-scroll-y-rw-ff43---scx-scroll-x-rw"><code>SCX</code></a></td><td align="center">$FF43</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
