@@ -160,7 +160,7 @@ Emulator developers may be also interested in the <a href="https://gekkio.fi/fil
 <p>You can search anywhere by pressing <kbd>s</kbd> on your keyboard or clicking the <i class="fa fa-search"></i> icon.</p>
 <p>The <i class="fa fa-edit"></i> icon allows you to suggest an edit on the current page by directly opening the source file in the git repository.</p>
 <p>You can find a one-page printable version of Pan Docs <a href="https://gbdev.io/pandocs/print.html">here</a>. </p>
-<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/53d0457205433f0c174176f9008f5b2f61262ff7"><code>53d0457</code></a> (2021-07-26 16:12:05 +0200). </small></p>
+<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/054a3d51b09e05cec6b3a066824d5140797ba3ca"><code>054a3d5</code></a> (2021-07-26 22:06:13 +0200). </small></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="acknowledgements"><a class="header" href="#acknowledgements">Acknowledgements</a></h1>
 <p>This resource wouldn’t be possible without all the passionate hackers and researchers who contributed on this document in the last three decades.</p>
 <p>We would like to thank everyone in the gbdev community for providing precious feedback, content, support and invaluable knowledge.</p>
@@ -2164,32 +2164,39 @@ must be set in order to unlock SGB functions:</p>
 “monochrome” Game Boy games, but it cannot access any of the special
 SGB functions.</p>
 <h2 id="detecting-sgb-hardware"><a class="header" href="#detecting-sgb-hardware">Detecting SGB hardware</a></h2>
-<p>The recommended detection method is to send a MLT_REQ command which
-enables two (or four) joypads. A normal handheld Game Boy will ignore
-this command, a SGB will now return incrementing joypad IDs each time
-when deselecting keyboard lines (see MLT_REQ description for details).
-Now read-out joypad state/IDs several times, and if the ID-numbers are
-changing, then it is a SGB (a normal Game Boy would typically always
-return 0Fh as ID). Finally, when not intending to use more than one
-joypad, send another MLT_REQ command in order to re-disable the
-multi-controller mode. Detection works regardless of whether and how
-many joypads are physically connected to the SNES. However, detection
-works only when having unlocked SGB functions in the cartridge header,
-as described above.</p>
-<h2 id="separating-between-sgb-and-sgb2"><a class="header" href="#separating-between-sgb-and-sgb2">Separating between SGB and SGB2</a></h2>
-<p>It is also possible to separate between SGB and SGB2 models by examining
-the inital value of the accumulator (register A) directly after startup.</p>
-<table><thead><tr><th>Value</th><th>Console</th></tr></thead><tbody>
-<tr><td>$01</td><td>SGB or original Game Boy (DMG)</td></tr>
-<tr><td>$FF</td><td>SGB2 or Game Boy Pocket</td></tr>
-<tr><td>$11</td><td>CGB or GBA</td></tr>
+<p>SGB hardware can be detected by examining the initial value of the C
+register directly after startup: a value of $14 indicates SGB or SGB2
+hardware. It is also possible to separate between SGB and SGB2 by
+examining the initial value of the A register directly after startup.
+Note that the DMG and MGB share initial A register values with the SGB
+and SGB2 respectively.</p>
+<table><thead><tr><th>Console</th><th>A Register</th><th>C Register</th></tr></thead><tbody>
+<tr><td>DMG</td><td>$01</td><td>$13</td></tr>
+<tr><td>SGB</td><td>$01</td><td>$14</td></tr>
+<tr><td>MGB</td><td>$FF</td><td>$13</td></tr>
+<tr><td>SGB2</td><td>$FF</td><td>$14</td></tr>
+<tr><td>CGB</td><td>$11</td><td>$00</td></tr>
+<tr><td>AGB</td><td>$11</td><td>$00</td></tr>
 </tbody></table>
-<p>Because values 01h and FFh are shared for both handhelds and SGBs, it is
-still required to use the above MLT_REQ detection procedure. As far as
-I know the SGB2 doesn’t have any extra features which’d require
-separate SGB2 detection except for curiosity purposes, for example, the
-game “Tetris DX” chooses to display an alternate SGB border on SGB2s.</p>
+<p>For initial register values on all systems, see the table of all <a href="Power_Up_Sequence.html#cpu-registers">CPU
+registers after power-up</a>.</p>
+<p>The SGB2 doesn’t have any extra features which’d require separate SGB2
+detection except for curiosity purposes, for example, the game “Tetris
+DX” chooses to display an alternate SGB border on SGB2s.</p>
 <p>Only the SGB2 contains a link port.</p>
+<p>SGB hardware has traditionally been detected by sending <a href="SGB_Command_Multiplayer.html#sgb-command-11h---mlt_req"><code>MLT_REQ</code> commands</a>, but this
+method is more complicated and slower than checking the value of the A
+and C registers after startup. The <code>MLT_REQ</code> command enables two (or four)
+joypads; a normal handheld Game Boy will ignore this command, but an SGB
+will return incrementing joypad IDs each time when deselecting keypad
+lines (<a href="SGB_Command_Multiplayer.html#reading-multiple-controllers-joypads">see <code>MLT_REQ</code> description</a>). The joypad state/IDs can
+then be read out several times, and if the IDs are changing, then it is
+an SGB (a normal Game Boy would typically always return $0F as the ID).
+Finally, when not intending to use more than one joypad, send another
+<code>MLT_REQ</code> command in order to disable the multi-controller mode.
+Detection works regardless of how many joypads are physically connected
+to the SNES. However, unlike the C register method, this detection works only when
+SGB functions <a href="SGB_Unlocking.html#cartridge-header">are unlocked from the cartridge header</a>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="command-packet-transfers"><a class="header" href="#command-packet-transfers">Command Packet Transfers</a></h1>
 <p>Command packets (aka Register Files) are transferred from the Game Boy to
 the SNES by using P14 and P15 output lines of the JOYPAD register
@@ -2800,7 +2807,7 @@ though.</li>
 <h2 id="sgb-command-11h---mlt_req"><a class="header" href="#sgb-command-11h---mlt_req">SGB Command 11h - MLT_REQ</a></h2>
 <p>Used to request multiplayer mode (that is, input from more than one joypad).
 Because this function provides feedback from the SGB/SNES to the Game
-Boy program, it is also used to detect SGB hardware.</p>
+Boy program, it can also be used to detect SGB hardware.</p>
 <pre><code> Byte  Content
  0     Command*8+Length    (fixed length=1)
  1     Multiplayer Control (0-3) (Bit0=Enable, Bit1=Two/Four Players)
