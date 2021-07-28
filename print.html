@@ -160,7 +160,7 @@ Emulator developers may be also interested in the <a href="https://gekkio.fi/fil
 <p>You can search anywhere by pressing <kbd>s</kbd> on your keyboard or clicking the <i class="fa fa-search"></i> icon.</p>
 <p>The <i class="fa fa-edit"></i> icon allows you to suggest an edit on the current page by directly opening the source file in the git repository.</p>
 <p>You can find a one-page printable version of Pan Docs <a href="https://gbdev.io/pandocs/print.html">here</a>. </p>
-<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/545565f3546f0aec20f744eb1dee5eac66fb417d"><code>545565f</code></a> (2021-07-27 21:18:23 +0200). </small></p>
+<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/9f6814b93551ed50d5bb3878cbe55bbc0806615a"><code>9f6814b</code></a> (2021-07-28 16:34:16 +0200). </small></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="acknowledgements"><a class="header" href="#acknowledgements">Acknowledgements</a></h1>
 <p>This resource wouldn’t be possible without all the passionate hackers and researchers who contributed on this document in the last three decades.</p>
 <p>We would like to thank everyone in the gbdev community for providing precious feedback, content, support and invaluable knowledge.</p>
@@ -183,21 +183,74 @@ Emulator developers may be also interested in the <a href="https://gekkio.fi/fil
 <p>In 2020, after this <a href="https://github.com/gbdev/awesome-gbdev/issues/153">RFC</a> we migrated the last updated version to <strong>plain Markdown</strong> and made <a href="https://github.com/gbdev/pandocs">github.com/gbdev/pandocs</a> the new home of this resource, where it can receive new public discussions and contributions, maintain its legacy and historical relevance, while making use of modern tools and workflows to be visualized and distributed.</p>
 <p>We are releasing everything (content, sources, code, figures) under the CC0 license (Public Domain).</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="specifications"><a class="header" href="#specifications">Specifications</a></h1>
-<table><thead><tr><th>﻿</th><th>Game Boy</th><th>Game Boy Pocket</th><th>Game Boy Color</th><th>Super Game Boy</th></tr></thead><tbody>
-<tr><td>CPU</td><td>8-bit Sharp LR35902</td><td></td><td></td><td></td></tr>
-<tr><td>Clock</td><td>4.194304 MHz</td><td></td><td>8.388608 MHz</td><td>4.295454MHz (SGB1, NTSC)</td></tr>
-<tr><td>Work RAM</td><td>8 KB</td><td></td><td>32 KB</td><td></td></tr>
-<tr><td>Video RAM</td><td>8 KB</td><td></td><td>16 KB</td><td></td></tr>
-<tr><td>Screen Size</td><td>LCD 4,7 x 4,3 cm</td><td>LCD 4,8 x 4,4 cm</td><td>TFT 4,4 x 4 cm</td><td></td></tr>
-<tr><td>Resolution</td><td>160x144</td><td></td><td></td><td>256x224 (including border)</td></tr>
-<tr><td>Sprites</td><td>Max 40 per screen, 10 per line</td><td></td><td></td><td></td></tr>
-<tr><td>Palettes</td><td>1x4 BG, 2x3 OBJ</td><td></td><td>8x4 BG, 8x3 OBJ</td><td>1+4x3, 4x15 (border)</td></tr>
-<tr><td>Colors</td><td>4 grayshades</td><td></td><td>32768 colors</td><td></td></tr>
-<tr><td>Horizontal Sync</td><td>9.198 KHz</td><td></td><td></td><td>9.41986 KHz</td></tr>
-<tr><td>Vertical Sync</td><td>59.73 Hz</td><td></td><td></td><td>61.1679 Hz</td></tr>
-<tr><td>Sound</td><td>4 channels with stereo sound</td><td></td><td></td><td></td></tr>
-<tr><td>Power</td><td>DC6V 0.7W</td><td>DC3V 0.7W</td><td>DC3V 0.6W</td><td></td></tr>
-</tbody></table>
+<style>
+td {
+    text-align: center;
+}
+td:first-child {
+    text-align: left;
+}
+</style>
+<table>
+  <thead>
+    <tr>
+      <th></th><th>Game Boy (DMG)</th><th>Game Boy Pocket (MGB)</th><th>Super Game Boy (SGB)</th><th>Game Boy Color (CGB)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CPU</td><td colspan="4">8-bit 8080-like Sharp CPU (speculated to be a SM83 core)</td>
+    </tr>
+    <tr>
+      <td>CPU freq</td><td colspan="2">4.194304&nbsp;MHz</td><td>Depends on revision<sup class="footnote-reference"><a href="Specifications.html#sgb_clk">1</a></sup></td><td>Up to 8.388608&nbsp;MHz</td>
+    </tr>
+    <tr>
+        <td>Work RAM</td><td colspan="3">8&nbsp;KiB</td><td>32&nbsp;KiB<sup class="footnote-reference"><a href="Specifications.html#compat">2</a></sup> (4&nbsp;+&nbsp;7&nbsp;×&nbsp;4&nbsp;KiB)</td>
+    </tr>
+    <tr>
+        <td>Video RAM</td><td colspan="3">8&nbsp;KiB</td><td>16&nbsp;KiB<sup class="footnote-reference"><a href="Specifications.html#compat">2</a></sup> (2&nbsp;×&nbsp;8&nbsp;KiB)</td>
+    </tr>
+    <tr>
+        <td>Screen</td><td>LCD 4.7&nbsp;×&nbsp;4.3&nbsp;cm</td><td>LCD 4.8&nbsp;×&nbsp;4.4&nbsp;cm</td><td>CRT TV</td><td>TFT 4.4&nbsp;×&nbsp;4&nbsp;cm</td>
+    </tr>
+    <tr>
+        <td>Resolution</td><td colspan="2">160&nbsp;×&nbsp;144</td><td>160&nbsp;×&nbsp;144 within 256&nbsp;×&nbsp;224 border</td><td>160&nbsp;×&nbsp;144</td>
+    </tr>
+    <tr>
+        <td>OBJ ("sprites")</td><td colspan="4">8&nbsp;×&nbsp;8 or 8&nbsp;×16 ; max 40 per screen, 10 per line</td>
+    </tr>
+    <tr>
+        <td>Palettes</td><td colspan="2">BG: 1&nbsp;×&nbsp;4, OBJ: 2&nbsp;×&nbsp;3</td><td>BG/OBJ: 1&nbsp;+&nbsp;4&nbsp;×&nbsp;3, border: 4&nbsp;×&nbsp;15</td><td>BG: 8&nbsp;×&nbsp;4, OBJ: 8&nbsp;×&nbsp;3<sup class="footnote-reference"><a href="Specifications.html#compat">2</a></sup></td>
+    </tr>
+    <tr>
+        <td>Colors</td><td>4 shades of green</td><td>4 shades of gray</td><td colspan="2">32768 colors (15-bit RGB)</td>
+    </tr>
+    <tr>
+        <td>Horizontal sync</td><td colspan="2">9.198&nbsp;KHz</td><td>Complicated<sup class="footnote-reference"><a href="Specifications.html#sgb_vid">3</a></sup></td><td>9.198&nbsp;KHz</td>
+    </tr>
+    <tr>
+        <td>Vertical sync</td><td colspan="2">59.73&nbsp;Hz</td><td>Complicated<sup class="footnote-reference"><a href="Specifications.html#sgb_vid">3</a></sup></td><td>59.73&nbsp;Hz</td>
+    </tr>
+    <tr>
+        <td>Sound</td><td colspan="2">4 channels with stereo output</td><td>4 GB channels + SNES audio</td><td>4 channels with stereo output</td>
+    </tr>
+    <tr>
+        <td>Power</td><td>DC 6V, 0.7&nbsp;W</td><td>DC 3V, 0.7&nbsp;W</td><td>Powered by SNES</td><td>DC 3V, 0.6&nbsp;W</td>
+    </tr>
+  </tbody>
+</table>
+<div class="footnote-definition" id="sgb_clk"><sup class="footnote-definition-label">1</sup>
+<p>SGB1 cartridges derive the GB CPU clock from the SNES’ clock, <a href="SGB_Functions.html#sgb-system-clock">yielding a clock speed a bit higher</a>, which differs slightly between NTSC and PAL systems.
+SGB2 instead uses a clock internal to the cartridge, and so has the same speed as the handhelds.</p>
+</div>
+<div class="footnote-definition" id="compat"><sup class="footnote-definition-label">2</sup>
+<p>The same value as on DMG is used in compatibility mode.</p>
+</div>
+<div class="footnote-definition" id="sgb_vid"><sup class="footnote-definition-label">3</sup>
+<p>The SGB runs two consoles: a Game Boy within the SGB cartridge, and the SNES itself.
+The GB LCD output is captured and displayed by the SNES, but the two consoles’ frame rates don’t quite sync up, leading to duplicated and/or dropped frames.
+The GB side of the vertical sync depends on the CPU clock<sup class="footnote-reference"><a href="#sgb_clk">1</a></sup>, with the same ratio as the handhelds.</p>
+</div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="memory-map"><a class="header" href="#memory-map">Memory Map</a></h1>
 <p>The Game Boy has a 16-bit address bus, which is used to address ROM, RAM, and I/O.</p>
 <table><thead><tr><th>Start</th><th>End</th><th>Description</th><th>Notes</th></tr></thead><tbody>
