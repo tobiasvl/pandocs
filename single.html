@@ -202,13 +202,13 @@ td:first-child {
       <td>CPU</td><td colspan="4">8-bit 8080-like Sharp CPU (speculated to be a SM83 core)</td>
     </tr>
     <tr>
-      <td>CPU freq</td><td colspan="2">4.194304&nbsp;MHz</td><td>Depends on revision<sup class="footnote-reference"><a href="Specifications.html#sgb_clk">1</a></sup></td><td>Up to 8.388608&nbsp;MHz</td>
+      <td>CPU freq</td><td colspan="2">4.194304&nbsp;MHz</td><td>Depends on revision<sup class="footnote-reference"><a href="#sgb_clk">1</a></sup></td><td>Up to 8.388608&nbsp;MHz</td>
     </tr>
     <tr>
-        <td>Work RAM</td><td colspan="3">8&nbsp;KiB</td><td>32&nbsp;KiB<sup class="footnote-reference"><a href="Specifications.html#compat">2</a></sup> (4&nbsp;+&nbsp;7&nbsp;×&nbsp;4&nbsp;KiB)</td>
+        <td>Work RAM</td><td colspan="3">8&nbsp;KiB</td><td>32&nbsp;KiB<sup class="footnote-reference"><a href="#compat">2</a></sup> (4&nbsp;+&nbsp;7&nbsp;×&nbsp;4&nbsp;KiB)</td>
     </tr>
     <tr>
-        <td>Video RAM</td><td colspan="3">8&nbsp;KiB</td><td>16&nbsp;KiB<sup class="footnote-reference"><a href="Specifications.html#compat">2</a></sup> (2&nbsp;×&nbsp;8&nbsp;KiB)</td>
+        <td>Video RAM</td><td colspan="3">8&nbsp;KiB</td><td>16&nbsp;KiB<sup class="footnote-reference"><a href="#compat">2</a></sup> (2&nbsp;×&nbsp;8&nbsp;KiB)</td>
     </tr>
     <tr>
         <td>Screen</td><td>LCD 4.7&nbsp;×&nbsp;4.3&nbsp;cm</td><td>LCD 4.8&nbsp;×&nbsp;4.4&nbsp;cm</td><td>CRT TV</td><td>TFT 4.4&nbsp;×&nbsp;4&nbsp;cm</td>
@@ -220,16 +220,16 @@ td:first-child {
         <td>OBJ ("sprites")</td><td colspan="4">8&nbsp;×&nbsp;8 or 8&nbsp;×16 ; max 40 per screen, 10 per line</td>
     </tr>
     <tr>
-        <td>Palettes</td><td colspan="2">BG: 1&nbsp;×&nbsp;4, OBJ: 2&nbsp;×&nbsp;3</td><td>BG/OBJ: 1&nbsp;+&nbsp;4&nbsp;×&nbsp;3, border: 4&nbsp;×&nbsp;15</td><td>BG: 8&nbsp;×&nbsp;4, OBJ: 8&nbsp;×&nbsp;3<sup class="footnote-reference"><a href="Specifications.html#compat">2</a></sup></td>
+        <td>Palettes</td><td colspan="2">BG: 1&nbsp;×&nbsp;4, OBJ: 2&nbsp;×&nbsp;3</td><td>BG/OBJ: 1&nbsp;+&nbsp;4&nbsp;×&nbsp;3, border: 4&nbsp;×&nbsp;15</td><td>BG: 8&nbsp;×&nbsp;4, OBJ: 8&nbsp;×&nbsp;3<sup class="footnote-reference"><a href="#compat">2</a></sup></td>
     </tr>
     <tr>
         <td>Colors</td><td>4 shades of green</td><td>4 shades of gray</td><td colspan="2">32768 colors (15-bit RGB)</td>
     </tr>
     <tr>
-        <td>Horizontal sync</td><td colspan="2">9.198&nbsp;KHz</td><td>Complicated<sup class="footnote-reference"><a href="Specifications.html#sgb_vid">3</a></sup></td><td>9.198&nbsp;KHz</td>
+        <td>Horizontal sync</td><td colspan="2">9.198&nbsp;KHz</td><td>Complicated<sup class="footnote-reference"><a href="#sgb_vid">3</a></sup></td><td>9.198&nbsp;KHz</td>
     </tr>
     <tr>
-        <td>Vertical sync</td><td colspan="2">59.73&nbsp;Hz</td><td>Complicated<sup class="footnote-reference"><a href="Specifications.html#sgb_vid">3</a></sup></td><td>59.73&nbsp;Hz</td>
+        <td>Vertical sync</td><td colspan="2">59.73&nbsp;Hz</td><td>Complicated<sup class="footnote-reference"><a href="#sgb_vid">3</a></sup></td><td>59.73&nbsp;Hz</td>
     </tr>
     <tr>
         <td>Sound</td><td colspan="2">4 channels with stereo output</td><td>4 GB channels + SNES audio</td><td>4 channels with stereo output</td>
@@ -240,7 +240,7 @@ td:first-child {
   </tbody>
 </table>
 <div class="footnote-definition" id="sgb_clk"><sup class="footnote-definition-label">1</sup>
-<p>SGB1 cartridges derive the GB CPU clock from the SNES’ clock, <a href="SGB_Functions.html#sgb-system-clock">yielding a clock speed a bit higher</a>, which differs slightly between NTSC and PAL systems.
+<p>SGB1 cartridges derive the GB CPU clock from the SNES’ clock, <a href="#sgb-system-clock">yielding a clock speed a bit higher</a>, which differs slightly between NTSC and PAL systems.
 SGB2 instead uses a clock internal to the cartridge, and so has the same speed as the handhelds.</p>
 </div>
 <div class="footnote-definition" id="compat"><sup class="footnote-definition-label">2</sup>
@@ -255,17 +255,17 @@ The GB side of the vertical sync depends on the CPU clock<sup class="footnote-re
 <p>The Game Boy has a 16-bit address bus, which is used to address ROM, RAM, and I/O.</p>
 <table><thead><tr><th>Start</th><th>End</th><th>Description</th><th>Notes</th></tr></thead><tbody>
 <tr><td>0000</td><td>3FFF</td><td>16 KiB ROM bank 00</td><td>From cartridge, usually a fixed bank</td></tr>
-<tr><td>4000</td><td>7FFF</td><td>16 KiB ROM Bank 01~NN</td><td>From cartridge, switchable bank via <a href="MBCs.html#mbcs">mapper</a> (if any)</td></tr>
+<tr><td>4000</td><td>7FFF</td><td>16 KiB ROM Bank 01~NN</td><td>From cartridge, switchable bank via <a href="#mbcs">mapper</a> (if any)</td></tr>
 <tr><td>8000</td><td>9FFF</td><td>8 KiB Video RAM (VRAM)</td><td>In CGB mode, switchable bank 0/1</td></tr>
 <tr><td>A000</td><td>BFFF</td><td>8 KiB External RAM</td><td>From cartridge, switchable bank if any</td></tr>
 <tr><td>C000</td><td>CFFF</td><td>4 KiB Work RAM (WRAM)</td><td></td></tr>
 <tr><td>D000</td><td>DFFF</td><td>4 KiB Work RAM (WRAM)</td><td>In CGB mode, switchable bank 1~7</td></tr>
 <tr><td>E000</td><td>FDFF</td><td>Mirror of C000~DDFF (ECHO RAM)</td><td>Nintendo says use of this area is prohibited.</td></tr>
-<tr><td>FE00</td><td>FE9F</td><td>Sprite attribute table (<a href="OAM.html#vram-sprite-attribute-table-oam">OAM</a>)</td><td></td></tr>
+<tr><td>FE00</td><td>FE9F</td><td>Sprite attribute table (<a href="#vram-sprite-attribute-table-oam">OAM</a>)</td><td></td></tr>
 <tr><td>FEA0</td><td>FEFF</td><td>Not Usable</td><td>Nintendo says use of this area is prohibited</td></tr>
 <tr><td>FF00</td><td>FF7F</td><td>I/O Registers</td><td></td></tr>
 <tr><td>FF80</td><td>FFFE</td><td>High RAM (HRAM)</td><td></td></tr>
-<tr><td>FFFF</td><td>FFFF</td><td><a href="Interrupts.html#interrupts">Interrupt</a> Enable register (IE)</td><td></td></tr>
+<tr><td>FFFF</td><td>FFFF</td><td><a href="#interrupts">Interrupt</a> Enable register (IE)</td><td></td></tr>
 </tbody></table>
 <h2 id="jump-vectors-in-first-rom-bank"><a class="header" href="#jump-vectors-in-first-rom-bank">Jump Vectors in first ROM bank</a></h2>
 <p>The following addresses are supposed to be used as jump vectors:</p>
@@ -279,7 +279,7 @@ is a 1-byte instruction that works similarly to the 3-byte CALL instruction, exc
 that the destination address is restricted. Since it is 1-byte sized,
 it is also slightly faster.</p>
 <h2 id="cartridge-header-in-first-rom-bank"><a class="header" href="#cartridge-header-in-first-rom-bank">Cartridge Header in first ROM bank</a></h2>
-<p>The memory area at 0100-014F contains the <a href="The_Cartridge_Header.html#the-cartridge-header">cartridge
+<p>The memory area at 0100-014F contains the <a href="#the-cartridge-header">cartridge
 header</a>. This area contains information
 about the program, its entry point, checksums, information about the
 used MBC chip, the ROM and RAM sizes, etc. Most of the bytes in this
@@ -287,7 +287,7 @@ area are required to be specified correctly.</p>
 <h2 id="external-memory-and-hardware"><a class="header" href="#external-memory-and-hardware">External Memory and Hardware</a></h2>
 <p>The areas from 0000-7FFF and A000-BFFF address external hardware on
 the cartridge, which is essentially an expansion board.  Typically this
-is a ROM and SRAM or, more often, a <a href="MBCs.html#mbcs">Memory Bank Controller
+is a ROM and SRAM or, more often, a <a href="#mbcs">Memory Bank Controller
 (MBC)</a>. The RAM area can be read
 from and written to normally; writes to the ROM area control the MBC.
 Some MBCs allow mapping of other hardware into the RAM area in this
@@ -319,8 +319,8 @@ FF) and checking if said value is mirrored in Echo RAM and not cart SRAM.</p>
 <tr><td>$FF40</td><td>$FF4B</td><td>DMG</td><td>LCD</td></tr>
 <tr><td>$FF4F</td><td></td><td>CGB</td><td>VRAM Bank Select</td></tr>
 <tr><td>$FF50</td><td></td><td>DMG</td><td>Set to non-zero to disable boot ROM</td></tr>
-<tr><td>$FF51</td><td>$FF55</td><td>CGB</td><td><a href="CGB_Registers.html#lcd-vram-dma-transfers">VRAM DMA</a></td></tr>
-<tr><td>$FF68</td><td>$FF69</td><td>CGB</td><td><a href="Palettes.html#lcd-color-palettes-cgb-only">BG / OBJ Palettes</a></td></tr>
+<tr><td>$FF51</td><td>$FF55</td><td>CGB</td><td><a href="#lcd-vram-dma-transfers">VRAM DMA</a></td></tr>
+<tr><td>$FF68</td><td>$FF69</td><td>CGB</td><td><a href="#lcd-color-palettes-cgb-only">BG / OBJ Palettes</a></td></tr>
 <tr><td>$FF70</td><td></td><td>CGB</td><td>WRAM Bank Select</td></tr>
 </tbody></table>
 <h2 id="fea0-feff-range"><a class="header" href="#fea0-feff-range">FEA0-FEFF range</a></h2>
@@ -329,7 +329,7 @@ $FF when OAM is blocked, and otherwise the behavior depends on the
 hardware revision.</p>
 <ul>
 <li>
-<p>On DMG, MGB, SGB, and SGB2, reads during OAM block trigger <a href="OAM_Corruption_Bug.html#oam-corruption-bug">OAM corruption</a>.
+<p>On DMG, MGB, SGB, and SGB2, reads during OAM block trigger <a href="#oam-corruption-bug">OAM corruption</a>.
 Reads otherwise return $00.</p>
 </li>
 <li>
@@ -461,7 +461,7 @@ are in block 2, and tiles -128 to -1 are in block 1, or to put it differently,
 and tiles 128-255 from block 1. (You can notice that block 1 is shared
 by both addressing methods)</p>
 <p>Sprites always use “$8000 addressing”, but the BG and Window can use either
-mode, controlled by <a href="LCDC.html#lcdc4---bg-and-window-tile-data-area">LCDC bit 4</a>.</p>
+mode, controlled by <a href="#lcdc4---bg-and-window-tile-data-area">LCDC bit 4</a>.</p>
 <p>Each tile occupies 16 bytes, where each line is represented by 2 bytes:</p>
 <pre><code>Byte 0-1  Topmost Line (Top 8 pixels)
 Byte 2-3  Second Line
@@ -484,14 +484,14 @@ operation you’ll find that the IDs for the eight pixels are 0 1 2 3 0 3
 numbers are translated into real colors (or gray shades) depending on
 the current palettes, except that when the tile is used in a OBJ the
 color ID 0 means transparent. The palettes are defined through registers
-<a href="Palettes.html#ff47---bgp-bg-palette-data-rw---non-cgb-mode-only">BGP</a>,
-<a href="Palettes.html#ff48---obp0-object-palette-0-data-rw---non-cgb-mode-only">OBP0</a>
+<a href="#ff47---bgp-bg-palette-data-rw---non-cgb-mode-only">BGP</a>,
+<a href="#ff48---obp0-object-palette-0-data-rw---non-cgb-mode-only">OBP0</a>
 and
-<a href="Palettes.html#ff49---obp1-object-palette-1-data-rw---non-cgb-mode-only">OBP1</a>
+<a href="#ff49---obp1-object-palette-1-data-rw---non-cgb-mode-only">OBP1</a>
 (Non CGB Mode), and
-<a href="Palettes.html#ff68---bcpsbgpi-background-color-palette-specification-or-background-palette-index---cgb-mode-only">BCPS/BGPI</a>,
-<a href="Palettes.html#ff69---bcpdbgpd-background-color-palette-data-or-background-palette-data---cgb-mode-only">BCPD/BGPD</a>,
-<a href="Palettes.html#ff6a---ocpsobpi-object-color-palette-specification-or-sprite-palette-index-ff6b---ocpdobpd-object-color-palette-data-or-sprite-palette-data---both-cgb-mode-only">OCPS/OBPI and
+<a href="#ff68---bcpsbgpi-background-color-palette-specification-or-background-palette-index---cgb-mode-only">BCPS/BGPI</a>,
+<a href="#ff69---bcpdbgpd-background-color-palette-data-or-background-palette-data---cgb-mode-only">BCPD/BGPD</a>,
+<a href="#ff6a---ocpsobpi-object-color-palette-specification-or-sprite-palette-index-ff6b---ocpdobpd-object-color-palette-data-or-sprite-palette-data---both-cgb-mode-only">OCPS/OBPI and
 OCPD/OBPD</a>
 (CGB Mode).</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="vram-tile-maps"><a class="header" href="#vram-tile-maps">VRAM Tile Maps</a></h1>
@@ -502,8 +502,8 @@ display the Background or the Window.</p>
 <p>Each tile map contains the 1-byte indexes of the
 tiles to be displayed.</p>
 <p>Tiles are obtained from the Tile Data Table using either of the two
-addressing modes (described in <a href="Tile_Data.html#vram-tile-data">VRAM Tile Data</a>), which
-can be selected via <a href="LCDC.html#ff40---lcdc-lcd-control-rw">the LCDC register</a>.</p>
+addressing modes (described in <a href="#vram-tile-data">VRAM Tile Data</a>), which
+can be selected via <a href="#ff40---lcdc-lcd-control-rw">the LCDC register</a>.</p>
 <p>Since one tile has 8x8 pixels, each map holds a 256x256 pixels picture.
 Only 160x144 of those pixels are displayed on the LCD at any given time.</p>
 <h2 id="bg-map-attributes-cgb-mode-only"><a class="header" href="#bg-map-attributes-cgb-mode-only">BG Map Attributes (CGB Mode only)</a></h2>
@@ -526,13 +526,13 @@ priority bits when cleared.</p>
 <code>1:9800</code> doesn’t define properties for ALL tiles $2A on-screen, but only
 the one at <code>0:9800</code>!</p>
 <h2 id="background-bg"><a class="header" href="#background-bg">Background (BG)</a></h2>
-<p>The <a href="Scrolling.html#ff42---scy-scroll-y-rw-ff43---scx-scroll-x-rw">SCY and SCX</a>
+<p>The <a href="#ff42---scy-scroll-y-rw-ff43---scx-scroll-x-rw">SCY and SCX</a>
 registers can be used to scroll the Background, specifying the origin of the visible
 160x144 pixel area within the total 256x256 pixel Background map.
 The visible area of the Background wraps around the Background map (that is, when part of
 the visible area goes beyond the map edge, it starts displaying the opposite side of the map).</p>
 <p>In Non-CGB mode, the Background (and the Window) can be disabled using
-<a href="LCDC.html#lcdc0---bg-and-window-enablepriority">LCDC bit 0</a>.</p>
+<a href="#lcdc0---bg-and-window-enablepriority">LCDC bit 0</a>.</p>
 <h2 id="window-1"><a class="header" href="#window-1">Window</a></h2>
 <p>Besides the Background, there is also a Window overlaying it.
 The content of the Window is not scrollable; it is always
@@ -542,14 +542,14 @@ coordinates of the top left corner of the Window are (WX-7,WY). The tiles
 for the Window are stored in the Tile Data Table. Both the Background
 and the Window share the same Tile Data Table.</p>
 <p>Whether the Window is displayed can be toggled using
-<a href="LCDC.html#lcdc5---window-enable">LCDC bit 5</a>. But in Non-CGB mode this bit is only
-functional as long as <a href="LCDC.html#lcdc0---bg-and-window-enablepriority">LCDC bit 0</a> is set.
+<a href="#lcdc5---window-enable">LCDC bit 5</a>. But in Non-CGB mode this bit is only
+functional as long as <a href="#lcdc0---bg-and-window-enablepriority">LCDC bit 0</a> is set.
 Enabling the Window makes
-<a href="STAT.html#lcd-status-register">Mode 3</a> slightly longer on scanlines where it’s visible.
-(See <a href="Scrolling.html#ff4a---wy-window-y-position-rw-ff4b---wx-window-x-position--7-rw">WX and WY</a>
+<a href="#lcd-status-register">Mode 3</a> slightly longer on scanlines where it’s visible.
+(See <a href="#ff4a---wy-window-y-position-rw-ff4b---wx-window-x-position--7-rw">WX and WY</a>
 for the definition of “Window visibility”.)</p>
 <div class="box tip">
-<p class="box-title">Window Internal Line Counter</p><p>The window keeps an internal line counter that’s functionally similar to <code>LY</code>, and increments alongside it. However, it only gets incremented when the window is visible, as described <a href="Scrolling.html#ff4a---wy-window-y-position-rw-ff4b---wx-window-x-position--7-rw">here</a>.</p>
+<p class="box-title">Window Internal Line Counter</p><p>The window keeps an internal line counter that’s functionally similar to <code>LY</code>, and increments alongside it. However, it only gets incremented when the window is visible, as described <a href="#ff4a---wy-window-y-position-rw-ff4b---wx-window-x-position--7-rw">here</a>.</p>
 <p>This line counter determines what window line is to be rendered on the current scanline.</p>
 </div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="vram-sprite-attribute-table-oam"><a class="header" href="#vram-sprite-attribute-table-oam">VRAM Sprite Attribute Table (OAM)</a></h1>
@@ -601,8 +601,8 @@ The first one defines which objects are ignored when there are more than 10 on a
 given scanline. The second one decides which object is displayed on top when some
 overlap (the Game Boy being a 2D console, there is no Z coordinate).</p>
 <h3 id="selection-priority"><a class="header" href="#selection-priority">Selection priority</a></h3>
-<p>During each scanline’s OAM scan, the PPU compares <a href="Scrolling.html#ff44---ly-lcd-y-coordinate-r"><code>LY</code></a>
-(<a href="LCDC.html#lcdc2---obj-size">using <code>LCDC</code> bit 2 to determine their size</a>) to each
+<p>During each scanline’s OAM scan, the PPU compares <a href="#ff44---ly-lcd-y-coordinate-r"><code>LY</code></a>
+(<a href="#lcdc2---obj-size">using <code>LCDC</code> bit 2 to determine their size</a>) to each
 object’s Y position to select up to 10 objects to be drawn on that line.
 The PPU scans OAM sequentially (from $FE00 to $FE9F), selecting the first (up to)
 10 suitably-positioned objects.</p>
@@ -614,7 +614,7 @@ limit, possibly causing another object later in OAM not
 to be drawn. To keep off-screen objects from affecting on-screen ones, make
 sure to set their Y coordinate to Y = 0 or Y ≥ 160
 (144 + 16).
-(Y ≤ 8 also works if <a href="LCDC.html#lcdc2---obj-size">object size</a> is set to 8x8.)</p>
+(Y ≤ 8 also works if <a href="#lcdc2---obj-size">object size</a> is set to 8x8.)</p>
 <h3 id="drawing-priority"><a class="header" href="#drawing-priority">Drawing priority</a></h3>
 <p>When <strong>opaque</strong> pixels from two different objects overlap, which pixel ends up
 being displayed is determined by another kind of priority: the pixel belonging
@@ -738,20 +738,20 @@ When it’s reset, the $9800 tilemap is used, otherwise it’s the $9C00
 one.</p>
 <h3 id="lcdc5---window-enable"><a class="header" href="#lcdc5---window-enable">LCDC.5 - Window enable</a></h3>
 <p>This bit controls whether the window shall be displayed or not.
-This bit is overridden on DMG by <a href="LCDC.html#lcdc0---bg-and-window-enablepriority">bit 0</a>
+This bit is overridden on DMG by <a href="#lcdc0---bg-and-window-enablepriority">bit 0</a>
 if that bit is reset.</p>
 <p>Changing the value of this register mid-frame triggers a more complex behaviour:
-<a href="Scrolling.html#ff4a---wy-window-y-position-rw-ff4b---wx-window-x-position--7-rw">see further below</a>.</p>
+<a href="#ff4a---wy-window-y-position-rw-ff4b---wx-window-x-position--7-rw">see further below</a>.</p>
 <p>Note that on CGB models, setting this bit to 0 then back to 1 mid-frame
 may cause the second write to be ignored. (TODO: test this.)</p>
 <h3 id="lcdc4---bg-and-window-tile-data-area"><a class="header" href="#lcdc4---bg-and-window-tile-data-area">LCDC.4 - BG and Window tile data area</a></h3>
-<p>This bit controls which <a href="Tile_Data.html#vram-tile-data">addressing
+<p>This bit controls which <a href="#vram-tile-data">addressing
 mode</a> the BG and Window use to
 pick tiles.</p>
 <p>Sprites aren’t affected by this, and will always use $8000 addressing
 mode.</p>
 <h3 id="lcdc3---bg-tile-map-area"><a class="header" href="#lcdc3---bg-tile-map-area">LCDC.3 - BG tile map area</a></h3>
-<p>This bit works similarly to <a href="LCDC.html#lcdc6---window-tile-map-area">LCDC bit 6</a>:
+<p>This bit works similarly to <a href="#lcdc6---window-tile-map-area">LCDC bit 6</a>:
 if the bit is reset, the BG uses tilemap $9800, otherwise tilemap $9C00.</p>
 <h3 id="lcdc2---obj-size"><a class="header" href="#lcdc2---obj-size">LCDC.2 - OBJ size</a></h3>
 <p>This bit controls the sprite size (1 tile or 2 stacked vertically).</p>
@@ -768,7 +768,7 @@ Investigation needed.)</p>
 <p>LCDC.0 has different meanings depending on Game Boy type and Mode:</p>
 <h4 id="non-cgb-mode-dmg-sgb-and-cgb-in-compatibility-mode-bg-and-window-display"><a class="header" href="#non-cgb-mode-dmg-sgb-and-cgb-in-compatibility-mode-bg-and-window-display">Non-CGB Mode (DMG, SGB and CGB in compatibility mode): BG and Window Display</a></h4>
 <p>When Bit 0 is cleared, both background and window become blank (white),
-and the <a href="LCDC.html#lcdc5---window-enable">Window Display Bit</a>
+and the <a href="#lcdc5---window-enable">Window Display Bit</a>
 is ignored in that case. Only Sprites may still be displayed (if enabled
 in Bit 1).</p>
 <h4 id="cgb-mode-bg-and-window-master-priority"><a class="header" href="#cgb-mode-bg-and-window-master-priority">CGB Mode: BG and Window Master Priority</a></h4>
@@ -792,7 +792,7 @@ the textbox/status bar is “alone” on its scanlines:</p>
 the bit can be set by the VBlank handler.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lcd-status-register"><a class="header" href="#lcd-status-register">LCD Status Register</a></h1>
 <div class="box tip">
-<p class="box-title">TERMINOLOGY</p><p>A <em>dot</em> is the shortest period over which the PPU can output one pixel: is it equivalent to 1 T-state on DMG or on CGB single-speed mode or 2 T-states on CGB double-speed mode. On each dot during mode 3, either the PPU outputs a pixel or the fetcher is stalling the <a href="pixel_fifo.html#pixel-fifo">FIFOs</a>.</p>
+<p class="box-title">TERMINOLOGY</p><p>A <em>dot</em> is the shortest period over which the PPU can output one pixel: is it equivalent to 1 T-state on DMG or on CGB single-speed mode or 2 T-states on CGB double-speed mode. On each dot during mode 3, either the PPU outputs a pixel or the fetcher is stalling the <a href="#pixel-fifo">FIFOs</a>.</p>
 </div>
 <h2 id="ff41---stat-lcd-status-rw"><a class="header" href="#ff41---stat-lcd-status-rw">FF41 - STAT (LCD Status) (R/W)</a></h2>
 <pre><code>Bit 6 - LYC=LY STAT Interrupt source         (1=Enable) (Read/Write)
@@ -807,9 +807,9 @@ Bit 1-0 - Mode Flag                          (Mode 0-3, see below) (Read Only)
           3: Transferring Data to LCD Controller
 </code></pre>
 <p>The two lower STAT bits show the current status of the PPU.</p>
-<p>Bit 2 is set when <a href="Scrolling.html#ff44---ly-lcd-y-coordinate-r">LY</a> contains the same value as <a href="Scrolling.html#ff45---lyc-ly-compare-rw">LYC</a>.
+<p>Bit 2 is set when <a href="#ff44---ly-lcd-y-coordinate-r">LY</a> contains the same value as <a href="#ff45---lyc-ly-compare-rw">LYC</a>.
 It is constantly updated.</p>
-<p>Bits 3-6 select which sources are used for <a href="Interrupt_Sources.html#int-48---stat-interrupt">the STAT interrupt</a>.</p>
+<p>Bits 3-6 select which sources are used for <a href="#int-48---stat-interrupt">the STAT interrupt</a>.</p>
 <p>The LCD controller operates on a 2^22 Hz = 4.194 MHz dot clock. An
 entire frame is 154 scanlines, 70224 dots, or 16.74 ms. On scanlines 0
 through 143, the PPU cycles through modes 2, 3, and 0 once
@@ -837,7 +837,7 @@ that memory is inaccessible to the CPU.</p>
 <p>Unlike most game consoles, the Game Boy can pause the dot clock briefly,
 adding dots to mode 3’s duration. It routinely takes a 6 to 11 dot
 break to fetch sprite patterns between background tile pattern fetches.
-On DMG and GBC in DMG mode, mid-scanline writes to <a href="Palettes.html#ff47---bgp-bg-palette-data-rw---non-cgb-mode-only"><code>BGP</code></a>
+On DMG and GBC in DMG mode, mid-scanline writes to <a href="#ff47---bgp-bg-palette-data-rw---non-cgb-mode-only"><code>BGP</code></a>
 allow observing this behavior, as a sprite delay shifts the effect of a
 write to the left by that many dots.</p>
 <p>Three things are known to pause the dot clock:</p>
@@ -912,7 +912,7 @@ Bit 1-0 - Color for index 0
 <tr><td>2</td><td>Dark gray</td></tr>
 <tr><td>3</td><td>Black</td></tr>
 </tbody></table>
-<p>In CGB Mode the Color Palettes are taken from <a href="Palettes.html#lcd-color-palettes-cgb-only">CGB Palette Memory</a>
+<p>In CGB Mode the Color Palettes are taken from <a href="#lcd-color-palettes-cgb-only">CGB Palette Memory</a>
 instead.</p>
 <h3 id="ff48---obp0-object-palette-0-data-rw---non-cgb-mode-only"><a class="header" href="#ff48---obp0-object-palette-0-data-rw---non-cgb-mode-only">FF48 - OBP0 (Object Palette 0 Data) (R/W) - Non CGB Mode Only</a></h3>
 <p>This register assigns gray shades to the color indexes of the OBJs that use this palette. It works exactly
@@ -984,7 +984,7 @@ the screen under obscure viewing angles), unfortunately, these
 intensities are regularly used by most existing CGB games for medium and
 darker colors.</p>
 <p>Newer CGB games may avoid this effect by changing palette data when
-detecting GBA hardware (<a href="CGB_Registers.html#detecting-cgb-and-gba-functions">see
+detecting GBA hardware (<a href="#detecting-cgb-and-gba-functions">see
 how</a>).
 Based on measurement of GBC and GBA palettes using the <a href="https://github.com/pinobatch/240p-test-mini/tree/master/gameboy">144p Test
 Suite</a> ROM, a fairly close approximation is GBA = GBC * 3/4 + 8h for
@@ -1020,7 +1020,7 @@ during mode 3 (pixel transfer).</p>
 <li>Color: a value between 0 and 3</li>
 <li>Palette: on CGB a value between 0 and 7 and on DMG this only applies to sprites</li>
 <li>Sprite Priority: on CGB this is the OAM index for the sprite and on DMG this doesn’t exist</li>
-<li>Background Priority: holds the value of the <a href="OAM.html#vram-sprite-attribute-table-oam">OBJ-to-BG Priority</a> bit</li>
+<li>Background Priority: holds the value of the <a href="#vram-sprite-attribute-table-oam">OBJ-to-BG Priority</a> bit</li>
 </ul>
 <h2 id="fifo-pixel-fetcher"><a class="header" href="#fifo-pixel-fetcher">FIFO Pixel Fetcher</a></h2>
 <p>The fetcher fetches a row of 8 background or window pixels and queues
@@ -1052,7 +1052,7 @@ tile is used, otherwise the following formula is used to calculate
 the Y coordinate: (currentScanline + SCY) &amp; 255. Because of this formula,
 fetcherY can be between 0 and 159.</p>
 <p>The fetcher’s X and Y coordinate can then be used to get the tile from
-VRAM. However, if the PPU’s access to VRAM is <a href="pixel_fifo.html#vram-access">blocked</a>
+VRAM. However, if the PPU’s access to VRAM is <a href="#vram-access">blocked</a>
 then the value for the tile is read as $FF.</p>
 <p>CGB can access both tile index and the attributes in the same clock
 cycle.</p>
@@ -1061,7 +1061,7 @@ cycle.</p>
 check which VRAM bank to use and check if the tile is flipped vertically.
 Once the tilemap, VRAM and vertical flip is calculated the tile data
 is retrieved from VRAM. However, if the PPU’s access to VRAM is
-<a href="pixel_fifo.html#vram-access">blocked</a> then the tile data is read as $FF.</p>
+<a href="#vram-access">blocked</a> then the tile data is read as $FF.</p>
 <p>The tile data retrieved in this step will be used in the push steps.</p>
 <h3 id="get-tile-data-high"><a class="header" href="#get-tile-data-high">Get Tile Data High</a></h3>
 <p>Same as Get Tile Data Low except the tile address is incremented by 1.</p>
@@ -1116,11 +1116,11 @@ background FIFO.</p>
 <p>The following is performed for each sprite on the current scanline if
 LCDC.1 is enabled (this condition is ignored on CGB) and the X coordinate
 of the current scanline has a sprite on it. If those conditions are not
-met then sprite fetching is <a href="pixel_fifo.html#sprite-fetch-abortion">aborted</a>.</p>
-<p>At this point the <a href="pixel_fifo.html#fifo-pixel-fetcher">fetcher</a> is advanced one step
+met then sprite fetching is <a href="#sprite-fetch-abortion">aborted</a>.</p>
+<p>At this point the <a href="#fifo-pixel-fetcher">fetcher</a> is advanced one step
 until it’s at step 5 or until the background FIFO is not empty. Advancing
 the fetcher one step here lengthens mode 3 by 1 cycle. This process may
-be <a href="pixel_fifo.html#sprite-fetch-abortion">aborted</a> after the fetcher has advanced a
+be <a href="#sprite-fetch-abortion">aborted</a> after the fetcher has advanced a
 step.</p>
 <p>When SCX &amp; 7 &gt; 0 and there is a sprite at X coordinate 0 of the current
 scanline then mode 3 is lengthened. The amount of cycles this lengthens
@@ -1137,7 +1137,7 @@ retrieved and lengthens mode 3 by 1 cycle. Once the address is retrieved
 this is the last chance for sprite fetch abortion to occur. Exiting
 object fetch lengthens mode 3 by 1 cycle. The upper address for the
 target object tile is now retrieved and does not shorten mode 3.</p>
-<p>At this point <a href="pixel_fifo.html#vram-access">VRAM Access</a> is checked for the lower and
+<p>At this point <a href="#vram-access">VRAM Access</a> is checked for the lower and
 upper addresses for the target object. Before any mixing is done, if the
 OAM FIFO doesn’t have at least 8 pixels in it then transparent pixels
 with the lowest priority are pushed onto the OAM FIFO. Once this is done
@@ -1146,7 +1146,7 @@ is checked here. If the target object pixel is not white and the pixel in
 the OAM FIFO <em>is</em> white, or if the pixel in the OAM FIFO has higher
 priority than the target object’s pixel, then the pixel in the OAM FIFO
 is replaced with the target object’s properties.</p>
-<p>Now it’s time to <a href="pixel_fifo.html#pixel-rendering">render a pixel</a>! The same process
+<p>Now it’s time to <a href="#pixel-rendering">render a pixel</a>! The same process
 described in Sprite Fetch Abortion is performed: a pixel is rendered and
 the fetcher is advanced one step. This advancement lengthens mode 3 by 1
 cycle if the X coordinate of the current scanline is not 160. If the X
@@ -1172,7 +1172,7 @@ will be whatever color pixel was popped off the background FIFO. When the
 pixel popped off the background FIFO has a color value other than 0 and
 it has priority then the sprite pixel will be discarded.</p>
 <p>At this point, on DMG, the color of the pixel is retrieved from the BGP
-register and pushed to the LCD. On CGB when <a href="pixel_fifo.html#cgb-palette-access">palette access</a>
+register and pushed to the LCD. On CGB when <a href="#cgb-palette-access">palette access</a>
 is blocked a black pixel is pushed to the LCD.</p>
 <p>When a sprite pixel has priority the color value is retrieved from the
 popped pixel from the OAM FIFO. On DMG the color for the pixel is
@@ -1205,8 +1205,8 @@ PPU’s access to CGB palettes is always restored upon leaving STOP mode.</p>
 <p>Sprite fetching may be aborted if LCDC.1 is disabled while the PPU is
 fetching an object from OAM. This abortion lengthens mode 3 by the amount
 of cycles the previous instruction took plus the residual cycles left for
-the PPU to process. When OAM fetching is aborted a pixel is <a href="pixel_fifo.html#pixel-rendering">rendered</a>,
-the <a href="pixel_fifo.html#fifo-pixel-fetcher">fetcher</a> is advanced one step. This advancement
+the PPU to process. When OAM fetching is aborted a pixel is <a href="#pixel-rendering">rendered</a>,
+the <a href="#fifo-pixel-fetcher">fetcher</a> is advanced one step. This advancement
 lengthens mode 3 by 1 cycle if the current pixel is not 160. If the
 current pixel is 160 the PPU stops processing sprites because they won’t
 be visible.</p>
@@ -1556,13 +1556,13 @@ Bit 0 - Shift Clock (0=External Clock, 1=Internal Clock)
 <p>The master Game Boy will load up a data byte in SB and then set
 SC to 0x81 (Transfer requested, use internal clock). It will be notified
 that the transfer is complete in two ways: SC’s Bit 7 will be cleared
-(that is, SC will be set up 0x01), and also the <a href="Interrupt_Sources.html#int-58---serial-interrupt">Serial Interrupt handler</a>
+(that is, SC will be set up 0x01), and also the <a href="#int-58---serial-interrupt">Serial Interrupt handler</a>
 will be called (that is, the CPU will jump to 0x0058).</p>
 <p>The other Game Boy will load up a data byte and can optionally set SC’s
 Bit 7 (that is, SC=0x80). Regardless of whether or not it has done this, if
 and when the master wants to conduct a transfer, it will happen
 (pulling whatever happens to be in SB at that time). The externally clocked
-Game Boy will have its <a href="Interrupt_Sources.html#int-58---serial-interrupt">serial interrupt handler</a> called at the end of the
+Game Boy will have its <a href="#int-58---serial-interrupt">serial interrupt handler</a> called at the end of the
 transfer, and if it bothered to set SC’s Bit 7, it will be cleared.</p>
 <h3 id="internal-clock"><a class="header" href="#internal-clock">Internal Clock</a></h3>
 <p>In Non-CGB Mode the Game Boy supplies an internal clock of 8192Hz only
@@ -1611,24 +1611,24 @@ active.</p>
 <p class="box-title">NOTE</p><p>The Timer described below is the built-in timer in the gameboy. It has
 nothing to do with the MBC3s battery buffered Real Time Clock - that’s
 a completely different thing, described in
-<a href="MBCs.html#mbcs">Memory Bank Controllers</a>.</p>
+<a href="#mbcs">Memory Bank Controllers</a>.</p>
 </div>
 <h2 id="ff04---div---divider-register-rw"><a class="header" href="#ff04---div---divider-register-rw">FF04 - DIV - Divider Register (R/W)</a></h2>
 <p>This register is incremented at a rate of 16384Hz (~16779Hz on SGB).
 Writing any value to this register resets it to $00.
 Additionally, this register is reset when executing the <code>stop</code> instruction, and
 only begins ticking again once <code>stop</code> mode ends. This also occurs during a
-<a href="CGB_Registers.html#ff4d---key1---cgb-mode-only---prepare-speed-switch">speed switch</a>.
+<a href="#ff4d---key1---cgb-mode-only---prepare-speed-switch">speed switch</a>.
 (TODO: how is it affected by the wait after a speed switch?)</p>
 <p>Note: The divider is affected by CGB double speed mode, and will
 increment at 32768Hz in double speed.</p>
 <h2 id="ff05---tima---timer-counter-rw"><a class="header" href="#ff05---tima---timer-counter-rw">FF05 - TIMA - Timer counter (R/W)</a></h2>
 <p>This timer is incremented at the clock frequency specified by the TAC
 register ($FF07). When the value overflows (exceeds $FF)
-it is reset to the value specified in TMA (FF06) and <a href="Interrupt_Sources.html#int-50---timer-interrupt">an interrupt</a>
+it is reset to the value specified in TMA (FF06) and <a href="#int-50---timer-interrupt">an interrupt</a>
 is requested, as described below.</p>
 <h2 id="ff06---tma---timer-modulo-rw"><a class="header" href="#ff06---tma---timer-modulo-rw">FF06 - TMA - Timer Modulo (R/W)</a></h2>
-<p>When TIMA overflows, it is reset to the value in this register and <a href="Interrupt_Sources.html#int-50---timer-interrupt">an interrupt</a> is requested.
+<p>When TIMA overflows, it is reset to the value in this register and <a href="#int-50---timer-interrupt">an interrupt</a> is requested.
 Example of use: if TMA is set to $FF, an interrupt is requested at the clock frequency selected in
 TAC (because every increment is an overflow). However, if TMA is set to $FE, an interrupt is
 only requested every two increments, which effectively divides the selected clock by two. Setting
@@ -1801,7 +1801,7 @@ unless/until IME and IE allow its execution.</p>
 <li>The IF bit corresponding to this interrupt and the IME flag are reset by the CPU.
 The former “acknowledges” the interrupt, while the latter prevents any further interrupts
 from being handled until the program re-enables them, typically by using the <code>reti</code> instruction.</li>
-<li>The corresponding interrupt handler (see the IE and IF register descriptions <a href="Interrupts.html#ffff---ie---interrupt-enable-rw">above</a>) is
+<li>The corresponding interrupt handler (see the IE and IF register descriptions <a href="#ffff---ie---interrupt-enable-rw">above</a>) is
 called by the CPU. This is a regular call, exactly like what would be performed by a <code>call &lt;vector&gt;</code> instruction (the current PC is pushed on the stack
 and then set to the address of the interrupt vector).</li>
 </ol>
@@ -1840,7 +1840,7 @@ handler, then you can use the EI instruction in the interrupt
 handler.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="interrupt-sources"><a class="header" href="#interrupt-sources">Interrupt Sources</a></h1>
 <h2 id="int-40---vblank-interrupt"><a class="header" href="#int-40---vblank-interrupt">INT 40 - VBlank Interrupt</a></h2>
-<p>This interrupt is requested every time the Game Boy enters VBlank (<a href="STAT.html#ff41---stat-lcd-status-rw">Mode 1</a>).</p>
+<p>This interrupt is requested every time the Game Boy enters VBlank (<a href="#ff41---stat-lcd-status-rw">Mode 1</a>).</p>
 <p>The VBlank interrupt occurs ca. 59.7 times a second on a handheld Game
 Boy (DMG or CGB) or Game Boy Player and ca. 61.1 times a second on a
 Super Game Boy (SGB). This interrupt occurs at the beginning of the
@@ -1849,7 +1849,7 @@ VRAM so it may be freely accessed. This period lasts approximately 1.1
 milliseconds.</p>
 <h2 id="int-48---stat-interrupt"><a class="header" href="#int-48---stat-interrupt">INT 48 - STAT Interrupt</a></h2>
 <p>There are various sources which can trigger this interrupt to occur as
-described in <a href="STAT.html#ff41---stat-lcd-status-rw">STAT register ($FF41)</a>.</p>
+described in <a href="#ff41---stat-lcd-status-rw">STAT register ($FF41)</a>.</p>
 <p>The various STAT interrupt sources (modes 0-2 and LYC=LY) have their 
 state (inactive=low and active=high) logically ORed into a shared
 “STAT interrupt line” if their respective enable bit is turned on.</p>
@@ -1860,7 +1860,7 @@ low to high) on the STAT interrupt line.</p>
 (or immediately after) it’s already set high by another source, then 
 there will be no low-to-high transition and so no interrupt will occur. 
 This phenomenon is known as “STAT blocking” (<a href="https://github.com/Gekkio/mooneye-gb/blob/2d52008228557f9e713545e702d5b7aa233d09bb/tests/acceptance/ppu/stat_irq_blocking.s#L21-L22">test ROM example</a>).</p>
-<p>As mentioned in the description of the <a href="STAT.html#ff41---stat-lcd-status-rw">STAT register</a>,
+<p>As mentioned in the description of the <a href="#ff41---stat-lcd-status-rw">STAT register</a>,
 the PPU cycles through the different modes in a fixed order. So for 
 example, if interrupts are enabled for two consecutive modes such as 
 Mode 0 and Mode 1, then no interrupt will trigger for Mode 1 (since 
@@ -1876,7 +1876,7 @@ the handler disable sprites. This can be used if you use the window for
 a text box (at the bottom of the screen), and you want sprites to be
 hidden by the text box.</p>
 <h2 id="int-50---timer-interrupt"><a class="header" href="#int-50---timer-interrupt">INT 50 - Timer Interrupt</a></h2>
-<p>Every time that the timer overflows (that is, when <a href="Timer_and_Divider_Registers.html#ff05---tima---timer-counter-rw">TIMA</a> exceeds $FF),
+<p>Every time that the timer overflows (that is, when <a href="#ff05---tima---timer-counter-rw">TIMA</a> exceeds $FF),
 an interrupt is requested by setting bit 2 in the IF register
 ($FF0F). As soon as that interrupt is enabled, the CPU will execute it by
 calling the timer interrupt vector at $0050.</p>
@@ -1908,7 +1908,7 @@ port and a byte to be shifted into $FF01:</p>
 <p>The Game Boy does not support wake-on-LAN. Completion of an externally
 clocked serial transfer does not exit STOP mode.</p>
 <h2 id="int-60---joypad-interrupt"><a class="header" href="#int-60---joypad-interrupt">INT 60 - Joypad Interrupt</a></h2>
-<p>The Joypad interrupt is requested when any of <a href="Joypad_Input.html#ff00---p1joyp---joypad-rw"><code>P1</code></a> bits 0-3 change
+<p>The Joypad interrupt is requested when any of <a href="#ff00---p1joyp---joypad-rw"><code>P1</code></a> bits 0-3 change
 from High to Low. This happens when a button is
 pressed (provided that the action/direction buttons are enabled by
 bit 5/4, respectively), however, due to switch bounce, one or more High to Low
@@ -2061,7 +2061,7 @@ would be recommended to use Single Speed whenever possible.</p>
 <p>The CPU stops for 2050 cycles (= 8200 clocks) after the <code>stop</code> instruction is
 executed. During this time, the CPU is in a strange state. <code>DIV</code> does not tick, so
 <em>some</em> audio events are not processed. Additionally, VRAM/OAM/… locking is “frozen”, yielding
-different results depending on the <a href="STAT.html#ff41---stat-lcd-status-rw">STAT mode</a> it’s started in:</p>
+different results depending on the <a href="#ff41---stat-lcd-status-rw">STAT mode</a> it’s started in:</p>
 <ul>
 <li>HBlank / VBlank (Mode 0 / Mode 1): The PPU cannot access any videomemory, and produces black pixels</li>
 <li>OAM scan (Mode 2): The PPU can access VRAM just fine, but not OAM, leading to rendering background, but not sprites</li>
@@ -2231,25 +2231,25 @@ and SGB2 respectively.</p>
 <tr><td>CGB</td><td>$11</td><td>$00</td></tr>
 <tr><td>AGB</td><td>$11</td><td>$00</td></tr>
 </tbody></table>
-<p>For initial register values on all systems, see the table of all <a href="Power_Up_Sequence.html#cpu-registers">CPU
+<p>For initial register values on all systems, see the table of all <a href="#cpu-registers">CPU
 registers after power-up</a>.</p>
 <p>The SGB2 doesn’t have any extra features which’d require separate SGB2
 detection except for curiosity purposes, for example, the game “Tetris
 DX” chooses to display an alternate SGB border on SGB2s.</p>
 <p>Only the SGB2 contains a link port.</p>
-<p>SGB hardware has traditionally been detected by sending <a href="SGB_Command_Multiplayer.html#sgb-command-11h---mlt_req"><code>MLT_REQ</code> commands</a>, but this
+<p>SGB hardware has traditionally been detected by sending <a href="#sgb-command-11h---mlt_req"><code>MLT_REQ</code> commands</a>, but this
 method is more complicated and slower than checking the value of the A
 and C registers after startup. The <code>MLT_REQ</code> command enables two (or four)
 joypads; a normal handheld Game Boy will ignore this command, but an SGB
 will return incrementing joypad IDs each time when deselecting keypad
-lines (<a href="SGB_Command_Multiplayer.html#reading-multiple-controllers-joypads">see <code>MLT_REQ</code> description</a>). The joypad state/IDs can
+lines (<a href="#reading-multiple-controllers-joypads">see <code>MLT_REQ</code> description</a>). The joypad state/IDs can
 then be read out several times, and if the IDs are changing, then it is
 an SGB (a normal Game Boy would typically always return $0F as the ID).
 Finally, when not intending to use more than one joypad, send another
 <code>MLT_REQ</code> command in order to disable the multi-controller mode.
 Detection works regardless of how many joypads are physically connected
 to the SNES. However, unlike the C register method, this detection works only when
-SGB functions <a href="SGB_Unlocking.html#cartridge-header">are unlocked from the cartridge header</a>.</p>
+SGB functions <a href="#cartridge-header">are unlocked from the cartridge header</a>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="command-packet-transfers"><a class="header" href="#command-packet-transfers">Command Packet Transfers</a></h1>
 <p>Command packets (aka Register Files) are transferred from the Game Boy to
 the SNES by using P14 and P15 output lines of the JOYPAD register
@@ -2420,7 +2420,7 @@ color 1-3 (without separate color 0).</p>
          Bit 15    - Not used (zero)
  F     Not used (00h)
 </code></pre>
-<p>This is the same RGB5 format as <a href="Palettes.html#lcd-color-palettes-cgb-only">Game Boy Color palette
+<p>This is the same RGB5 format as <a href="#lcd-color-palettes-cgb-only">Game Boy Color palette
 entry</a>, though
 without the LCD correction. The value transferred as color 0 will be
 applied for all four palettes.</p>
@@ -2847,7 +2847,7 @@ cartridge in a Super Game Boy as a storage server:</p>
 <li>The SGB system software does not appear to use NMIs.</li>
 <li>JUMP can return to SGB system software via a 16-bit RTS. To do this,
 JML to a location in bank $00 containing byte value $60, such as
-any of the <a href="SGB_Command_Undocumented.html#stubbed-commands">stubbed commands</a>.</li>
+any of the <a href="#stubbed-commands">stubbed commands</a>.</li>
 <li>IRQs and COP and BRK instructions are not useful because their
 handlers still point into SGB ROM. Use SEI WAI.</li>
 <li>If a program called through JUMP does not intend to return to SGB
@@ -2883,7 +2883,7 @@ player to two-or-four player which will always start with player 1
 active.</p>
 <h2 id="reading-multiple-controllers-joypads"><a class="header" href="#reading-multiple-controllers-joypads">Reading Multiple Controllers (Joypads)</a></h2>
 <p>When having enabled multiple controllers by <code>MLT_REQ</code>, data for each
-joypad can be read out through <a href="Joypad_Input.html#ff00---p1joyp---joypad-rw">the <code>P1</code> register</a> as follows: First
+joypad can be read out through <a href="#ff00---p1joyp---joypad-rw">the <code>P1</code> register</a> as follows: First
 set P14 and P15 both HIGH (deselect both Buttons and Cursor keys), you
 can now read the lower 4 bits of <code>P1</code>, which indicate the joypad ID for
 the following joypad input:</p>
@@ -3508,7 +3508,7 @@ These MBC chips are located in the game cartridge (that is, not in
 the Game Boy itself).</p>
 <p>In each cartridge, the required (or preferred) MBC type should be
 specified in the byte at $0147 of the ROM, as described
-<a href="The_Cartridge_Header.html#0147---cartridge-type">in the cartridge header</a>.  Several different MBC
+<a href="#0147---cartridge-type">in the cartridge header</a>.  Several different MBC
 types are available:</p>
 <h2 id="mbc-timing-issues"><a class="header" href="#mbc-timing-issues">MBC Timing Issues</a></h2>
 <p>Among Nintendo MBCs, only the MBC5 is guaranteed by Nintendo to support
@@ -4037,7 +4037,7 @@ outputs, but this appears not to have been done in licensed games.</p>
 <p>PinoBatch learned the game selection protocol for EMS flash carts from
 beware, who in turn learned it from nitro2k01. Take this with a grain of
 salt, as it hasn’t been verified on the authentic EMS hardware.</p>
-<p>A <a href="The_Cartridge_Header.html#the-cartridge-header">header</a> matching any of the
+<p>A <a href="#the-cartridge-header">header</a> matching any of the
 following is detected as EMS mapper:</p>
 <ul>
 <li>Header name is “EMSMENU”, NUL-padded</li>
@@ -4118,7 +4118,7 @@ unlikely.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="game-boy-printer"><a class="header" href="#game-boy-printer">Game Boy Printer</a></h1>
 <p>The Game Boy Printer is a portable thermal printer made by
 <a href="https://en.wikipedia.org/wiki/Seiko_Instruments">SII</a> for Nintendo, which a few games used to
-print out bonus artwork, certificates, pictures (<a href="Gameboy_Camera.html#game-boy-camera">Game Boy
+print out bonus artwork, certificates, pictures (<a href="#game-boy-camera">Game Boy
 Camera</a>).</p>
 <p>It can use standard 38mm paper and interfaces with the Game Boy through
 the Link port.</p>
@@ -4644,20 +4644,20 @@ Since the boot ROM hands off control to the game ROM at address $0100, and devel
 <tr><td>MGB</td><td>256</td><td>One-byte difference to DMG</td></tr>
 <tr><td>SGB</td><td>256</td><td>Only forwards logo to SGB BIOS, performs no checks</td></tr>
 <tr><td>SGB2</td><td>256</td><td>Same difference to SGB than between MGB and DMG</td></tr>
-<tr><td>CGB0</td><td>256 + 1792</td><td>Does not init <a href="Sound_Controller.html#ff30-ff3f---wave-pattern-ram">wave RAM</a></td></tr>
+<tr><td>CGB0</td><td>256 + 1792</td><td>Does not init <a href="#ff30-ff3f---wave-pattern-ram">wave RAM</a></td></tr>
 <tr><td>CGB</td><td>256 + 1792</td><td>Split in two parts, with the cartridge header in the middle</td></tr>
-<tr><td>AGB</td><td>256 + 1792</td><td>Fixes <a href="Power_Up_Sequence.html#bypass">“logo TOCTTOU”</a></td></tr>
+<tr><td>AGB</td><td>256 + 1792</td><td>Fixes <a href="#bypass">“logo TOCTTOU”</a></td></tr>
 </tbody></table>
 <p><a href="https://github.com/ISSOtm/gb-bootroms">A disassembly of all of them is available online.</a></p>
 <h2 id="monochrome-models-dmg0-dmg-mgb"><a class="header" href="#monochrome-models-dmg0-dmg-mgb">Monochrome models (DMG0, DMG, MGB)</a></h2>
-<p>The monochrome boot ROMs read <a href="The_Cartridge_Header.html#0104-0133---nintendo-logo">the logo from the header</a>, unpack it into VRAM, and then start slowly scrolling it down.
+<p>The monochrome boot ROMs read <a href="#0104-0133---nintendo-logo">the logo from the header</a>, unpack it into VRAM, and then start slowly scrolling it down.
 Since reads from an absent cartridge usually return $FF, this explains why powering the console on without a cartridge scrolls a black box.
 Additionally, fauly or dirty connections can cause the data read to be corrupted, resulting in a jumbled-up logo.</p>
 <p><em>Once the logo has finished scrolling</em>, the boot ROM plays the famous “ba-ding!” sound, and reads the logo <strong>again</strong>, this time comparing it to a copy it stores.
-Then, it also computes the header checksum, and compares it to <a href="The_Cartridge_Header.html#014d---header-checksum">the checksum stored in the header</a>.
+Then, it also computes the header checksum, and compares it to <a href="#014d---header-checksum">the checksum stored in the header</a>.
 If either of these checks fail, the boot ROM <strong>locks up</strong>, and control is never passed to the cartridge ROM.</p>
 <p>Finally, the boot ROM writes to the <code>BANK</code> register at $FF50, which unmaps the boot ROM.
-The <code>ldh [$FF50], a</code> instruction being located at $00FE (and being two bytes long), <a href="The_Cartridge_Header.html#0100-0103---entry-point">the first instruction executed from the cartridge ROM is at $0100</a>.</p>
+The <code>ldh [$FF50], a</code> instruction being located at $00FE (and being two bytes long), <a href="#0100-0103---entry-point">the first instruction executed from the cartridge ROM is at $0100</a>.</p>
 <p>Since the A register is used to write to $FF50, its value is passed to the cartridge ROM; the only difference between the DMG and MGB boot ROMs is that the former writes $01, and the latter uses $FF.</p>
 <h3 id="dmg0"><a class="header" href="#dmg0">DMG0</a></h3>
 <p>The DMG0 is a rare “early bird” variant of the DMG boot ROM present in few early DMGs.
@@ -4667,7 +4667,7 @@ If either verification fails, the screen is made to blink while the boot ROM loc
 <p>The DMG0 boot ROM also lacks the ® symbol next to the Nintendo logo.</p>
 <h2 id="super-game-boy-sgb-sgb2"><a class="header" href="#super-game-boy-sgb-sgb2">Super Game Boy (SGB, SGB2)</a></h2>
 <p>These boot ROMs are fairly unique in that they do <em>not</em> perform header checks.
-Instead, they set up the Nintendo logo in VRAM from the header just like the monochrome boot ROMs, but then they send the entire header to the SGB BIOS via <a href="SGB_Command_Packet.html#command-packet-transfers">the standard packet-transferring procedure</a>, using packet header bytes $F1, $F3, $F5, $F7, $F9, and $FB, in that order.
+Instead, they set up the Nintendo logo in VRAM from the header just like the monochrome boot ROMs, but then they send the entire header to the SGB BIOS via <a href="#command-packet-transfers">the standard packet-transferring procedure</a>, using packet header bytes $F1, $F3, $F5, $F7, $F9, and $FB, in that order.
 (These packet IDs are otherwise invalid and never used in regular SGB operation, though it seems that not all SGB BIOS revisions filter them out.)</p>
 <p>The boot ROM then unmaps itself and hands off execution to the cartridge ROM without performing any checks.
 The SGB BIOS, the program running on the SNES, actually verifies the Nintendo logo and header checksum itself.
@@ -4686,31 +4686,31 @@ Thus, the boot ROM is actually split in two parts, a $0000-00FF one, and a $0200
 (It is speculated that HRAM was used due to it being embedded within the CPU, unlike WRAM, so that it couldn’t be tampered with.)</p>
 <p>Then, the logo is read and decompressed <em>again</em>, but with no resizing, yielding the much smaller logo placed below the big “GAME BOY” one.
 The boot ROM then sets up compatibility palettes, as described further below, and plays the logo animation with the “ba-ding!” sound.</p>
-<p>During the logo animation, and if bit 7 of <a href="The_Cartridge_Header.html#0143---cgb-flag">the CGB compatibility byte</a> is reset (indicating a monochrome-only game), the user is allowed to pick a palette to override the one chosen for compatibility.
+<p>During the logo animation, and if bit 7 of <a href="#0143---cgb-flag">the CGB compatibility byte</a> is reset (indicating a monochrome-only game), the user is allowed to pick a palette to override the one chosen for compatibility.
 Each new choice prevents the animation from ending for 30 frames, potentially delaying the checks and fade-out.</p>
 <p>Then, like the monochrome boot ROMs, the header logo is checked <em>from the buffer in HRAM</em>, and the header checksum is verified.
 For unknown reasons, however, only the first half of the logo is checked, despite the full logo being present in the HRAM buffer.</p>
 <p>Finally, the boot ROM fades all BG palettes to white, and sets the hardware to compatibility mode.
-If <a href="The_Cartridge_Header.html#0143---cgb-flag">the CGB compatibility byte</a> indicates CGB compatibility, the byte is written directly to <code>KEY0</code> ($FF4C), potentially enabling PGB mode; otherwise, $04 is written to <code>KEY0</code> (enabling DMG compatibility mode in the CPU), $01 is written to <a href="CGB_Registers.html#ff6c---opri---cgb-mode-only---object-priority-mode"><code>OPRI</code></a> (enabling <a href="OAM.html#object-priority-and-conflicts">DMG OBJ priority</a>), and the <a href="Power_Up_Sequence.html#compatibility-palettes">compatibility palettes</a> are written.
-Additionally, the DMG logo tilemap is written <a href="Power_Up_Sequence.html#compatibility-palettes">if the compatibility requests it</a>.</p>
+If <a href="#0143---cgb-flag">the CGB compatibility byte</a> indicates CGB compatibility, the byte is written directly to <code>KEY0</code> ($FF4C), potentially enabling PGB mode; otherwise, $04 is written to <code>KEY0</code> (enabling DMG compatibility mode in the CPU), $01 is written to <a href="#ff6c---opri---cgb-mode-only---object-priority-mode"><code>OPRI</code></a> (enabling <a href="#object-priority-and-conflicts">DMG OBJ priority</a>), and the <a href="#compatibility-palettes">compatibility palettes</a> are written.
+Additionally, the DMG logo tilemap is written <a href="#compatibility-palettes">if the compatibility requests it</a>.</p>
 <p>Like all other boot ROMs, the last thing the color boot ROMs do is hand off execution at the same time as they unmap themselves, though they write $11 instead of $01 or $FF.</p>
 <h3 id="cgb0"><a class="header" href="#cgb0">CGB0</a></h3>
 <p>Like the DMG0 boot ROM, some early CGBs contain a different boot ROM.
 Unlike DMG0 and DMG, the differences between the CGB0 and CGB boot ROM are very minor, with no change in the layout of the ROM.</p>
-<p>The most notable change is that the CGB0 boot ROM does <em>not</em> init <a href="Sound_Controller.html#ff30-ff3f---wave-pattern-ram">wave RAM</a>.
+<p>The most notable change is that the CGB0 boot ROM does <em>not</em> init <a href="#ff30-ff3f---wave-pattern-ram">wave RAM</a>.
 This is known to cause, for example, a different title screen music in the game <em>R-Type</em>.</p>
 <p>The CGB0 boot ROM also writes copies of other variables to some locations in WRAM that are not otherwise read anywhere.
 It is speculated that this may be debug remnants.</p>
 <h3 id="compatibility-palettes"><a class="header" href="#compatibility-palettes">Compatibility palettes</a></h3>
 <p>The boot ROM is responsible for the automatic colorization of monochrome-only games when run on a GBC.</p>
-<p>When in DMG compatibility mode, the <a href="Palettes.html#lcd-color-palettes-cgb-only">CGB palettes</a> are still being used: the background uses BG palette 0 (likely because the entire <a href="Tile_Maps.html#bg-map-attributes-cgb-mode-only">attribute map</a> is set to all zeros), and objects use OBJ palette 0 or 1 depending on bit 4 of <a href="OAM.html#byte3---attributesflags">their attribute</a>.
-<a href="Palettes.html#lcd-monochrome-palettes"><code>BGP</code>, <code>OBP0</code>, and <code>OBP1</code></a> actually index into the CGB palettes instead of the DMG’s shades of grey.</p>
+<p>When in DMG compatibility mode, the <a href="#lcd-color-palettes-cgb-only">CGB palettes</a> are still being used: the background uses BG palette 0 (likely because the entire <a href="#bg-map-attributes-cgb-mode-only">attribute map</a> is set to all zeros), and objects use OBJ palette 0 or 1 depending on bit 4 of <a href="#byte3---attributesflags">their attribute</a>.
+<a href="#lcd-monochrome-palettes"><code>BGP</code>, <code>OBP0</code>, and <code>OBP1</code></a> actually index into the CGB palettes instead of the DMG’s shades of grey.</p>
 <p>The boot ROM picks a compatibility palette using an ID computed using the following algorithm:</p>
 <ol>
 <li>
-<p>Check if the <a href="The_Cartridge_Header.html#014b---old-licensee-code">old licensee code</a> is $33.</p>
+<p>Check if the <a href="#014b---old-licensee-code">old licensee code</a> is $33.</p>
 <ul>
-<li>If yes, the <a href="The_Cartridge_Header.html#0144-0145---new-licensee-code">new licensee code</a> must be used. Check that it equals the ASCII string <code>&quot;01&quot;</code>.</li>
+<li>If yes, the <a href="#0144-0145---new-licensee-code">new licensee code</a> must be used. Check that it equals the ASCII string <code>&quot;01&quot;</code>.</li>
 <li>If not, check that it equals $01.</li>
 </ul>
 <p>In effect, this checks that the licensee in the header is Nintendo.</p>
@@ -4720,7 +4720,7 @@ It is speculated that this may be debug remnants.</p>
 </ul>
 </li>
 <li>
-<p>Compute the sum of all 16 <a href="The_Cartridge_Header.html#0134-0143---title">game title</a> bytes, storing this as the “title checksum”.</p>
+<p>Compute the sum of all 16 <a href="#0134-0143---title">game title</a> bytes, storing this as the “title checksum”.</p>
 </li>
 <li>
 <p>Find the title checksum <a href="https://github.com/ISSOtm/gb-bootroms/blob/443d7f057ae06e8d1d76fa8083650cf0be2cd0ae/src/cgb.asm#L1221-L1230">in a table</a>, and record its index within the table.</p>
@@ -4806,7 +4806,7 @@ It is strongly advised for the game to put a large enough known sequence of byte
 <tr><td align="right"><strong>SP</strong></td><td align="center">$FFFE</td><td align="center">$FFFE</td><td align="center">$FFFE</td><td align="center">$FFFE</td><td align="center">$FFFE</td></tr>
 </tbody></table>
 <div class="footnote-definition" id="dmg_c"><sup class="footnote-definition-label">1</sup>
-<p>If the <a href="The_Cartridge_Header.html#014d---header-checksum">header checksum</a> is $00, then the carry and half-carry flags are clear; otherwise, they are both set.</p>
+<p>If the <a href="#014d---header-checksum">header checksum</a> is $00, then the carry and half-carry flags are clear; otherwise, they are both set.</p>
 </div>
 <table><thead><tr><th align="right">Register</th><th align="center">CGB (DMG mode)</th><th align="center">AGB (DMG mode)</th><th align="center">CGB</th><th align="center">AGB</th></tr></thead><tbody>
 <tr><td align="right"><strong>A</strong></td><td align="center">$11</td><td align="center">$11</td><td align="center">$11</td><td align="center">$11</td></tr>
@@ -4826,7 +4826,7 @@ It is strongly advised for the game to put a large enough known sequence of byte
 The carry and direction flags are always clear, though.</p>
 </div>
 <div class="footnote-definition" id="cgbdmg_b"><sup class="footnote-definition-label">3</sup>
-<p>If the <a href="The_Cartridge_Header.html#014b---old-licensee-code">old licensee code</a> is $01, or the old licensee code is $33 and the <a href="The_Cartridge_Header.html#0144-0145---new-licensee-code">new licensee code</a> is <code>&quot;01&quot;</code> ($30 $31), then B is the sum of all 16 <a href="The_Cartridge_Header.html#0134-0143---title">title</a> bytes.
+<p>If the <a href="#014b---old-licensee-code">old licensee code</a> is $01, or the old licensee code is $33 and the <a href="#0144-0145---new-licensee-code">new licensee code</a> is <code>&quot;01&quot;</code> ($30 $31), then B is the sum of all 16 <a href="#0134-0143---title">title</a> bytes.
 Otherwise, B is $00.
 As indicated by the “+ 1” in the “AGB (DMG mode)” column, if on AGB, that value is increased by 1<sup class="footnote-reference"><a href="#agbdmg_f">2</a></sup>.</p>
 </div>
@@ -4842,61 +4842,61 @@ As indicated by the “+ 1” in the “AGB (DMG mode)” column, if on AGB, tha
 <h2 id="hardware-registers"><a class="header" href="#hardware-registers">Hardware registers</a></h2>
 <p>As far as timing-sensitive values are concerned, these values are recorded at PC = $0100.</p>
 <table><thead><tr><th align="right">Name</th><th align="center">Address</th><th align="center">DMG0</th><th align="center">DMG / MGB</th><th align="center">SGB / SGB2</th><th align="center">CGB / AGB</th></tr></thead><tbody>
-<tr><td align="right"><a href="Joypad_Input.html#ff00---p1joyp---joypad-rw"><code>P1</code></a></td><td align="center">$FF00</td><td align="center">$CF</td><td align="center">$CF</td><td align="center">$C7 or $CF</td><td align="center">$C7 or $CF</td></tr>
-<tr><td align="right"><a href="Serial_Data_Transfer_(Link_Cable).html#ff01---sb---serial-transfer-data-rw"><code>SB</code></a></td><td align="center">$FF01</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
-<tr><td align="right"><a href="Serial_Data_Transfer_(Link_Cable).html#ff02---sc---serial-transfer-control-rw"><code>SC</code></a></td><td align="center">$FF02</td><td align="center">$7E</td><td align="center">$7E</td><td align="center">$7E</td><td align="center">$7F</td></tr>
-<tr><td align="right"><a href="Timer_and_Divider_Registers.html#ff04---div---divider-register-rw"><code>DIV</code></a></td><td align="center">$FF04</td><td align="center">$18</td><td align="center">$AB</td><td align="center">??<sup class="footnote-reference"><a href="#unk">5</a></sup></td><td align="center">??<sup class="footnote-reference"><a href="#unk_pad">6</a></sup></td></tr>
-<tr><td align="right"><a href="Timer_and_Divider_Registers.html#ff05---tima---timer-counter-rw"><code>TIMA</code></a></td><td align="center">$FF05</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
-<tr><td align="right"><a href="Timer_and_Divider_Registers.html#ff06---tma---timer-modulo-rw"><code>TMA</code></a></td><td align="center">$FF06</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
-<tr><td align="right"><a href="Timer_and_Divider_Registers.html#ff07---tac---timer-control-rw"><code>TAC</code></a></td><td align="center">$FF07</td><td align="center">$F8</td><td align="center">$F8</td><td align="center">$F8</td><td align="center">$F8</td></tr>
-<tr><td align="right"><a href="Interrupts.html#ff0f---if---interrupt-flag-rw"><code>IF</code></a></td><td align="center">$FF0F</td><td align="center">$E1</td><td align="center">$E1</td><td align="center">$E1</td><td align="center">$E1</td></tr>
-<tr><td align="right"><a href="Sound_Controller.html#ff10---nr10---channel-1-sweep-register-rw"><code>NR10</code></a></td><td align="center">$FF10</td><td align="center">$80</td><td align="center">$80</td><td align="center">$80</td><td align="center">$80</td></tr>
-<tr><td align="right"><a href="Sound_Controller.html#ff11---nr11---channel-1-sound-lengthwave-pattern-duty-rw"><code>NR11</code></a></td><td align="center">$FF11</td><td align="center">$BF</td><td align="center">$BF</td><td align="center">$BF</td><td align="center">$BF</td></tr>
-<tr><td align="right"><a href="Sound_Controller.html#ff12---nr12---channel-1-volume-envelope-rw"><code>NR12</code></a></td><td align="center">$FF12</td><td align="center">$F3</td><td align="center">$F3</td><td align="center">$F3</td><td align="center">$F3</td></tr>
-<tr><td align="right"><a href="Sound_Controller.html#ff13---nr13---channel-1-frequency-lo-write-only"><code>NR13</code></a></td><td align="center">$FF13</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
-<tr><td align="right"><a href="Sound_Controller.html#ff14---nr14---channel-1-frequency-hi-rw"><code>NR14</code></a></td><td align="center">$FF14</td><td align="center">$BF</td><td align="center">$BF</td><td align="center">$BF</td><td align="center">$BF</td></tr>
-<tr><td align="right"><a href="Sound_Controller.html#ff16---nr21---channel-2-sound-lengthwave-pattern-duty-rw"><code>NR21</code></a></td><td align="center">$FF16</td><td align="center">$3F</td><td align="center">$3F</td><td align="center">$3F</td><td align="center">$3F</td></tr>
-<tr><td align="right"><a href="Sound_Controller.html#ff17---nr22---channel-2-volume-envelope-rw"><code>NR22</code></a></td><td align="center">$FF17</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
-<tr><td align="right"><a href="Sound_Controller.html#ff18---nr23---channel-2-frequency-lo-data-w"><code>NR23</code></a></td><td align="center">$FF18</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
-<tr><td align="right"><a href="Sound_Controller.html#ff19---nr24---channel-2-frequency-hi-data-rw"><code>NR24</code></a></td><td align="center">$FF19</td><td align="center">$BF</td><td align="center">$BF</td><td align="center">$BF</td><td align="center">$BF</td></tr>
-<tr><td align="right"><a href="Sound_Controller.html#ff1a---nr30---channel-3-sound-onoff-rw"><code>NR30</code></a></td><td align="center">$FF1A</td><td align="center">$7F</td><td align="center">$7F</td><td align="center">$7F</td><td align="center">$7F</td></tr>
-<tr><td align="right"><a href="Sound_Controller.html#ff1b---nr31---channel-3-sound-length-rw"><code>NR31</code></a></td><td align="center">$FF1B</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
-<tr><td align="right"><a href="Sound_Controller.html#ff1c---nr32---channel-3-select-output-level-rw"><code>NR32</code></a></td><td align="center">$FF1C</td><td align="center">$9F</td><td align="center">$9F</td><td align="center">$9F</td><td align="center">$9F</td></tr>
-<tr><td align="right"><a href="Sound_Controller.html#ff1d---nr33---channel-3-frequencys-lower-data-w"><code>NR33</code></a></td><td align="center">$FF1D</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
-<tr><td align="right"><a href="Sound_Controller.html#ff1e---nr34---channel-3-frequencys-higher-data-rw"><code>NR34</code></a></td><td align="center">$FF1E</td><td align="center">$BF</td><td align="center">$BF</td><td align="center">$BF</td><td align="center">$BF</td></tr>
-<tr><td align="right"><a href="Sound_Controller.html#ff20---nr41---channel-4-sound-length-rw"><code>NR41</code></a></td><td align="center">$FF20</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
-<tr><td align="right"><a href="Sound_Controller.html#ff21---nr42---channel-4-volume-envelope-rw"><code>NR42</code></a></td><td align="center">$FF21</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
-<tr><td align="right"><a href="Sound_Controller.html#ff22---nr43---channel-4-polynomial-counter-rw"><code>NR43</code></a></td><td align="center">$FF22</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
-<tr><td align="right"><a href="Sound_Controller.html#ff23---nr44---channel-4-counterconsecutive-inital-rw"><code>NR44</code></a></td><td align="center">$FF23</td><td align="center">$BF</td><td align="center">$BF</td><td align="center">$BF</td><td align="center">$BF</td></tr>
-<tr><td align="right"><a href="Sound_Controller.html#ff24---nr50---channel-control--on-off--volume-rw"><code>NR50</code></a></td><td align="center">$FF24</td><td align="center">$77</td><td align="center">$77</td><td align="center">$77</td><td align="center">$77</td></tr>
-<tr><td align="right"><a href="Sound_Controller.html#ff25---nr51---selection-of-sound-output-terminal-rw"><code>NR51</code></a></td><td align="center">$FF25</td><td align="center">$F3</td><td align="center">$F3</td><td align="center">$F3</td><td align="center">$F3</td></tr>
-<tr><td align="right"><a href="Sound_Controller.html#ff26---nr52---sound-onoff"><code>NR52</code></a></td><td align="center">$FF26</td><td align="center">$F1</td><td align="center">$F1</td><td align="center">$F0</td><td align="center">$F1</td></tr>
-<tr><td align="right"><a href="LCDC.html#ff40---lcdc-lcd-control-rw"><code>LCDC</code></a></td><td align="center">$FF40</td><td align="center">$91</td><td align="center">$91</td><td align="center">$91</td><td align="center">$91</td></tr>
-<tr><td align="right"><a href="STAT.html#ff41---stat-lcd-status-rw"><code>STAT</code></a></td><td align="center">$FF41</td><td align="center">$81</td><td align="center">$85</td><td align="center">??<sup class="footnote-reference"><a href="#unk">5</a></sup></td><td align="center">??<sup class="footnote-reference"><a href="#unk_pad">6</a></sup></td></tr>
-<tr><td align="right"><a href="Scrolling.html#ff42---scy-scroll-y-rw-ff43---scx-scroll-x-rw"><code>SCY</code></a></td><td align="center">$FF42</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
-<tr><td align="right"><a href="Scrolling.html#ff42---scy-scroll-y-rw-ff43---scx-scroll-x-rw"><code>SCX</code></a></td><td align="center">$FF43</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
-<tr><td align="right"><a href="Scrolling.html#ff44---ly-lcd-y-coordinate-r"><code>LY</code></a></td><td align="center">$FF44</td><td align="center">$91</td><td align="center">$00</td><td align="center">??<sup class="footnote-reference"><a href="#unk">5</a></sup></td><td align="center">??<sup class="footnote-reference"><a href="#unk_pad">6</a></sup></td></tr>
-<tr><td align="right"><a href="Scrolling.html#ff45---lyc-ly-compare-rw"><code>LYC</code></a></td><td align="center">$FF45</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
-<tr><td align="right"><a href="OAM_DMA_Transfer.html#ff46---dma-dma-transfer-and-start-address-rw"><code>DMA</code></a></td><td align="center">$FF46</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$00</td></tr>
-<tr><td align="right"><a href="Palettes.html#ff47---bgp-bg-palette-data-rw---non-cgb-mode-only"><code>BGP</code></a></td><td align="center">$FF47</td><td align="center">$FC</td><td align="center">$FC</td><td align="center">$FC</td><td align="center">$FC</td></tr>
-<tr><td align="right"><a href="Palettes.html#ff48---obp0-object-palette-0-data-rw---non-cgb-mode-only"><code>OBP0</code></a></td><td align="center">$FF48</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$00</td></tr>
-<tr><td align="right"><a href="Palettes.html#ff49---obp1-object-palette-1-data-rw---non-cgb-mode-only"><code>OBP1</code></a></td><td align="center">$FF49</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$00</td></tr>
-<tr><td align="right"><a href="Scrolling.html#ff4a---wy-window-y-position-rw-ff4b---wx-window-x-position--7-rw"><code>WY</code></a></td><td align="center">$FF4A</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
-<tr><td align="right"><a href="Scrolling.html#ff4a---wy-window-y-position-rw-ff4b---wx-window-x-position--7-rw"><code>WX</code></a></td><td align="center">$FF4B</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
-<tr><td align="right"><a href="CGB_Registers.html#ff4d---key1---cgb-mode-only---prepare-speed-switch"><code>KEY1</code></a></td><td align="center">$FF4D</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
-<tr><td align="right"><a href="CGB_Registers.html#ff4f---vbk---cgb-mode-only---vram-bank-rw"><code>VBK</code></a></td><td align="center">$FF4F</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
-<tr><td align="right"><a href="CGB_Registers.html#ff51---hdma1-new-dma-source-high-w-ff52---hdma2-new-dma-source-low-w---cgb-mode-only"><code>HDMA1</code></a></td><td align="center">$FF51</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
-<tr><td align="right"><a href="CGB_Registers.html#ff51---hdma1-new-dma-source-high-w-ff52---hdma2-new-dma-source-low-w---cgb-mode-only"><code>HDMA2</code></a></td><td align="center">$FF52</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
-<tr><td align="right"><a href="CGB_Registers.html#ff53---hdma3-new-dma-destination-high-w-ff54---hdma4-new-dma-destination-low-w---cgb-mode-only"><code>HDMA3</code></a></td><td align="center">$FF53</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
-<tr><td align="right"><a href="CGB_Registers.html#ff53---hdma3-new-dma-destination-high-w-ff54---hdma4-new-dma-destination-low-w---cgb-mode-only"><code>HDMA4</code></a></td><td align="center">$FF54</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
-<tr><td align="right"><a href="CGB_Registers.html#ff55---hdma5-new-dma-lengthmodestart-w---cgb-mode-only"><code>HDMA5</code></a></td><td align="center">$FF55</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
-<tr><td align="right"><a href="CGB_Registers.html#ff56---rp---cgb-mode-only---infrared-communications-port"><code>RP</code></a></td><td align="center">$FF56</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
-<tr><td align="right"><a href="Palettes.html#ff68---bcpsbgpi-background-color-palette-specification-or-background-palette-index---cgb-mode-only"><code>BCPS</code></a></td><td align="center">$FF68</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">??<sup class="footnote-reference"><a href="#compat">7</a></sup></td></tr>
-<tr><td align="right"><a href="Palettes.html#ff69---bcpdbgpd-background-color-palette-data-or-background-palette-data---cgb-mode-only"><code>BCPD</code></a></td><td align="center">$FF69</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">??<sup class="footnote-reference"><a href="#compat">7</a></sup></td></tr>
-<tr><td align="right"><a href="Palettes.html#ff6a---ocpsobpi-object-color-palette-specification-or-sprite-palette-index-ff6b---ocpdobpd-object-color-palette-data-or-sprite-palette-data---both-cgb-mode-only"><code>OCPS</code></a></td><td align="center">$FF6A</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">??<sup class="footnote-reference"><a href="#compat">7</a></sup></td></tr>
-<tr><td align="right"><a href="Palettes.html#ff6a---ocpsobpi-object-color-palette-specification-or-sprite-palette-index-ff6b---ocpdobpd-object-color-palette-data-or-sprite-palette-data---both-cgb-mode-only"><code>OCPD</code></a></td><td align="center">$FF6B</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">??<sup class="footnote-reference"><a href="#compat">7</a></sup></td></tr>
-<tr><td align="right"><a href="CGB_Registers.html#ff70---svbk---cgb-mode-only---wram-bank"><code>SVBK</code></a></td><td align="center">$FF70</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
-<tr><td align="right"><a href="Interrupts.html#ffff---ie---interrupt-enable-rw"><code>IE</code></a></td><td align="center">$FFFF</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
+<tr><td align="right"><a href="#ff00---p1joyp---joypad-rw"><code>P1</code></a></td><td align="center">$FF00</td><td align="center">$CF</td><td align="center">$CF</td><td align="center">$C7 or $CF</td><td align="center">$C7 or $CF</td></tr>
+<tr><td align="right"><a href="#ff01---sb---serial-transfer-data-rw"><code>SB</code></a></td><td align="center">$FF01</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
+<tr><td align="right"><a href="#ff02---sc---serial-transfer-control-rw"><code>SC</code></a></td><td align="center">$FF02</td><td align="center">$7E</td><td align="center">$7E</td><td align="center">$7E</td><td align="center">$7F</td></tr>
+<tr><td align="right"><a href="#ff04---div---divider-register-rw"><code>DIV</code></a></td><td align="center">$FF04</td><td align="center">$18</td><td align="center">$AB</td><td align="center">??<sup class="footnote-reference"><a href="#unk">5</a></sup></td><td align="center">??<sup class="footnote-reference"><a href="#unk_pad">6</a></sup></td></tr>
+<tr><td align="right"><a href="#ff05---tima---timer-counter-rw"><code>TIMA</code></a></td><td align="center">$FF05</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
+<tr><td align="right"><a href="#ff06---tma---timer-modulo-rw"><code>TMA</code></a></td><td align="center">$FF06</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
+<tr><td align="right"><a href="#ff07---tac---timer-control-rw"><code>TAC</code></a></td><td align="center">$FF07</td><td align="center">$F8</td><td align="center">$F8</td><td align="center">$F8</td><td align="center">$F8</td></tr>
+<tr><td align="right"><a href="#ff0f---if---interrupt-flag-rw"><code>IF</code></a></td><td align="center">$FF0F</td><td align="center">$E1</td><td align="center">$E1</td><td align="center">$E1</td><td align="center">$E1</td></tr>
+<tr><td align="right"><a href="#ff10---nr10---channel-1-sweep-register-rw"><code>NR10</code></a></td><td align="center">$FF10</td><td align="center">$80</td><td align="center">$80</td><td align="center">$80</td><td align="center">$80</td></tr>
+<tr><td align="right"><a href="#ff11---nr11---channel-1-sound-lengthwave-pattern-duty-rw"><code>NR11</code></a></td><td align="center">$FF11</td><td align="center">$BF</td><td align="center">$BF</td><td align="center">$BF</td><td align="center">$BF</td></tr>
+<tr><td align="right"><a href="#ff12---nr12---channel-1-volume-envelope-rw"><code>NR12</code></a></td><td align="center">$FF12</td><td align="center">$F3</td><td align="center">$F3</td><td align="center">$F3</td><td align="center">$F3</td></tr>
+<tr><td align="right"><a href="#ff13---nr13---channel-1-frequency-lo-write-only"><code>NR13</code></a></td><td align="center">$FF13</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
+<tr><td align="right"><a href="#ff14---nr14---channel-1-frequency-hi-rw"><code>NR14</code></a></td><td align="center">$FF14</td><td align="center">$BF</td><td align="center">$BF</td><td align="center">$BF</td><td align="center">$BF</td></tr>
+<tr><td align="right"><a href="#ff16---nr21---channel-2-sound-lengthwave-pattern-duty-rw"><code>NR21</code></a></td><td align="center">$FF16</td><td align="center">$3F</td><td align="center">$3F</td><td align="center">$3F</td><td align="center">$3F</td></tr>
+<tr><td align="right"><a href="#ff17---nr22---channel-2-volume-envelope-rw"><code>NR22</code></a></td><td align="center">$FF17</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
+<tr><td align="right"><a href="#ff18---nr23---channel-2-frequency-lo-data-w"><code>NR23</code></a></td><td align="center">$FF18</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
+<tr><td align="right"><a href="#ff19---nr24---channel-2-frequency-hi-data-rw"><code>NR24</code></a></td><td align="center">$FF19</td><td align="center">$BF</td><td align="center">$BF</td><td align="center">$BF</td><td align="center">$BF</td></tr>
+<tr><td align="right"><a href="#ff1a---nr30---channel-3-sound-onoff-rw"><code>NR30</code></a></td><td align="center">$FF1A</td><td align="center">$7F</td><td align="center">$7F</td><td align="center">$7F</td><td align="center">$7F</td></tr>
+<tr><td align="right"><a href="#ff1b---nr31---channel-3-sound-length-rw"><code>NR31</code></a></td><td align="center">$FF1B</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
+<tr><td align="right"><a href="#ff1c---nr32---channel-3-select-output-level-rw"><code>NR32</code></a></td><td align="center">$FF1C</td><td align="center">$9F</td><td align="center">$9F</td><td align="center">$9F</td><td align="center">$9F</td></tr>
+<tr><td align="right"><a href="#ff1d---nr33---channel-3-frequencys-lower-data-w"><code>NR33</code></a></td><td align="center">$FF1D</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
+<tr><td align="right"><a href="#ff1e---nr34---channel-3-frequencys-higher-data-rw"><code>NR34</code></a></td><td align="center">$FF1E</td><td align="center">$BF</td><td align="center">$BF</td><td align="center">$BF</td><td align="center">$BF</td></tr>
+<tr><td align="right"><a href="#ff20---nr41---channel-4-sound-length-rw"><code>NR41</code></a></td><td align="center">$FF20</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
+<tr><td align="right"><a href="#ff21---nr42---channel-4-volume-envelope-rw"><code>NR42</code></a></td><td align="center">$FF21</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
+<tr><td align="right"><a href="#ff22---nr43---channel-4-polynomial-counter-rw"><code>NR43</code></a></td><td align="center">$FF22</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
+<tr><td align="right"><a href="#ff23---nr44---channel-4-counterconsecutive-inital-rw"><code>NR44</code></a></td><td align="center">$FF23</td><td align="center">$BF</td><td align="center">$BF</td><td align="center">$BF</td><td align="center">$BF</td></tr>
+<tr><td align="right"><a href="#ff24---nr50---channel-control--on-off--volume-rw"><code>NR50</code></a></td><td align="center">$FF24</td><td align="center">$77</td><td align="center">$77</td><td align="center">$77</td><td align="center">$77</td></tr>
+<tr><td align="right"><a href="#ff25---nr51---selection-of-sound-output-terminal-rw"><code>NR51</code></a></td><td align="center">$FF25</td><td align="center">$F3</td><td align="center">$F3</td><td align="center">$F3</td><td align="center">$F3</td></tr>
+<tr><td align="right"><a href="#ff26---nr52---sound-onoff"><code>NR52</code></a></td><td align="center">$FF26</td><td align="center">$F1</td><td align="center">$F1</td><td align="center">$F0</td><td align="center">$F1</td></tr>
+<tr><td align="right"><a href="#ff40---lcdc-lcd-control-rw"><code>LCDC</code></a></td><td align="center">$FF40</td><td align="center">$91</td><td align="center">$91</td><td align="center">$91</td><td align="center">$91</td></tr>
+<tr><td align="right"><a href="#ff41---stat-lcd-status-rw"><code>STAT</code></a></td><td align="center">$FF41</td><td align="center">$81</td><td align="center">$85</td><td align="center">??<sup class="footnote-reference"><a href="#unk">5</a></sup></td><td align="center">??<sup class="footnote-reference"><a href="#unk_pad">6</a></sup></td></tr>
+<tr><td align="right"><a href="#ff42---scy-scroll-y-rw-ff43---scx-scroll-x-rw"><code>SCY</code></a></td><td align="center">$FF42</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
+<tr><td align="right"><a href="#ff42---scy-scroll-y-rw-ff43---scx-scroll-x-rw"><code>SCX</code></a></td><td align="center">$FF43</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
+<tr><td align="right"><a href="#ff44---ly-lcd-y-coordinate-r"><code>LY</code></a></td><td align="center">$FF44</td><td align="center">$91</td><td align="center">$00</td><td align="center">??<sup class="footnote-reference"><a href="#unk">5</a></sup></td><td align="center">??<sup class="footnote-reference"><a href="#unk_pad">6</a></sup></td></tr>
+<tr><td align="right"><a href="#ff45---lyc-ly-compare-rw"><code>LYC</code></a></td><td align="center">$FF45</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
+<tr><td align="right"><a href="#ff46---dma-dma-transfer-and-start-address-rw"><code>DMA</code></a></td><td align="center">$FF46</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$00</td></tr>
+<tr><td align="right"><a href="#ff47---bgp-bg-palette-data-rw---non-cgb-mode-only"><code>BGP</code></a></td><td align="center">$FF47</td><td align="center">$FC</td><td align="center">$FC</td><td align="center">$FC</td><td align="center">$FC</td></tr>
+<tr><td align="right"><a href="#ff48---obp0-object-palette-0-data-rw---non-cgb-mode-only"><code>OBP0</code></a></td><td align="center">$FF48</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$00</td></tr>
+<tr><td align="right"><a href="#ff49---obp1-object-palette-1-data-rw---non-cgb-mode-only"><code>OBP1</code></a></td><td align="center">$FF49</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$00</td></tr>
+<tr><td align="right"><a href="#ff4a---wy-window-y-position-rw-ff4b---wx-window-x-position--7-rw"><code>WY</code></a></td><td align="center">$FF4A</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
+<tr><td align="right"><a href="#ff4a---wy-window-y-position-rw-ff4b---wx-window-x-position--7-rw"><code>WX</code></a></td><td align="center">$FF4B</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
+<tr><td align="right"><a href="#ff4d---key1---cgb-mode-only---prepare-speed-switch"><code>KEY1</code></a></td><td align="center">$FF4D</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
+<tr><td align="right"><a href="#ff4f---vbk---cgb-mode-only---vram-bank-rw"><code>VBK</code></a></td><td align="center">$FF4F</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
+<tr><td align="right"><a href="#ff51---hdma1-new-dma-source-high-w-ff52---hdma2-new-dma-source-low-w---cgb-mode-only"><code>HDMA1</code></a></td><td align="center">$FF51</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
+<tr><td align="right"><a href="#ff51---hdma1-new-dma-source-high-w-ff52---hdma2-new-dma-source-low-w---cgb-mode-only"><code>HDMA2</code></a></td><td align="center">$FF52</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
+<tr><td align="right"><a href="#ff53---hdma3-new-dma-destination-high-w-ff54---hdma4-new-dma-destination-low-w---cgb-mode-only"><code>HDMA3</code></a></td><td align="center">$FF53</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
+<tr><td align="right"><a href="#ff53---hdma3-new-dma-destination-high-w-ff54---hdma4-new-dma-destination-low-w---cgb-mode-only"><code>HDMA4</code></a></td><td align="center">$FF54</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
+<tr><td align="right"><a href="#ff55---hdma5-new-dma-lengthmodestart-w---cgb-mode-only"><code>HDMA5</code></a></td><td align="center">$FF55</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
+<tr><td align="right"><a href="#ff56---rp---cgb-mode-only---infrared-communications-port"><code>RP</code></a></td><td align="center">$FF56</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
+<tr><td align="right"><a href="#ff68---bcpsbgpi-background-color-palette-specification-or-background-palette-index---cgb-mode-only"><code>BCPS</code></a></td><td align="center">$FF68</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">??<sup class="footnote-reference"><a href="#compat">7</a></sup></td></tr>
+<tr><td align="right"><a href="#ff69---bcpdbgpd-background-color-palette-data-or-background-palette-data---cgb-mode-only"><code>BCPD</code></a></td><td align="center">$FF69</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">??<sup class="footnote-reference"><a href="#compat">7</a></sup></td></tr>
+<tr><td align="right"><a href="#ff6a---ocpsobpi-object-color-palette-specification-or-sprite-palette-index-ff6b---ocpdobpd-object-color-palette-data-or-sprite-palette-data---both-cgb-mode-only"><code>OCPS</code></a></td><td align="center">$FF6A</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">??<sup class="footnote-reference"><a href="#compat">7</a></sup></td></tr>
+<tr><td align="right"><a href="#ff6a---ocpsobpi-object-color-palette-specification-or-sprite-palette-index-ff6b---ocpdobpd-object-color-palette-data-or-sprite-palette-data---both-cgb-mode-only"><code>OCPD</code></a></td><td align="center">$FF6B</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">??<sup class="footnote-reference"><a href="#compat">7</a></sup></td></tr>
+<tr><td align="right"><a href="#ff70---svbk---cgb-mode-only---wram-bank"><code>SVBK</code></a></td><td align="center">$FF70</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
+<tr><td align="right"><a href="#ffff---ie---interrupt-enable-rw"><code>IE</code></a></td><td align="center">$FFFF</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
 </tbody></table>
 <div class="footnote-definition" id="unk"><sup class="footnote-definition-label">5</sup>
 <p>Since this boot ROM’s duration depends on the header’s contents, a general answer can’t be given.
@@ -4917,7 +4917,7 @@ batteries.</p>
 <h2 id="using-the-halt-instruction"><a class="header" href="#using-the-halt-instruction">Using the HALT Instruction</a></h2>
 <p>The HALT instruction should be used whenever possible to reduce power
 consumption.</p>
-<p>The CPU will remain halted until an interrupt <em>enabled by <a href="Interrupts.html#ffff---ie---interrupt-enable-rw">the IE register ($FFFF)</a></em> is
+<p>The CPU will remain halted until an interrupt <em>enabled by <a href="#ffff---ie---interrupt-enable-rw">the IE register ($FFFF)</a></em> is
 flagged in IF, at which point the interrupt is serviced if IME is enabled,
 and then execution continues at the instruction immediately following the
 HALT.</p>
@@ -5284,8 +5284,6 @@ other aspects of game design.</p>
         <script src="book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
-        <script type="text/javascript">
-        window.addEventListener('load', function() {
             window.setTimeout(window.print, 100);
         });
         </script>
