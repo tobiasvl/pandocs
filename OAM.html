@@ -187,6 +187,13 @@ tile is “NN &amp; $FE”, and the bottom 8x8 tile is “NN | $01”.</p>
  Bit3   Tile VRAM-Bank  **CGB Mode Only**     (0=Bank 0, 1=Bank 1)
  Bit2-0 Palette number  **CGB Mode Only**     (OBP0-7)
 </code></pre>
+<h2 id="writing-data-to-oam"><a class="header" href="#writing-data-to-oam">Writing data to OAM</a></h2>
+<p>The recommended method is to write the data to a buffer in normal RAM
+(typically WRAM) first, then to copy that buffer to OAM using
+<a href="OAM_DMA_Transfer.html#oam-dma-transfer">the DMA transfer functionality</a>.</p>
+<p>While it is also possible to write data directly to the OAM area
+<a href="Accessing_VRAM_and_OAM.html#oam-memory-area-at-fe00-fe9f-is-accessible-during-modes-0-1">by accessing it normally</a>,
+this only works <a href="STAT.html#lcd-status-register">during the HBlank and VBlank periods</a>.</p>
 <h2 id="object-priority-and-conflicts"><a class="header" href="#object-priority-and-conflicts">Object Priority and Conflicts</a></h2>
 <p>There are two kinds of “priorities” as far as objects are concerned.
 The first one defines which objects are ignored when there are more than 10 on a
@@ -235,13 +242,6 @@ disabled.</p>
 (<a href="https://youtu.be/B8sJGgCVvnk">video demonstration</a>).
 A similar behaviour <a href="https://forums.nesdev.com/viewtopic.php?f=10&amp;t=16861">can be seen on the NES</a>).</p>
 </div>
-<h2 id="writing-data-to-oam"><a class="header" href="#writing-data-to-oam">Writing Data to OAM</a></h2>
-<p>The recommended method is to write the data to normal RAM first, and to
-copy that RAM to OAM by using the DMA transfer function, initiated
-through DMA register (FF46). Besides, it is also possible to
-write data directly to the OAM area by using normal LD instructions, but this
-works only during the HBlank and VBlank periods. The current state of
-the LCD controller can be read out from the STAT register (FF41).</p>
 
                     </main>
 

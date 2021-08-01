@@ -160,7 +160,7 @@ Emulator developers may be also interested in the <a href="https://gekkio.fi/fil
 <p>You can search anywhere by pressing <kbd>s</kbd> on your keyboard or clicking the <i class="fa fa-search"></i> icon.</p>
 <p>The <i class="fa fa-edit"></i> icon allows you to suggest an edit on the current page by directly opening the source file in the git repository.</p>
 <p>Also available are <a href="single.html">one-page</a> and <a href="print.html">printable</a> versions of this document.</p>
-<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/b4c4b3c8726f1ce72d38a0c8c11ed1978c6a8c21"><code>b4c4b3c</code></a> (2021-07-30 18:01:47 +0200). </small></p>
+<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/1f232295023119d9afe3ffa754b0e48de65361cb"><code>1f23229</code></a> (2021-08-01 14:15:45 +0200). </small></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="acknowledgements"><a class="header" href="#acknowledgements">Acknowledgements</a></h1>
 <p>This resource wouldn’t be possible without all the passionate hackers and researchers who contributed on this document in the last three decades.</p>
 <p>We would like to thank everyone in the gbdev community for providing precious feedback, content, support and invaluable knowledge.</p>
@@ -595,6 +595,13 @@ tile is “NN &amp; $FE”, and the bottom 8x8 tile is “NN | $01”.</p>
  Bit3   Tile VRAM-Bank  **CGB Mode Only**     (0=Bank 0, 1=Bank 1)
  Bit2-0 Palette number  **CGB Mode Only**     (OBP0-7)
 </code></pre>
+<h2 id="writing-data-to-oam"><a class="header" href="#writing-data-to-oam">Writing data to OAM</a></h2>
+<p>The recommended method is to write the data to a buffer in normal RAM
+(typically WRAM) first, then to copy that buffer to OAM using
+<a href="OAM_DMA_Transfer.html#oam-dma-transfer">the DMA transfer functionality</a>.</p>
+<p>While it is also possible to write data directly to the OAM area
+<a href="Accessing_VRAM_and_OAM.html#oam-memory-area-at-fe00-fe9f-is-accessible-during-modes-0-1">by accessing it normally</a>,
+this only works <a href="STAT.html#lcd-status-register">during the HBlank and VBlank periods</a>.</p>
 <h2 id="object-priority-and-conflicts"><a class="header" href="#object-priority-and-conflicts">Object Priority and Conflicts</a></h2>
 <p>There are two kinds of “priorities” as far as objects are concerned.
 The first one defines which objects are ignored when there are more than 10 on a
@@ -643,13 +650,6 @@ disabled.</p>
 (<a href="https://youtu.be/B8sJGgCVvnk">video demonstration</a>).
 A similar behaviour <a href="https://forums.nesdev.com/viewtopic.php?f=10&amp;t=16861">can be seen on the NES</a>).</p>
 </div>
-<h2 id="writing-data-to-oam"><a class="header" href="#writing-data-to-oam">Writing Data to OAM</a></h2>
-<p>The recommended method is to write the data to normal RAM first, and to
-copy that RAM to OAM by using the DMA transfer function, initiated
-through DMA register (FF46). Besides, it is also possible to
-write data directly to the OAM area by using normal LD instructions, but this
-works only during the HBlank and VBlank periods. The current state of
-the LCD controller can be read out from the STAT register (FF41).</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="oam-dma-transfer"><a class="header" href="#oam-dma-transfer">OAM DMA Transfer</a></h1>
 <h2 id="ff46---dma-dma-transfer-and-start-address-rw"><a class="header" href="#ff46---dma-dma-transfer-and-start-address-rw">FF46 - DMA (DMA Transfer and Start Address) (R/W)</a></h2>
 <p>Writing to this register launches a DMA transfer from ROM or RAM to OAM
