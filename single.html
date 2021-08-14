@@ -160,7 +160,7 @@ Emulator developers may be also interested in the <a href="https://gekkio.fi/fil
 <p>You can search anywhere by pressing <kbd>s</kbd> on your keyboard or clicking the <i class="fa fa-search"></i> icon.</p>
 <p>The <i class="fa fa-edit"></i> icon allows you to suggest an edit on the current page by directly opening the source file in the git repository.</p>
 <p>Also available are <a href="single.html">one-page</a> and <a href="print.html">printable</a> versions of this document.</p>
-<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/be820673f71c8ca514bab4d390a3004c8273f988"><code>be82067</code></a> (2021-08-02 20:45:24 +0200). </small></p>
+<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/58bd2c50a8e985a7055fdfef7705bc03d1f5d6e4"><code>58bd2c5</code></a> (2021-08-14 11:32:26 +0200). </small></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="acknowledgements"><a class="header" href="#acknowledgements">Acknowledgements</a></h1>
 <p>This resource wouldn’t be possible without all the passionate hackers and researchers who contributed on this document in the last three decades.</p>
 <p>We would like to thank everyone in the gbdev community for providing precious feedback, content, support and invaluable knowledge.</p>
@@ -695,8 +695,6 @@ run_dma_hrampart:
     dec b
     jr nz, .wait
     ret
-
-    db _NARG, WRAM0
 </code></pre>
 <p>This saves 5 bytes of HRAM, but is slightly slower in most cases due to
 the jump into the HRAM part.</p>
