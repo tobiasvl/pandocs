@@ -249,8 +249,8 @@ square wave. This channel doesn’t have a volume envelope register.</p>
 <h3 id="ff1a---nr30---channel-3-sound-onoff-rw"><a class="header" href="#ff1a---nr30---channel-3-sound-onoff-rw">FF1A - NR30 - Channel 3 Sound on/off (R/W)</a></h3>
 <pre><code>Bit 7 - Sound Channel 3 Off  (0=Stop, 1=Playback)  (Read/Write)
 </code></pre>
-<h3 id="ff1b---nr31---channel-3-sound-length-rw"><a class="header" href="#ff1b---nr31---channel-3-sound-length-rw">FF1B - NR31 - Channel 3 Sound Length (R/W)</a></h3>
-<pre><code>Bit 7-0 - Sound length (t1: 0 - 255)
+<h3 id="ff1b---nr31---channel-3-sound-length-w"><a class="header" href="#ff1b---nr31---channel-3-sound-length-w">FF1B - NR31 - Channel 3 Sound Length (W)</a></h3>
+<pre><code>Bit 7-0 - Sound length (Write only) (t1: 0 - 255)
 </code></pre>
 <p>Sound Length = (256-t1)*(1/256) seconds This value is used only if Bit
 6 in NR34 is set.</p>
@@ -289,8 +289,8 @@ Depending on the frequency the noise will appear “harder” or
 <p>It is also possible to influence the function of the random generator,
 so the that the output becomes more regular, resulting in a limited
 ability to output Tone instead of Noise.</p>
-<h3 id="ff20---nr41---channel-4-sound-length-rw"><a class="header" href="#ff20---nr41---channel-4-sound-length-rw">FF20 - NR41 - Channel 4 Sound Length (R/W)</a></h3>
-<pre><code>Bit 5-0 - Sound length data (t1: 0-63)
+<h3 id="ff20---nr41---channel-4-sound-length-w"><a class="header" href="#ff20---nr41---channel-4-sound-length-w">FF20 - NR41 - Channel 4 Sound Length (W)</a></h3>
+<pre><code>Bit 5-0 - Sound length data (Write only) (t1: 0-63)
 </code></pre>
 <p>Sound Length = (64-t1)*(1/256) seconds The Length value is used only if
 Bit 6 in NR44 is set.</p>
