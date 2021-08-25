@@ -212,7 +212,7 @@ This is known to cause, for example, a different title screen music in the game 
 It is speculated that this may be debug remnants.</p>
 <h3 id="compatibility-palettes"><a class="header" href="#compatibility-palettes">Compatibility palettes</a></h3>
 <p>The boot ROM is responsible for the automatic colorization of monochrome-only games when run on a GBC.</p>
-<p>When in DMG compatibility mode, the <a href="Palettes.html#lcd-color-palettes-cgb-only">CGB palettes</a> are still being used: the background uses BG palette 0 (likely because the entire <a href="Tile_Maps.html#bg-map-attributes-cgb-mode-only">attribute map</a> is set to all zeros), and objects use OBJ palette 0 or 1 depending on bit 4 of <a href="OAM.html#byte3---attributesflags">their attribute</a>.
+<p>When in DMG compatibility mode, the <a href="Palettes.html#lcd-color-palettes-cgb-only">CGB palettes</a> are still being used: the background uses BG palette 0 (likely because the entire <a href="Tile_Maps.html#bg-map-attributes-cgb-mode-only">attribute map</a> is set to all zeros), and objects use OBJ palette 0 or 1 depending on bit 4 of <a href="OAM.html#byte-3---attributesflags">their attribute</a>.
 <a href="Palettes.html#lcd-monochrome-palettes"><code>BGP</code>, <code>OBP0</code>, and <code>OBP1</code></a> actually index into the CGB palettes instead of the DMG’s shades of grey.</p>
 <p>The boot ROM picks a compatibility palette using an ID computed using the following algorithm:</p>
 <ol>
