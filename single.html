@@ -157,7 +157,7 @@ Emulator developers may be also interested in the <a href="https://gekkio.fi/fil
 <p>You can search anywhere by pressing <kbd>s</kbd> on your keyboard or clicking the <i class="fa fa-search"></i> icon.</p>
 <p>The <i class="fa fa-edit"></i> icon allows you to suggest an edit on the current page by directly opening the source file in the git repository.</p>
 <p>Also available are <a href="single.html">one-page</a> and <a href="print.html">printable</a> versions of this document.</p>
-<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/91af20d762eb7fff2d772c46569a3d8e6edfd380"><code>91af20d</code></a> (2021-09-04 19:24:41 +0200). </small></p>
+<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/59fb2cc4ea28eb235db8166b8ef25552c44f2cc4"><code>59fb2cc</code></a> (2021-09-06 09:24:04 +0200). </small></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="acknowledgements"><a class="header" href="#acknowledgements">Acknowledgements</a></h1>
 <p>This resource wouldn’t be possible without all the passionate hackers and researchers who contributed on this document in the last three decades.</p>
 <p>We would like to thank everyone in the gbdev community for providing precious feedback, content, support and invaluable knowledge.</p>
@@ -3067,17 +3067,8 @@ the following joypad input:</p>
 <tr><td>$xD</td><td>3</td></tr>
 <tr><td>$xC</td><td>4</td></tr>
 </tbody></table>
-<p>Next, read joypad state normally. When completed, set both P14 and P15
-back HIGH, this automatically increments the joypad number (or restarts
-counting once the last joypad is reached). Repeat the procedure until
-you have read out all two (or four) joypads.</p>
-<p>If for whatever reason you want to increment the joypad number without
-reading the joypad state you only need to set P15 to LOW before setting
-it back to HIGH. Adjusting P14 does not affect whether or not the joypad
-number will advance, However, if you set P15 to LOW then HIGH then LOW
-again without bringing both P14 and P15 HIGH at any point, it cancels
-the increment until P15 is lowered again. There are games, such as
-Pokémon Yellow, which rely on this cancelling when detecting the SGB.</p>
+<p>Next, read joypad state normally.
+The next joypad is automatically selected when P15 goes from LOW (0) to HIGH (1) (<a href="https://github.com/CasualPokePlayer/test-roms/blob/sgb-mlt-test/src/intro.asm">source</a>), so you can simply repeat reading the joypad state normally until all two (or four) joypads have been read out.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="border-and-obj-commands"><a class="header" href="#border-and-obj-commands">Border and OBJ Commands</a></h1>
 <h2 id="sgb-command-13h---chr_trn"><a class="header" href="#sgb-command-13h---chr_trn">SGB Command 13h - CHR_TRN</a></h2>
 <p>Used to transfer tile data (characters) to SNES Tile memory in VRAM.
