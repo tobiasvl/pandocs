@@ -157,7 +157,7 @@ Emulator developers may be also interested in the <a href="https://gekkio.fi/fil
 <p>You can search anywhere by pressing <kbd>s</kbd> on your keyboard or clicking the <i class="fa fa-search"></i> icon.</p>
 <p>The <i class="fa fa-edit"></i> icon allows you to suggest an edit on the current page by directly opening the source file in the git repository.</p>
 <p>Also available are <a href="single.html">one-page</a> and <a href="print.html">printable</a> versions of this document.</p>
-<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/59fb2cc4ea28eb235db8166b8ef25552c44f2cc4"><code>59fb2cc</code></a> (2021-09-06 09:24:04 +0200). </small></p>
+<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/3e6c654650ff57c5046893c1e038c408a93af4b6"><code>3e6c654</code></a> (2021-09-18 12:56:52 +0200). </small></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="acknowledgements"><a class="header" href="#acknowledgements">Acknowledgements</a></h1>
 <p>This resource wouldn’t be possible without all the passionate hackers and researchers who contributed on this document in the last three decades.</p>
 <p>We would like to thank everyone in the gbdev community for providing precious feedback, content, support and invaluable knowledge.</p>
@@ -437,7 +437,7 @@ don’t use color 0 - it’s transparent instead.</p>
       <td>128&ndash;255</td>
       <td>
         128&ndash;255 <br />
-        (or -127&ndash;0)
+        (or -128&ndash;-1)
       </td>
     </tr>
     <tr>
@@ -482,14 +482,10 @@ numbers are translated into real colors (or gray shades) depending on
 the current palettes, except that when the tile is used in a OBJ the
 color ID 0 means transparent. The palettes are defined through registers
 <a href="#ff47---bgp-bg-palette-data-rw---non-cgb-mode-only">BGP</a>,
-<a href="#ff48---obp0-object-palette-0-data-rw---non-cgb-mode-only">OBP0</a>
-and
-<a href="#ff49---obp1-object-palette-1-data-rw---non-cgb-mode-only">OBP1</a>
-(Non CGB Mode), and
+<a href="#ff48---obp0-obj-palette-0-data-rw-ff49---obp1-obj-palette-1-data-rw---both-non-cgb-mode-only">OBP0 and OBP1</a>, and
 <a href="#ff68---bcpsbgpi-background-color-palette-specification-or-background-palette-index---cgb-mode-only">BCPS/BGPI</a>,
 <a href="#ff69---bcpdbgpd-background-color-palette-data-or-background-palette-data---cgb-mode-only">BCPD/BGPD</a>,
-<a href="#ff6a---ocpsobpi-object-color-palette-specification-or-sprite-palette-index-ff6b---ocpdobpd-object-color-palette-data-or-sprite-palette-data---both-cgb-mode-only">OCPS/OBPI and
-OCPD/OBPD</a>
+<a href="#ff6a---ocpsobpi-obj-color-palette-specification--obj-palette-index-ff6b---ocpdobpd-obj-color-palette-data--obj-palette-data---both-cgb-mode-only">OCPS/OBPI and OCPD/OBPD</a>
 (CGB Mode).</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="vram-tile-maps"><a class="header" href="#vram-tile-maps">VRAM Tile Maps</a></h1>
 <p>The Game Boy contains two 32x32 tile maps in VRAM at
@@ -796,8 +792,8 @@ Bit 4 - Mode 1 VBlank STAT Interrupt source  (1=Enable) (Read/Write)
 Bit 3 - Mode 0 HBlank STAT Interrupt source  (1=Enable) (Read/Write)
 Bit 2 - LYC=LY Flag                          (0=Different, 1=Equal) (Read Only)
 Bit 1-0 - Mode Flag                          (Mode 0-3, see below) (Read Only)
-          0: In HBlank
-          1: In VBlank
+          0: HBlank
+          1: VBlank
           2: Searching OAM
           3: Transferring Data to LCD Controller
 </code></pre>
@@ -806,7 +802,7 @@ Bit 1-0 - Mode Flag                          (Mode 0-3, see below) (Read Only)
 It is constantly updated.</p>
 <p>Bits 3-6 select which sources are used for <a href="#int-48---stat-interrupt">the STAT interrupt</a>.</p>
 <p>The LCD controller operates on a 2^22 Hz = 4.194 MHz dot clock. An
-entire frame is 154 scanlines, 70224 dots, or 16.74 ms. On scanlines 0
+entire frame is 154 scanlines = 70224 dots = 16.74 ms. On scanlines 0
 through 143, the PPU cycles through modes 2, 3, and 0 once
 every 456 dots. Scanlines 144 through 153 are mode 1.</p>
 <p>The following sequence is typical when the display is enabled:</p>
@@ -815,31 +811,31 @@ Mode 3  _33____33____33____33____33____33__________________3___
 Mode 0  ___000___000___000___000___000___000________________000
 Mode 1  ____________________________________11111111111111_____
 </code></pre>
-<p>When the PPU is reading a particular part of video memory,
-that memory is inaccessible to the CPU.</p>
+<p>When the PPU is accessing some video-related memory, that memory is inaccessible
+to the CPU: writes are ignored, and reads return garbage values (usually $FF).</p>
 <ul>
-<li>During modes 2 and 3, the CPU cannot access OAM (FE00h-FE9Fh).</li>
-<li>During mode 3, the CPU cannot access VRAM or CGB Palette Data
-(FF69,FF6B).</li>
+<li>During modes 2 and 3, the CPU cannot access <a href="#vram-sprite-attribute-table-oam">OAM</a> ($FE00-FE9F).</li>
+<li>During mode 3, the CPU cannot access VRAM or <a href="#ff69---bcpdbgpd-background-color-palette-data-or-background-palette-data---cgb-mode-only">CGB palette data registers</a>
+($FF69,$FF6B).</li>
 </ul>
 <table><thead><tr><th>Mode</th><th>Action</th><th>Duration</th><th>Accessible video memory</th></tr></thead><tbody>
-<tr><td>2</td><td>Searching OAM for OBJs whose (X,Y) coordinates overlap this line</td><td>80 dots (19 µs)</td><td>VRAM, CGB palettes</td></tr>
+<tr><td>2</td><td>Searching OAM for OBJs whose Y coordinate overlap this line</td><td>80 dots (19 µs)</td><td>VRAM, CGB palettes</td></tr>
 <tr><td>3</td><td>Reading OAM and VRAM to generate the picture</td><td>168 to 291 dots (40 to 60 µs) depending on sprite count</td><td>None</td></tr>
-<tr><td>0</td><td>Horizontal blanking</td><td>85 to 208 dots (20 to 49 µs) depending on previous mode 3 duration</td><td>VRAM, OAM, CGB palettes</td></tr>
-<tr><td>1</td><td>Vertical blanking</td><td>4560 dots (1087 µs, 10 scanlines)</td><td>VRAM, OAM, CGB palettes</td></tr>
+<tr><td>0</td><td>Nothing (HBlank)</td><td>85 to 208 dots (20 to 49 µs) depending on previous mode 3 duration</td><td>VRAM, OAM, CGB palettes</td></tr>
+<tr><td>1</td><td>Nothing (VBlank)</td><td>4560 dots (1087 µs, 10 scanlines)</td><td>VRAM, OAM, CGB palettes</td></tr>
 </tbody></table>
 <h2 id="properties-of-stat-modes"><a class="header" href="#properties-of-stat-modes">Properties of STAT modes</a></h2>
 <p>Unlike most game consoles, the Game Boy can pause the dot clock briefly,
-adding dots to mode 3’s duration. It routinely takes a 6 to 11 dot
-break to fetch sprite patterns between background tile pattern fetches.
+making Mode 3 longer and Mode 0 shorter. It routinely takes a 6 to 11 dot
+break to fetch an OBJ’s tile between background tile pattern fetches.
 On DMG and GBC in DMG mode, mid-scanline writes to <a href="#ff47---bgp-bg-palette-data-rw---non-cgb-mode-only"><code>BGP</code></a>
-allow observing this behavior, as a sprite delay shifts the effect of a
-write to the left by that many dots.</p>
+allow observing this behavior, as the delay from drawing an OBJ shifts the
+write’s effect to the left by that many dots.</p>
 <p>Three things are known to pause the dot clock:</p>
 <ul>
-<li>Background scrolling: If <code>SCX mod 8</code> is not zero at the start of the scanline, rendering is paused for that many dots while the shifter discards that many pixels from the leftmost tile.</li>
+<li>Background scrolling: If <code>SCX % 8</code> is not zero at the start of the scanline, rendering is paused for that many dots while the shifter discards that many pixels from the leftmost tile.</li>
 <li>Window: An active window pauses for at least 6 dots, as the background fetching mechanism starts over at the left side of the window.</li>
-<li>Sprites: Each sprite usually pauses for <code>11 - min(5, (x + SCX) mod 8)</code> dots. Because sprite fetch waits for background fetch to finish, a sprite’s cost depends on its position relative to the left side of the background tile under it. It’s greater if a sprite is directly aligned over the background tile, less if the sprite is to the right. If the sprite’s left side is over the window, use <code>255 - WX</code> for <code>SCX</code> in this formula.</li>
+<li>Sprites: Each sprite usually pauses for <code>11 - min(5, (x + SCX) % 8)</code> dots. Because sprite fetch waits for background fetch to finish, a sprite’s cost depends on its position relative to the left side of the background tile under it. It’s greater if a sprite is directly aligned over the background tile, less if the sprite is to the right. If the sprite’s left side is over the window, use <code>255 - WX</code> instead of <code>SCX</code> in this formula.</li>
 </ul>
 <div class="box warning">
 <p class="box-title">TO BE VERIFIED</p><p>The exact pause duration for window start is
@@ -855,15 +851,15 @@ cycle. Because the GBC in DMG mode does not have this quirk, two games
 that depend on this quirk (Ocean’s <em>Road Rash</em> and Vic Tokai’s <em>Xerd
 no Densetsu</em>) will not run on a GBC.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="lcd-position-and-scrolling"><a class="header" href="#lcd-position-and-scrolling">LCD Position and Scrolling</a></h1>
-<p>These registers can be accessed even during Mode 3, but they have no
-effect until the end of the current scanline.</p>
+<p>These registers can be accessed even during Mode 3, but modifications may not take
+effect immediately (see further below).</p>
 <h2 id="ff42---scy-scroll-y-rw-ff43---scx-scroll-x-rw"><a class="header" href="#ff42---scy-scroll-y-rw-ff43---scx-scroll-x-rw">FF42 - SCY (Scroll Y) (R/W), FF43 - SCX (Scroll X) (R/W)</a></h2>
-<p>Those specify the top-left coordinates of the visible 160x144 pixel area within the
-256x256 pixels BG map. Values in the range 0-255 may be used.</p>
+<p>Those specify the top-left coordinates of the visible 160×144 pixel area within the
+256×256 pixels BG map. Values in the range 0–255 may be used.</p>
 <h2 id="ff44---ly-lcd-y-coordinate-r"><a class="header" href="#ff44---ly-lcd-y-coordinate-r">FF44 - LY (LCD Y Coordinate) (R)</a></h2>
 <p>LY indicates the current horizontal line, which might be about to be drawn,
-being drawn, or just been drawn. LY can hold any value from 0 to 153.
-The values from 144 to 153 indicate the VBlank period.</p>
+being drawn, or just been drawn. LY can hold any value from 0 to 153, with
+values from 144 to 153 indicating the VBlank period.</p>
 <h2 id="ff45---lyc-ly-compare-rw"><a class="header" href="#ff45---lyc-ly-compare-rw">FF45 - LYC (LY Compare) (R/W)</a></h2>
 <p>The Game Boy permanently compares the value of the LYC and LY registers.
 When both values are identical, the “LYC=LY” flag in the STAT register
@@ -876,21 +872,27 @@ Window, just as for normal BG.)</p>
 <p>The Window is visible (if enabled) when both coordinates are in the ranges
 WX=0..166, WY=0..143 respectively. Values WX=7, WY=0 place the Window at the
 top left of the screen, completely covering the background.</p>
-<p>WX values 0-6 and 166 are unreliable due to hardware bugs. If WX is set
-to 0, the window will “stutter” horizontally when SCX changes.
-(Depending on SCX modulo 8, behavior is a little complicated so you
-should try it yourself.)</p>
-<div class="box tip">
-<p class="box-title">MID-FRAME QUIRKS</p><p>While the Windows should work as just mentioned, writing to WX, WY etc. mid-frame shows a more articulated behavior.</p>
-<p>For the window to be displayed on a scanline:</p>
+<div class="box warning">
+<p>WX values 0 and 166 are unreliable due to hardware bugs.</p>
+<p>If WX is set to 0, the window will “stutter” horizontally when SCX changes
+(depending on SCX % 8).</p>
+<p>If WX is set to 166, the window will span the entirety of the following
+scanline.</p>
+</div>
+<h2 id="mid-frame-behavior"><a class="header" href="#mid-frame-behavior">Mid-frame behavior</a></h2>
+<h3 id="scrolling"><a class="header" href="#scrolling">Scrolling</a></h3>
+<p>The scroll registers are re-read on each <a href="#get-tile">tile fetch</a>, except for the low 3 bits of SCX, which are only read at the beginning of the scanline (for the initial shifting of pixels).</p>
+<p>All models before the CGB-D read the Y coordinate once for each bitplane (so a very precisely timed SCY write allows “desyncing” them), but CGB-D and later use the same Y coordinate for both no matter what.</p>
+<h3 id="window-2"><a class="header" href="#window-2">Window</a></h3>
+<p>While the Window should work as just mentioned, writing to WX, WY etc. mid-frame shows a more articulated behavior.</p>
+<p>For the window to be displayed on a scanline, the following conditions must be met:</p>
 <ul>
 <li><strong>WY condition was triggered</strong>: i.e. at some point in this frame the value of WY was equal to LY (checked at the start of Mode 2 only)</li>
 <li><strong>WX condition was triggered</strong>: i.e. the current X coordinate being rendered + 7 was equal to WX</li>
 <li>Window enable bit in LCDC is set</li>
 </ul>
-<p>If the WY condition has already been triggered and at the the start of a row the window enable bit was set
+<p>If the WY condition has already been triggered and at the the start of a row the window enable bit was set,
 then resetting that bit before the WX condition gets triggered on that row yields a nice window glitch pixel where the window would have been activated.</p>
-</div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="palettes-1"><a class="header" href="#palettes-1">Palettes</a></h1>
 <h2 id="lcd-monochrome-palettes"><a class="header" href="#lcd-monochrome-palettes">LCD Monochrome Palettes</a></h2>
 <h3 id="ff47---bgp-bg-palette-data-rw---non-cgb-mode-only"><a class="header" href="#ff47---bgp-bg-palette-data-rw---non-cgb-mode-only">FF47 - BGP (BG Palette Data) (R/W) - Non CGB Mode Only</a></h3>
@@ -907,65 +909,69 @@ Bit 1-0 - Color for index 0
 <tr><td>2</td><td>Dark gray</td></tr>
 <tr><td>3</td><td>Black</td></tr>
 </tbody></table>
-<p>In CGB Mode the Color Palettes are taken from <a href="#lcd-color-palettes-cgb-only">CGB Palette Memory</a>
+<p>In CGB Mode the color palettes are taken from <a href="#lcd-color-palettes-cgb-only">CGB palette memory</a>
 instead.</p>
-<h3 id="ff48---obp0-object-palette-0-data-rw---non-cgb-mode-only"><a class="header" href="#ff48---obp0-object-palette-0-data-rw---non-cgb-mode-only">FF48 - OBP0 (Object Palette 0 Data) (R/W) - Non CGB Mode Only</a></h3>
-<p>This register assigns gray shades to the color indexes of the OBJs that use this palette. It works exactly
-like BGP (FF47), except that the lower two bits are ignored because
-sprite index 00 means transparent.</p>
-<h3 id="ff49---obp1-object-palette-1-data-rw---non-cgb-mode-only"><a class="header" href="#ff49---obp1-object-palette-1-data-rw---non-cgb-mode-only">FF49 - OBP1 (Object Palette 1 Data) (R/W) - Non CGB Mode Only</a></h3>
-<p>This register assigns gray shades to the color indexes of the OBJs that use this palette. It works exactly
-like BGP (FF47), except that the lower two bits are ignored because
-sprite index 00 means transparent.</p>
+<h3 id="ff48---obp0-obj-palette-0-data-rw-ff49---obp1-obj-palette-1-data-rw---both-non-cgb-mode-only"><a class="header" href="#ff48---obp0-obj-palette-0-data-rw-ff49---obp1-obj-palette-1-data-rw---both-non-cgb-mode-only">FF48 - OBP0 (OBJ Palette 0 Data) (R/W), FF49 - OBP1 (OBJ Palette 1 Data) (R/W) - Both Non CGB Mode Only</a></h3>
+<p>These registers assigns gray shades to the color indexes of the OBJs that use the corresponding palette.
+They work exactly like BGP, except that the lower two bits are ignored because color index 0 is transparent for OBJs.</p>
 <h2 id="lcd-color-palettes-cgb-only"><a class="header" href="#lcd-color-palettes-cgb-only">LCD Color Palettes (CGB only)</a></h2>
+<p>The CGB has a small amount of RAM used to store its color palettes. Unlike most
+of the hardware interface, palette RAM (or <em>CRAM</em> for <em>Color RAM</em>) is not
+accessed directly, but instead through the following registers:</p>
 <h3 id="ff68---bcpsbgpi-background-color-palette-specification-or-background-palette-index---cgb-mode-only"><a class="header" href="#ff68---bcpsbgpi-background-color-palette-specification-or-background-palette-index---cgb-mode-only">FF68 - BCPS/BGPI (Background Color Palette Specification or Background Palette Index) - CGB Mode Only</a></h3>
-<p>This register is used to address a byte in the CGBs Background Palette
-Memory. Each two byte in that memory define a color value. The first 8
-bytes define Color 0-3 of Palette 0 (BGP0), and so on for BGP1-7.</p>
+<p>This register is used to address a byte in the CGB’s background palette RAM.
+Since there are 8 palettes, 8 palettes × 4 colors/palette × 2 bytes/color = 64 bytes
+can be addressed.</p>
 <pre><code>Bit 7     Auto Increment  (0=Disabled, 1=Increment after Writing)
-Bit 5-0   Index (00-3F)
+Bit 5-0   Address ($00-3F)
 </code></pre>
-<p>Data can be read/written to/from the specified index address through
-Register FF69. When the Auto Increment bit is set then the index is
-automatically incremented after each <strong>write</strong> to FF69. Auto Increment has
-no effect when <strong>reading</strong> from FF69, so the index must be manually
-incremented in that case. Writing to FF69 during rendering still causes
-auto-increment to occur.</p>
-<p>Unlike the following, this register can be accessed outside VBlank and
-HBlank.</p>
+<p>First comes BGP0 color number 0, then BGP0 color number 1, BGP0 color number 2, BGP0 color number 3,
+BGP1 color number 0, and so on. Thus, address $03 allows accessing the second (upper)
+byte of BGP0 color #1 via BCPD, which contains the color’s blue and upper green bits.</p>
+<p>Data can be read from or written to the specified CRAM address through
+BCPD/BGPD. If the Auto Increment bit is set, the index gets
+incremented after each <strong>write</strong> to BCPD. Auto Increment has
+no effect when <strong>reading</strong> from BCPD, so the index must be manually
+incremented in that case. Writing to BCPD during rendering still causes
+auto-increment to occur, despite the write being blocked.</p>
+<p>Unlike BCPD, this register can be accessed outside VBlank and HBlank.</p>
 <h3 id="ff69---bcpdbgpd-background-color-palette-data-or-background-palette-data---cgb-mode-only"><a class="header" href="#ff69---bcpdbgpd-background-color-palette-data-or-background-palette-data---cgb-mode-only">FF69 - BCPD/BGPD (Background Color Palette Data or Background Palette Data) - CGB Mode Only</a></h3>
-<p>This register allows to read/write data to the CGBs Background Palette
-Memory, addressed through Register FF68. Each color is defined by two
-bytes (Bit 0-7 in first byte).</p>
-<pre><code>Bit 0-4   Red Intensity   (00-1F)
-Bit 5-9   Green Intensity (00-1F)
-Bit 10-14 Blue Intensity  (00-1F)
+<p>This register allows to read/write data to the CGBs background palette memory,
+addressed through BCPS/BGPI. Each color is stored as little-endian RGB555:</p>
+<pre><code>Bit 0-4   Red Intensity   ($00-1F)
+Bit 5-9   Green Intensity ($00-1F)
+Bit 10-14 Blue Intensity  ($00-1F)
 </code></pre>
-<p>Much like VRAM, data in Palette Memory cannot be read/written during the
-time when the LCD Controller is reading from it. (That is when the STAT
-register indicates Mode 3). Note: All background colors are initialized
-as white by the boot ROM, but it’s a good idea to initialize at least
-one color yourself (for example if you include a soft-reset mechanic).</p>
-<h3 id="ff6a---ocpsobpi-object-color-palette-specification-or-sprite-palette-index-ff6b---ocpdobpd-object-color-palette-data-or-sprite-palette-data---both-cgb-mode-only"><a class="header" href="#ff6a---ocpsobpi-object-color-palette-specification-or-sprite-palette-index-ff6b---ocpdobpd-object-color-palette-data-or-sprite-palette-data---both-cgb-mode-only">FF6A - OCPS/OBPI (Object Color Palette Specification or Sprite Palette Index), FF6B - OCPD/OBPD (Object Color Palette Data or Sprite Palette Data) - Both CGB Mode Only</a></h3>
-<p>These registers are used to initialize the Sprite Palettes OBP0-7,
-identically as described above for Background Palettes. Note that four
-colors may be defined for each OBP Palettes - but only Color 1-3 of each
-Sprite Palette can be displayed, Color 0 is always transparent, and can
-be initialized to a don’t care value or plain never initialized.</p>
-<p>Note: All sprite colors are left uninitialized by the boot ROM, and are
-somewhat random.</p>
+<p>Much like VRAM, data in palette memory cannot be read or written during the time
+when the PPU is reading from it, that is, <a href="#lcd-status-register">Mode 3</a>.</p>
+<div class="box tip">
+<p class="box-title">NOTE</p><p>All background colors are initialized as white by the boot ROM, however it is a
+good idea to initialize all colors yourself, e.g. if implementing
+a soft-reset mechanic.</p>
+</div>
+<h3 id="ff6a---ocpsobpi-obj-color-palette-specification--obj-palette-index-ff6b---ocpdobpd-obj-color-palette-data--obj-palette-data---both-cgb-mode-only"><a class="header" href="#ff6a---ocpsobpi-obj-color-palette-specification--obj-palette-index-ff6b---ocpdobpd-obj-color-palette-data--obj-palette-data---both-cgb-mode-only">FF6A - OCPS/OBPI (OBJ Color Palette Specification / OBJ Palette Index), FF6B - OCPD/OBPD (OBJ Color Palette Data / OBJ Palette Data) - Both CGB Mode Only</a></h3>
+<p>These registers function exactly like BCPS and BCPD respectively; the 64 bytes
+of OBJ palette memory are entirely separate from Background palette memory, but
+function the same.</p>
+<p>Note that while 4 colors are stored per OBJ palette, color #0 is never used, as
+it’s always transparent. It’s thus fine to write garbage values, or even leave
+color #0 uninitialized.</p>
+<div class="box tip">
+<p class="box-title">NOTE</p><p>The boot ROM leaves all object colors uninitialized (and thus somewhat random),
+aside from setting the first byte of OBJ0 color #0 to $00, which is unused.</p>
+</div>
 <h3 id="rgb-translation-by-cgbs"><a class="header" href="#rgb-translation-by-cgbs">RGB Translation by CGBs</a></h3>
 <p><img src="imgs/VGA_versus_CGB.png" alt="sRGB versus CGB color mixing" /></p>
 <p>When developing graphics on PCs, note that the RGB values will have
 different appearance on CGB displays as on VGA/HDMI monitors calibrated
 to sRGB color. Because the GBC is not lit, the highest intensity will
-produce Light Gray color rather than White. The intensities are not
-linear; the values 10h-1Fh will all appear very bright, while medium and
-darker colors are ranged at 00h-0Fh.</p>
+produce light gray rather than white. The intensities are not
+linear; the values $10-$1F will all appear very bright, while medium and
+darker colors are ranged at $00-0F.</p>
 <p>The CGB display’s pigments aren’t perfectly saturated. This means the
-colors mix quite oddly; increasing intensity of only one R,G,B color
-will also influence the other two R,G,B colors. For example, a color
-setting of 03EFh (Blue=0, Green=1Fh, Red=0Fh) will appear as Neon Green
+colors mix quite oddly: increasing the intensity of only one R/G/B color
+will also influence the other two R/G/B colors. For example, a color
+setting of $03EF (Blue=$00, Green=$1F, Red=$0F) will appear as Neon Green
 on VGA displays, but on the CGB it’ll produce a decently washed out
 Yellow. See the image above.</p>
 <h3 id="rgb-translation-by-gbas"><a class="header" href="#rgb-translation-by-gbas">RGB Translation by GBAs</a></h3>
@@ -973,19 +979,21 @@ Yellow. See the image above.</p>
 games are completely unplayable on older GBAs because most colors are
 invisible (black). Of course, colors such like Black and White will
 appear the same on both CGB and GBA, but medium intensities are arranged
-completely different. Intensities in range 00h..07h are invisible/black
+completely different. Intensities in range $00–07 are invisible/black
 (unless eventually under best sunlight circumstances, and when gazing at
 the screen under obscure viewing angles), unfortunately, these
 intensities are regularly used by most existing CGB games for medium and
 darker colors.</p>
-<p>Newer CGB games may avoid this effect by changing palette data when
-detecting GBA hardware (<a href="#detecting-cgb-and-gba-functions">see
-how</a>).
-Based on measurement of GBC and GBA palettes using the <a href="https://github.com/pinobatch/240p-test-mini/tree/master/gameboy">144p Test
-Suite</a> ROM, a fairly close approximation is GBA = GBC * 3/4 + 8h for
-each R,G,B intensity. The result isn’t quite perfect, and it may turn
+<div class="box tip">
+<p class="box-title">WORKAROUND</p><p>Newer CGB games may avoid this effect by changing palette data when
+detecting GBA hardware (<a href="#detecting-cgb-and-gba-functions">see how</a>).
+Based on measurements of GBC and GBA palettes using the
+<a href="https://github.com/pinobatch/240p-test-mini/tree/master/gameboy">144p Test Suite</a>,
+a fairly close approximation is <code>GBA = GBC × 3/4 + $08</code> for each R/G/B
+component. The result isn’t quite perfect, and it may turn
 out that the color mixing is different also; anyways, it’d be still
 ways better than no conversion.</p>
+</div>
 <p>This problem with low brightness levels does not affect later GBA SP
 units and Game Boy Player. Thus ideally, the player should have control
 of this brightness correction.</p>
@@ -1906,10 +1914,10 @@ IF flag, though.</p>
 bits in the IE register. It isn’t possible to access the IME flag by
 using a I/O address. IME can be modified by
 the following instructions/events only:</p>
-<pre><code>EI     ;Enables interrupts  (that is, IME=1)
-DI     ;Disables interrupts (that is, IME=0)
-RETI   ;Enables interrupts and returns (same as the instruction sequence EI, RET)
-&lt;INT&gt;  ;Disables interrupts and calls interrupt vector
+<pre><code>EI     ; Enables interrupts  (that is, IME=1)
+DI     ; Disables interrupts (that is, IME=0)
+RETI   ; Enables interrupts and returns (same as the instruction sequence EI, RET)
+&lt;INT&gt;  ; Disables interrupts and calls interrupt vector
 </code></pre>
 <p>where &lt;INT&gt; means the operation which is automatically executed by the
 CPU when it executes an interrupt.</p>
@@ -1917,18 +1925,18 @@ CPU when it executes an interrupt.</p>
 followed immediately by DI does not allow any interrupts between them.
 This interacts with the <a href="#halt-bug"><code>halt</code> bug</a> in an interesting way.</p>
 <h2 id="ffff---ie---interrupt-enable-rw"><a class="header" href="#ffff---ie---interrupt-enable-rw">FFFF - IE - Interrupt Enable (R/W)</a></h2>
-<pre><code>Bit 0: VBlank   Interrupt Enable  (INT 40h)  (1=Enable)
-Bit 1: LCD STAT Interrupt Enable  (INT 48h)  (1=Enable)
-Bit 2: Timer    Interrupt Enable  (INT 50h)  (1=Enable)
-Bit 3: Serial   Interrupt Enable  (INT 58h)  (1=Enable)
-Bit 4: Joypad   Interrupt Enable  (INT 60h)  (1=Enable)
+<pre><code>Bit 0: VBlank   Interrupt Enable  (INT $40)  (1=Enable)
+Bit 1: LCD STAT Interrupt Enable  (INT $48)  (1=Enable)
+Bit 2: Timer    Interrupt Enable  (INT $50)  (1=Enable)
+Bit 3: Serial   Interrupt Enable  (INT $58)  (1=Enable)
+Bit 4: Joypad   Interrupt Enable  (INT $60)  (1=Enable)
 </code></pre>
 <h2 id="ff0f---if---interrupt-flag-rw"><a class="header" href="#ff0f---if---interrupt-flag-rw">FF0F - IF - Interrupt Flag (R/W)</a></h2>
-<pre><code>Bit 0: VBlank   Interrupt Request (INT 40h)  (1=Request)
-Bit 1: LCD STAT Interrupt Request (INT 48h)  (1=Request)
-Bit 2: Timer    Interrupt Request (INT 50h)  (1=Request)
-Bit 3: Serial   Interrupt Request (INT 58h)  (1=Request)
-Bit 4: Joypad   Interrupt Request (INT 60h)  (1=Request)
+<pre><code>Bit 0: VBlank   Interrupt Request (INT $40)  (1=Request)
+Bit 1: LCD STAT Interrupt Request (INT $48)  (1=Request)
+Bit 2: Timer    Interrupt Request (INT $50)  (1=Request)
+Bit 3: Serial   Interrupt Request (INT $58)  (1=Request)
+Bit 4: Joypad   Interrupt Request (INT $60)  (1=Request)
 </code></pre>
 <p>When an interrupt signal changes from low to high, the
 corresponding bit in the IF register becomes set. For example, Bit 0
@@ -1951,19 +1959,16 @@ from being handled until the program re-enables them, typically by using the <co
 called by the CPU. This is a regular call, exactly like what would be performed by a <code>call &lt;vector&gt;</code> instruction (the current PC is pushed on the stack
 and then set to the address of the interrupt vector).</li>
 </ol>
-<p>According to Z80 datasheets, the following occurs when control is being
-transferred to an interrupt handler:</p>
+<p>The following occurs when control is being transferred to an interrupt handler:</p>
 <ol>
-<li>Two wait states are executed (2 machine cycles pass while nothing
-occurs, presumably the CPU is executing NOPs during this time).</li>
-<li>The current PC is pushed onto the stack, this process consumes 2 more
-machine cycles.</li>
-<li>The high byte of the PC is set to 0, the low byte is set to the
-address of the handler ($40,$48,$50,$58,$60). This consumes one
-last machine cycle.</li>
+<li>Two wait states are executed (2 M-cycles pass while nothing
+occurs, presumably the CPU is executing <code>nop</code>s during this time).</li>
+<li>The current PC is pushed to the stack, consuming 2 more M-cycles.</li>
+<li>The PC register is set to the address of the handler ($40, $48, $50, $58, $60).
+This consumes one last M-cycle.</li>
 </ol>
-<p>The entire ISR <strong>should</strong> consume a total of 5 machine cycles. This has
-yet to be tested, but is what the Z80 datasheet implies.</p>
+<p>The entire ISR <strong>should</strong> last a total of 5 M-cycles.
+This has yet to be tested, but is what the Z80 datasheet implies.</p>
 <h2 id="interrupt-priorities"><a class="header" href="#interrupt-priorities">Interrupt Priorities</a></h2>
 <p>In the following three situations it might happen that more than one bit in the IF register is set, requesting more than one interrupt at once:</p>
 <ol>
@@ -2015,7 +2020,7 @@ the STAT interrupt line won’t have a chance to go low between them).</p>
 <h3 id="using-the-stat-interrupt"><a class="header" href="#using-the-stat-interrupt">Using the STAT interrupt</a></h3>
 <p>One very popular use is to indicate to the user when the video
 hardware is about to redraw a given LCD line. This can be useful for
-dynamically controlling the SCX/SCY registers ($FF43/$FF42) to <a href="https://github.com/BlitterObjectBob/DeadCScroll">perform
+dynamically controlling the SCX/SCY registers ($FF43/$FF42) to <a href="https://github.com/gb-archive/DeadCScroll">perform
 special video effects</a>.</p>
 <p>Example application: set LYC to WY, enable LY=LYC interrupt, and have
 the handler disable sprites. This can be used if you use the window for
@@ -5044,8 +5049,8 @@ As indicated by the “+ 1” in the “AGB (DMG mode)” column, if on AGB, tha
 <tr><td align="right"><a href="#ff45---lyc-ly-compare-rw"><code>LYC</code></a></td><td align="center">$FF45</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
 <tr><td align="right"><a href="#ff46---dma-dma-transfer-and-start-address-rw"><code>DMA</code></a></td><td align="center">$FF46</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$00</td></tr>
 <tr><td align="right"><a href="#ff47---bgp-bg-palette-data-rw---non-cgb-mode-only"><code>BGP</code></a></td><td align="center">$FF47</td><td align="center">$FC</td><td align="center">$FC</td><td align="center">$FC</td><td align="center">$FC</td></tr>
-<tr><td align="right"><a href="#ff48---obp0-object-palette-0-data-rw---non-cgb-mode-only"><code>OBP0</code></a></td><td align="center">$FF48</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$00</td></tr>
-<tr><td align="right"><a href="#ff49---obp1-object-palette-1-data-rw---non-cgb-mode-only"><code>OBP1</code></a></td><td align="center">$FF49</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$00</td></tr>
+<tr><td align="right"><a href="#ff48---obp0-obj-palette-0-data-rw-ff49---obp1-obj-palette-1-data-rw---both-non-cgb-mode-only"><code>OBP0</code></a></td><td align="center">$FF48</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$00</td></tr>
+<tr><td align="right"><a href="#ff48---obp0-obj-palette-0-data-rw-ff49---obp1-obj-palette-1-data-rw---both-non-cgb-mode-only"><code>OBP1</code></a></td><td align="center">$FF49</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$00</td></tr>
 <tr><td align="right"><a href="#ff4a---wy-window-y-position-rw-ff4b---wx-window-x-position--7-rw"><code>WY</code></a></td><td align="center">$FF4A</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
 <tr><td align="right"><a href="#ff4a---wy-window-y-position-rw-ff4b---wx-window-x-position--7-rw"><code>WX</code></a></td><td align="center">$FF4B</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
 <tr><td align="right"><a href="#ff4d---key1---cgb-mode-only---prepare-speed-switch"><code>KEY1</code></a></td><td align="center">$FF4D</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
@@ -5058,8 +5063,8 @@ As indicated by the “+ 1” in the “AGB (DMG mode)” column, if on AGB, tha
 <tr><td align="right"><a href="#ff56---rp---cgb-mode-only---infrared-communications-port"><code>RP</code></a></td><td align="center">$FF56</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
 <tr><td align="right"><a href="#ff68---bcpsbgpi-background-color-palette-specification-or-background-palette-index---cgb-mode-only"><code>BCPS</code></a></td><td align="center">$FF68</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">??<sup class="footnote-reference"><a href="#compat">7</a></sup></td></tr>
 <tr><td align="right"><a href="#ff69---bcpdbgpd-background-color-palette-data-or-background-palette-data---cgb-mode-only"><code>BCPD</code></a></td><td align="center">$FF69</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">??<sup class="footnote-reference"><a href="#compat">7</a></sup></td></tr>
-<tr><td align="right"><a href="#ff6a---ocpsobpi-object-color-palette-specification-or-sprite-palette-index-ff6b---ocpdobpd-object-color-palette-data-or-sprite-palette-data---both-cgb-mode-only"><code>OCPS</code></a></td><td align="center">$FF6A</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">??<sup class="footnote-reference"><a href="#compat">7</a></sup></td></tr>
-<tr><td align="right"><a href="#ff6a---ocpsobpi-object-color-palette-specification-or-sprite-palette-index-ff6b---ocpdobpd-object-color-palette-data-or-sprite-palette-data---both-cgb-mode-only"><code>OCPD</code></a></td><td align="center">$FF6B</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">??<sup class="footnote-reference"><a href="#compat">7</a></sup></td></tr>
+<tr><td align="right"><a href="#ff6a---ocpsobpi-obj-color-palette-specification--obj-palette-index-ff6b---ocpdobpd-obj-color-palette-data--obj-palette-data---both-cgb-mode-only"><code>OCPS</code></a></td><td align="center">$FF6A</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">??<sup class="footnote-reference"><a href="#compat">7</a></sup></td></tr>
+<tr><td align="right"><a href="#ff6a---ocpsobpi-obj-color-palette-specification--obj-palette-index-ff6b---ocpdobpd-obj-color-palette-data--obj-palette-data---both-cgb-mode-only"><code>OCPD</code></a></td><td align="center">$FF6B</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">??<sup class="footnote-reference"><a href="#compat">7</a></sup></td></tr>
 <tr><td align="right"><a href="#ff70---svbk---cgb-mode-only---wram-bank"><code>SVBK</code></a></td><td align="center">$FF70</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td><td align="center">$FF</td></tr>
 <tr><td align="right"><a href="#ffff---ie---interrupt-enable-rw"><code>IE</code></a></td><td align="center">$FFFF</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td><td align="center">$00</td></tr>
 </tbody></table>

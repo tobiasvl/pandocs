@@ -172,7 +172,7 @@ the STAT interrupt line won’t have a chance to go low between them).</p>
 <h3 id="using-the-stat-interrupt"><a class="header" href="#using-the-stat-interrupt">Using the STAT interrupt</a></h3>
 <p>One very popular use is to indicate to the user when the video
 hardware is about to redraw a given LCD line. This can be useful for
-dynamically controlling the SCX/SCY registers ($FF43/$FF42) to <a href="https://github.com/BlitterObjectBob/DeadCScroll">perform
+dynamically controlling the SCX/SCY registers ($FF43/$FF42) to <a href="https://github.com/gb-archive/DeadCScroll">perform
 special video effects</a>.</p>
 <p>Example application: set LYC to WY, enable LY=LYC interrupt, and have
 the handler disable sprites. This can be used if you use the window for

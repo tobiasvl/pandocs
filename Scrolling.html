@@ -142,15 +142,15 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="lcd-position-and-scrolling"><a class="header" href="#lcd-position-and-scrolling">LCD Position and Scrolling</a></h1>
-<p>These registers can be accessed even during Mode 3, but they have no
-effect until the end of the current scanline.</p>
+<p>These registers can be accessed even during Mode 3, but modifications may not take
+effect immediately (see further below).</p>
 <h2 id="ff42---scy-scroll-y-rw-ff43---scx-scroll-x-rw"><a class="header" href="#ff42---scy-scroll-y-rw-ff43---scx-scroll-x-rw">FF42 - SCY (Scroll Y) (R/W), FF43 - SCX (Scroll X) (R/W)</a></h2>
-<p>Those specify the top-left coordinates of the visible 160x144 pixel area within the
-256x256 pixels BG map. Values in the range 0-255 may be used.</p>
+<p>Those specify the top-left coordinates of the visible 160×144 pixel area within the
+256×256 pixels BG map. Values in the range 0–255 may be used.</p>
 <h2 id="ff44---ly-lcd-y-coordinate-r"><a class="header" href="#ff44---ly-lcd-y-coordinate-r">FF44 - LY (LCD Y Coordinate) (R)</a></h2>
 <p>LY indicates the current horizontal line, which might be about to be drawn,
-being drawn, or just been drawn. LY can hold any value from 0 to 153.
-The values from 144 to 153 indicate the VBlank period.</p>
+being drawn, or just been drawn. LY can hold any value from 0 to 153, with
+values from 144 to 153 indicating the VBlank period.</p>
 <h2 id="ff45---lyc-ly-compare-rw"><a class="header" href="#ff45---lyc-ly-compare-rw">FF45 - LYC (LY Compare) (R/W)</a></h2>
 <p>The Game Boy permanently compares the value of the LYC and LY registers.
 When both values are identical, the “LYC=LY” flag in the STAT register
@@ -163,21 +163,27 @@ Window, just as for normal BG.)</p>
 <p>The Window is visible (if enabled) when both coordinates are in the ranges
 WX=0..166, WY=0..143 respectively. Values WX=7, WY=0 place the Window at the
 top left of the screen, completely covering the background.</p>
-<p>WX values 0-6 and 166 are unreliable due to hardware bugs. If WX is set
-to 0, the window will “stutter” horizontally when SCX changes.
-(Depending on SCX modulo 8, behavior is a little complicated so you
-should try it yourself.)</p>
-<div class="box tip">
-<p class="box-title">MID-FRAME QUIRKS</p><p>While the Windows should work as just mentioned, writing to WX, WY etc. mid-frame shows a more articulated behavior.</p>
-<p>For the window to be displayed on a scanline:</p>
+<div class="box warning">
+<p>WX values 0 and 166 are unreliable due to hardware bugs.</p>
+<p>If WX is set to 0, the window will “stutter” horizontally when SCX changes
+(depending on SCX % 8).</p>
+<p>If WX is set to 166, the window will span the entirety of the following
+scanline.</p>
+</div>
+<h2 id="mid-frame-behavior"><a class="header" href="#mid-frame-behavior">Mid-frame behavior</a></h2>
+<h3 id="scrolling"><a class="header" href="#scrolling">Scrolling</a></h3>
+<p>The scroll registers are re-read on each <a href="pixel_fifo.html#get-tile">tile fetch</a>, except for the low 3 bits of SCX, which are only read at the beginning of the scanline (for the initial shifting of pixels).</p>
+<p>All models before the CGB-D read the Y coordinate once for each bitplane (so a very precisely timed SCY write allows “desyncing” them), but CGB-D and later use the same Y coordinate for both no matter what.</p>
+<h3 id="window"><a class="header" href="#window">Window</a></h3>
+<p>While the Window should work as just mentioned, writing to WX, WY etc. mid-frame shows a more articulated behavior.</p>
+<p>For the window to be displayed on a scanline, the following conditions must be met:</p>
 <ul>
 <li><strong>WY condition was triggered</strong>: i.e. at some point in this frame the value of WY was equal to LY (checked at the start of Mode 2 only)</li>
 <li><strong>WX condition was triggered</strong>: i.e. the current X coordinate being rendered + 7 was equal to WX</li>
 <li>Window enable bit in LCDC is set</li>
 </ul>
-<p>If the WY condition has already been triggered and at the the start of a row the window enable bit was set
+<p>If the WY condition has already been triggered and at the the start of a row the window enable bit was set,
 then resetting that bit before the WX condition gets triggered on that row yields a nice window glitch pixel where the window would have been activated.</p>
-</div>
 
                     </main>
 
