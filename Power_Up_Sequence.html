@@ -252,7 +252,7 @@ It is speculated that this may be debug remnants.</p>
 <p>The resulting palettes ID is used to pick 3 palettes out of a table via a fairly complex mechanism.
 The user can override this choice using certain button combinations during the logo animation; some of these manual choices are identical to auto-colorizations, <a href="https://tcrf.net/Notes:Game_Boy_Color_Bootstrap_ROM#Manual_Select_Palette_Configurations">but others are unique</a>.</p>
 <div class="box tip">
-<p>A table of checksums (and tie-breaker fourth letters when applicable) and the corresponding palettes can be found <a href="https://tcrf.net/Notes:Game_Boy_Color_Bootstrap_ROM#Assigned_Palette_Configurations">on TCRF</a>.</p>
+<p class="box-title">Available palettes</p><p>A table of checksums (and tie-breaker fourth letters when applicable) and the corresponding palettes can be found <a href="https://tcrf.net/Notes:Game_Boy_Color_Bootstrap_ROM#Assigned_Palette_Configurations">on TCRF</a>.</p>
 </div>
 <p>If the ID is either $43 or $58, then the Nintendo logo’s tilemap is written to VRAM.
 This is intended for games that perform some kind of animation with the Nintendo logo; it suddenly appears in the middle of the screen, though, so it may look better for homebrew not to use this mechanism.</p>
@@ -290,7 +290,7 @@ Strangely, despite correcting the TOCTTOU vulnerability, the CGB-AGB boot ROM do
 <p>Regardless of the console you intend for your game to run on, it is prudent to rely on as little of the following as possible, barring what is mentioned elsewhere in this documentation to detect which system you are running on.
 This ensures maximum compatibility, both across consoles and cartridges (especially flashcarts, which typically run their own menu code before your game), increases reliability, and is generally considered good practice.</p>
 <div class="box warning">
-<p>Some of the information below is highly volatile, due to the complexity of some of the boot ROM behaviors; thus, some of it may contain errors.
+<p class="box-title">Use it at your own risk</p><p>Some of the information below is highly volatile, due to the complexity of some of the boot ROM behaviors; thus, some of it may contain errors.
 Rely on it at your own risk.</p>
 </div>
 <h3 id="common-remarks"><a class="header" href="#common-remarks">Common remarks</a></h3>

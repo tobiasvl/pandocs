@@ -159,7 +159,7 @@ state (inactive=low and active=high) logically ORed into a shared
 <p>A STAT interrupt will be triggered by a rising edge (transition from 
 low to high) on the STAT interrupt line.</p>
 <div class="box warning">
-<p>If a STAT interrupt source logically ORs the interrupt line high while 
+<p class="box-title">STAT blocking</p><p>If a STAT interrupt source logically ORs the interrupt line high while 
 (or immediately after) it’s already set high by another source, then 
 there will be no low-to-high transition and so no interrupt will occur. 
 This phenomenon is known as “STAT blocking” (<a href="https://github.com/Gekkio/mooneye-gb/blob/2d52008228557f9e713545e702d5b7aa233d09bb/tests/acceptance/ppu/stat_irq_blocking.s#L21-L22">test ROM example</a>).</p>

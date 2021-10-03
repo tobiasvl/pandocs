@@ -157,7 +157,7 @@ Emulator developers may be also interested in the <a href="https://gekkio.fi/fil
 <p>You can search anywhere by pressing <kbd>s</kbd> on your keyboard or clicking the <i class="fa fa-search"></i> icon.</p>
 <p>The <i class="fa fa-edit"></i> icon allows you to suggest an edit on the current page by directly opening the source file in the git repository.</p>
 <p>Also available are <a href="single.html">one-page</a> and <a href="print.html">printable</a> versions of this document.</p>
-<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/100885404c19c3d8ae469f5d60dfa1526498f89d"><code>1008854</code></a> (2021-10-02 13:11:51 +0200). </small></p>
+<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/c47f26c5f274faee44c0021e38452da14becbb7a"><code>c47f26c</code></a> (2021-10-03 15:52:32 +0200). </small></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="acknowledgements"><a class="header" href="#acknowledgements">Acknowledgements</a></h1>
 <p>This resource wouldn’t be possible without all the passionate hackers and researchers who contributed on this document in the last three decades.</p>
 <p>We would like to thank everyone in the gbdev community for providing precious feedback, content, support and invaluable knowledge.</p>
@@ -343,7 +343,7 @@ forth.</p>
 <p>The Game Boy outputs graphics to a 160x144 pixel LCD, using a quite complex
 mechanism to facilitate rendering.</p>
 <div class="box warning">
-<p>Sprites/graphics terminology can vary a lot among different platforms, consoles, 
+<p class="box-title">Terminology</p><p>Sprites/graphics terminology can vary a lot among different platforms, consoles, 
 users and communities. You may be familiar with slightly different definitions.
 Keep also in mind that some of the definitions refers to lower (hardware) tools
 and some others to higher abstractions concepts.</p>
@@ -873,7 +873,7 @@ Window, just as for normal BG.)</p>
 WX=0..166, WY=0..143 respectively. Values WX=7, WY=0 place the Window at the
 top left of the screen, completely covering the background.</p>
 <div class="box warning">
-<p>WX values 0 and 166 are unreliable due to hardware bugs.</p>
+<p class="box-title">Warning</p><p>WX values 0 and 166 are unreliable due to hardware bugs.</p>
 <p>If WX is set to 0, the window will “stutter” horizontally when SCX changes
 (depending on SCX % 8).</p>
 <p>If WX is set to 166, the window will span the entirety of the following
@@ -1350,7 +1350,7 @@ restored and pixels are pushed to the LCD normally when rendering pixels:</p>
 <li>At the end of mode 2 (oam search)</li>
 <li>For only 2 cycles when entering HBlank (mode 0) and in double speed mode</li>
 </ul>
-<div class="box warning">
+<div class="box tip">
 <p class="box-title">Note</p><p>These conditions are checked only when entering STOP mode and the
 PPU’s access to CGB palettes is always restored upon leaving STOP mode.</p>
 </div>
@@ -2007,7 +2007,7 @@ state (inactive=low and active=high) logically ORed into a shared
 <p>A STAT interrupt will be triggered by a rising edge (transition from 
 low to high) on the STAT interrupt line.</p>
 <div class="box warning">
-<p>If a STAT interrupt source logically ORs the interrupt line high while 
+<p class="box-title">STAT blocking</p><p>If a STAT interrupt source logically ORs the interrupt line high while 
 (or immediately after) it’s already set high by another source, then 
 there will be no low-to-high transition and so no interrupt will occur. 
 This phenomenon is known as “STAT blocking” (<a href="https://github.com/Gekkio/mooneye-gb/blob/2d52008228557f9e713545e702d5b7aa233d09bb/tests/acceptance/ppu/stat_irq_blocking.s#L21-L22">test ROM example</a>).</p>
@@ -2171,11 +2171,11 @@ to Bit 7 of FF55. In that case reading from FF55 will return how many
 $10 “blocks” remained (minus 1) in the lower 7 bits, but Bit 7 will
 be read as “1”. Stopping the transfer doesn’t set HDMA1-4 to $FF.</p>
 <div class="box warning">
-<p>HBlank DMA should not be started (write to FF55) during a HBlank
+<p class="box-title">WARNING</p><p>HBlank DMA should not be started (write to FF55) during a HBlank
 period (STAT mode 0).</p>
 <p>If the transfer’s destination address overflows, the transfer stops
-prematurely. [Note: what’s the state of the registers if this happens
-?]</p>
+prematurely.
+The status of the registers if this happens still needs to be <a href="https://github.com/gbdev/pandocs/issues/364">investigated</a>.</p>
 </div>
 <h4 id="confirming-if-the-dma-transfer-is-active"><a class="header" href="#confirming-if-the-dma-transfer-is-active">Confirming if the DMA Transfer is Active</a></h4>
 <p>Reading Bit 7 of FF55 can be used to confirm if the DMA transfer is
@@ -4913,7 +4913,7 @@ It is speculated that this may be debug remnants.</p>
 <p>The resulting palettes ID is used to pick 3 palettes out of a table via a fairly complex mechanism.
 The user can override this choice using certain button combinations during the logo animation; some of these manual choices are identical to auto-colorizations, <a href="https://tcrf.net/Notes:Game_Boy_Color_Bootstrap_ROM#Manual_Select_Palette_Configurations">but others are unique</a>.</p>
 <div class="box tip">
-<p>A table of checksums (and tie-breaker fourth letters when applicable) and the corresponding palettes can be found <a href="https://tcrf.net/Notes:Game_Boy_Color_Bootstrap_ROM#Assigned_Palette_Configurations">on TCRF</a>.</p>
+<p class="box-title">Available palettes</p><p>A table of checksums (and tie-breaker fourth letters when applicable) and the corresponding palettes can be found <a href="https://tcrf.net/Notes:Game_Boy_Color_Bootstrap_ROM#Assigned_Palette_Configurations">on TCRF</a>.</p>
 </div>
 <p>If the ID is either $43 or $58, then the Nintendo logo’s tilemap is written to VRAM.
 This is intended for games that perform some kind of animation with the Nintendo logo; it suddenly appears in the middle of the screen, though, so it may look better for homebrew not to use this mechanism.</p>
@@ -4951,7 +4951,7 @@ Strangely, despite correcting the TOCTTOU vulnerability, the CGB-AGB boot ROM do
 <p>Regardless of the console you intend for your game to run on, it is prudent to rely on as little of the following as possible, barring what is mentioned elsewhere in this documentation to detect which system you are running on.
 This ensures maximum compatibility, both across consoles and cartridges (especially flashcarts, which typically run their own menu code before your game), increases reliability, and is generally considered good practice.</p>
 <div class="box warning">
-<p>Some of the information below is highly volatile, due to the complexity of some of the boot ROM behaviors; thus, some of it may contain errors.
+<p class="box-title">Use it at your own risk</p><p>Some of the information below is highly volatile, due to the complexity of some of the boot ROM behaviors; thus, some of it may contain errors.
 Rely on it at your own risk.</p>
 </div>
 <h3 id="common-remarks"><a class="header" href="#common-remarks">Common remarks</a></h3>
@@ -5177,7 +5177,7 @@ although it applies to the original Z80 CPU, so one must adapt the
 optimizations to the GBZ80.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="accessing-vram-and-oam"><a class="header" href="#accessing-vram-and-oam">Accessing VRAM and OAM</a></h1>
 <div class="box warning">
-<p>When the PPU is drawing the screen it is directly reading
+<p class="box-title">Warning</p><p>When the PPU is drawing the screen it is directly reading
 from Video Memory (VRAM) and from the Sprite Attribute Table (OAM).
 During these periods the Game Boy CPU may not access VRAM and OAM.
 That means that any attempts to write to VRAM or OAM are ignored (data
