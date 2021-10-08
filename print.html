@@ -157,7 +157,7 @@ Emulator developers may be also interested in the <a href="https://gekkio.fi/fil
 <p>You can search anywhere by pressing <kbd>s</kbd> on your keyboard or clicking the <i class="fa fa-search"></i> icon.</p>
 <p>The <i class="fa fa-edit"></i> icon allows you to suggest an edit on the current page by directly opening the source file in the git repository.</p>
 <p>Also available are <a href="single.html">one-page</a> and <a href="print.html">printable</a> versions of this document.</p>
-<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/301d2b664e9a9d0d6a9ebb098608ecb9be7f1af0"><code>301d2b6</code></a> (2021-10-03 16:57:57 +0200). </small></p>
+<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/b99d50b91d4228d2aaaa32d7b445cef6f0815b67"><code>b99d50b</code></a> (2021-10-08 10:16:54 +0200). </small></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="acknowledgements"><a class="header" href="#acknowledgements">Acknowledgements</a></h1>
 <p>This resource wouldn’t be possible without all the passionate hackers and researchers who contributed on this document in the last three decades.</p>
 <p>We would like to thank everyone in the gbdev community for providing precious feedback, content, support and invaluable knowledge.</p>
@@ -999,9 +999,9 @@ units and Game Boy Player. Thus ideally, the player should have control
 of this brightness correction.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="pixel-fifo"><a class="header" href="#pixel-fifo">Pixel FIFO</a></h1>
 <div class="box tip">
-<p class="box-title">TERMINOLOGY</p><p>All references to a cycle are meant as T-cycles (4.19 MHz) and cycle
-counts are doubled on CGB in double speed mode. When it is stated that a
-certain action <em>lengthens mode 3</em> it means that mode 0 (hblank) is
+<p class="box-title">TERMINOLOGY</p><p>All references to a dot are meant as dots (4.19 MHz). Dots remain the same regardless of 
+CGB double speed.
+When it is stated that a certain action <em>lengthens mode 3</em> it means that mode 0 (HBlank) is
 shortened to make up for the additional time in mode 3, as shown in the following diagram.</p>
 </div>
 <svg viewBox="0 0 700 590" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
@@ -1060,17 +1060,14 @@ shortened to make up for the additional time in mode 3, as shown in the followin
 	<text class="centered mode-id" x="100" y="25">Mode 2</text>
 	<text class="centered mode-descr" x="100" y="45">OAM scan</text>
 	<text class="centered small" x="100" y="75">80 dots</text>
-	<text class="centered small" x="100" y="90">(= 20 cycles)</text>
 	<rect class="mode-box m3" x="145" y="0" width="172"/>
 	<text class="centered mode-id" x="231" y="25">Mode 3</text>
 	<text class="centered mode-descr" x="231" y="45">Drawing pixels</text>
 	<text class="centered small" x="231" y="75">172–289 dots</text>
-	<text class="centered small" x="231" y="90">(= 43–72 cycles)</text>
 	<rect class="mode-box m0" x="322" y="0" width="204"/>
 	<text class="centered mode-id" x="424" y="25">Mode 0</text>
 	<text class="centered mode-descr" x="424" y="45">Horizontal blank</text>
 	<text class="centered small" x="424" y="75">87–204 dots</text>
-	<text class="centered small" x="424" y="90">(= 22–51 cycles)</text>
 	<rect class="mode-box m1" x="130" y="490" width="230"/>
 	<text class="centered mode-id" x="245" y="515">Mode 1</text>
 	<text class="centered mode-descr" x="245" y="535">Vertical blank</text>
@@ -1099,14 +1096,14 @@ shortened to make up for the additional time in mode 3, as shown in the followin
 	<rect class="scanline m0" y="210" x="322" width="204"/>
 	<text class="middle-baseline darken" y="222" x="150">SHORTEST</text>
 	<text class="middle-baseline darken right" y="222" x="525">LONGEST</text>
-	<text class="middle-baseline small" x="535" y="222">456 dots (= 114 cycles)</text>
+	<text class="middle-baseline small" x="535" y="222">456 dots</text>
 	<text class="middle-baseline right" x="55" y="247">1</text>
 	<rect class="scanline m2" y="235" x="60" width="80"/>
 	<rect class="scanline m3" y="235" x="145" width="289"/>
 	<rect class="scanline m0" y="235" x="439" width="87"/>
 	<text class="middle-baseline darken" y="247" x="150">LONGEST</text>
 	<text class="middle-baseline darken right" y="247" x="525">SHORTEST</text>
-	<text class="middle-baseline small" x="535" y="247">456 dots (= 114 cycles)</text>
+	<text class="middle-baseline small" x="535" y="247">456 dots</text>
 	<text class="middle-baseline right" x="55" y="272">2</text>
 	<rect class="scanline m2" y="260" x="60" width="80"/>
 	<rect class="scanline m3" y="260" x="145" width="172"/>
@@ -1148,12 +1145,11 @@ shortened to make up for the additional time in mode 3, as shown in the followin
 	<rect class="scanline m1" y="560" x="60" width="466"/>
 	<rect class="m1" y="435" x="533" height="145" width="2"/>
 	<text class="middle-baseline small" x="540" y="490">10 "scanlines"</text>
-	<text class="middle-baseline small" x="540" y="510">4560 dots (= 1140 cycles)</text>
+	<text class="middle-baseline small" x="540" y="510">4560 dots</text>
 	<!-- Totals -->
 	<text class="centered" y="20" x="613">One frame:</text>
 	<text class="centered" y="45" x="613">70224 dots</text>
-	<text class="centered" y="70" x="613">(= 17556 cycles)</text>
-	<text class="centered" y="95" x="613">@ 59.7 fps</text>
+	<text class="centered" y="70" x="613">@ 59.7 fps</text>
 </svg>
 <h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
 <p>FIFO stands for <em>First In, First Out</em>. The first pixel to be pushed to the
@@ -1178,8 +1174,8 @@ during mode 3 (pixel transfer).</p>
 <h2 id="fifo-pixel-fetcher"><a class="header" href="#fifo-pixel-fetcher">FIFO Pixel Fetcher</a></h2>
 <p>The fetcher fetches a row of 8 background or window pixels and queues
 them up to be mixed with sprite pixels. The pixel fetcher has 5 steps.
-The first four steps take 2 cycles each and the fifth step is attempted
-every cycle until it succeeds. The order of the steps are as follows:</p>
+The first four steps take 2 dots each and the fifth step is attempted
+every dot until it succeeds. The order of the steps are as follows:</p>
 <ul>
 <li>Get tile</li>
 <li>Get tile data low</li>
@@ -1208,7 +1204,7 @@ fetcherY can be between 0 and 159.</p>
 VRAM. However, if the PPU’s access to VRAM is <a href="pixel_fifo.html#vram-access">blocked</a>
 then the value for the tile is read as $FF.</p>
 <p>CGB can access both tile index and the attributes in the same clock
-cycle.</p>
+dot.</p>
 <h3 id="get-tile-data-low"><a class="header" href="#get-tile-data-low">Get Tile Data Low</a></h3>
 <p>Check LCDC.4 for which tilemap to use. At this step CGB also needs to
 check which VRAM bank to use and check if the tile is flipped vertically.
@@ -1259,7 +1255,7 @@ are cleared.</p>
 <h3 id="the-window"><a class="header" href="#the-window">The Window</a></h3>
 <p>When rendering the window the background FIFO is cleared and the fetcher
 is reset to step 1. When WX is 0 and the SCX &amp; 7 &gt; 0 mode 3 is shortened
-by 1 cycle.</p>
+by 1 dot.</p>
 <p>When the window has already started rendering there is a bug that occurs
 when WX is changed mid-scanline. When the value of WX changes after the
 window has started rendering and the new value of WX is reached again,
@@ -1272,23 +1268,23 @@ of the current scanline has a sprite on it. If those conditions are not
 met then sprite fetching is <a href="pixel_fifo.html#sprite-fetch-abortion">aborted</a>.</p>
 <p>At this point the <a href="pixel_fifo.html#fifo-pixel-fetcher">fetcher</a> is advanced one step
 until it’s at step 5 or until the background FIFO is not empty. Advancing
-the fetcher one step here lengthens mode 3 by 1 cycle. This process may
+the fetcher one step here lengthens mode 3 by 1 dot. This process may
 be <a href="pixel_fifo.html#sprite-fetch-abortion">aborted</a> after the fetcher has advanced a
 step.</p>
 <p>When SCX &amp; 7 &gt; 0 and there is a sprite at X coordinate 0 of the current
-scanline then mode 3 is lengthened. The amount of cycles this lengthens
+scanline then mode 3 is lengthened. The amount of dots this lengthens
 mode 3 by is whatever the lower 3 bits of SCX are. After this penalty is
 applied object fetching may be aborted. Note that the timing of the
 penalty is not confirmed. It may happen before or after waiting for the
 fetcher. More research needs to be done.</p>
 <p>After checking for sprites at X coordinate 0 the fetcher is advanced two
-steps. The first advancement lengthens mode 3 by 1 cycle and the second
-advancement lengthens mode 3 by 3 cycles. After each fetcher advancement
+steps. The first advancement lengthens mode 3 by 1 dot and the second
+advancement lengthens mode 3 by 3 dots. After each fetcher advancement
 there is a chance for a sprite fetch abortion to occur.</p>
 <p>The lower address for the row of pixels of the target object tile is now
-retrieved and lengthens mode 3 by 1 cycle. Once the address is retrieved
+retrieved and lengthens mode 3 by 1 dot. Once the address is retrieved
 this is the last chance for sprite fetch abortion to occur. Exiting
-object fetch lengthens mode 3 by 1 cycle. The upper address for the
+object fetch lengthens mode 3 by 1 dot. The upper address for the
 target object tile is now retrieved and does not shorten mode 3.</p>
 <p>At this point <a href="pixel_fifo.html#vram-access">VRAM Access</a> is checked for the lower and
 upper addresses for the target object. Before any mixing is done, if the
@@ -1302,7 +1298,7 @@ is replaced with the target object’s properties.</p>
 <p>Now it’s time to <a href="pixel_fifo.html#pixel-rendering">render a pixel</a>! The same process
 described in Sprite Fetch Abortion is performed: a pixel is rendered and
 the fetcher is advanced one step. This advancement lengthens mode 3 by 1
-cycle if the X coordinate of the current scanline is not 160. If the X
+dot if the X coordinate of the current scanline is not 160. If the X
 coordinate is 160 the PPU stops processing sprites (because they won’t be
 visible).</p>
 <p>Everything in this section is repeated for every sprite on the current
@@ -1342,13 +1338,13 @@ blocked and a black pixel pushed to the LCD when rendering pixels:</p>
 <li>First HBlank of the frame</li>
 <li>When searching OAM and index 37 is reached</li>
 <li>After switching from mode 2 (oam search) to mode 3 (pixel transfer)</li>
-<li>When entering HBlank (mode 0) and not in double speed mode, blocked 2 cycles later no matter what</li>
+<li>When entering HBlank (mode 0) and not in double speed mode, blocked 2 dots later no matter what</li>
 </ul>
 <p>At various times during PPU operation read access to the CGB palette is
 restored and pixels are pushed to the LCD normally when rendering pixels:</p>
 <ul>
 <li>At the end of mode 2 (oam search)</li>
-<li>For only 2 cycles when entering HBlank (mode 0) and in double speed mode</li>
+<li>For only 2 dots when entering HBlank (mode 0) and in double speed mode</li>
 </ul>
 <div class="box tip">
 <p class="box-title">Note</p><p>These conditions are checked only when entering STOP mode and the
@@ -1357,10 +1353,10 @@ PPU’s access to CGB palettes is always restored upon leaving STOP mode.</p>
 <h3 id="sprite-fetch-abortion"><a class="header" href="#sprite-fetch-abortion">Sprite Fetch Abortion</a></h3>
 <p>Sprite fetching may be aborted if LCDC.1 is disabled while the PPU is
 fetching an object from OAM. This abortion lengthens mode 3 by the amount
-of cycles the previous instruction took plus the residual cycles left for
+of dots the previous instruction took plus the residual dots left for
 the PPU to process. When OAM fetching is aborted a pixel is <a href="pixel_fifo.html#pixel-rendering">rendered</a>,
 the <a href="pixel_fifo.html#fifo-pixel-fetcher">fetcher</a> is advanced one step. This advancement
-lengthens mode 3 by 1 cycle if the current pixel is not 160. If the
+lengthens mode 3 by 1 dot if the current pixel is not 160. If the
 current pixel is 160 the PPU stops processing sprites because they won’t
 be visible.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="sound-controller"><a class="header" href="#sound-controller">Sound Controller</a></h1>
