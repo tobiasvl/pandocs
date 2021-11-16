@@ -189,7 +189,7 @@ don’t use color 0 - it’s transparent instead.</p>
     </tr>
   </tbody>
 </table>
-<p>Tiles are always indexed using a 8-bit integer, but the addressing
+<p>Tiles are always indexed using an 8-bit integer, but the addressing
 method may differ. The “$8000 method” uses $8000 as its base pointer
 and uses an unsigned addressing, meaning that tiles 0-127 are in block
 0, and tiles 128-255 are in block 1. The “$8800 method” uses $9000 as
@@ -220,7 +220,7 @@ operation you’ll find that the IDs for the eight pixels are 0 1 2 3 0 3
 <a href="https://www.huderlem.com/demos/gameboy2bpp.html">here</a>.</p>
 <p>So, each pixel has a color ID of 0 to 3. The color
 numbers are translated into real colors (or gray shades) depending on
-the current palettes, except that when the tile is used in a OBJ the
+the current palettes, except that when the tile is used in an OBJ the
 color ID 0 means transparent. The palettes are defined through registers
 <a href="Palettes.html#ff47---bgp-bg-palette-data-rw---non-cgb-mode-only">BGP</a>,
 <a href="Palettes.html#ff48---obp0-obj-palette-0-data-rw-ff49---obp1-obj-palette-1-data-rw---both-non-cgb-mode-only">OBP0 and OBP1</a>, and

@@ -157,7 +157,7 @@ Emulator developers may be also interested in the <a href="https://gekkio.fi/fil
 <p>You can search anywhere by pressing <kbd>s</kbd> on your keyboard or clicking the <i class="fa fa-search"></i> icon.</p>
 <p>The <i class="fa fa-edit"></i> icon allows you to suggest an edit on the current page by directly opening the source file in the git repository.</p>
 <p>Also available are <a href="single.html">one-page</a> and <a href="print.html">printable</a> versions of this document.</p>
-<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/d55f966dd6883842db9b3b29c208d1b09fcfb1a2"><code>d55f966</code></a> (2021-11-15 20:47:45 +0100). </small></p>
+<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/d4a75e19735f072ab8efc30eae490265ab04d2c6"><code>d4a75e1</code></a> (2021-11-16 23:00:46 +0100). </small></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="acknowledgements"><a class="header" href="#acknowledgements">Acknowledgements</a></h1>
 <p>This resource wouldn’t be possible without all the passionate hackers and researchers who contributed on this document in the last three decades.</p>
 <p>We would like to thank everyone in the gbdev community for providing precious feedback, content, support and invaluable knowledge.</p>
@@ -357,10 +357,10 @@ the base unit in Game Boy graphics.</p>
 <em>color ID</em> to each of its pixels, ranging from 0 to 3. For this reason,
 Game Boy graphics are also called <em>2bpp</em> (2 bits per pixel). When a tile is used
 in the Background or Window, these color IDs are associated with a <em>palette</em>. When
-a tile is used in a OBJ, the IDs 1 to 3 are associated with a palette, but
+a tile is used in an OBJ, the IDs 1 to 3 are associated with a palette, but
 ID 0 means transparent.</p>
 <h2 id="palettes"><a class="header" href="#palettes">Palettes</a></h2>
-<p>A palette consists of a array of colors, 4 in the Game Boy’s case.
+<p>A palette consists of an array of colors, 4 in the Game Boy’s case.
 Palettes are stored differently in monochrome and color versions of the console.</p>
 <p>Modifying palettes enables graphical effects such as quickly flashing some graphics (damage,
 invulnerability, thunderstorm, etc.), fading the screen, “palette swaps”, and more.</p>
@@ -448,7 +448,7 @@ don’t use color 0 - it’s transparent instead.</p>
     </tr>
   </tbody>
 </table>
-<p>Tiles are always indexed using a 8-bit integer, but the addressing
+<p>Tiles are always indexed using an 8-bit integer, but the addressing
 method may differ. The “$8000 method” uses $8000 as its base pointer
 and uses an unsigned addressing, meaning that tiles 0-127 are in block
 0, and tiles 128-255 are in block 1. The “$8800 method” uses $9000 as
@@ -479,7 +479,7 @@ operation you’ll find that the IDs for the eight pixels are 0 1 2 3 0 3
 <a href="https://www.huderlem.com/demos/gameboy2bpp.html">here</a>.</p>
 <p>So, each pixel has a color ID of 0 to 3. The color
 numbers are translated into real colors (or gray shades) depending on
-the current palettes, except that when the tile is used in a OBJ the
+the current palettes, except that when the tile is used in an OBJ the
 color ID 0 means transparent. The palettes are defined through registers
 <a href="Palettes.html#ff47---bgp-bg-palette-data-rw---non-cgb-mode-only">BGP</a>,
 <a href="Palettes.html#ff48---obp0-obj-palette-0-data-rw-ff49---obp1-obj-palette-1-data-rw---both-non-cgb-mode-only">OBP0 and OBP1</a>, and
@@ -557,10 +557,10 @@ four bytes with the following meanings:</p>
 <h2 id="byte-0---y-position"><a class="header" href="#byte-0---y-position">Byte 0 - Y Position</a></h2>
 <p>Y = Sprite’s vertical position on the screen + 16. So for example,
 Y=0 hides a sprite,
-Y=2 hides a 8x8 sprite but displays the last two rows of a 8x16 sprite,
+Y=2 hides an 8×8 sprite but displays the last two rows of an 8×16 sprite,
 Y=16 displays a sprite at the top of the screen,
-Y=144 displays a 8x16 sprite aligned with the bottom of the screen,
-Y=152 displays a 8x8 sprite aligned with the bottom of the screen,
+Y=144 displays an 8×16 sprite aligned with the bottom of the screen,
+Y=152 displays an 8×8 sprite aligned with the bottom of the screen,
 Y=154 displays the first six rows of a sprite at the bottom of the screen,
 Y=160 hides a sprite.</p>
 <h2 id="byte-1---x-position"><a class="header" href="#byte-1---x-position">Byte 1 - X Position</a></h2>
@@ -1361,7 +1361,7 @@ current pixel is 160 the PPU stops processing sprites because they won’t
 be visible.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="sound-controller"><a class="header" href="#sound-controller">Sound Controller</a></h1>
 <p>There are two sound channels connected to the output terminals SO1 and
-SO2. There is also a input terminal Vin connected to the cartridge. It
+SO2. There is also an input terminal Vin connected to the cartridge. It
 can be routed to either of both output terminals. Game Boy circuitry
 allows producing sound in four different ways:</p>
 <ul>
@@ -1908,7 +1908,7 @@ IF flag, though.</p>
 </code></pre>
 <p>The IME flag is used to disable all interrupts, overriding any enabled
 bits in the IE register. It isn’t possible to access the IME flag by
-using a I/O address. IME can be modified by
+using an I/O address. IME can be modified by
 the following instructions/events only:</p>
 <pre><code>EI     ; Enables interrupts  (that is, IME=1)
 DI     ; Disables interrupts (that is, IME=0)
@@ -2498,7 +2498,7 @@ multiple chunks.</p>
 <p>The display will contain “garbage” during the transfer, this
 dirt-effect can be avoided by freezing the screen (in the state which
 has been displayed before the transfer) by using the MASK_EN command.
-Of course, this works only when actually executing the game on a SGB
+Of course, this works only when actually executing the game on an SGB
 (and not on handheld Game Boy systems), it’d be thus required to detect
 the presence of SGB hardware before blindly sending VRAM data.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="color-palettes-overview"><a class="header" href="#color-palettes-overview">Color Palettes Overview</a></h1>
@@ -3193,7 +3193,7 @@ firmware; it should be verified on other SGB revisions.</p>
 <p>The SGB firmware explicitly ignores all commands with ID &gt;= $1E. This
 leaves undocumented commands $19 to $1D inclusive.</p>
 <h2 id="stubbed-commands"><a class="header" href="#stubbed-commands">Stubbed commands</a></h2>
-<p>Commands $1A to $1F (inclusive)’s handlers are stubs (only contain a
+<p>Commands $1A to $1F (inclusive)’s handlers are stubs (only contain an
 <code>RTS</code>). This is interesting, since the command-processing function
 explicitly ignores commands $1E and $1F.</p>
 <h2 id="sgb-command-19h"><a class="header" href="#sgb-command-19h">SGB command 19h</a></h2>
@@ -3226,7 +3226,7 @@ flags.</p>
 <h2 id="the-carry-flag-c-or-cy"><a class="header" href="#the-carry-flag-c-or-cy">The Carry Flag (C, or Cy)</a></h2>
 <p>Is set in these cases:</p>
 <ul>
-<li>When the result of a 8-bit addition is higher than $FF.</li>
+<li>When the result of an 8-bit addition is higher than $FF.</li>
 <li>When the result of a 16-bit addition is higher than $FFFF.</li>
 <li>When the result of a subtraction or comparison
 is lower than zero (like in Z80 and 80x86 CPUs, but unlike in
