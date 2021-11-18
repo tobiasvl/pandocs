@@ -157,7 +157,7 @@ Emulator developers may be also interested in the <a href="https://gekkio.fi/fil
 <p>You can search anywhere by pressing <kbd>s</kbd> on your keyboard or clicking the <i class="fa fa-search"></i> icon.</p>
 <p>The <i class="fa fa-edit"></i> icon allows you to suggest an edit on the current page by directly opening the source file in the git repository.</p>
 <p>Also available are <a href="single.html">one-page</a> and <a href="print.html">printable</a> versions of this document.</p>
-<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/e6e0918b7570e463d4f16eb8f21e4598302aae0b"><code>e6e0918</code></a> (2021-11-18 19:45:14 +0100). </small></p>
+<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/37ea9d330d34809532727904166b070bd95ff6b2"><code>37ea9d3</code></a> (2021-11-18 20:14:00 +0100). </small></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="acknowledgements"><a class="header" href="#acknowledgements">Acknowledgements</a></h1>
 <p>This resource wouldn’t be possible without all the passionate hackers and researchers who contributed on this document in the last three decades.</p>
 <p>We would like to thank everyone in the gbdev community for providing precious feedback, content, support and invaluable knowledge.</p>
@@ -709,8 +709,8 @@ elements are displayed on the screen, and how.</p>
 <p>This bit controls whether the LCD is on and the PPU is active. Setting
 it to 0 turns both off, which grants immediate and full access to VRAM,
 OAM, etc.</p>
-<div class="box warning">
-<p>Stopping LCD operation (Bit 7 from 1 to 0) may be performed
+<div class="box danger">
+<p class="box-title">CAUTION</p><p>Stopping LCD operation (Bit 7 from 1 to 0) may be performed
 during VBlank ONLY, disabling the display outside
 of the VBlank period may damage the hardware by burning in a black
 horizontal line similar to that which appears when the GB is turned off.
@@ -4924,7 +4924,7 @@ Further, the boot ROM contains a valid header, which is mostly blank save for th
 <h2 id="logo-check"><a class="header" href="#logo-check">Logo check</a></h2>
 <p>While it may make sense for the boot ROM to at least partially verify the ROM’s integrity via the header check, one may wonder why the logo is checked more stringently.</p>
 <h3 id="legal-implications"><a class="header" href="#legal-implications">Legal implications</a></h3>
-<div class="box warning">
+<div class="box danger">
 <p class="box-title">Caution</p><p>The following is advisory, but <strong>is not legal advice</strong>.
 If necessary (e.g. commercial releases with logos on the boxes), consult a lawyer.</p>
 </div>

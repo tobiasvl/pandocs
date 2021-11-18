@@ -159,8 +159,8 @@ elements are displayed on the screen, and how.</p>
 <p>This bit controls whether the LCD is on and the PPU is active. Setting
 it to 0 turns both off, which grants immediate and full access to VRAM,
 OAM, etc.</p>
-<div class="box warning">
-<p>Stopping LCD operation (Bit 7 from 1 to 0) may be performed
+<div class="box danger">
+<p class="box-title">CAUTION</p><p>Stopping LCD operation (Bit 7 from 1 to 0) may be performed
 during VBlank ONLY, disabling the display outside
 of the VBlank period may damage the hardware by burning in a black
 horizontal line similar to that which appears when the GB is turned off.
