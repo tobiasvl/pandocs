@@ -177,7 +177,7 @@ separately for each of the output terminals.</p>
 </tbody></table>
 <p>The change of frequency (NR13,NR14) at each shift is calculated by the
 following formula where X(0) is initial freq &amp; X(t-1) is last freq:</p>
-<p>X(t) = X(t-1) +/- X(t-1)/2^n`</p>
+<p>X(t) = X(t-1) +/- X(t-1)/2^n</p>
 <h3 id="ff11---nr11---channel-1-sound-lengthwave-pattern-duty-rw"><a class="header" href="#ff11---nr11---channel-1-sound-lengthwave-pattern-duty-rw">FF11 - NR11 - Channel 1 Sound length/Wave pattern duty (R/W)</a></h3>
 <pre><code>Bit 7-6 - Wave Pattern Duty (Read/Write)
 Bit 5-0 - Sound length data (Write Only) (t1: 0-63)
@@ -200,18 +200,18 @@ Bit 6 in NR14 is set.</p>
 <h3 id="ff13---nr13---channel-1-frequency-lo-write-only"><a class="header" href="#ff13---nr13---channel-1-frequency-lo-write-only">FF13 - NR13 - Channel 1 Frequency lo (Write Only)</a></h3>
 <p>Lower 8 bits of 11 bit frequency (x). Next 3 bit are in NR14 ($FF14)</p>
 <h3 id="ff14---nr14---channel-1-frequency-hi-rw"><a class="header" href="#ff14---nr14---channel-1-frequency-hi-rw">FF14 - NR14 - Channel 1 Frequency hi (R/W)</a></h3>
-<pre><code>Bit 7   - Initial (1=Restart Sound)     (Write Only)`
-Bit 6   - Counter/consecutive selection (Read/Write)`
-          (1=Stop output when length in NR11 expires)`
-Bit 2-0 - Frequency's higher 3 bits (x) (Write Only)`
+<pre><code>Bit 7   - Initial (1=Restart Sound)     (Write Only)
+Bit 6   - Counter/consecutive selection (Read/Write)
+          (1=Stop output when length in NR11 expires)
+Bit 2-0 - Frequency's higher 3 bits (x) (Write Only)
 </code></pre>
 <p>Frequency = 131072/(2048-x) Hz</p>
 <h2 id="sound-channel-2---tone"><a class="header" href="#sound-channel-2---tone">Sound Channel 2 - Tone</a></h2>
 <p>This sound channel works exactly as channel 1, except that it doesn’t
 have a Tone Envelope/Sweep Register.</p>
 <h3 id="ff16---nr21---channel-2-sound-lengthwave-pattern-duty-rw"><a class="header" href="#ff16---nr21---channel-2-sound-lengthwave-pattern-duty-rw">FF16 - NR21 - Channel 2 Sound Length/Wave Pattern Duty (R/W)</a></h3>
-<pre><code>Bit 7-6 - Wave Pattern Duty (Read/Write)`
-Bit 5-0 - Sound length data (Write Only) (t1: 0-63)`
+<pre><code>Bit 7-6 - Wave Pattern Duty (Read/Write)
+Bit 5-0 - Sound length data (Write Only) (t1: 0-63)
 </code></pre>
 <table><thead><tr><th>Bits 7-6</th><th>Wave duty</th></tr></thead><tbody>
 <tr><td>%00</td><td>12.5% (<code>_-------_-------_-------</code>)</td></tr>
@@ -222,20 +222,20 @@ Bit 5-0 - Sound length data (Write Only) (t1: 0-63)`
 <p>Sound Length = (64-t1)*(1/256) seconds. The Length value is used only if
 Bit 6 in NR24 is set.</p>
 <h3 id="ff17---nr22---channel-2-volume-envelope-rw"><a class="header" href="#ff17---nr22---channel-2-volume-envelope-rw">FF17 - NR22 - Channel 2 Volume Envelope (R/W)</a></h3>
-<pre><code>Bit 7-4 - Initial Volume of envelope (0-0Fh) (0=No Sound)`
-Bit 3   - Envelope Direction (0=Decrease, 1=Increase)`
-Bit 2-0 - Number of envelope sweep (n: 0-7)`
-          (If zero, stop envelope operation.)`
+<pre><code>Bit 7-4 - Initial Volume of envelope (0-0Fh) (0=No Sound)
+Bit 3   - Envelope Direction (0=Decrease, 1=Increase)
+Bit 2-0 - Number of envelope sweep (n: 0-7)
+          (If zero, stop envelope operation.)
 </code></pre>
 <p>Length of 1 step = n*(1/64) seconds</p>
 <h3 id="ff18---nr23---channel-2-frequency-lo-data-w"><a class="header" href="#ff18---nr23---channel-2-frequency-lo-data-w">FF18 - NR23 - Channel 2 Frequency lo data (W)</a></h3>
 <p>Frequency’s lower 8 bits of 11 bit data (x). Next 3 bits are in NR24
 ($FF19).</p>
 <h3 id="ff19---nr24---channel-2-frequency-hi-data-rw"><a class="header" href="#ff19---nr24---channel-2-frequency-hi-data-rw">FF19 - NR24 - Channel 2 Frequency hi data (R/W)</a></h3>
-<pre><code>Bit 7   - Initial (1=Restart Sound)     (Write Only)`
-Bit 6   - Counter/consecutive selection (Read/Write)`
-          (1=Stop output when length in NR21 expires)`
-Bit 2-0 - Frequency's higher 3 bits (x) (Write Only)`
+<pre><code>Bit 7   - Initial (1=Restart Sound)     (Write Only)
+Bit 6   - Counter/consecutive selection (Read/Write)
+          (1=Stop output when length in NR21 expires)
+Bit 2-0 - Frequency's higher 3 bits (x) (Write Only)
 </code></pre>
 <p>Frequency = 131072/(2048-x) Hz</p>
 <h2 id="sound-channel-3---wave-output"><a class="header" href="#sound-channel-3---wave-output">Sound Channel 3 - Wave Output</a></h2>
@@ -263,10 +263,10 @@ square wave. This channel doesn’t have a volume envelope register.</p>
 <h3 id="ff1d---nr33---channel-3-frequencys-lower-data-w"><a class="header" href="#ff1d---nr33---channel-3-frequencys-lower-data-w">FF1D - NR33 - Channel 3 Frequency’s lower data (W)</a></h3>
 <p>Lower 8 bits of an 11 bit frequency (x).</p>
 <h3 id="ff1e---nr34---channel-3-frequencys-higher-data-rw"><a class="header" href="#ff1e---nr34---channel-3-frequencys-higher-data-rw">FF1E - NR34 - Channel 3 Frequency’s higher data (R/W)</a></h3>
-<pre><code>Bit 7   - Initial (1=Restart Sound)     (Write Only)`
-Bit 6   - Counter/consecutive selection (Read/Write)`
-          (1=Stop output when length in NR31 expires)`
-Bit 2-0 - Frequency's higher 3 bits (x) (Write Only)`
+<pre><code>Bit 7   - Initial (1=Restart Sound)     (Write Only)
+Bit 6   - Counter/consecutive selection (Read/Write)
+          (1=Stop output when length in NR31 expires)
+Bit 2-0 - Frequency's higher 3 bits (x) (Write Only)
 </code></pre>
 <p>Frequency = 4194304/(64*(2048-x)) Hz = 65536/(2048-x) Hz</p>
 <h3 id="ff30-ff3f---wave-pattern-ram"><a class="header" href="#ff30-ff3f---wave-pattern-ram">FF30-FF3F - Wave Pattern RAM</a></h3>
@@ -294,7 +294,7 @@ Bit 6 in NR44 is set.</p>
 <h3 id="ff21---nr42---channel-4-volume-envelope-rw"><a class="header" href="#ff21---nr42---channel-4-volume-envelope-rw">FF21 - NR42 - Channel 4 Volume Envelope (R/W)</a></h3>
 <pre><code> Bit 7-4 - Initial Volume of envelope (0-0Fh) (0=No Sound)
  Bit 3   - Envelope Direction (0=Decrease, 1=Increase)
- Bit 2-0 - Number of envelope sweep (n: 0-7)`
+ Bit 2-0 - Number of envelope sweep (n: 0-7)
            (If zero, stop envelope operation.)
 </code></pre>
 <p>Length of 1 step = n*(1/64) seconds</p>
