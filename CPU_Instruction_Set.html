@@ -226,8 +226,8 @@ called “M-cycles”.</p>
 <tr><td>add  HL,rr</td><td>x9</td><td>8</td><td>-0hc</td><td>HL = HL+rr     ; rr may be BC,DE,HL,SP</td></tr>
 <tr><td>inc  rr</td><td>x3</td><td>8</td><td>––</td><td>rr = rr+1      ; rr may be BC,DE,HL,SP</td></tr>
 <tr><td>dec  rr</td><td>xB</td><td>8</td><td>––</td><td>rr = rr-1      ; rr may be BC,DE,HL,SP</td></tr>
-<tr><td>add  SP,dd</td><td>E8</td><td>16</td><td>00hc</td><td>SP = SP +/- dd ; dd is 8-bit signed number</td></tr>
-<tr><td>ld   HL,SP+dd</td><td>F8</td><td>12</td><td>00hc</td><td>HL = SP +/- dd ; dd is 8-bit signed number</td></tr>
+<tr><td>add  SP,dd</td><td>E8 dd</td><td>16</td><td>00hc</td><td>SP = SP +/- dd ; dd is 8-bit signed number</td></tr>
+<tr><td>ld   HL,SP+dd</td><td>F8 dd</td><td>12</td><td>00hc</td><td>HL = SP +/- dd ; dd is 8-bit signed number</td></tr>
 </tbody></table>
 <h2 id="rotate-and-shift-instructions"><a class="header" href="#rotate-and-shift-instructions">Rotate and Shift instructions</a></h2>
 <table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
