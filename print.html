@@ -167,7 +167,7 @@ Emulator developers may be also interested in the <a href="https://gekkio.fi/fil
 <p>You can search anywhere by pressing <kbd>s</kbd> on your keyboard or clicking the <i class="fa fa-search"></i> icon.</p>
 <p>The <i class="fa fa-edit"></i> icon allows you to suggest an edit on the current page by directly opening the source file in the git repository.</p>
 <p>Also available are <a href="single.html">one-page</a> and <a href="print.html">printable</a> versions of this document.</p>
-<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/3e66811ddb67fd101cf087d1fc469bfd55e735ba"><code>3e66811</code></a> (2022-01-19 08:45:26 +0100). </small></p>
+<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/a1df022ee9b028b2ef581dc5156f5eddb4bc894d"><code>a1df022</code></a> (2022-03-20 22:37:42 +0100). </small></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="acknowledgements"><a class="header" href="#acknowledgements">Acknowledgements</a></h1>
 <p>This resource wouldn’t be possible without all the passionate hackers and researchers who contributed on this document in the last three decades.</p>
 <p>We would like to thank everyone in the gbdev community for providing precious feedback, content, support and invaluable knowledge.</p>
@@ -5010,8 +5010,8 @@ Three codes can be used at once.</p>
 <h2 id="game-shark-ram-patches"><a class="header" href="#game-shark-ram-patches">Game Shark (RAM patches)</a></h2>
 <p>Game Shark codes consist of eight-digit hex numbers, formatted as
 ABCDEFGH, the meaning of the separate digits is:</p>
-<p><code> AB    External RAM bank number</code>
-<code> CD    New Data</code>
+<p><code> AB    External RAM bank number</code><br />
+<code> CD    New Data</code><br />
 <code> GHEF  Memory Address (internal or external RAM, A000-DFFF)</code></p>
 <p>As far as it is understood, patching is implemented by hooking the original
 VBlank interrupt handler, and re-writing RAM values each frame. The

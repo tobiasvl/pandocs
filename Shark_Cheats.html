@@ -173,8 +173,8 @@ Three codes can be used at once.</p>
 <h2 id="game-shark-ram-patches"><a class="header" href="#game-shark-ram-patches">Game Shark (RAM patches)</a></h2>
 <p>Game Shark codes consist of eight-digit hex numbers, formatted as
 ABCDEFGH, the meaning of the separate digits is:</p>
-<p><code> AB    External RAM bank number</code>
-<code> CD    New Data</code>
+<p><code> AB    External RAM bank number</code><br />
+<code> CD    New Data</code><br />
 <code> GHEF  Memory Address (internal or external RAM, A000-DFFF)</code></p>
 <p>As far as it is understood, patching is implemented by hooking the original
 VBlank interrupt handler, and re-writing RAM values each frame. The
