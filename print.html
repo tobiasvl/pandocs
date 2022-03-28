@@ -175,7 +175,7 @@ Emulator developers may be also interested in the <a href="https://gekkio.fi/fil
 <p>You can search anywhere by pressing <kbd>s</kbd> on your keyboard or clicking the <i class="fa fa-search"></i> icon.</p>
 <p>The <i class="fa fa-edit"></i> icon allows you to suggest an edit on the current page by directly opening the source file in the git repository.</p>
 <p>Also available are <a href="single.html">one-page</a> and <a href="print.html">printable</a> versions of this document.</p>
-<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/0093d308f6864f3d786b7fc9b22033afe04a2676"><code>0093d30</code></a> (2022-03-28 09:38:14 +0200). </small></p>
+<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/be94eb843ba3cff9edeb0d0748c962b0192549b9"><code>be94eb8</code></a> (2022-03-28 09:38:34 +0200). </small></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="acknowledgements"><a class="header" href="#acknowledgements">Acknowledgements</a></h1>
 <p>This resource wouldn’t be possible without all the passionate hackers and researchers who contributed on this document in the last three decades.</p>
 <p>We would like to thank everyone in the gbdev community for providing precious feedback, content, support and invaluable knowledge.</p>
@@ -276,9 +276,9 @@ The GB side of the vertical sync depends on the CPU clock<sup class="footnote-re
 <tr><td>C000</td><td>CFFF</td><td>4 KiB Work RAM (WRAM)</td><td></td></tr>
 <tr><td>D000</td><td>DFFF</td><td>4 KiB Work RAM (WRAM)</td><td>In CGB mode, switchable bank 1~7</td></tr>
 <tr><td>E000</td><td>FDFF</td><td>Mirror of C000~DDFF (ECHO RAM)</td><td>Nintendo says use of this area is prohibited.</td></tr>
-<tr><td>FE00</td><td>FE9F</td><td>Sprite attribute table (<a href="OAM.html#vram-sprite-attribute-table-oam">OAM</a>)</td><td></td></tr>
+<tr><td>FE00</td><td>FE9F</td><td><a href="OAM.html#vram-sprite-attribute-table-oam">Sprite attribute table (OAM)</a></td><td></td></tr>
 <tr><td>FEA0</td><td>FEFF</td><td>Not Usable</td><td>Nintendo says use of this area is prohibited</td></tr>
-<tr><td>FF00</td><td>FF7F</td><td>I/O Registers</td><td></td></tr>
+<tr><td>FF00</td><td>FF7F</td><td><a href="Memory_Map.html#io-ranges">I/O Registers</a></td><td></td></tr>
 <tr><td>FF80</td><td>FFFE</td><td>High RAM (HRAM)</td><td></td></tr>
 <tr><td>FFFF</td><td>FFFF</td><td><a href="Interrupts.html#interrupts">Interrupt</a> Enable register (IE)</td><td></td></tr>
 </tbody></table>
@@ -309,8 +309,8 @@ Some MBCs allow mapping of other hardware into the RAM area in this
 way.</p>
 <p>Cartridge RAM is often battery buffered to hold saved game positions,
 high score tables, and other information when the Game Boy is turned
-off.  For specific information read the chapter about Memory Bank
-Controllers.</p>
+off.  For specific information read the chapter about <a href="MBCs.html#mbcs">Memory Bank
+Controllers</a>.</p>
 <h2 id="echo-ram"><a class="header" href="#echo-ram">Echo RAM</a></h2>
 <p>The range E000-FDFF is mapped to WRAM, but only the lower 13 bits of
 the address lines are connected, with the upper bits on the upper bank
@@ -326,17 +326,17 @@ FF) and checking if said value is mirrored in Echo RAM and not cart SRAM.</p>
 <h2 id="io-ranges"><a class="header" href="#io-ranges">I/O Ranges</a></h2>
 <p>The Game Boy uses the following I/O ranges:</p>
 <table><thead><tr><th>Start</th><th>End</th><th>First appeared</th><th>Purpose</th></tr></thead><tbody>
-<tr><td>$FF00</td><td></td><td>DMG</td><td>Controller</td></tr>
-<tr><td>$FF01</td><td>$FF02</td><td>DMG</td><td>Communication</td></tr>
-<tr><td>$FF04</td><td>$FF07</td><td>DMG</td><td>Divider and Timer</td></tr>
-<tr><td>$FF10</td><td>$FF26</td><td>DMG</td><td>Sound</td></tr>
-<tr><td>$FF30</td><td>$FF3F</td><td>DMG</td><td>Waveform RAM</td></tr>
-<tr><td>$FF40</td><td>$FF4B</td><td>DMG</td><td>LCD</td></tr>
-<tr><td>$FF4F</td><td></td><td>CGB</td><td>VRAM Bank Select</td></tr>
+<tr><td>$FF00</td><td></td><td>DMG</td><td><a href="Joypad_Input.html#ff00---p1joyp---joypad-rw">Joypad input</a></td></tr>
+<tr><td>$FF01</td><td>$FF02</td><td>DMG</td><td><a href="Serial_Data_Transfer_(Link_Cable).html#ff01---sb---serial-transfer-data-rw">Serial transfer</a></td></tr>
+<tr><td>$FF04</td><td>$FF07</td><td>DMG</td><td><a href="Timer_and_Divider_Registers.html#timer-and-divider-registers">Timer and divider</a></td></tr>
+<tr><td>$FF10</td><td>$FF26</td><td>DMG</td><td><a href="Sound_Controller.html#sound-controller">Sound</a></td></tr>
+<tr><td>$FF30</td><td>$FF3F</td><td>DMG</td><td><a href="Sound_Controller.html#ff30-ff3f---wave-pattern-ram">Wave pattern</a></td></tr>
+<tr><td>$FF40</td><td>$FF4B</td><td>DMG</td><td>LCD <a href="LCDC.html#ff40---lcdc-lcd-control-rw">Control</a>, <a href="STAT.html#ff41---stat-lcd-status-rw">Status</a>, <a href="Scrolling.html#lcd-position-and-scrolling">Position, Scrolling</a>, and <a href="Palettes.html#palettes">Palettes</a></td></tr>
+<tr><td>$FF4F</td><td></td><td>CGB</td><td><a href="CGB_Registers.html#ff4f---vbk---cgb-mode-only---vram-bank-rw">VRAM Bank Select</a></td></tr>
 <tr><td>$FF50</td><td></td><td>DMG</td><td>Set to non-zero to disable boot ROM</td></tr>
 <tr><td>$FF51</td><td>$FF55</td><td>CGB</td><td><a href="CGB_Registers.html#lcd-vram-dma-transfers">VRAM DMA</a></td></tr>
 <tr><td>$FF68</td><td>$FF69</td><td>CGB</td><td><a href="Palettes.html#lcd-color-palettes-cgb-only">BG / OBJ Palettes</a></td></tr>
-<tr><td>$FF70</td><td></td><td>CGB</td><td>WRAM Bank Select</td></tr>
+<tr><td>$FF70</td><td></td><td>CGB</td><td><a href="CGB_Registers.html#ff70---svbk---cgb-mode-only---wram-bank">WRAM Bank Select</a></td></tr>
 </tbody></table>
 <h2 id="fea0-feff-range"><a class="header" href="#fea0-feff-range">FEA0-FEFF range</a></h2>
 <p>Nintendo indicates use of this area is prohibited.  This area returns
@@ -2903,31 +2903,31 @@ packets.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="command-summary"><a class="header" href="#command-summary">Command Summary</a></h1>
 <h2 id="sgb-system-command-table"><a class="header" href="#sgb-system-command-table">SGB System Command Table</a></h2>
 <table><thead><tr><th>Code</th><th>Name</th><th>Explanation</th></tr></thead><tbody>
-<tr><td>$00</td><td>PAL01</td><td>Set SGB Palette 0 &amp; 1</td></tr>
-<tr><td>$01</td><td>PAL23</td><td>Set SGB Palette 2 &amp; 3</td></tr>
-<tr><td>$02</td><td>PAL03</td><td>Set SGB Palette 0 &amp; 3</td></tr>
-<tr><td>$03</td><td>PAL12</td><td>Set SGB Palette 1 &amp; 2</td></tr>
-<tr><td>$04</td><td>ATTR_BLK</td><td>“Block” Area Designation Mode</td></tr>
-<tr><td>$05</td><td>ATTR_LIN</td><td>“Line” Area Designation Mode</td></tr>
-<tr><td>$06</td><td>ATTR_DIV</td><td>“Divide” Area Designation Mode</td></tr>
-<tr><td>$07</td><td>ATTR_CHR</td><td>“1CHR” Area Designation Mode</td></tr>
-<tr><td>$08</td><td>SOUND</td><td>Sound On/Off</td></tr>
-<tr><td>$09</td><td>SOU_TRN</td><td>Transfer Sound PRG/DATA</td></tr>
-<tr><td>$0A</td><td>PAL_SET</td><td>Set SGB Palette Indirect</td></tr>
-<tr><td>$0B</td><td>PAL_TRN</td><td>Set System Color Palette Data</td></tr>
-<tr><td>$0C</td><td>ATRC_EN</td><td>Enable/disable Attraction Mode</td></tr>
-<tr><td>$0D</td><td>TEST_EN</td><td>Speed Function</td></tr>
-<tr><td>$0E</td><td>ICON_EN</td><td>SGB Function</td></tr>
-<tr><td>$0F</td><td>DATA_SND</td><td>SUPER NES WRAM Transfer 1</td></tr>
-<tr><td>$10</td><td>DATA_TRN</td><td>SUPER NES WRAM Transfer 2</td></tr>
-<tr><td>$11</td><td>MLT_REQ</td><td>Multiple Controllers Request</td></tr>
-<tr><td>$12</td><td>JUMP</td><td>Set SNES Program Counter</td></tr>
-<tr><td>$13</td><td>CHR_TRN</td><td>Transfer Character Font Data</td></tr>
-<tr><td>$14</td><td>PCT_TRN</td><td>Set Screen Data Color Data</td></tr>
-<tr><td>$15</td><td>ATTR_TRN</td><td>Set Attribute from ATF</td></tr>
-<tr><td>$16</td><td>ATTR_SET</td><td>Set Data to ATF</td></tr>
-<tr><td>$17</td><td>MASK_EN</td><td>Game Boy Window Mask</td></tr>
-<tr><td>$18</td><td>OBJ_TRN</td><td>Super NES OBJ Mode</td></tr>
+<tr><td>$00</td><td><a href="SGB_Command_Pallete.html#sgb-command-00h---pal01">PAL01</a></td><td>Set SGB Palette 0 &amp; 1</td></tr>
+<tr><td>$01</td><td><a href="SGB_Command_Pallete.html#sgb-command-01h---pal23">PAL23</a></td><td>Set SGB Palette 2 &amp; 3</td></tr>
+<tr><td>$02</td><td><a href="SGB_Command_Pallete.html#sgb-command-02h---pal03">PAL03</a></td><td>Set SGB Palette 0 &amp; 3</td></tr>
+<tr><td>$03</td><td><a href="SGB_Command_Pallete.html#sgb-command-03h---pal12">PAL12</a></td><td>Set SGB Palette 1 &amp; 2</td></tr>
+<tr><td>$04</td><td><a href="SGB_Command_Attribute.html#sgb-command-04h---attr_blk">ATTR_BLK</a></td><td>“Block” Area Designation Mode</td></tr>
+<tr><td>$05</td><td><a href="SGB_Command_Attribute.html#sgb-command-05h---attr_lin">ATTR_LIN</a></td><td>“Line” Area Designation Mode</td></tr>
+<tr><td>$06</td><td><a href="SGB_Command_Attribute.html#sgb-command-06h---attr_div">ATTR_DIV</a></td><td>“Divide” Area Designation Mode</td></tr>
+<tr><td>$07</td><td><a href="SGB_Command_Attribute.html#sgb-command-07h---attr_chr">ATTR_CHR</a></td><td>“1CHR” Area Designation Mode</td></tr>
+<tr><td>$08</td><td><a href="SGB_Command_Sound.html#sgb-command-08h---sound">SOUND</a></td><td>Sound On/Off</td></tr>
+<tr><td>$09</td><td><a href="SGB_Command_Sound.html#sgb-command-09h---sou_trn">SOU_TRN</a></td><td>Transfer Sound PRG/DATA</td></tr>
+<tr><td>$0A</td><td><a href="SGB_Command_Pallete.html#sgb-command-0ah---pal_set">PAL_SET</a></td><td>Set SGB Palette Indirect</td></tr>
+<tr><td>$0B</td><td><a href="SGB_Command_Pallete.html#sgb-command-0bh---pal_trn">PAL_TRN</a></td><td>Set System Color Palette Data</td></tr>
+<tr><td>$0C</td><td><a href="SGB_Command_System.html#sgb-command-0ch---atrc_en">ATRC_EN</a></td><td>Enable/disable Attraction Mode</td></tr>
+<tr><td>$0D</td><td><a href="SGB_Command_System.html#sgb-command-0dh---test_en">TEST_EN</a></td><td>Speed Function</td></tr>
+<tr><td>$0E</td><td><a href="SGB_Command_System.html#sgb-command-0eh---icon_en">ICON_EN</a></td><td>SGB Function</td></tr>
+<tr><td>$0F</td><td><a href="SGB_Command_System.html#sgb-command-0fh---data_snd">DATA_SND</a></td><td>SUPER NES WRAM Transfer 1</td></tr>
+<tr><td>$10</td><td><a href="SGB_Command_System.html#sgb-command-10h---data_trn">DATA_TRN</a></td><td>SUPER NES WRAM Transfer 2</td></tr>
+<tr><td>$11</td><td><a href="SGB_Command_Multiplayer.html#sgb-command-11h---mlt_req">MLT_REQ</a></td><td>Multiple Controllers Request</td></tr>
+<tr><td>$12</td><td><a href="SGB_Command_System.html#sgb-command-12h---jump">JUMP</a></td><td>Set SNES Program Counter</td></tr>
+<tr><td>$13</td><td><a href="SGB_Command_Border.html#sgb-command-13h---chr_trn">CHR_TRN</a></td><td>Transfer Character Font Data</td></tr>
+<tr><td>$14</td><td><a href="SGB_Command_Border.html#sgb-command-14h---pct_trn">PCT_TRN</a></td><td>Set Screen Data Color Data</td></tr>
+<tr><td>$15</td><td><a href="SGB_Command_Attribute.html#sgb-command-15h---attr_trn">ATTR_TRN</a></td><td>Set Attribute from ATF</td></tr>
+<tr><td>$16</td><td><a href="SGB_Command_Attribute.html#sgb-command-16h---attr_set">ATTR_SET</a></td><td>Set Data to ATF</td></tr>
+<tr><td>$17</td><td><a href="SGB_Command_System.html#sgb-command-17h---mask_en">MASK_EN</a></td><td>Game Boy Window Mask</td></tr>
+<tr><td>$18</td><td><a href="SGB_Command_Border.html#sgb-command-18h---obj_trn">OBJ_TRN</a></td><td>Super NES OBJ Mode</td></tr>
 </tbody></table>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="palette-commands"><a class="header" href="#palette-commands">Palette Commands</a></h1>
 <h2 id="sgb-command-00h---pal01"><a class="header" href="#sgb-command-00h---pal01">SGB Command 00h - PAL01</a></h2>

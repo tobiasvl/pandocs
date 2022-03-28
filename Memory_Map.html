@@ -169,9 +169,9 @@
 <tr><td>C000</td><td>CFFF</td><td>4 KiB Work RAM (WRAM)</td><td></td></tr>
 <tr><td>D000</td><td>DFFF</td><td>4 KiB Work RAM (WRAM)</td><td>In CGB mode, switchable bank 1~7</td></tr>
 <tr><td>E000</td><td>FDFF</td><td>Mirror of C000~DDFF (ECHO RAM)</td><td>Nintendo says use of this area is prohibited.</td></tr>
-<tr><td>FE00</td><td>FE9F</td><td>Sprite attribute table (<a href="OAM.html#vram-sprite-attribute-table-oam">OAM</a>)</td><td></td></tr>
+<tr><td>FE00</td><td>FE9F</td><td><a href="OAM.html#vram-sprite-attribute-table-oam">Sprite attribute table (OAM)</a></td><td></td></tr>
 <tr><td>FEA0</td><td>FEFF</td><td>Not Usable</td><td>Nintendo says use of this area is prohibited</td></tr>
-<tr><td>FF00</td><td>FF7F</td><td>I/O Registers</td><td></td></tr>
+<tr><td>FF00</td><td>FF7F</td><td><a href="Memory_Map.html#io-ranges">I/O Registers</a></td><td></td></tr>
 <tr><td>FF80</td><td>FFFE</td><td>High RAM (HRAM)</td><td></td></tr>
 <tr><td>FFFF</td><td>FFFF</td><td><a href="Interrupts.html#interrupts">Interrupt</a> Enable register (IE)</td><td></td></tr>
 </tbody></table>
@@ -202,8 +202,8 @@ Some MBCs allow mapping of other hardware into the RAM area in this
 way.</p>
 <p>Cartridge RAM is often battery buffered to hold saved game positions,
 high score tables, and other information when the Game Boy is turned
-off.  For specific information read the chapter about Memory Bank
-Controllers.</p>
+off.  For specific information read the chapter about <a href="MBCs.html#mbcs">Memory Bank
+Controllers</a>.</p>
 <h2 id="echo-ram"><a class="header" href="#echo-ram">Echo RAM</a></h2>
 <p>The range E000-FDFF is mapped to WRAM, but only the lower 13 bits of
 the address lines are connected, with the upper bits on the upper bank
@@ -219,17 +219,17 @@ FF) and checking if said value is mirrored in Echo RAM and not cart SRAM.</p>
 <h2 id="io-ranges"><a class="header" href="#io-ranges">I/O Ranges</a></h2>
 <p>The Game Boy uses the following I/O ranges:</p>
 <table><thead><tr><th>Start</th><th>End</th><th>First appeared</th><th>Purpose</th></tr></thead><tbody>
-<tr><td>$FF00</td><td></td><td>DMG</td><td>Controller</td></tr>
-<tr><td>$FF01</td><td>$FF02</td><td>DMG</td><td>Communication</td></tr>
-<tr><td>$FF04</td><td>$FF07</td><td>DMG</td><td>Divider and Timer</td></tr>
-<tr><td>$FF10</td><td>$FF26</td><td>DMG</td><td>Sound</td></tr>
-<tr><td>$FF30</td><td>$FF3F</td><td>DMG</td><td>Waveform RAM</td></tr>
-<tr><td>$FF40</td><td>$FF4B</td><td>DMG</td><td>LCD</td></tr>
-<tr><td>$FF4F</td><td></td><td>CGB</td><td>VRAM Bank Select</td></tr>
+<tr><td>$FF00</td><td></td><td>DMG</td><td><a href="Joypad_Input.html#ff00---p1joyp---joypad-rw">Joypad input</a></td></tr>
+<tr><td>$FF01</td><td>$FF02</td><td>DMG</td><td><a href="Serial_Data_Transfer_(Link_Cable).html#ff01---sb---serial-transfer-data-rw">Serial transfer</a></td></tr>
+<tr><td>$FF04</td><td>$FF07</td><td>DMG</td><td><a href="Timer_and_Divider_Registers.html#timer-and-divider-registers">Timer and divider</a></td></tr>
+<tr><td>$FF10</td><td>$FF26</td><td>DMG</td><td><a href="Sound_Controller.html#sound-controller">Sound</a></td></tr>
+<tr><td>$FF30</td><td>$FF3F</td><td>DMG</td><td><a href="Sound_Controller.html#ff30-ff3f---wave-pattern-ram">Wave pattern</a></td></tr>
+<tr><td>$FF40</td><td>$FF4B</td><td>DMG</td><td>LCD <a href="LCDC.html#ff40---lcdc-lcd-control-rw">Control</a>, <a href="STAT.html#ff41---stat-lcd-status-rw">Status</a>, <a href="Scrolling.html#lcd-position-and-scrolling">Position, Scrolling</a>, and <a href="Palettes.html#palettes">Palettes</a></td></tr>
+<tr><td>$FF4F</td><td></td><td>CGB</td><td><a href="CGB_Registers.html#ff4f---vbk---cgb-mode-only---vram-bank-rw">VRAM Bank Select</a></td></tr>
 <tr><td>$FF50</td><td></td><td>DMG</td><td>Set to non-zero to disable boot ROM</td></tr>
 <tr><td>$FF51</td><td>$FF55</td><td>CGB</td><td><a href="CGB_Registers.html#lcd-vram-dma-transfers">VRAM DMA</a></td></tr>
 <tr><td>$FF68</td><td>$FF69</td><td>CGB</td><td><a href="Palettes.html#lcd-color-palettes-cgb-only">BG / OBJ Palettes</a></td></tr>
-<tr><td>$FF70</td><td></td><td>CGB</td><td>WRAM Bank Select</td></tr>
+<tr><td>$FF70</td><td></td><td>CGB</td><td><a href="CGB_Registers.html#ff70---svbk---cgb-mode-only---wram-bank">WRAM Bank Select</a></td></tr>
 </tbody></table>
 <h2 id="fea0-feff-range"><a class="header" href="#fea0-feff-range">FEA0-FEFF range</a></h2>
 <p>Nintendo indicates use of this area is prohibited.  This area returns
