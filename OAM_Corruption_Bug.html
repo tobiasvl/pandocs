@@ -160,7 +160,7 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="oam-corruption-bug"><a class="header" href="#oam-corruption-bug">OAM Corruption Bug</a></h1>
-<p>There is a flaw in the Game Boy hardware that causes trash to be written
+<p>There is a flaw in the Game Boy hardware that causes rubbish data to be written
 to OAM RAM if the following instructions are used while their 16-bit content
 (before the operation) is in the range $FE00–$FEFF and the PPU is in mode 2:</p>
 <pre><code class="language-rgbasm"> inc rr         dec rr       ; rr = bc, de, or hl
@@ -214,7 +214,7 @@ actual read/write address used, or the written value have no effect.
 Additionally, keep in mind that OAM uses a 16-bit data bus, so all
 operations are on 16-bit words.</p>
 <h3 id="write-corruption"><a class="header" href="#write-corruption">Write Corruption</a></h3>
-<p>A write corruption corrupts the currently access row in the following
+<p>A “write corruption” corrupts the currently access row in the following
 manner, as long as it’s not the first row (containing the first two
 sprites):</p>
 <ul>
@@ -226,7 +226,7 @@ third word in the preceding row.</li>
 preceding row.</li>
 </ul>
 <h3 id="read-corruption"><a class="header" href="#read-corruption">Read Corruption</a></h3>
-<p>A read corruption works similarly to a write corruption, except the
+<p>A “read corruption” works similarly to a write corruption, except the
 bitwise expression is <code>b | (a &amp; c)</code>.</p>
 <h3 id="write-during-increasedecrease"><a class="header" href="#write-during-increasedecrease">Write During Increase/Decrease</a></h3>
 <p>If a register is increased or decreased in the same M-cycle of a write,
@@ -252,7 +252,7 @@ corruption of the first word in it) both to the currently
 accessed row and to two rows before the currently accessed row</li>
 </ul>
 </li>
-<li>Regardless of wether the previous corruption occurred or not, a
+<li>Regardless of whether the previous corruption occurred or not, a
 normal read corruption is then applied.</li>
 </ul>
 

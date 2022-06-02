@@ -173,7 +173,7 @@ DI     ; Disables interrupts (that is, IME=0)
 RETI   ; Enables interrupts and returns (same as the instruction sequence EI, RET)
 &lt;INT&gt;  ; Disables interrupts and calls interrupt vector
 </code></pre>
-<p>where &lt;INT&gt; means the operation which is automatically executed by the
+<p>Where &lt;INT&gt; means the operation which is automatically executed by the
 CPU when it executes an interrupt.</p>
 <p>The effect of <code>ei</code> is delayed by one instruction. This means that <code>ei</code>
 followed immediately by DI does not allow any interrupts between them.

@@ -171,7 +171,7 @@
 <tr><td>U2</td><td>GBD-PCAX-0 F M538011-E - 08 8145507</td><td>1MB ROM</td></tr>
 <tr><td>U3</td><td>52CV1000SF85LL SHARP JAPAN 9805 5 0A</td><td>128KB RAM</td></tr>
 </tbody></table>
-<p>The U1 is the only one connected to the GB cartridge pins (besides some of the address pins of the ROM IC). The U2 and U3 (ROM and RAM) are connected to U1. The M64282FP “retina” chip is in a separate PCB, and is connected to the U1.
+<p>The U1 is the only one connected to the GB cartridge pins (besides some address pins of the ROM IC). The U2 and U3 (ROM and RAM) are connected to U1. The M64282FP “retina” chip is in a separate PCB, and is connected to the U1.
 The M64282FP handles most of the configuration of the capturing process. The U1 transforms the commands from the Game Boy CPU into the correct signals needed for the M64282FP. The detailed timings are described below.
 It is a good idea to have the datasheet of the M64282FP, but it is very poorly explained, so this document will try to explain everything about it (except from limits like voltage or signal timings). There are datasheets of similar sensors (M64283FP and M64285FP) that can be very useful to understand some things about the sensor of the GB Camera.</p>
 <h2 id="game-boy-camera-mbc"><a class="header" href="#game-boy-camera-mbc">Game Boy Camera MBC</a></h2>
@@ -190,7 +190,7 @@ It is a good idea to have the datasheet of the M64282FP, but it is very poorly e
 <h3 id="4000-5fff---ram-bank-numbercam-registers-select-write-only"><a class="header" href="#4000-5fff---ram-bank-numbercam-registers-select-write-only">4000-5FFF - RAM Bank Number/CAM Registers Select (Write Only)</a></h3>
 <p>Writing a value in range for 00h-0Fh maps the corresponding external RAM Bank to memory at A000-BFFF. Writing any value with bit 4 set to ‘1’ will select CAM registers. Usually bank 10h is used to select the registers. All registers are mirrored every 80h bytes. RAM bank 0 selected on reset.</p>
 <div class="box tip">
-<p class="box-title">NOTE</p><p>Unlike most games, the GB Camera RAM can only be written when PHI pin = ‘1’. It’s an enable signal for the RAM chip. Most cartridge readers and writers can’t handle PHI pin so they can’t restore a saved backup. It isn’t needed to change ROM banks.</p>
+<p class="box-title">NOTE</p><p>Unlike most games, the GB Camera RAM can only be written when PHI pin = ‘1’. It’s an enable signal for the RAM chip. Most cartridge readers and writers can’t handle PHI pin, so they can’t restore a saved backup. It isn’t needed to change ROM banks.</p>
 </div>
 <h2 id="io-registers"><a class="header" href="#io-registers">I/O Registers</a></h2>
 <p>The Game Boy Camera I/O registers are mapped to all banks with bit 4 set to ‘1’. The GB Camera ROM usually changes to bank 16 (10h) to use the registers.</p>
@@ -209,11 +209,11 @@ The capturing process can be stopped by writing a ‘0’ to bit 0. When a ‘1�
 <h3 id="register-a001"><a class="header" href="#register-a001">Register A001</a></h3>
 <p>This register is mapped to register 1 of M64282FP. It controls the output gain and the edge operation mode.</p>
 <h3 id="register-a002-a003"><a class="header" href="#register-a002-a003">Register A002, A003</a></h3>
-<p>This registers are mapped to registers 2 and 3 of M64282FP. They control the exposure time. Register 2 is the MSB, register 3 is the LSB.</p>
+<p>These registers are mapped to registers 2 and 3 of M64282FP. They control the exposure time. Register 2 is the MSB, register 3 is the LSB.</p>
 <pre><code>u16 exposure_steps = [A003] | ([A002]&lt;&lt;8);
 </code></pre>
 <h3 id="register-a004"><a class="header" href="#register-a004">Register A004</a></h3>
-<p>This register is mapped to register 7 of M64282FP. It sets the output voltage reference, the edge enhancement ratio and it can invert the image.</p>
+<p>This register is mapped to register 7 of M64282FP. It sets the output voltage reference, the edge enhancement ratio, and it can invert the image.</p>
 <h3 id="register-a005"><a class="header" href="#register-a005">Register A005</a></h3>
 <p>This register is mapped to register 0 of M64282FP. It sets the output reference voltage and enables the zero point calibration.</p>
 <h3 id="register-a006-a035"><a class="header" href="#register-a006-a035">Register A006-A035</a></h3>
@@ -282,7 +282,7 @@ The capturing process can be stopped by writing a ‘0’ to bit 0. When a ‘1�
   <figcaption>Edge extraction.</figcaption>
 </figure> 
 <h2 id="sample-code-for-emulators"><a class="header" href="#sample-code-for-emulators">Sample code for emulators</a></h2>
-<p>The following code is used to convert a greyscale image to the Game Boy Camera format. GB_CameraTakePicture() should be called when bit 0 of A000 register is st to ‘1’. The emulator should wait CAM_CLOCKS_LEFT until the bit 0 is cleared. The gain and level control are not needed to emulate the Game Boy Camera because webcams do that automatically. In fact, trying to emulate that will probably break the image. The code is not very clean because it has been extracted from <a href="https://github.com/AntonioND/giibiiadvance">GiiBiiAdvance</a>, but it seems to handle all used configurations of edge handling.</p>
+<p>The following code is used to convert a greyscale image to the Game Boy Camera format. <code>GB_CameraTakePicture()</code> should be called when bit 0 of A000 register is st to ‘1’. The emulator should wait CAM_CLOCKS_LEFT until the bit 0 is cleared. The gain and level control are not needed to emulate the Game Boy Camera because webcams do that automatically. In fact, trying to emulate that will probably break the image. The code is not very clean because it has been extracted from <a href="https://github.com/AntonioND/giibiiadvance">GiiBiiAdvance</a>, but it seems to handle all used configurations of edge handling.</p>
 <p>Note that the actual Game Boy Camera sensor is affected by infrared so the emulation can’t be perfect anyway. A good way of converting a RGB image into grayscale is to do:</p>
 <pre><code class="language-c">
 //--------------------------------------------------------------------

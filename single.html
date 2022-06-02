@@ -158,8 +158,8 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="foreword"><a class="header" href="#foreword">Foreword</a></h1>
-<p>This document, started in early 1995, is considered the single most comprehensive technical reference to Game Boy available to the public. </p>
-<p>You are reading a new version of it, mantained in the Markdown format and enjoying renewed <a href="https://gbdev.io">community</a> attention, correcting and updating it with recent findings. To learn more about the legacy and the mission of this initiative, check <a href="./History.html">History</a>.</p>
+<p>This document, started in early 1995, is considered the single most comprehensive technical reference to Game Boy available to the public.</p>
+<p>You are reading a new version of it, maintained in the Markdown format and enjoying renewed <a href="https://gbdev.io">community</a> attention, correcting and updating it with recent findings. To learn more about the legacy and the mission of this initiative, check <a href="./History.html">History</a>.</p>
 <div class="box tip">
 <p class="box-title">SCOPE</p><p>The information here is targeted at homebrew development.
 Emulator developers may be also interested in the <a href="https://gekkio.fi/files/gb-docs/gbctr.pdf">Game Boy: Complete Technical Reference</a> document.</p>
@@ -174,20 +174,23 @@ Emulator developers may be also interested in the <a href="https://gekkio.fi/fil
 <p>The <i class="fa fa-paint-brush"></i> lets you choose among 5 different themes and color schemes to please your reading experience.</p>
 <p>You can search anywhere by pressing <kbd>s</kbd> on your keyboard or clicking the <i class="fa fa-search"></i> icon.</p>
 <p>The <i class="fa fa-edit"></i> icon allows you to suggest an edit on the current page by directly opening the source file in the git repository.</p>
-<p>Also available are <a href="single.html">one-page</a> and <a href="print.html">printable</a> versions of this document.</p>
-<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/1e69751b9fafb236cf0ba27069a38c73b097008b"><code>1e69751</code></a> (2022-05-21 22:21:25 +0200). </small></p>
+<p><a href="single.html">One-page</a> and <a href="print.html">printable</a> versions of this document are also available.</p>
+<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/4343099849fc0d339705eb1ca8c865dd98c078ac"><code>4343099</code></a> (2022-06-03 00:02:05 +0200). </small></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="acknowledgements"><a class="header" href="#acknowledgements">Acknowledgements</a></h1>
 <p>This resource wouldn’t be possible without all the passionate hackers and researchers who contributed on this document in the last three decades.</p>
-<p>We would like to thank everyone in the gbdev community for providing precious feedback, content, support and invaluable knowledge.</p>
-<p>We are also grateful to <a href="https://www.digitalocean.com/">DigitalOcean</a>, sponsoring this initiative and lifting us from any hosting and infrastructural cost in the last few years.</p>
-<p>Thanks to our <a href="https://gbdev.io/contribute.html#donations">economic donors</a>, allowing us to push this community further and spread open culture while staying independent and free.</p>
-<p>Thanks also to <a href="https://github.com/gbdev/pandocs/graphs/contributors">everyone who directly contributed</a> on Pan Docs codebase.</p>
+<p>We would like to thank:</p>
+<ul>
+<li>The gbdev community, for providing precious feedback, content, support and invaluable knowledge.</li>
+<li><a href="https://www.digitalocean.com/">DigitalOcean</a>, for sponsoring this initiative and lifting us from any hosting and infrastructural cost in the last few years.</li>
+<li>Everyone who <a href="https://gbdev.io/contribute.html#donations">donated</a>, allowing us to push this community further and spread open culture while staying independent and free.</li>
+<li><a href="https://github.com/gbdev/pandocs/graphs/contributors">Contributors</a> of code and content on the Pan Docs project.</li>
+</ul>
 <h2 id="authors"><a class="header" href="#authors">Authors</a></h2>
 <p>Antonio Niño Díaz, Antonio Vivace, Beannaich, Cory Sandlin, Eldred “ISSOtm” Habert, Elizafox, Furrtek, Gekkio, Jeff Frohwein, John Harrison, Lior “LIJI32” Halphon, Mantidactyle, Marat Fayzullin, Martin “nocash” Korth, Pan of ATX, Pascal Felber, Paul Robson, T4g1, TechFalcon, endrift, exezin, jrra, kOOPa, mattcurrie, nitro2k01, pinobatch, Pat Fagan, Alvaro Burnett.</p>
 <h2 id="special-thanks"><a class="header" href="#special-thanks">Special thanks</a></h2>
 <p>FrankenGraphics, zeta0134.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="history"><a class="header" href="#history">History</a></h1>
-<p>Pan Docs - also known as <code>GAMEBOY.TXT</code> or <code>GBSPEC.TXT</code> - is an old document dating back to early 1995 originally written by <em>Pan of Anthrox</em>. It has been one of the most important references for Game Boy hackers, emulators and homebrew developers during the last 25 years.</p>
+<p>Pan Docs - also known as <code>GAMEBOY.TXT</code> or <code>GBSPEC.TXT</code> - is an old document dating back to early 1995, originally written by <em>Pan of Anthrox</em>. It has been one of the most important references for Game Boy hackers, emulators and homebrew developers during the last 25 years.</p>
 <p align="center">
 <img src="https://raw.githubusercontent.com/gbdev/pandocs/master/historical/1995-Jan-28-ATX-GBI/ADDRESS1.png">
 <br>
@@ -195,7 +198,9 @@ Emulator developers may be also interested in the <a href="https://gekkio.fi/fil
 </p>
 <p>After its release (1995-2008), it received a number of revisions, corrections and updates, maintaining its <strong>TXT format</strong>. This <a href="https://github.com/gbdev/pandocs/tree/master/historical">folder</a> provides a historical archive of those versions.</p>
 <p>In 2008, a <strong>wikified</strong> version (using Martin Korth’s 2001 revision as a baseline) has been published. The document was split into different articles and it continued being maintained and updated in that form.</p>
-<p>In 2020, after this <a href="https://github.com/gbdev/awesome-gbdev/issues/153">RFC</a> we migrated the last updated version to <strong>plain Markdown</strong> and made <a href="https://github.com/gbdev/pandocs">github.com/gbdev/pandocs</a> the new home of this resource, where it can receive new public discussions and contributions, maintain its legacy and historical relevance, while making use of modern tools and workflows to be visualized and distributed.</p>
+<p>In 2020, after the discussion in this <a href="https://github.com/gbdev/pandocs/issues/275">RFC</a> we migrated the last updated version to <strong>plain Markdown</strong> and made <a href="https://github.com/gbdev/pandocs">github.com/gbdev/pandocs</a> the new home of this resource, where it can receive new public discussions and contributions, maintain its legacy and historical relevance, while making use of modern tools and workflows to be visualized and distributed.</p>
+<p>From 2020 to May 2021 we used <a href="https://vuepress.github.io/">VuePress</a> to render the markdown files as web pages.</p>
+<p>Since May 2021, we rely on <a href="https://rust-lang.github.io/mdBook/">mdBook</a>.</p>
 <p>We are releasing everything (content, sources, code, figures) under the CC0 license (Public Domain).</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="specifications"><a class="header" href="#specifications">Specifications</a></h1>
 <style>
@@ -361,9 +366,9 @@ forth.</p>
 <p>The Game Boy outputs graphics to a 160x144 pixel LCD, using a quite complex
 mechanism to facilitate rendering.</p>
 <div class="box warning">
-<p class="box-title">Terminology</p><p>Sprites/graphics terminology can vary a lot among different platforms, consoles, 
+<p class="box-title">Terminology</p><p>Sprites/graphics terminology can vary a lot among different platforms, consoles,
 users and communities. You may be familiar with slightly different definitions.
-Keep also in mind that some of the definitions refers to lower (hardware) tools
+Keep also in mind that some definitions refer to lower (hardware) tools
 and some others to higher abstractions concepts.</p>
 </div>
 <h2 id="tiles"><a class="header" href="#tiles">Tiles</a></h2>
@@ -391,7 +396,7 @@ but it works for the most part.</p>
 large grid of tiles. However, tiles aren’t directly written to tilemaps,
 they merely contain references to the tiles.
 This makes reusing tiles very cheap, both in CPU time and in
-required memory space, and it is the main mechanism that helps working around the
+required memory space, and it is the main mechanism that helps work around the
 paltry 8 KiB of video RAM.</p>
 <p>The background can be made to scroll as a whole, writing to two
 hardware registers. This makes scrolling very cheap.</p>
@@ -416,7 +421,7 @@ Use of the term has since become more general.</p>
 <ul>
 <li><strong>Tile</strong>, an 8x8-pixel chunk of graphics.</li>
 <li><strong>Object</strong>, an entry in object attribute memory, composed of 1 or 2
-tiles. Independent from the background.</li>
+tiles. Independent of the background.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="vram-tile-data"><a class="header" href="#vram-tile-data">VRAM Tile Data</a></h1>
 <p>Tile data is stored in VRAM in the memory area at $8000-$97FF; with each tile
@@ -1971,7 +1976,7 @@ Bit 0 - P10 Input: Right or A        (0=Pressed) (Read Only)
 and only the value from the last read is actually used).</p>
 </div>
 <h2 id="usage-in-sgb-software"><a class="header" href="#usage-in-sgb-software">Usage in SGB software</a></h2>
-<p>Beside for normal joypad input, SGB games mis-use the joypad register to
+<p>Beside for normal joypad input, SGB games misuse the joypad register to
 output SGB command packets to the SNES, also, SGB programs may read out
 gamepad states from up to four different joypads which can be connected
 to the SNES. See SGB description for details.</p>
@@ -2218,7 +2223,7 @@ DI     ; Disables interrupts (that is, IME=0)
 RETI   ; Enables interrupts and returns (same as the instruction sequence EI, RET)
 &lt;INT&gt;  ; Disables interrupts and calls interrupt vector
 </code></pre>
-<p>where &lt;INT&gt; means the operation which is automatically executed by the
+<p>Where &lt;INT&gt; means the operation which is automatically executed by the
 CPU when it executes an interrupt.</p>
 <p>The effect of <code>ei</code> is delayed by one instruction. This means that <code>ei</code>
 followed immediately by DI does not allow any interrupts between them.
@@ -2409,12 +2414,12 @@ a changed bit is noted in the chapter about the Serial/Link port.</p>
 <h2 id="unlocking-cgb-functions"><a class="header" href="#unlocking-cgb-functions">Unlocking CGB functions</a></h2>
 <p>When using any CGB registers (including those in the Video/Link
 chapters), you must first unlock CGB features by changing byte 0143h in
-the cartridge header. Typically use a value of 80h for games which
+the cartridge header. Typically, use a value of 80h for games which
 support both CGB and monochrome Game Boy systems, and C0h for games which work
 on CGBs only. Otherwise, the CGB will operate in monochrome “Non CGB”
 compatibility mode.</p>
 <h2 id="detecting-cgb-and-gba-functions"><a class="header" href="#detecting-cgb-and-gba-functions">Detecting CGB (and GBA) functions</a></h2>
-<p>CGB hardware can be detected by examing the CPU accumulator (A-register)
+<p>CGB hardware can be detected by examining the CPU accumulator (A-register)
 directly after startup. A value of 11h indicates CGB (or GBA) hardware,
 if so, CGB functions can be used (if unlocked, see above). When A=11h,
 you may also examine Bit 0 of the CPUs B-Register to separate between
@@ -2494,7 +2499,7 @@ Speed Mode).</p>
 <p>The CGB has twice the VRAM of the DMG, but it is banked and either bank
 has a different purpose.</p>
 <h4 id="ff4f---vbk---cgb-mode-only---vram-bank-rw"><a class="header" href="#ff4f---vbk---cgb-mode-only---vram-bank-rw">FF4F - VBK - CGB Mode Only - VRAM Bank (R/W)</a></h4>
-<p>This register can be written to to change VRAM banks. Only bit 0
+<p>This register can be written to change VRAM banks. Only bit 0
 matters, all other bits are ignored.</p>
 <h4 id="vram-bank-1"><a class="header" href="#vram-bank-1">VRAM bank 1</a></h4>
 <p>VRAM bank 1 is split like VRAM bank 0 ; 8000-97FF also stores tiles
@@ -2512,7 +2517,7 @@ Double Speed Mode and Normal Speed Mode. The actual speed switch is
 performed by executing a <code>stop</code> instruction after Bit 0 has been set. After
 that, Bit 0 will be cleared automatically, and the Game Boy will operate
 at the “other” speed. The recommended speed switching procedure in
-pseudo code would be:</p>
+pseudocode would be:</p>
 <pre><code>IF KEY1_BIT7 != DESIRED_SPEED THEN
    IE = $00       ; (FFFF) = $00
    JOYP = $30     ; (FF00) = $30
@@ -2541,7 +2546,7 @@ executed. During this time, the CPU is in a strange state. <code>DIV</code> does
 <em>some</em> audio events are not processed. Additionally, VRAM/OAM/… locking is “frozen”, yielding
 different results depending on the <a href="#ff41---stat-lcd-status-rw">STAT mode</a> it’s started in:</p>
 <ul>
-<li>HBlank / VBlank (Mode 0 / Mode 1): The PPU cannot access any videomemory, and produces black pixels</li>
+<li>HBlank / VBlank (Mode 0 / Mode 1): The PPU cannot access any video memory, and produces black pixels</li>
 <li>OAM scan (Mode 2): The PPU can access VRAM just fine, but not OAM, leading to rendering background, but not sprites</li>
 <li>Rendering (Mode 3): The PPU can access everything correctly, and so rendering is not affected</li>
 </ul>
@@ -2607,7 +2612,7 @@ initial value is 0.</p>
 <p>The Game Boy Color came with an infrared port on the very top of the handheld. Previously, where IR communications had to be done with special cartridges (like the HuC-1 variants), the Game Boy itself now had the hardware built-in. Unfortunately, the feature was never popular outside of a few games and accessories. The IR port essentially sends out signals and is also capable of receiving them, allowing for fast, wireless, line-of-sight transmission.</p>
 <ul>
 <li>GBC comes with one IR port. Capable of sending and receiving an IR signal (two separate diodes).</li>
-<li>Turning on the IR light does drain battery, hence not recommended to leave it on when not in use</li>
+<li>Turning on the IR light does drain battery, hence not recommended leaving it on when not in use</li>
 <li>IR port can communicate with non-GBC devices, e.g. anything that sends an IR signal (TV remotes, Wiimotes, household lamps, etc)</li>
 </ul>
 <h2 id="communication-types"><a class="header" href="#communication-types">Communication Types</a></h2>
@@ -2619,8 +2624,8 @@ initial value is 0.</p>
 <li>Inactive Object Init: Transfers require the GBC to interact with another non-GBC device capable of sending infrared signals but not necessarily receiving them. These objects may not be designed to work specifically with GBCs (notable exception is the Full Changer). Communication is input-only for these cases. Examples include Zok Zok Heroes, Chee Chai Alien, the Bomberman Max games’ special stages, and Mission Impossible’s TV remote feature.</li>
 </ul>
 <h2 id="communication-protocol"><a class="header" href="#communication-protocol">Communication Protocol</a></h2>
-<p>Again, there is no set or established infrared protocol that games must follow. Many games vary in their approach. For example, the 2nd Generation Pokemon games use the GBC’s hardware timers, while others have hardcoded values that count cycles to check timing. The simplest form is a barebones communication protocol, i.e. something like a binary Morse code where a “0” is a long ON-OFF pulse and “1” is a short ON-OFF pulse or vice versa. Properly done, data could have been short, compact, and easily converted into bytes in RAM. Sakura Taisen GB seems to follow this model in its communications with the Pocket Sakura. Not all games do this, however, and appear to be doing who knows that, opting instead for customized and specialized communications unique to each title. To illustrate this idea, it would be possible to use a table of given lengths of IR ON-OFF pulses so that individual bytes could be sent all at once instead of in a binary, bit-by-bit manner. A number of games try to send a few pulses when pressing input like the A button and wait for another GBC to echo that in response, but after the handshake, most of the IR pulses are impossible to understand without disassembling the code.</p>
-<p>One thing to note is that 4 games in particular do share somewhat similar IR protocols, at least in regards to the initial handshake between 2 GBCs. They are Pokemon TCG 1 &amp; 2 and Bombermax Red &amp; Blue, all from the “2-Player Init” category above. Typically, IR capable GBC games will continually wait for an IR signal on both sides, i.e. the “1-Player Init” category. When one player presses certain input, that GBC takes the initiative and sends out a few IR pulses. That is to say, for most IR games, it only takes <em>just one</em> player to start the entire process.</p>
+<p>Again, there is no set or established infrared protocol that games must follow. Many games vary in their approach. For example, the 2nd Generation Pokemon games use the GBC’s hardware timers, while others have hardcoded values that count cycles to check timing. The simplest form is a bare-bones communication protocol, i.e. something like a binary Morse code where a “0” is a long ON-OFF pulse and “1” is a short ON-OFF pulse or vice versa. Properly done, data could have been short, compact, and easily converted into bytes in RAM. Sakura Taisen GB seems to follow this model in its communications with the Pocket Sakura. Not all games do this, however, and appear to be doing who knows that, opting instead for customized and specialized communications unique to each title. To illustrate this idea, it would be possible to use a table of given lengths of IR ON-OFF pulses so that individual bytes could be sent all at once instead of in a binary, bit-by-bit manner. A number of games try to send a few pulses when pressing input like the A button and wait for another GBC to echo that in response, but after the handshake, most of the IR pulses are impossible to understand without disassembling the code.</p>
+<p>One thing to note is that 4 games in particular do share somewhat similar IR protocols, at least regarding the initial handshake between 2 GBCs. They are Pokemon TCG 1 &amp; 2 and Bombermax Red &amp; Blue, all from the “2-Player Init” category above. Typically, IR capable GBC games will continually wait for an IR signal on both sides, i.e. the “1-Player Init” category. When one player presses certain input, that GBC takes the initiative and sends out a few IR pulses. That is to say, for most IR games, it only takes <em>just one</em> player to start the entire process.</p>
 <p>The handshake for the 4 games previously mentioned, however, requires <em>both</em> players to input at almost the same time. One has to be slightly faster or slower than the other. Each side continually sends a few IR pulses, then reads the sensor to see if anything was received. If so, the GBCs begin to sync. The idea is that one side should be sending while the other is checking, and then the handshake completes. This is why one side needs to be faster or slower to input; if they are sending IR signals at the same time, they don’t see anything when reading the sensor. As a result, both GBCs cannot input at exactly the same time. Practically speaking, this is unlikely to happen under normal circumstances, since most humans can’t synchronize their actions down to a handful of microseconds, so the handshake will normally succeed.</p>
 <h2 id="rp-register"><a class="header" href="#rp-register">RP Register</a></h2>
 <p>The following is just theory. This handshake is possibly an artifact of the HuC-1. Consider that the Japanese version of Pokemon TCG 1 used the HuC-1 for its IR communications, and the developers may have borrowed the “best practices” used by other HuC-1/“GB KISS” games. When bringing Pokemon TCG 1 overseas, the IR handling code was likely minimally adapted to use the GBC’s IR port, with the underlying protocol remaining unchanged in most regards. Pokemon TCG 2 ditched the HuC-1 in favor of the GBC IR port, so the IR code from non-Japanese versions of Pokemon TCG 1 was copy+pasted. The Bomberman games were made by Hudson Soft, literally the same people who created the HuC-1 in the first place. They too probably used the same protocol that had worked forever in their “GB KISS” games, so they used the same handshake method as before, just on the GBC IR port now. More research into the HuC-1 itself and the games needs to be done to confirm any of this.</p>
@@ -2635,7 +2640,7 @@ initial value is 0.</p>
 <h2 id="signal-fade"><a class="header" href="#signal-fade">Signal Fade</a></h2>
 <p>The IR sensor in the GBC adapts to the current level of IR light. That is to say, if the GBC receives a sustained IR signal beyond a certain amount of time, eventually the sensor treats this as a new “normal” level of IR light, and Bit 1 of RP goes back to 1. This is called the signal “fade” because it may appear as if the signal disappears.</p>
 <p>Signal fade time is dependent on length and has an inverse relationship with the distance between a GBC and the IR light. The closer a GBC is to the IR source, the longer the fade time. The farther away a GBC is to the IR source, the shorter the fade time. One possible explanation for everything is that the IR signal is weaker on the receiving end, so the signal is prone to get “lost” to surrounding noise. The GBC IR sensor is probably good at sending IR signals (evidenced by the Mission Impossible cheat to turn a GBC into a TV remote) but not so good at picking up signals (evidenced by Chee Chai Aliens plastic add-on to enhance IR reception).</p>
-<p>At about 3.0 to 3.5 inches (7.62 to 8.89cm) signal fade time appears to be around 3ms. Optimal distance seems to be 2.5 to 4.0 inches (6.35 to 10.16cm) to maintain a fade time close to 3ms and avoid potential miscommunication. One oddity of note is that putting two GBCs very close together (physically touching) produced unusually short fade times, far shorter than 3ms. There may be some sort of interference at that range.</p>
+<p>At about 3.0 to 3.5 inches (7.62 to 8.89 cm) signal fade time appears to be around 3ms. Optimal distance seems to be 2.5 to 4.0 inches (6.35 to 10.16 cm) to maintain a fade time close to 3ms and avoid potential miscommunication. One oddity of note is that putting two GBCs very close together (physically touching) produced unusually short fade times, far shorter than 3ms. There may be some sort of interference at that range.</p>
 <h2 id="obscure-behavior"><a class="header" href="#obscure-behavior">Obscure Behavior</a></h2>
 <p>The RP register has one very strange quirk. Disabling Bits 6 and 7 and then subsequently re-enabling them causes Bit 1 to go to zero under certain conditions. In other words, the IR sensor will act as if it is detecting a signal if reading the signal is disabled then enabled. It seems this behavior happens in the presence of any light; covering up the sensor during the read signal disable/enable causes the sensor to act normally. It’s possible that the sensor resets itself (to its lowest level of detection???) and immediately detects any infrared sources, even from ambient/environmental light. The presence of any noise may temporarily trick the sensor into “seeing” IR light. By abusing this behavior, the GBC has some rudimentary ability to gauge the type of nearby lighting:</p>
 <table><thead><tr><th>Result of 1st RP Write (0x00)</th><th>Result of 2nd RP Write (0xC0)</th><th>Type of Lighting</th></tr></thead><tbody>
@@ -4021,16 +4026,16 @@ These MBC chips are located in the game cartridge (that is, not in
 the Game Boy itself).</p>
 <p>In each cartridge, the required (or preferred) MBC type should be
 specified in the byte at $0147 of the ROM, as described
-<a href="#0147---cartridge-type">in the cartridge header</a>.  Several different MBC
+<a href="#0147---cartridge-type">in the cartridge header</a>.  Several MBC
 types are available:</p>
 <h2 id="mbc-timing-issues"><a class="header" href="#mbc-timing-issues">MBC Timing Issues</a></h2>
 <p>Among Nintendo MBCs, only the MBC5 is guaranteed by Nintendo to support
 the tighter timing of CGB Double Speed Mode. There have been rumours
 that older MBCs (like MBC1-3) wouldn’t be fast enough in that mode. If
 so, it might be nevertheless possible to use Double Speed during periods
-which use only code and data which is located in internal RAM. However,
-despite of the above, a self-made MBC1-EPROM card appears to work stable
-and fine even in Double Speed Mode though.</p>
+which use only code and data which is located in internal RAM. Despite the 
+above, a self-made MBC1-EPROM card appears to work stable and fine even in 
+Double Speed Mode.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="no-mbc"><a class="header" href="#no-mbc">No MBC</a></h1>
 <p>(32 KiB ROM only)</p>
 <p>Small games of not more than 32 KiB ROM do not require a MBC chip for
@@ -4041,10 +4046,10 @@ a discrete logic decoder <!--74HC138?--> in place of a full MBC chip.</p>
 <p>(max 2MByte ROM and/or 32 KiB RAM)</p>
 <p>This is the first MBC chip for the Game Boy. Any newer MBC chips
 work similarly, so it is relatively easy to upgrade a program from one
-MBC chip to another - or to make it compatible with several different
+MBC chip to another - or to make it compatible with several
 types of MBCs.</p>
 <p>In its default configuration, MBC1 supports up to 512 KiB ROM with up to 32 KiB of banked RAM.
-Some cartridges wire the MBC differently, where the 2-bit RAM banking register is wired as an extension of the ROM banking register (instead of to RAM) in order to support up to 2 MiB ROM, at the cost of only supporting a fixed 8 kiB of cartridge RAM.
+Some cartridges wire the MBC differently, where the 2-bit RAM banking register is wired as an extension of the ROM banking register (instead of to RAM) in order to support up to 2 MiB ROM, at the cost of only supporting a fixed 8 KiB of cartridge RAM.
 All MBC1 cartridges with 1 MiB of ROM or more use this alternate wiring.
 Also see the note on MBC1M multi-game compilation carts below.</p>
 <p>Note that the memory in range 0000-7FFF is used both for reading from
@@ -4060,7 +4065,7 @@ ROM.</p>
 higher ($01/$21/$41/$61 or $01/$11/$21/$31 respectively).</p>
 <h3 id="a000-bfff---ram-bank-00-03-if-any-readwrite"><a class="header" href="#a000-bfff---ram-bank-00-03-if-any-readwrite">A000-BFFF - RAM Bank 00-03, if any (Read/Write)</a></h3>
 <p>This area is used to address external RAM in the cartridge (if any). The RAM is only accessible if RAM is enabled, otherwise reads return open bus values (often $FF, but not guaranteed) and writes are ignored.</p>
-<p>Available RAM sizes are 8 KiB (at $A000-$BFFF) and 32 KiB (in form of four 8K banks at $A000-$BFFF). 32 kiB is only available in cartridges with ROM &lt;= 512 kiB.</p>
+<p>Available RAM sizes are 8 KiB (at $A000-$BFFF) and 32 KiB (in form of four 8K banks at $A000-$BFFF). 32 KiB is only available in cartridges with ROM &lt;= 512 KiB.</p>
 <p>External RAM is often battery-backed, allowing for the storage of game data while the Game Boy is turned off, or if the cartridge is removed from the Game Boy. External RAM is no slower than the Game Boy’s internal RAM, so many games use part of the external RAM as extra working RAM, even if they use another part of it for battery-backed saves.</p>
 <h2 id="registers-1"><a class="header" href="#registers-1">Registers</a></h2>
 <p>All of the MBC1 registers default to 00h on power-up, which for the “ROM Bank Number” register is <em>treated as</em> 01h.</p>
@@ -4085,7 +4090,7 @@ in the cart, the bank number is masked to the required number of bits.
 e.g. a 256 KiB cart only needs a 4-bit bank number to address all of its
 16 banks, so this register is masked to 4 bits. The upper bit would be
 ignored for bank selection.</p>
-<p>Even with smaller ROMs that use less than 5 bits for bank selection, the full 5-bit register is still compared for the bank 00-&gt;01 translation logic. As a result if the ROM is 256 kiB or smaller, it <em>is</em> possible to map bank 0 to the 4000-7FFF region - by setting the 5th bit to 1 it will prevent the 00-&gt;01 translation (which looks at the full 5-bit register, and sees the value $10, not $00), while the bits actually used for bank selection (4, in this example) are all 0, so bank $00 is selected.</p>
+<p>Even with smaller ROMs that use less than 5 bits for bank selection, the full 5-bit register is still compared for the bank 00-&gt;01 translation logic. As a result if the ROM is 256 KiB or smaller, it <em>is</em> possible to map bank 0 to the 4000-7FFF region - by setting the 5th bit to 1 it will prevent the 00-&gt;01 translation (which looks at the full 5-bit register, and sees the value $10, not $00), while the bits actually used for bank selection (4, in this example) are all 0, so bank $00 is selected.</p>
 <p>On larger carts which need a &gt;5 bit bank number, the secondary banking
 register at 4000-5FFF is used to supply an additional 2 bits for the
 effective bank number:
@@ -4118,8 +4123,8 @@ between the two modes at any time.</p>
 01 = RAM Banking Mode / Advanced ROM Banking Mode
      0000-3FFF and A000-BFFF can be bank-switched via the 4000-5FFF bank register
 </code></pre>
-<p>Technically, the MBC1 has AND gates between the both bank registers and the second highest bit of the address. This is intended to cause accesses to the 0000-3FFF region (which has that addess bit set to 0) to treat both registers as always 0, so that only bank 0 is accessible through this address.</p>
-<p>However, when the second bank register is connected to RAM, this has the side effect of also locking RAM to bank 0, as the RAM address space (A000-BFFF) <em>also</em> has the second highest address bit set to 0.</p>
+<p>Technically, the MBC1 has AND gates between the both bank registers and the second-highest bit of the address. This is intended to cause accesses to the 0000-3FFF region (which has that address bit set to 0) to treat both registers as always 0, so that only bank 0 is accessible through this address.</p>
+<p>However, when the second bank register is connected to RAM, this has the side effect of also locking RAM to bank 0, as the RAM address space (A000-BFFF) <em>also</em> has the second-highest address bit set to 0.</p>
 <p>Setting the mode to 1 disables these AND gates, allowing the two-bit register to switch the selected bank in both these regions.</p>
 <h2 id="addressing-diagrams"><a class="header" href="#addressing-diagrams">Addressing diagrams</a></h2>
 <p>The following diagrams show how the address within the ROM/RAM chips are calculated from the accessed address and banking registers</p>
@@ -4170,7 +4175,7 @@ the usual bits 5-6). This means that in mode 1 the 2-bit register selects
 banks $00, $10, $20, or $30, rather than the usual $00, $20, $40 or $60.</p>
 <p>These carts make use of the fact that mode 1 remaps the 0000-3FFF area
 to switch games. The 2-bit register is used to select the game - switching
-the zero bank and the region of banks that the 4000-7FFF rom area can
+the zero bank and the region of banks that the 4000-7FFF ROM area can
 access to those for the selected game and then the game only changes the
 main ROM banking register. As far as the selected game knows, it’s running
 from a 256 KiB cart!</p>
@@ -4180,7 +4185,7 @@ having duplicate content in banks $10-$1F (dupe of $00-$0F) and banks $30-$3F
 (dupe of $20-$2F).
 There is a known bad dump of the Mortal Kombat I &amp; II collection around.</p>
 <p>An “MBC1M” compilation cart ROM can be converted into a regular MBC1 ROM
-by increasing the ROM size to 2 MiB and duplicating each sub-rom - $00-$0F
+by increasing the ROM size to 2 MiB and duplicating each sub-ROM - $00-$0F
 duplicated into $10-$1F, the original $10-$1F placed in $20-$2F and
 duplicated into $30-$3F and so on.</p>
 <h2 id="mbc1m-addressing-diagrams"><a class="header" href="#mbc1m-addressing-diagrams">MBC1M addressing diagrams:</a></h2>
@@ -4299,13 +4304,13 @@ clock keeps ticking.</p>
 <p>The Halt Flag is supposed to be set before <strong>writing</strong> to the RTC
 Registers.</p>
 <h3 id="the-day-counter"><a class="header" href="#the-day-counter">The Day Counter</a></h3>
-<p>The total 9 bits of the Day Counter allow to count days in range from
+<p>The total 9 bits of the Day Counter allow counting days in range from
 0-511 (0-1FFh). The Day Counter Carry Bit becomes set when this value
 overflows. In that case the Carry Bit remains set until the program does
 reset it. Note that you can store an offset to the Day Counter in
 battery RAM. For example, every time you read a non-zero Day Counter,
 add this Counter to the offset in RAM, and reset the Counter to zero.
-This method allows to count any number of days, making your program
+This method allows counting any number of days, making your program
 Year-10000-Proof, provided that the cartridge gets used at least every
 511 days.</p>
 <h3 id="delays"><a class="header" href="#delays">Delays</a></h3>
@@ -4355,7 +4360,7 @@ separately switchable ROM banks ($4000 and $6000) and RAM banks
 ($A000 and $B000), SRAM and an 8 Mbit Macronix MX29F008TC-14 flash
 memory chip. It is only used in one game, Net de Get: Minigame @ 100,
 which uses the Mobile Adapter to connect to
-the web to download minigames onto the local flash. Both ROM banks and
+the web to download mini-games onto the local flash. Both ROM banks and
 both RAM banks are views into the same ROM and RAM, but with separately
 adjustable offsets. Since the banked regions are smaller the effective
 number of banks is twice what it usually would be; 8 kB ROM banks
@@ -4365,15 +4370,15 @@ instead of 16 kB and 4 kB RAM banks instead of 8 kB.</p>
 <p>Contains the first 16 KiB of the ROM.</p>
 <h3 id="4000-5fff---romflash-bank-a-00-7f-readwrite-for-flash-read-only-for-rom"><a class="header" href="#4000-5fff---romflash-bank-a-00-7f-readwrite-for-flash-read-only-for-rom">4000-5FFF - ROM/Flash Bank A 00-7F (Read/Write for flash, Read Only for ROM)</a></h3>
 <p>Read-only access to ROM and flash banks 00-7F, switchable independently
-from ROM/Flash Bank B.</p>
+of ROM/Flash Bank B.</p>
 <h3 id="6000-7fff---romflash-bank-b-00-7f-readwrite-for-flash-read-only-for-rom"><a class="header" href="#6000-7fff---romflash-bank-b-00-7f-readwrite-for-flash-read-only-for-rom">6000-7FFF - ROM/Flash Bank B 00-7F (Read/Write for flash, Read Only for ROM)</a></h3>
 <p>Read-only access to ROM and flash banks 00-7F, switchable independently
-from ROM/Flash Bank A.</p>
+of ROM/Flash Bank A.</p>
 <h3 id="a000-afff---ram-bank-a-00-07-readwrite"><a class="header" href="#a000-afff---ram-bank-a-00-07-readwrite">A000-AFFF - RAM Bank A 00-07 (Read/Write)</a></h3>
-<p>Read/write access to RAM banks 00-07, switchable independently from RAM
+<p>Read/write access to RAM banks 00-07, switchable independently of RAM
 Bank B.</p>
 <h3 id="b000-bfff---ram-bank-b-00-07-readwrite"><a class="header" href="#b000-bfff---ram-bank-b-00-07-readwrite">B000-BFFF - RAM Bank B 00-07 (Read/Write)</a></h3>
-<p>Read/write access to RAM banks 00-07, switchable independently from RAM
+<p>Read/write access to RAM banks 00-07, switchable independently of RAM
 Bank A.</p>
 <h2 id="registers-5"><a class="header" href="#registers-5">Registers</a></h2>
 <h3 id="0000-03ff---ram-enable-write-only"><a class="header" href="#0000-03ff---ram-enable-write-only">0000-03FF - RAM Enable (Write Only)</a></h3>
@@ -4390,7 +4395,7 @@ change this.</p>
 <h3 id="1000---flash-write-enable-write-only"><a class="header" href="#1000---flash-write-enable-write-only">1000 - Flash Write Enable (Write Only)</a></h3>
 <p>Enable or disable write mode for the flash chip. Only the lowest bit (0
 for disable, 1 for enable) is used. Note that this maps to the /WE pin
-on the flash chip, not whether or not writing to the bus is enabled;
+on the flash chip, not whether writing to the bus is enabled;
 some flash commands (e.g. JEDEC ID query) still work with this off so
 long as Flash Enable is on.</p>
 <h3 id="2000-27ff---romflash-bank-a-number-write-only"><a class="header" href="#2000-27ff---romflash-bank-a-number-write-only">2000-27FF - ROM/Flash Bank A Number (Write Only)</a></h3>
@@ -4738,7 +4743,7 @@ data, otherwise the print command will be ignored.</p>
 <p>No data required, this is a “nop” command used only to read the Status
 byte.</p>
 <h4 id="status-byte"><a class="header" href="#status-byte">Status byte</a></h4>
-<p>A nonzero value for the higher nibble indicates something went wrong.</p>
+<p>A non-zero value for the higher nibble indicates something went wrong.</p>
 <table><thead><tr><th>Bit #</th><th>Name</th><th>Description</th></tr></thead><tbody>
 <tr><td>7</td><td>Low Battery</td><td>Set when the voltage is below threshold</td></tr>
 <tr><td>6</td><td>Other error</td><td></td></tr>
@@ -4797,7 +4802,7 @@ to be copied here)</p>
 <tr><td>U2</td><td>GBD-PCAX-0 F M538011-E - 08 8145507</td><td>1MB ROM</td></tr>
 <tr><td>U3</td><td>52CV1000SF85LL SHARP JAPAN 9805 5 0A</td><td>128KB RAM</td></tr>
 </tbody></table>
-<p>The U1 is the only one connected to the GB cartridge pins (besides some of the address pins of the ROM IC). The U2 and U3 (ROM and RAM) are connected to U1. The M64282FP “retina” chip is in a separate PCB, and is connected to the U1.
+<p>The U1 is the only one connected to the GB cartridge pins (besides some address pins of the ROM IC). The U2 and U3 (ROM and RAM) are connected to U1. The M64282FP “retina” chip is in a separate PCB, and is connected to the U1.
 The M64282FP handles most of the configuration of the capturing process. The U1 transforms the commands from the Game Boy CPU into the correct signals needed for the M64282FP. The detailed timings are described below.
 It is a good idea to have the datasheet of the M64282FP, but it is very poorly explained, so this document will try to explain everything about it (except from limits like voltage or signal timings). There are datasheets of similar sensors (M64283FP and M64285FP) that can be very useful to understand some things about the sensor of the GB Camera.</p>
 <h2 id="game-boy-camera-mbc"><a class="header" href="#game-boy-camera-mbc">Game Boy Camera MBC</a></h2>
@@ -4816,7 +4821,7 @@ It is a good idea to have the datasheet of the M64282FP, but it is very poorly e
 <h3 id="4000-5fff---ram-bank-numbercam-registers-select-write-only"><a class="header" href="#4000-5fff---ram-bank-numbercam-registers-select-write-only">4000-5FFF - RAM Bank Number/CAM Registers Select (Write Only)</a></h3>
 <p>Writing a value in range for 00h-0Fh maps the corresponding external RAM Bank to memory at A000-BFFF. Writing any value with bit 4 set to ‘1’ will select CAM registers. Usually bank 10h is used to select the registers. All registers are mirrored every 80h bytes. RAM bank 0 selected on reset.</p>
 <div class="box tip">
-<p class="box-title">NOTE</p><p>Unlike most games, the GB Camera RAM can only be written when PHI pin = ‘1’. It’s an enable signal for the RAM chip. Most cartridge readers and writers can’t handle PHI pin so they can’t restore a saved backup. It isn’t needed to change ROM banks.</p>
+<p class="box-title">NOTE</p><p>Unlike most games, the GB Camera RAM can only be written when PHI pin = ‘1’. It’s an enable signal for the RAM chip. Most cartridge readers and writers can’t handle PHI pin, so they can’t restore a saved backup. It isn’t needed to change ROM banks.</p>
 </div>
 <h2 id="io-registers"><a class="header" href="#io-registers">I/O Registers</a></h2>
 <p>The Game Boy Camera I/O registers are mapped to all banks with bit 4 set to ‘1’. The GB Camera ROM usually changes to bank 16 (10h) to use the registers.</p>
@@ -4835,11 +4840,11 @@ The capturing process can be stopped by writing a ‘0’ to bit 0. When a ‘1�
 <h3 id="register-a001"><a class="header" href="#register-a001">Register A001</a></h3>
 <p>This register is mapped to register 1 of M64282FP. It controls the output gain and the edge operation mode.</p>
 <h3 id="register-a002-a003"><a class="header" href="#register-a002-a003">Register A002, A003</a></h3>
-<p>This registers are mapped to registers 2 and 3 of M64282FP. They control the exposure time. Register 2 is the MSB, register 3 is the LSB.</p>
+<p>These registers are mapped to registers 2 and 3 of M64282FP. They control the exposure time. Register 2 is the MSB, register 3 is the LSB.</p>
 <pre><code>u16 exposure_steps = [A003] | ([A002]&lt;&lt;8);
 </code></pre>
 <h3 id="register-a004"><a class="header" href="#register-a004">Register A004</a></h3>
-<p>This register is mapped to register 7 of M64282FP. It sets the output voltage reference, the edge enhancement ratio and it can invert the image.</p>
+<p>This register is mapped to register 7 of M64282FP. It sets the output voltage reference, the edge enhancement ratio, and it can invert the image.</p>
 <h3 id="register-a005"><a class="header" href="#register-a005">Register A005</a></h3>
 <p>This register is mapped to register 0 of M64282FP. It sets the output reference voltage and enables the zero point calibration.</p>
 <h3 id="register-a006-a035"><a class="header" href="#register-a006-a035">Register A006-A035</a></h3>
@@ -4908,7 +4913,7 @@ The capturing process can be stopped by writing a ‘0’ to bit 0. When a ‘1�
   <figcaption>Edge extraction.</figcaption>
 </figure> 
 <h2 id="sample-code-for-emulators"><a class="header" href="#sample-code-for-emulators">Sample code for emulators</a></h2>
-<p>The following code is used to convert a greyscale image to the Game Boy Camera format. GB_CameraTakePicture() should be called when bit 0 of A000 register is st to ‘1’. The emulator should wait CAM_CLOCKS_LEFT until the bit 0 is cleared. The gain and level control are not needed to emulate the Game Boy Camera because webcams do that automatically. In fact, trying to emulate that will probably break the image. The code is not very clean because it has been extracted from <a href="https://github.com/AntonioND/giibiiadvance">GiiBiiAdvance</a>, but it seems to handle all used configurations of edge handling.</p>
+<p>The following code is used to convert a greyscale image to the Game Boy Camera format. <code>GB_CameraTakePicture()</code> should be called when bit 0 of A000 register is st to ‘1’. The emulator should wait CAM_CLOCKS_LEFT until the bit 0 is cleared. The gain and level control are not needed to emulate the Game Boy Camera because webcams do that automatically. In fact, trying to emulate that will probably break the image. The code is not very clean because it has been extracted from <a href="https://github.com/AntonioND/giibiiadvance">GiiBiiAdvance</a>, but it seems to handle all used configurations of edge handling.</p>
 <p>Note that the actual Game Boy Camera sensor is affected by infrared so the emulation can’t be perfect anyway. A good way of converting a RGB image into grayscale is to do:</p>
 <pre><code class="language-c">
 //--------------------------------------------------------------------
@@ -5197,7 +5202,7 @@ run 1/4 as fast as the clock used for normal serial transfers on the DMG
 </tbody></table>
 <p>3 “STAT” bytes are sent indicating the current connection status of the other
 Game Boys. Each byte is usually the same, however, sometimes the status can
-change mid-way through a ping, typically on STAT2 or STAT3. Each STAT byte
+change midway through a ping, typically on STAT2 or STAT3. Each STAT byte
 looks like such:</p>
 <table><thead><tr><th>Bit</th><th>Name</th></tr></thead><tbody>
 <tr><td>7</td><td>Player 4 Connected</td></tr>
@@ -5228,7 +5233,7 @@ acknowledgement codes are not sent, the above bits are unset.</p>
 </tbody></table>
 <p>It’s possible to have situations where some players are connected but others
 are not; the gaps don’t matter. For example, Player 1 and Player 4 can be
-connected, while Player 2 and Player 3 can be disconnected (or non-existant,
+connected, while Player 2 and Player 3 can be disconnected (or non-existent,
 same thing); most games do not care so long as Player 1 is active, as that
 Game Boy acts as master and orchestrates the multiplayer session from a
 software point of view. Because of the way the DMG-07 hardcodes player IDs
@@ -5249,7 +5254,7 @@ STAT2	&lt;--&gt;	(RATE) = Link Cable Speed
 STAT3	&lt;--&gt;	(SIZE) = Packet Size
 </code></pre>
 <p>The new clock rate is only applied when entering the transmission phase; the
-ping phase runs at a constant 2048 bits-per-second. The formula for the ne
+ping phase runs at a constant 2048 bits-per-second. The formula for the new
 clock rate is as follows:</p>
 <pre><code>DMG-07 Bits-Per-Second --&gt; 4194304 / ((6 * RATE) + 512)
 </code></pre>
@@ -5807,7 +5812,7 @@ period, so disabling the display would be recommended only during
 initialization.</p>
 </div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="oam-corruption-bug"><a class="header" href="#oam-corruption-bug">OAM Corruption Bug</a></h1>
-<p>There is a flaw in the Game Boy hardware that causes trash to be written
+<p>There is a flaw in the Game Boy hardware that causes rubbish data to be written
 to OAM RAM if the following instructions are used while their 16-bit content
 (before the operation) is in the range $FE00–$FEFF and the PPU is in mode 2:</p>
 <pre><code class="language-rgbasm"> inc rr         dec rr       ; rr = bc, de, or hl
@@ -5861,7 +5866,7 @@ actual read/write address used, or the written value have no effect.
 Additionally, keep in mind that OAM uses a 16-bit data bus, so all
 operations are on 16-bit words.</p>
 <h3 id="write-corruption"><a class="header" href="#write-corruption">Write Corruption</a></h3>
-<p>A write corruption corrupts the currently access row in the following
+<p>A “write corruption” corrupts the currently access row in the following
 manner, as long as it’s not the first row (containing the first two
 sprites):</p>
 <ul>
@@ -5873,7 +5878,7 @@ third word in the preceding row.</li>
 preceding row.</li>
 </ul>
 <h3 id="read-corruption"><a class="header" href="#read-corruption">Read Corruption</a></h3>
-<p>A read corruption works similarly to a write corruption, except the
+<p>A “read corruption” works similarly to a write corruption, except the
 bitwise expression is <code>b | (a &amp; c)</code>.</p>
 <h3 id="write-during-increasedecrease"><a class="header" href="#write-during-increasedecrease">Write During Increase/Decrease</a></h3>
 <p>If a register is increased or decreased in the same M-cycle of a write,
@@ -5899,7 +5904,7 @@ corruption of the first word in it) both to the currently
 accessed row and to two rows before the currently accessed row</li>
 </ul>
 </li>
-<li>Regardless of wether the previous corruption occurred or not, a
+<li>Regardless of whether the previous corruption occurred or not, a
 normal read corruption is then applied.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="external-connectors"><a class="header" href="#external-connectors">External Connectors</a></h1>
@@ -5943,10 +5948,10 @@ with one large and one small plug though.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="gbc-approval-process"><a class="header" href="#gbc-approval-process">GBC Approval Process</a></h1>
 <p>Game Boy Color hardware applies automatic colorization to monochrome
 games, with one 4-color palette for backgrounds and two 3-color
-palettes for sprites.  Because of past underuse of Super Game Boy
+palettes for sprites.  Because of past under utilization of Super Game Boy
 features even in first-party games (as explained in an article by
 Christine Love), Nintendo required Game Boy Color games to appear
-more colorful than this automatic colorization.  Thus Nintendo
+more colorful than this automatic colorization. Thus, Nintendo
 required publishers to keep Nintendo in the loop at three points in
 development.  The Mario Club division evaluated games on whether
 color was being used appropriately.  Some things Mario Club looked at

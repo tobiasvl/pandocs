@@ -168,12 +168,12 @@ a changed bit is noted in the chapter about the Serial/Link port.</p>
 <h2 id="unlocking-cgb-functions"><a class="header" href="#unlocking-cgb-functions">Unlocking CGB functions</a></h2>
 <p>When using any CGB registers (including those in the Video/Link
 chapters), you must first unlock CGB features by changing byte 0143h in
-the cartridge header. Typically use a value of 80h for games which
+the cartridge header. Typically, use a value of 80h for games which
 support both CGB and monochrome Game Boy systems, and C0h for games which work
 on CGBs only. Otherwise, the CGB will operate in monochrome “Non CGB”
 compatibility mode.</p>
 <h2 id="detecting-cgb-and-gba-functions"><a class="header" href="#detecting-cgb-and-gba-functions">Detecting CGB (and GBA) functions</a></h2>
-<p>CGB hardware can be detected by examing the CPU accumulator (A-register)
+<p>CGB hardware can be detected by examining the CPU accumulator (A-register)
 directly after startup. A value of 11h indicates CGB (or GBA) hardware,
 if so, CGB functions can be used (if unlocked, see above). When A=11h,
 you may also examine Bit 0 of the CPUs B-Register to separate between
@@ -253,7 +253,7 @@ Speed Mode).</p>
 <p>The CGB has twice the VRAM of the DMG, but it is banked and either bank
 has a different purpose.</p>
 <h4 id="ff4f---vbk---cgb-mode-only---vram-bank-rw"><a class="header" href="#ff4f---vbk---cgb-mode-only---vram-bank-rw">FF4F - VBK - CGB Mode Only - VRAM Bank (R/W)</a></h4>
-<p>This register can be written to to change VRAM banks. Only bit 0
+<p>This register can be written to change VRAM banks. Only bit 0
 matters, all other bits are ignored.</p>
 <h4 id="vram-bank-1"><a class="header" href="#vram-bank-1">VRAM bank 1</a></h4>
 <p>VRAM bank 1 is split like VRAM bank 0 ; 8000-97FF also stores tiles
@@ -271,7 +271,7 @@ Double Speed Mode and Normal Speed Mode. The actual speed switch is
 performed by executing a <code>stop</code> instruction after Bit 0 has been set. After
 that, Bit 0 will be cleared automatically, and the Game Boy will operate
 at the “other” speed. The recommended speed switching procedure in
-pseudo code would be:</p>
+pseudocode would be:</p>
 <pre><code>IF KEY1_BIT7 != DESIRED_SPEED THEN
    IE = $00       ; (FFFF) = $00
    JOYP = $30     ; (FF00) = $30
@@ -300,7 +300,7 @@ executed. During this time, the CPU is in a strange state. <code>DIV</code> does
 <em>some</em> audio events are not processed. Additionally, VRAM/OAM/… locking is “frozen”, yielding
 different results depending on the <a href="STAT.html#ff41---stat-lcd-status-rw">STAT mode</a> it’s started in:</p>
 <ul>
-<li>HBlank / VBlank (Mode 0 / Mode 1): The PPU cannot access any videomemory, and produces black pixels</li>
+<li>HBlank / VBlank (Mode 0 / Mode 1): The PPU cannot access any video memory, and produces black pixels</li>
 <li>OAM scan (Mode 2): The PPU can access VRAM just fine, but not OAM, leading to rendering background, but not sprites</li>
 <li>Rendering (Mode 3): The PPU can access everything correctly, and so rendering is not affected</li>
 </ul>
