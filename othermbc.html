@@ -168,7 +168,7 @@ four games is switched in. In theory, a MBC1M board could be made for 1
 Mbit or 512 kbit games by additionally not connecting A17 and A16
 outputs, but this appears not to have been done in licensed games.</p>
 <p><strong>Bung</strong> and <strong>EMS</strong> MBCs are reported to exist.</p>
-<h3 id="ems"><a class="header" href="#ems">EMS</a></h3>
+<h2 id="ems"><a class="header" href="#ems">EMS</a></h2>
 <div class="box warning">
 <p class="box-title">To be verified</p><p>Take the following with a grain of salt, as it hasn’t been verified on authentic EMS hardware.</p>
 </div>
@@ -231,7 +231,7 @@ address is used. For example, to select bank $XX, you would write any
 value to address $YYXX, where $YY is in the range $00-$7F.</p>
 <h2 id="magic-values-for-detection-of-multicarts-in-emulators"><a class="header" href="#magic-values-for-detection-of-multicarts-in-emulators">Magic values for detection of multicarts in emulators</a></h2>
 <div class="box tip">
-<p class="box-title">o proposal</p><p>The following information should not be considered a universally adopted
+<p class="box-title">proposal</p><p>The following information should not be considered a universally adopted
 standard, but it’s instead just a proposed solution. Actual adoption may vary.</p>
 </div>
 <p>Sometimes it may be useful to allow a ROM to be detected as a multicart
@@ -240,7 +240,7 @@ multicart hardware. </p>
 <p>Emulator authors who are interested in supporting the other multicart
 mappers are also encouraged to support detection of the following values.</p>
 <ul>
-<li>Wisdom Tree mapper
+<li>Detect as Wisdom Tree mapper
 <ul>
 <li><a href="The_Cartridge_Header.html#0134-0143---title">ROM title</a> is “WISDOM TREE” (the space may be a
 $00 NUL character instead), $0147 = $00, $0148 = $00, size &gt; 32k.

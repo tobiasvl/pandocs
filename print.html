@@ -175,7 +175,7 @@ Emulator developers may be also interested in the <a href="https://gekkio.fi/fil
 <p>You can search anywhere by pressing <kbd>s</kbd> on your keyboard or clicking the <i class="fa fa-search"></i> icon.</p>
 <p>The <i class="fa fa-edit"></i> icon allows you to suggest an edit on the current page by directly opening the source file in the git repository.</p>
 <p><a href="single.html">One-page</a> and <a href="print.html">printable</a> versions of this document are also available.</p>
-<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/e6892704f556dcf7c3c94ccb57c571c3afaeea51"><code>e689270</code></a> (2022-06-03 23:28:54 +0200). </small></p>
+<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/0bf3916015cbc782f2a16efd174775fd6f560c9f"><code>0bf3916</code></a> (2022-06-03 23:40:46 +0200). </small></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="acknowledgements"><a class="header" href="#acknowledgements">Acknowledgements</a></h1>
 <p>This resource wouldn’t be possible without all the passionate hackers and researchers who contributed on this document in the last three decades.</p>
 <p>We would like to thank:</p>
@@ -4880,7 +4880,7 @@ four games is switched in. In theory, a MBC1M board could be made for 1
 Mbit or 512 kbit games by additionally not connecting A17 and A16
 outputs, but this appears not to have been done in licensed games.</p>
 <p><strong>Bung</strong> and <strong>EMS</strong> MBCs are reported to exist.</p>
-<h3 id="ems"><a class="header" href="#ems">EMS</a></h3>
+<h2 id="ems"><a class="header" href="#ems">EMS</a></h2>
 <div class="box warning">
 <p class="box-title">To be verified</p><p>Take the following with a grain of salt, as it hasn’t been verified on authentic EMS hardware.</p>
 </div>
@@ -4943,7 +4943,7 @@ address is used. For example, to select bank $XX, you would write any
 value to address $YYXX, where $YY is in the range $00-$7F.</p>
 <h2 id="magic-values-for-detection-of-multicarts-in-emulators"><a class="header" href="#magic-values-for-detection-of-multicarts-in-emulators">Magic values for detection of multicarts in emulators</a></h2>
 <div class="box tip">
-<p class="box-title">o proposal</p><p>The following information should not be considered a universally adopted
+<p class="box-title">proposal</p><p>The following information should not be considered a universally adopted
 standard, but it’s instead just a proposed solution. Actual adoption may vary.</p>
 </div>
 <p>Sometimes it may be useful to allow a ROM to be detected as a multicart
@@ -4952,7 +4952,7 @@ multicart hardware. </p>
 <p>Emulator authors who are interested in supporting the other multicart
 mappers are also encouraged to support detection of the following values.</p>
 <ul>
-<li>Wisdom Tree mapper
+<li>Detect as Wisdom Tree mapper
 <ul>
 <li><a href="The_Cartridge_Header.html#0134-0143---title">ROM title</a> is “WISDOM TREE” (the space may be a
 $00 NUL character instead), $0147 = $00, $0148 = $00, size &gt; 32k.
