@@ -361,7 +361,7 @@ this formula, fetcherX can be between 0 and 31.</p>
 <p>If the current tile is a window tile, the Y coordinate for the window
 tile is used, otherwise the following formula is used to calculate
 the Y coordinate: (currentScanline + SCY) &amp; 255. Because of this formula,
-fetcherY can be between 0 and 159.</p>
+fetcherY can be between 0 and 255.</p>
 <p>The fetcher’s X and Y coordinate can then be used to get the tile from
 VRAM. However, if the PPU’s access to VRAM is <a href="pixel_fifo.html#vram-access">blocked</a>
 then the value for the tile is read as $FF.</p>
