@@ -182,8 +182,8 @@
 <li>Interrupts: 0040, 0048, 0050, 0058, 0060</li>
 </ul>
 <p>However, this memory area (0000-00FF) may be used for any other purpose in case that your
-program doesn’t use any (or only some) RST instructions or interrupts. RST
-is a 1-byte instruction that works similarly to the 3-byte CALL instruction, except
+program doesn’t use any (or only some) <a href="https://rgbds.gbdev.io/docs/v0.5.2/gbz80.7/#RST_vec"><code>rst</code></a> instructions or interrupts. <code>rst</code>
+is a 1-byte instruction that works similarly to the 3-byte <code>call</code> instruction, except
 that the destination address is restricted. Since it is 1-byte sized,
 it is also slightly faster.</p>
 <h2 id="cartridge-header-in-first-rom-bank"><a class="header" href="#cartridge-header-in-first-rom-bank">Cartridge Header in first ROM bank</a></h2>
