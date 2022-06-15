@@ -175,7 +175,7 @@ Emulator developers may be also interested in the <a href="https://gekkio.fi/fil
 <p>You can search anywhere by pressing <kbd>s</kbd> on your keyboard or clicking the <i class="fa fa-search"></i> icon.</p>
 <p>The <i class="fa fa-edit"></i> icon allows you to suggest an edit on the current page by directly opening the source file in the git repository.</p>
 <p><a href="single.html">One-page</a> and <a href="print.html">printable</a> versions of this document are also available.</p>
-<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/f9d9b687a738142a543d49c09359a5dd56a5788e"><code>f9d9b68</code></a> (2022-06-14 00:59:00 +0200). </small></p>
+<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/70ec4d992c74dc8073a4e8d5471544b3b63013a1"><code>70ec4d9</code></a> (2022-06-15 10:41:04 +0200). </small></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="acknowledgements"><a class="header" href="#acknowledgements">Acknowledgements</a></h1>
 <p>This resource wouldn’t be possible without all the passionate hackers and researchers who contributed on this document in the last three decades.</p>
 <p>We would like to thank:</p>
@@ -2037,11 +2037,10 @@ of the SC register, and on whether the CGB Double Speed Mode is used:</p>
 be supplied by another computer (for example if connected to a PC’s
 parallel port), in that case the external clock may have any speed. Even
 the old/monochrome Game Boy is reported to recognize external clocks of
-up to 500 kHz. And there is no limitation into the other direction - even
-when suppling an external clock speed of “1 bit per month”, then the
-Game Boy will still eagerly wait for the next bit(s) to be transferred.
-It isn’t required that the clock pulses are sent at an regular interval
-either.</p>
+up to 500 kHz. And there is no limitation in the other direction: even
+when suppling an external clock speed of “1 bit per month,” the Game Boy
+will eagerly wait for the next bit to be transferred. It isn’t required
+that the clock pulses are sent at a regular interval either.</p>
 <h2 id="timeouts"><a class="header" href="#timeouts">Timeouts</a></h2>
 <p>When using external clock then the transfer will not complete until the
 last bit is received. In case that the second Game Boy isn’t supplying a
