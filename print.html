@@ -175,7 +175,7 @@ Emulator developers may be also interested in the <a href="https://gekkio.fi/fil
 <p>You can search anywhere by pressing <kbd>s</kbd> on your keyboard or clicking the <i class="fa fa-search"></i> icon.</p>
 <p>The <i class="fa fa-edit"></i> icon allows you to suggest an edit on the current page by directly opening the source file in the git repository.</p>
 <p><a href="single.html">One-page</a> and <a href="print.html">printable</a> versions of this document are also available.</p>
-<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/aa9377544ee85e06fba0183ff3c49e90859704fe"><code>aa93775</code></a> (2022-07-08 21:23:26 +0200). </small></p>
+<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/5e96d499987b6a3f3ca8d6b3cdab8723af27d8af"><code>5e96d49</code></a> (2022-07-19 06:29:00 +0200). </small></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="acknowledgements"><a class="header" href="#acknowledgements">Acknowledgements</a></h1>
 <p>This resource wouldn’t be possible without all the passionate hackers and researchers who contributed on this document in the last three decades.</p>
 <p>We would like to thank:</p>
@@ -5686,7 +5686,7 @@ used to patch program code in ROM. 10-25 codes can be used simultaneously.</p>
 A program called the <em>boot ROM</em>, burned inside the CPU, is mapped “over” the cartridge ROM at first.
 This program is responsible for the boot-up animation played before control is handed over to the cartridge’s ROM.
 Since the boot ROM hands off control to the game ROM at address $0100, and developers typically need not care about the boot ROM, the “start address” is usually documented as $0100 and not $0000.</p>
-<p>8 different known official boot ROMs are known to exist:</p>
+<p>9 different known official boot ROMs are known to exist:</p>
 <table><thead><tr><th>Name</th><th>Size (bytes)</th><th>Notes</th></tr></thead><tbody>
 <tr><td>DMG0</td><td>256</td><td>Blinks on failed checks, no ®</td></tr>
 <tr><td>DMG</td><td>256</td><td></td></tr>
@@ -5695,6 +5695,7 @@ Since the boot ROM hands off control to the game ROM at address $0100, and devel
 <tr><td>SGB2</td><td>256</td><td>Same difference to SGB than between MGB and DMG</td></tr>
 <tr><td>CGB0</td><td>256 + 1792</td><td>Does not init <a href="Sound_Controller.html#ff30-ff3f---wave-pattern-ram">wave RAM</a></td></tr>
 <tr><td>CGB</td><td>256 + 1792</td><td>Split in two parts, with the cartridge header in the middle</td></tr>
+<tr><td>AGB0</td><td>256 + 1792</td><td>Increments B register for GBA identification</td></tr>
 <tr><td>AGB</td><td>256 + 1792</td><td>Fixes <a href="Power_Up_Sequence.html#bypass">“logo TOCTTOU”</a></td></tr>
 </tbody></table>
 <p><a href="https://github.com/ISSOtm/gb-bootroms">A disassembly of all of them is available online.</a></p>
@@ -5724,7 +5725,7 @@ If either verification fails, the BIOS itself locks up, repeatedly resetting the
 <p>As the DMG and MGB boot ROMs, the SGB and SGB2 boot ROMs write $01 and $FF respectively to $FF50, and this is also the only difference between these two boot ROMs.</p>
 <p>The way the packet-sending routine works makes transferring a set bit <em>one cycle</em> faster than transferring a reset bit; this means that the time taken by the SGB boot ROMs <em>depends on the cartridge’s header</em>.
 The relationship between the header and the time taken is made more complex by the fact that the boot ROM waits for 4 VBlanks after transferring each packet, mostly but not entirely grouping the timings.</p>
-<h2 id="color-models-cgb0-cgb-agb"><a class="header" href="#color-models-cgb0-cgb-agb">Color models (CGB0, CGB, AGB)</a></h2>
+<h2 id="color-models-cgb0-cgb-agb0-agb"><a class="header" href="#color-models-cgb0-cgb-agb0-agb">Color models (CGB0, CGB, AGB0, AGB)</a></h2>
 <p>The color boot ROMs are much more complicated, notably because of the compatibility behavior.</p>
 <h3 id="size"><a class="header" href="#size">Size</a></h3>
 <p>The boot ROM is larger, as indicated in the table at the top: 2048 bytes total.
@@ -5820,12 +5821,12 @@ Nintendo’s strategy was to threaten pirate developers with suing for trademark
 <p><img src="imgs/not_licensed.png" alt="Mockup screenshot of an endorsement disambiguation screen" /></p>
 <h3 id="bypass"><a class="header" href="#bypass">Bypass</a></h3>
 <p>The Nintendo logo check has been <a href="http://fuji.drillspirits.net/?post=87">circumvented many times</a>, be it to avoid legal action from Nintendo or for the swag, and there are basically two ways of doing so.</p>
-<p>One is to exploit a <a href="https://en.wikipedia.org/wiki/TOCTTOU">TOCTTOU</a> vulnerability in the way the console reads the logo (doing so once to draw it, and the other time to check it), which has however been patched on the AGB.
+<p>One is to exploit a <a href="https://en.wikipedia.org/wiki/TOCTTOU">TOCTTOU</a> vulnerability in the way the console reads the logo (doing so once to draw it, and the other time to check it), which has however been patched on later revisons of the AGB.
 This requires custom hardware in the cartridge, however, and is made difficult by the timing and order of the reads varying greatly between boot ROMs.
 Some implementations use a custom mapper, others use a capacitor holding some of the address lines to redirect reads to a separate region of ROM containing the modified logo.</p>
 <p>The other way is Game Boy Color (and Advance) exclusive: for some reason, the boot ROM copies the full logo into HRAM, but only compares the first half.
 Thus, a logo whose top half is correct but not the bottom half will get a pass from the CGB boot ROM.
-Strangely, despite correcting the TOCTTOU vulnerability, the CGB-AGB boot ROM does <em>not</em> fix this mistake.</p>
+Strangely, despite correcting the TOCTTOU vulnerability in its later revision, the CGB-AGB boot ROM does <em>not</em> fix this mistake.</p>
 <h2 id="console-state-after-boot-rom-hand-off"><a class="header" href="#console-state-after-boot-rom-hand-off">Console state after boot ROM hand-off</a></h2>
 <p>Regardless of the console you intend for your game to run on, it is prudent to rely on as little of the following as possible, barring what is mentioned elsewhere in this documentation to detect which system you are running on.
 This ensures maximum compatibility, both across consoles and cartridges (especially flashcarts, which typically run their own menu code before your game), increases reliability, and is generally considered good practice.</p>
