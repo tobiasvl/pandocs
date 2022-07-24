@@ -185,7 +185,7 @@ Like other mappers, the high bits are discarded.</p>
 <p>Only 1 bankswitch is allowed per session, once any write to this register occurs (even if set to 0), all future writes will be ignored until the mapper is powered down.</p>
 <h2 id="operation-notes"><a class="header" href="#operation-notes">Operation Notes</a></h2>
 <p>Because the full 32 KiB range is switched over, caution should be taken, as the entire ROM range will change.
-It may be best to have the bankswitch code placed right before $0100, so as to fall through to <a href="The_Cartridge_Header.html#0100-0103---entry-point">the game’s init sequence</a>.</p>
+It may be best to have the bankswitch code placed right before $0100, so as to fall through to <a href="#0100-0103%20-%20Entry%20Point">the game’s init sequence</a>.</p>
 <h3 id="references"><a class="header" href="#references">References</a></h3>
 <ul>
 <li>Source: <a href="https://pics.tauwasser.eu/image/schematic-dmg-m161-m01-v10.pdDz">M161 Schematic</a> on tauwasser pics</li>
