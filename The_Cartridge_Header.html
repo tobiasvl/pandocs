@@ -160,52 +160,52 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="the-cartridge-header"><a class="header" href="#the-cartridge-header">The Cartridge Header</a></h1>
-<p>Each cartridge contains a header, located at the address range <code>$0100</code>-<code>$014F</code>.
+<p>Each cartridge contains a header, located at the address range <code>$0100</code>—<code>$014F</code>.
 The cartridge header provides the following information about the game itself and the hardware it expects to run on:</p>
-<h2 id="0100-0103--entry-point"><a class="header" href="#0100-0103--entry-point">0100-0103 — Entry Point</a></h2>
-<p>After displaying the Nintendo logo, the built-in <a href="Power_Up_Sequence.html#power-up-sequence">boot ROM</a> jumps to address <code>$0100</code>, which should then jump to the actual main program in the cartridge.
+<h2 id="0100-0103---entry-point"><a class="header" href="#0100-0103---entry-point">0100-0103 - Entry Point</a></h2>
+<p>After displaying the Nintendo logo, the built-in <a href="Power_Up_Sequence.html#power-up-sequence">boot ROM</a> jumps to the address <code>$0100</code>, which should then jump to the actual main program in the cartridge.
 Most commercial games fill this 4-byte area with a <a href="https://rgbds.gbdev.io/docs/v0.5.2/gbz80.7/#NOP"><code>nop</code> instruction</a> followed by a <a href="https://rgbds.gbdev.io/docs/v0.5.2/gbz80.7/#JP_n16"><code>jp $0150</code></a>.</p>
-<h2 id="0104-0133--nintendo-logo"><a class="header" href="#0104-0133--nintendo-logo">0104-0133 — Nintendo Logo</a></h2>
-<p>This area contains a bitmap that is displayed when the Game Boy is powered on.
-They must match the following (hexadecimal) dump, otherwise <a href="Power_Up_Sequence.html#power-up-sequence">the boot ROM</a> won’t allow the game to run:</p>
+<h2 id="0104-0133---nintendo-logo"><a class="header" href="#0104-0133---nintendo-logo">0104-0133 - Nintendo Logo</a></h2>
+<p>This area contains a bitmap image that is displayed when the Game Boy is powered on.
+It must match the following (hexadecimal) dump, otherwise <a href="Power_Up_Sequence.html#power-up-sequence">the boot ROM</a> won’t allow the game to run:</p>
 <pre><code>CE ED 66 66 CC 0D 00 0B 03 73 00 83 00 0C 00 0D
 00 08 11 1F 88 89 00 0E DC CC 6E E6 DD DD D9 99
 BB BB 67 63 6E 0E EC CC DD DC 99 9F BB B9 33 3E
 </code></pre>
-<p>The way pixels are encoded is as follows: (<a href="https://github.com/ISSOtm/gb-bootroms/blob/2dce25910043ce2ad1d1d3691436f2c7aabbda00/src/dmg.asm#L259-L269">more visual aid</a>)</p>
+<p>The way the pixels are encoded is as follows: (<a href="https://github.com/ISSOtm/gb-bootroms/blob/2dce25910043ce2ad1d1d3691436f2c7aabbda00/src/dmg.asm#L259-L269">more visual aid</a>)</p>
 <ul>
-<li>$0104–011B encode the top half of the logo, $011C–0133 encode the bottom half of it.</li>
-<li>For each half, each nibble encodes 4 pixels (the MSB corresponds to the leftmost pixel, the LSB to the rightmost); a pixel is lit if its bit is set.</li>
+<li>The bytes <code>$0104</code>—<code>$011B</code> encode the top half of the logo while the bytes <code>$011C</code>–<code>$0133</code> encode the bottom half.</li>
+<li>For each half, each nibble encodes 4 pixels (the MSB corresponds to the leftmost pixel, the LSB to the rightmost); a pixel is lit if the corresponding bit is set.</li>
 <li>The 4-pixel “groups” are laid out top to bottom, left to right.</li>
-<li>And finally, the monochrome models upscale the entire thing by a factor of 2 (leading to somewhat chunky pixels).</li>
+<li>Finally, the monochrome models upscale the entire thing by a factor of 2 (leading to somewhat chunky pixels).</li>
 </ul>
 <p>The Game Boy’s boot procedure <a href="Power_Up_Sequence.html#bypass">first displays the logo and then checks</a> that it matches the dump above.
 If it doesn’t, the boot ROM <strong>locks itself up</strong>.</p>
-<p>CGBs and later devices <a href="Power_Up_Sequence.html?highlight=half#behavior">only check the top half of the logo</a> (the first $18 bytes).</p>
-<h2 id="0134-0143--title"><a class="header" href="#0134-0143--title">0134-0143 — Title</a></h2>
+<p>The CGB and later models <a href="Power_Up_Sequence.html?highlight=half#behavior">only check the top half of the logo</a> (the first <code>$18</code> bytes).</p>
+<h2 id="0134-0143---title"><a class="header" href="#0134-0143---title">0134-0143 - Title</a></h2>
 <p>These bytes contain the title of the game in upper case ASCII.
 If the title is less than 16 characters long, the remaining bytes should be padded with <code>$00</code>s.</p>
-<p>Parts of this area actually have a different meaning on later cartridges, reducing the actual title size to 15 ($0134–$0142) or 11 characters ($0134–$013E); see below.</p>
-<h2 id="013f-0142--manufacturer-code"><a class="header" href="#013f-0142--manufacturer-code">013F-0142 — Manufacturer Code</a></h2>
+<p>Parts of this area actually have a different meaning on later cartridges, reducing the actual title size to 15 (<code>$0134</code>–<code>$0142</code>) or 11 (<code>$0134</code>–<code>$013E</code>) characters; see below.</p>
+<h2 id="013f-0142---manufacturer-code"><a class="header" href="#013f-0142---manufacturer-code">013F-0142 - Manufacturer Code</a></h2>
 <p>In older cartridges these bytes were part of the Title (see above).
 In newer cartridges they contain a 4-character manufacturer code (in uppercase ASCII).
-Its purpose is unknown.</p>
-<h2 id="0143--cgb-flag"><a class="header" href="#0143--cgb-flag">0143 — CGB Flag</a></h2>
+The purpose of the manufactorer code is unknown.</p>
+<h2 id="0143---cgb-flag"><a class="header" href="#0143---cgb-flag">0143 - CGB Flag</a></h2>
 <p>In older cartridges this byte was part of the Title (see above).
-CGBs and later models interpret this byte to decide whether to enable Color mode (“CGB Mode”), or to fall back to monochrome compatibility mode (“Non-CGB Mode”).</p>
+The CGB and later models interpret this byte to decide whether to enable Color mode (“CGB Mode”) or to fall back to monochrome compatibility mode (“Non-CGB Mode”).</p>
 <p>Typical values are:</p>
 <table><thead><tr><th>Value</th><th>Meaning</th></tr></thead><tbody>
 <tr><td><code>$80</code></td><td>The game supports CGB enhancements, but is backwards compatible with monochrome Game Boys</td></tr>
 <tr><td><code>$C0</code></td><td>The game works on CGB only (the hardware ignores bit 6, so this really functions the same as <code>$80</code>)</td></tr>
 </tbody></table>
-<p>Values with bit 7 set, and either bit 2 or 3 set, will switch the Game Boy into a special non-CGB-mode called “PGB mode”.</p>
+<p>Values with bit 7 and either bit 2 or 3 set will switch the Game Boy into a special non-CGB-mode called “PGB mode”.</p>
 <div class="box tip">
-<p class="box-title">Research needed</p><p>PGB modes are not well researched or documented yet.
+<p class="box-title">Research needed</p><p>The PGB mode is not well researched or documented yet.
 Help is welcome!</p>
 </div>
-<h2 id="0144-0145--new-licensee-code"><a class="header" href="#0144-0145--new-licensee-code">0144-0145 — New Licensee Code</a></h2>
+<h2 id="0144-0145---new-licensee-code"><a class="header" href="#0144-0145---new-licensee-code">0144-0145 - New Licensee Code</a></h2>
 <p>This area contains a two-character ASCII “licensee code” indicating the game’s publisher.
-It is only meaningful if the <a href="The_Cartridge_Header.html#014b--old-licensee-code">Old Licensee Code</a> is exactly $33 (which is essentially all games made after the SGB was released); otherwise, the old code must be considered.</p>
+It is only meaningful if the <a href="#014B%20%E2%80%94%20Old%20Licensee%20Code">Old Licensee Code</a> is exactly <code>$33</code> (which is the case for essentially all games made after the SGB was released); otherwise, the old code must be considered.</p>
 <p>Sample licensee codes:</p>
 <table><thead><tr><th>Code</th><th>Publisher</th></tr></thead><tbody>
 <tr><td><code>00</code></td><td>None</td></tr>
@@ -270,11 +270,11 @@ It is only meaningful if the <a href="The_Cartridge_Header.html#014b--old-licens
 <tr><td><code>99</code></td><td>Pack in soft</td></tr>
 <tr><td><code>A4</code></td><td>Konami (Yu-Gi-Oh!)</td></tr>
 </tbody></table>
-<h2 id="0146--sgb-flag"><a class="header" href="#0146--sgb-flag">0146 — SGB Flag</a></h2>
+<h2 id="0146---sgb-flag"><a class="header" href="#0146---sgb-flag">0146 - SGB Flag</a></h2>
 <p>This byte specifies whether the game supports SGB functions.
-The SGB will ignore any <a href="SGB_Command_Packet.html#command-packet-transfers">packets</a> if this byte is set to a value other than $03 (which is typically $00).</p>
-<h2 id="0147--cartridge-type"><a class="header" href="#0147--cartridge-type">0147 — Cartridge Type</a></h2>
-<p>This byte indicates what kind of hardware is present on the cartridge, notably its <a href="MBCs.html#mbcs">mapper</a>.</p>
+The SGB will ignore any <a href="SGB_Command_Packet.html#command-packet-transfers">command packets</a> if this byte is set to a value other than <code>$03</code> (typically <code>$00</code>).</p>
+<h2 id="0147---cartridge-type"><a class="header" href="#0147---cartridge-type">0147 - Cartridge Type</a></h2>
+<p>This byte indicates what kind of hardware is present on the cartridge — most notably its <a href="MBCs.html#mbcs">mapper</a>.</p>
 <table><thead><tr><th>Code</th><th>Type</th></tr></thead><tbody>
 <tr><td><code>$00</code></td><td>ROM ONLY</td></tr>
 <tr><td><code>$01</code></td><td>MBC1</td></tr>
@@ -311,10 +311,10 @@ The SGB will ignore any <a href="SGB_Command_Packet.html#command-packet-transfer
 <div class="footnote-definition" id="mbc30"><sup class="footnote-definition-label">2</sup>
 <p>MBC3 with 64 KiB of SRAM refers to MBC30, used only in <em>Pocket Monsters: Crystal Version</em> (the Japanese version of <em>Pokémon Crystal Version</em>).</p>
 </div>
-<h2 id="0148--rom-size"><a class="header" href="#0148--rom-size">0148 — ROM Size</a></h2>
+<h2 id="0148---rom-size"><a class="header" href="#0148---rom-size">0148 - ROM Size</a></h2>
 <p>This byte indicates how much ROM is present on the cartridge.
-In most cases, the ROM size is given by <code>32 KiB × (1 &lt;&lt; &lt;size&gt;)</code>:</p>
-<table><thead><tr><th>Code</th><th>ROM size</th><th>Number of ROM banks</th></tr></thead><tbody>
+In most cases, the ROM size is given by <code>32 KiB × (1 &lt;&lt; &lt;value&gt;)</code>:</p>
+<table><thead><tr><th>Value</th><th>ROM size</th><th>Number of ROM banks</th></tr></thead><tbody>
 <tr><td><code>$00</code></td><td>32 KiB</td><td>2 (no banking)</td></tr>
 <tr><td><code>$01</code></td><td>64 KiB</td><td>4</td></tr>
 <tr><td><code>$02</code></td><td>128 KiB</td><td>8</td></tr>
@@ -333,9 +333,9 @@ In most cases, the ROM size is given by <code>32 KiB × (1 &lt;&lt; &lt;size&gt;
 As the other ROM sizes are all powers of 2, these are likely inaccurate.
 The source of these values is unknown.</p>
 </div>
-<h2 id="0149--ram-size"><a class="header" href="#0149--ram-size">0149 — RAM Size</a></h2>
+<h2 id="0149---ram-size"><a class="header" href="#0149---ram-size">0149 - RAM Size</a></h2>
 <p>This byte indicates how much RAM is present on the cartridge, if any.</p>
-<p>If the <a href="The_Cartridge_Header.html#0147--cartridge-type">cartridge type</a> does not include “RAM” in its name, this should be set to 0.
+<p>If the <a href="The_Cartridge_Header.html#0147---cartridge-type">cartridge type</a> does not include “RAM” in its name, this should be set to 0.
 This includes MBC2, since its 512 × 4 bits of memory are built directly into the mapper.</p>
 <table><thead><tr><th>Code</th><th>SRAM size</th><th>Comment</th></tr></thead><tbody>
 <tr><td><code>$00</code></td><td>0</td><td>No RAM</td></tr>
@@ -351,23 +351,23 @@ However, a 2 KiB RAM chip was never used in a cartridge.
 The source of this value is unknown.</p>
 </div>
 <p>Various “PD” ROMs (“Public Domain” homebrew ROMs, generally tagged with <code>(PD)</code> in the filename) are known to use the <code>$01</code> RAM Size tag, but this is believed to have been a mistake with early homebrew tools, and the PD ROMs often don’t use cartridge RAM at all.</p>
-<h2 id="014a--destination-code"><a class="header" href="#014a--destination-code">014A — Destination Code</a></h2>
+<h2 id="014a---destination-code"><a class="header" href="#014a---destination-code">014A - Destination Code</a></h2>
 <p>This byte specifies whether this version of the game is intended to be sold in Japan or elsewhere.</p>
 <p>Only two values are defined:</p>
 <table><thead><tr><th>Code</th><th>Destination</th></tr></thead><tbody>
 <tr><td><code>$00</code></td><td>Japan (and possibly overseas)</td></tr>
 <tr><td><code>$01</code></td><td>Overseas only</td></tr>
 </tbody></table>
-<h2 id="014b--old-licensee-code"><a class="header" href="#014b--old-licensee-code">014B — Old Licensee Code</a></h2>
+<h2 id="014b---old-licensee-code"><a class="header" href="#014b---old-licensee-code">014B - Old Licensee Code</a></h2>
 <p>This byte is used in older (pre-SGB) cartridges to specify the game’s publisher.
-However, the value $33 indicates that the <a href="The_Cartridge_Header.html#0144-0145--new-licensee-code">New Licensee Code</a> must be considered instead.
-(The Super Game Boy will ignore packets unless this value is $33.)</p>
-<p>Here is <a href="https://raw.githubusercontent.com/gb-archive/salvage/master/txt-files/gbrom.txt">a list of Old Licensee Codes</a>.</p>
-<h2 id="014c--mask-rom-version-number"><a class="header" href="#014c--mask-rom-version-number">014C — Mask ROM Version number</a></h2>
+However, the value <code>$33</code> indicates that the <a href="The_Cartridge_Header.html#0144-0145---new-licensee-code">New Licensee Code</a> must be considered instead.
+(The SGB will ignore any <a href="SGB_Command_Packet.html#command-packet-transfers">command packets</a> unless this value is <code>$33</code>.)</p>
+<p>Here is <a href="https://raw.githubusercontent.com/gb-archive/salvage/master/txt-files/gbrom.txt">a list of known Old Licensee Codes</a>.</p>
+<h2 id="014c---mask-rom-version-number"><a class="header" href="#014c---mask-rom-version-number">014C - Mask ROM Version number</a></h2>
 <p>This byte specifies the version number of the game.
-It is usually $00.</p>
-<h2 id="014d--header-checksum"><a class="header" href="#014d--header-checksum">014D — Header Checksum</a></h2>
-<p>This byte contains an 8-bit checksum computed from the cartridge header bytes <code>$0134</code>-<code>$014C</code>.
+It is usually <code>$00</code>.</p>
+<h2 id="014d---header-checksum"><a class="header" href="#014d---header-checksum">014D - Header Checksum</a></h2>
+<p>This byte contains an 8-bit checksum computed from the cartridge header bytes <code>$0134</code>—<code>$014C</code>.
 The boot ROM computes the checksum as follows:</p>
 <pre><code class="language-c">uint8_t checksum = 0;
 for (uint16_t address = 0x0134; address &lt;= 0x014C; address++) {
@@ -375,12 +375,12 @@ for (uint16_t address = 0x0134; address &lt;= 0x014C; address++) {
 }
 </code></pre>
 <p>The boot ROM verifies this checksum.
-If the byte at <code>$014D</code> does not match the lower 8 bits of <code>checksum</code>, the boot ROM will lock up, and the program in the
+If the byte at <code>$014D</code> does not match the lower 8 bits of <code>checksum</code>, the boot ROM will lock up and the program in the
 cartridge <strong>won’t run</strong>.</p>
-<h2 id="014e-014f--rom-checksum"><a class="header" href="#014e-014f--rom-checksum">014E-014F — ROM Checksum</a></h2>
+<h2 id="014e-014f---global-checksum"><a class="header" href="#014e-014f---global-checksum">014E-014F - Global Checksum</a></h2>
 <p>These bytes contain a 16-bit (big-endian) checksum simply computed as the sum of
 all the bytes of the cartridge ROM (except these two checksum bytes).</p>
-<p>This checksum is not verified, except by Pokémon Staduim’s “GB Tower” emulator (presumably to detect Transfer Pak errors).</p>
+<p>This checksum is not verified, except by Pokémon Stadium’s “GB Tower” emulator (presumably to detect Transfer Pak errors).</p>
 
                     </main>
 

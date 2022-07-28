@@ -178,14 +178,14 @@ Since the boot ROM hands off control to the game ROM at address $0100, and devel
 </tbody></table>
 <p><a href="https://github.com/ISSOtm/gb-bootroms">A disassembly of all of them is available online.</a></p>
 <h2 id="monochrome-models-dmg0-dmg-mgb"><a class="header" href="#monochrome-models-dmg0-dmg-mgb">Monochrome models (DMG0, DMG, MGB)</a></h2>
-<p>The monochrome boot ROMs read <a href="The_Cartridge_Header.html#0104-0133--nintendo-logo">the logo from the header</a>, unpack it into VRAM, and then start slowly scrolling it down.
+<p>The monochrome boot ROMs read <a href="The_Cartridge_Header.html#0104-0133---nintendo-logo">the logo from the header</a>, unpack it into VRAM, and then start slowly scrolling it down.
 Since reads from an absent cartridge usually return $FF, this explains why powering the console on without a cartridge scrolls a black box.
 Additionally, fauly or dirty connections can cause the data read to be corrupted, resulting in a jumbled-up logo.</p>
 <p><em>Once the logo has finished scrolling</em>, the boot ROM plays the famous “ba-ding!” sound, and reads the logo <strong>again</strong>, this time comparing it to a copy it stores.
-Then, it also computes the header checksum, and compares it to <a href="The_Cartridge_Header.html#014d--header-checksum">the checksum stored in the header</a>.
+Then, it also computes the header checksum, and compares it to <a href="The_Cartridge_Header.html#014d---header-checksum">the checksum stored in the header</a>.
 If either of these checks fail, the boot ROM <strong>locks up</strong>, and control is never passed to the cartridge ROM.</p>
 <p>Finally, the boot ROM writes to the <code>BANK</code> register at $FF50, which unmaps the boot ROM.
-The <code>ldh [$FF50], a</code> instruction being located at $00FE (and being two bytes long), <a href="The_Cartridge_Header.html#0100-0103--entry-point">the first instruction executed from the cartridge ROM is at $0100</a>.</p>
+The <code>ldh [$FF50], a</code> instruction being located at $00FE (and being two bytes long), <a href="The_Cartridge_Header.html#0100-0103---entry-point">the first instruction executed from the cartridge ROM is at $0100</a>.</p>
 <p>Since the A register is used to write to $FF50, its value is passed to the cartridge ROM; the only difference between the DMG and MGB boot ROMs is that the former writes $01, and the latter uses $FF.</p>
 <h3 id="dmg0"><a class="header" href="#dmg0">DMG0</a></h3>
 <p>The DMG0 is a rare “early bird” variant of the DMG boot ROM present in few early DMGs.
@@ -214,12 +214,12 @@ Thus, the boot ROM is actually split in two parts, a $0000-00FF one, and a $0200
 (It is speculated that HRAM was used due to it being embedded within the CPU, unlike WRAM, so that it couldn’t be tampered with.)</p>
 <p>Then, the logo is read and decompressed <em>again</em>, but with no resizing, yielding the much smaller logo placed below the big “GAME BOY” one.
 The boot ROM then sets up compatibility palettes, as described further below, and plays the logo animation with the “ba-ding!” sound.</p>
-<p>During the logo animation, and if bit 7 of <a href="The_Cartridge_Header.html#0143--cgb-flag">the CGB compatibility byte</a> is reset (indicating a monochrome-only game), the user is allowed to pick a palette to override the one chosen for compatibility.
+<p>During the logo animation, and if bit 7 of <a href="The_Cartridge_Header.html#0143---cgb-flag">the CGB compatibility byte</a> is reset (indicating a monochrome-only game), the user is allowed to pick a palette to override the one chosen for compatibility.
 Each new choice prevents the animation from ending for 30 frames, potentially delaying the checks and fade-out.</p>
 <p>Then, like the monochrome boot ROMs, the header logo is checked <em>from the buffer in HRAM</em>, and the header checksum is verified.
 For unknown reasons, however, only the first half of the logo is checked, despite the full logo being present in the HRAM buffer.</p>
 <p>Finally, the boot ROM fades all BG palettes to white, and sets the hardware to compatibility mode.
-If <a href="The_Cartridge_Header.html#0143--cgb-flag">the CGB compatibility byte</a> indicates CGB compatibility, the byte is written directly to <code>KEY0</code> ($FF4C), potentially enabling PGB mode; otherwise, $04 is written to <code>KEY0</code> (enabling DMG compatibility mode in the CPU), $01 is written to <a href="#FF6C%20%E2%80%94%20OPRI%20-%20CGB%20Mode%20Only%20-%20Object%20Priority%20Mode"><code>OPRI</code></a> (enabling <a href="OAM.html#object-priority-and-conflicts">DMG OBJ priority</a>), and the <a href="Power_Up_Sequence.html#compatibility-palettes">compatibility palettes</a> are written.
+If <a href="The_Cartridge_Header.html#0143---cgb-flag">the CGB compatibility byte</a> indicates CGB compatibility, the byte is written directly to <code>KEY0</code> ($FF4C), potentially enabling PGB mode; otherwise, $04 is written to <code>KEY0</code> (enabling DMG compatibility mode in the CPU), $01 is written to <a href="CGB_Registers.html#ff6c---opri---cgb-mode-only---object-priority-mode"><code>OPRI</code></a> (enabling <a href="OAM.html#object-priority-and-conflicts">DMG OBJ priority</a>), and the <a href="Power_Up_Sequence.html#compatibility-palettes">compatibility palettes</a> are written.
 Additionally, the DMG logo tilemap is written <a href="Power_Up_Sequence.html#compatibility-palettes">if the compatibility requests it</a>.</p>
 <p>Like all other boot ROMs, the last thing the color boot ROMs do is hand off execution at the same time as they unmap themselves, though they write $11 instead of $01 or $FF.</p>
 <h3 id="cgb0"><a class="header" href="#cgb0">CGB0</a></h3>
@@ -236,9 +236,9 @@ It is speculated that this may be debug remnants.</p>
 <p>The boot ROM picks a compatibility palette using an ID computed using the following algorithm:</p>
 <ol>
 <li>
-<p>Check if the <a href="#014B%20-%20Old%20Licensee%20Code">old licensee code</a> is $33.</p>
+<p>Check if the <a href="The_Cartridge_Header.html#014b---old-licensee-code">old licensee code</a> is $33.</p>
 <ul>
-<li>If yes, the <a href="#0144-0145%20-%20New%20Licensee%20Code">new licensee code</a> must be used. Check that it equals the ASCII string <code>&quot;01&quot;</code>.</li>
+<li>If yes, the <a href="The_Cartridge_Header.html#0144-0145---new-licensee-code">new licensee code</a> must be used. Check that it equals the ASCII string <code>&quot;01&quot;</code>.</li>
 <li>If not, check that it equals $01.</li>
 </ul>
 <p>In effect, this checks that the licensee in the header is Nintendo.</p>
@@ -248,7 +248,7 @@ It is speculated that this may be debug remnants.</p>
 </ul>
 </li>
 <li>
-<p>Compute the sum of all 16 <a href="#0134-0143%20-%20Title">game title</a> bytes, storing this as the “title checksum”.</p>
+<p>Compute the sum of all 16 <a href="The_Cartridge_Header.html#0134-0143---title">game title</a> bytes, storing this as the “title checksum”.</p>
 </li>
 <li>
 <p>Find the title checksum <a href="https://github.com/ISSOtm/gb-bootroms/blob/443d7f057ae06e8d1d76fa8083650cf0be2cd0ae/src/cgb.asm#L1221-L1230">in a table</a>, and record its index within the table.</p>
@@ -314,7 +314,7 @@ Rely on it at your own risk.</p>
 </div>
 <h3 id="common-remarks"><a class="header" href="#common-remarks">Common remarks</a></h3>
 <p>The console’s WRAM and HRAM are random on power-up.
-<a href="https://twitter.com/CasualPkPlayer/status/1409752977812852736">Different models tend to exhibit different patterns</a>, but they are random nonetheless, even depending on factors such as the ambient teperature.
+<a href="https://twitter.com/CasualPkPlayer/status/1409752977812852736">Different models tend to exhibit different patterns</a>, but they are random nonetheless, even depending on factors such as the ambient temperature.
 Besides, turning the system off and on again has proven reliable enough <a href="https://www.youtube.com/watch?v=xayxmTLljr8">to carry over RAM from one game to another</a>, so it’s not a good idea to rely on it at all.</p>
 <p>Emulation of uninitialized RAM is inconsistent: some emulators fill RAM with a constant on startup (typically $00 or $FF), some emulators fully randomize RAM, and others attempt to reproduce the patterns observed on hardware.
 It is a good idea to enable your favorite emulator’s “break on uninitialized RAM read” exception (and if it doesn’t have one, to consider using an emulator that does).</p>
@@ -334,7 +334,7 @@ It is strongly advised for the game to put a large enough known sequence of byte
 <tr><td style="text-align: right"><strong>SP</strong></td><td style="text-align: center">$FFFE</td><td style="text-align: center">$FFFE</td><td style="text-align: center">$FFFE</td><td style="text-align: center">$FFFE</td><td style="text-align: center">$FFFE</td></tr>
 </tbody></table>
 <div class="footnote-definition" id="dmg_c"><sup class="footnote-definition-label">1</sup>
-<p>If the <a href="#014D%20-%20Header%20Checksum">header checksum</a> is $00, then the carry and half-carry flags are clear; otherwise, they are both set.</p>
+<p>If the <a href="The_Cartridge_Header.html#014d---header-checksum">header checksum</a> is $00, then the carry and half-carry flags are clear; otherwise, they are both set.</p>
 </div>
 <table><thead><tr><th style="text-align: right">Register</th><th style="text-align: center">CGB (DMG mode)</th><th style="text-align: center">AGB (DMG mode)</th><th style="text-align: center">CGB</th><th style="text-align: center">AGB</th></tr></thead><tbody>
 <tr><td style="text-align: right"><strong>A</strong></td><td style="text-align: center">$11</td><td style="text-align: center">$11</td><td style="text-align: center">$11</td><td style="text-align: center">$11</td></tr>
@@ -354,7 +354,7 @@ It is strongly advised for the game to put a large enough known sequence of byte
 The carry and direction flags are always clear, though.</p>
 </div>
 <div class="footnote-definition" id="cgbdmg_b"><sup class="footnote-definition-label">3</sup>
-<p>If the <a href="#014B%20-%20Old%20Licensee%20Code">old licensee code</a> is $01, or the old licensee code is $33 and the <a href="#0144-0145%20-%20New%20Licensee%20Code">new licensee code</a> is <code>&quot;01&quot;</code> ($30 $31), then B is the sum of all 16 <a href="#0134-0143%20-%20Title">title</a> bytes.
+<p>If the <a href="The_Cartridge_Header.html#014b---old-licensee-code">old licensee code</a> is $01, or the old licensee code is $33 and the <a href="The_Cartridge_Header.html#0144-0145---new-licensee-code">new licensee code</a> is <code>&quot;01&quot;</code> ($30 $31), then B is the sum of all 16 <a href="The_Cartridge_Header.html#0134-0143---title">title</a> bytes.
 Otherwise, B is $00.
 As indicated by the “+ 1” in the “AGB (DMG mode)” column, if on AGB, that value is increased by 1<sup class="footnote-reference"><a href="#agbdmg_f">2</a></sup>.</p>
 </div>
