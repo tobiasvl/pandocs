@@ -175,7 +175,7 @@ Emulator developers may be also interested in the <a href="https://gekkio.fi/fil
 <p>You can search anywhere by pressing <kbd>s</kbd> on your keyboard or clicking the <i class="fa fa-search"></i> icon.</p>
 <p>The <i class="fa fa-edit"></i> icon allows you to suggest an edit on the current page by directly opening the source file in the git repository.</p>
 <p><a href="single.html">One-page</a> and <a href="print.html">printable</a> versions of this document are also available.</p>
-<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/edc7dc05e84bbb8471bc95a0fab57f20532ddaba"><code>edc7dc0</code></a> (2022-09-09 01:12:09 +0200). </small></p>
+<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/a72f29e4973b30896e74b46d702ce85d978bed24"><code>a72f29e</code></a> (2022-09-15 08:32:10 +0200). </small></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="acknowledgements"><a class="header" href="#acknowledgements">Acknowledgements</a></h1>
 <p>This resource wouldn’t be possible without all the passionate hackers and researchers who contributed on this document in the last three decades.</p>
 <p>We would like to thank:</p>
@@ -1173,10 +1173,7 @@ values from 144 to 153 indicating the VBlank period.</p>
 When both values are identical, the “LYC=LY” flag in the STAT register
 is set, and (if enabled) a STAT interrupt is requested.</p>
 <h2 id="ff4a---wy-window-y-position-rw-ff4b---wx-window-x-position--7-rw"><a class="header" href="#ff4a---wy-window-y-position-rw-ff4b---wx-window-x-position--7-rw">FF4A - WY (Window Y Position) (R/W), FF4B - WX (Window X Position + 7) (R/W)</a></h2>
-<p>Specify the top-left coordinates of the Window. (The Window is an
-alternate background area which can be displayed above of the normal
-background. OBJs (sprites) may be still displayed above or behind the
-Window, just as for normal BG.)</p>
+<p>Specify the top-left coordinates of <a href="Scrolling.html#window">the Window</a>.</p>
 <p>The Window is visible (if enabled) when both coordinates are in the ranges
 WX=0..166, WY=0..143 respectively. Values WX=7, WY=0 place the Window at the
 top left of the screen, completely covering the background.</p>
