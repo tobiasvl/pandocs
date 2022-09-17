@@ -175,7 +175,7 @@ Emulator developers may be also interested in the <a href="https://gekkio.fi/fil
 <p>You can search anywhere by pressing <kbd>s</kbd> on your keyboard or clicking the <i class="fa fa-search"></i> icon.</p>
 <p>The <i class="fa fa-edit"></i> icon allows you to suggest an edit on the current page by directly opening the source file in the git repository.</p>
 <p><a href="single.html">One-page</a> and <a href="print.html">printable</a> versions of this document are also available.</p>
-<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/a72f29e4973b30896e74b46d702ce85d978bed24"><code>a72f29e</code></a> (2022-09-15 08:32:10 +0200). </small></p>
+<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/ada81756393169ba770342cda8c68ab16b6b214f"><code>ada8175</code></a> (2022-09-17 19:18:59 +0200). </small></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="acknowledgements"><a class="header" href="#acknowledgements">Acknowledgements</a></h1>
 <p>This resource wouldn’t be possible without all the passionate hackers and researchers who contributed on this document in the last three decades.</p>
 <p>We would like to thank:</p>
@@ -3986,7 +3986,156 @@ The source of this value is unknown.</p>
 <p>This byte is used in older (pre-SGB) cartridges to specify the game’s publisher.
 However, the value <code>$33</code> indicates that the <a href="The_Cartridge_Header.html#0144-0145---new-licensee-code">New Licensee Code</a> must be considered instead.
 (The SGB will ignore any <a href="SGB_Command_Packet.html#command-packet-transfers">command packets</a> unless this value is <code>$33</code>.)</p>
-<p>Here is <a href="https://raw.githubusercontent.com/gb-archive/salvage/master/txt-files/gbrom.txt">a list of known Old Licensee Codes</a>.</p>
+<p>Here is a list of known Old Licensee Codes (<a href="https://raw.githubusercontent.com/gb-archive/salvage/master/txt-files/gbrom.txt">source</a>).</p>
+<table><thead><tr><th>HEX</th><th>Licensee</th></tr></thead><tbody>
+<tr><td>00</td><td>None</td></tr>
+<tr><td>01</td><td>Nintendo</td></tr>
+<tr><td>08</td><td>Capcom</td></tr>
+<tr><td>09</td><td>Hot-B</td></tr>
+<tr><td>0A</td><td>Jaleco</td></tr>
+<tr><td>0B</td><td>Coconuts Japan</td></tr>
+<tr><td>0C</td><td>Elite Systems</td></tr>
+<tr><td>13</td><td>EA (Electronic Arts)</td></tr>
+<tr><td>18</td><td>Hudsonsoft</td></tr>
+<tr><td>19</td><td>ITC Entertainment</td></tr>
+<tr><td>1A</td><td>Yanoman</td></tr>
+<tr><td>1D</td><td>Japan Clary</td></tr>
+<tr><td>1F</td><td>Virgin Interactive</td></tr>
+<tr><td>24</td><td>PCM Complete</td></tr>
+<tr><td>25</td><td>San-X</td></tr>
+<tr><td>28</td><td>Kotobuki Systems</td></tr>
+<tr><td>29</td><td>Seta</td></tr>
+<tr><td>30</td><td>Infogrames</td></tr>
+<tr><td>31</td><td>Nintendo</td></tr>
+<tr><td>32</td><td>Bandai</td></tr>
+<tr><td>33</td><td>Indicates that the <a href="The_Cartridge_Header.html#0144-0145---new-licensee-code">New Licensee Code</a> should be used instead.</td></tr>
+<tr><td>34</td><td>Konami</td></tr>
+<tr><td>35</td><td>HectorSoft</td></tr>
+<tr><td>38</td><td>Capcom</td></tr>
+<tr><td>39</td><td>Banpresto</td></tr>
+<tr><td>3C</td><td>.Entertainment i</td></tr>
+<tr><td>3E</td><td>Gremlin</td></tr>
+<tr><td>41</td><td>Ubisoft</td></tr>
+<tr><td>42</td><td>Atlus</td></tr>
+<tr><td>44</td><td>Malibu</td></tr>
+<tr><td>46</td><td>Angel</td></tr>
+<tr><td>47</td><td>Spectrum Holoby</td></tr>
+<tr><td>49</td><td>Irem</td></tr>
+<tr><td>4A</td><td>Virgin Interactive</td></tr>
+<tr><td>4D</td><td>Malibu</td></tr>
+<tr><td>4F</td><td>U.S. Gold</td></tr>
+<tr><td>50</td><td>Absolute</td></tr>
+<tr><td>51</td><td>Acclaim</td></tr>
+<tr><td>52</td><td>Activision</td></tr>
+<tr><td>53</td><td>American Sammy</td></tr>
+<tr><td>54</td><td>GameTek</td></tr>
+<tr><td>55</td><td>Park Place</td></tr>
+<tr><td>56</td><td>LJN</td></tr>
+<tr><td>57</td><td>Matchbox</td></tr>
+<tr><td>59</td><td>Milton Bradley</td></tr>
+<tr><td>5A</td><td>Mindscape</td></tr>
+<tr><td>5B</td><td>Romstar</td></tr>
+<tr><td>5C</td><td>Naxat Soft</td></tr>
+<tr><td>5D</td><td>Tradewest</td></tr>
+<tr><td>60</td><td>Titus</td></tr>
+<tr><td>61</td><td>Virgin Interactive</td></tr>
+<tr><td>67</td><td>Ocean Interactive</td></tr>
+<tr><td>69</td><td>EA (Electronic Arts)</td></tr>
+<tr><td>6E</td><td>Elite Systems</td></tr>
+<tr><td>6F</td><td>Electro Brain</td></tr>
+<tr><td>70</td><td>Infogrames</td></tr>
+<tr><td>71</td><td>Interplay</td></tr>
+<tr><td>72</td><td>Broderbund</td></tr>
+<tr><td>73</td><td>Sculptered Soft</td></tr>
+<tr><td>75</td><td>The Sales Curve</td></tr>
+<tr><td>78</td><td>t.hq</td></tr>
+<tr><td>79</td><td>Accolade</td></tr>
+<tr><td>7A</td><td>Triffix Entertainment</td></tr>
+<tr><td>7C</td><td>Microprose</td></tr>
+<tr><td>7F</td><td>Kemco</td></tr>
+<tr><td>80</td><td>Misawa Entertainment</td></tr>
+<tr><td>83</td><td>Lozc</td></tr>
+<tr><td>86</td><td>Tokuma Shoten Intermedia</td></tr>
+<tr><td>8B</td><td>Bullet-Proof Software</td></tr>
+<tr><td>8C</td><td>Vic Tokai</td></tr>
+<tr><td>8E</td><td>Ape</td></tr>
+<tr><td>8F</td><td>I’Max</td></tr>
+<tr><td>91</td><td>Chunsoft Co.</td></tr>
+<tr><td>92</td><td>Video System</td></tr>
+<tr><td>93</td><td>Tsubaraya Productions Co.</td></tr>
+<tr><td>95</td><td>Varie Corporation</td></tr>
+<tr><td>96</td><td>Yonezawa/S’Pal</td></tr>
+<tr><td>97</td><td>Kaneko</td></tr>
+<tr><td>99</td><td>Arc</td></tr>
+<tr><td>9A</td><td>Nihon Bussan</td></tr>
+<tr><td>9B</td><td>Tecmo</td></tr>
+<tr><td>9C</td><td>Imagineer</td></tr>
+<tr><td>9D</td><td>Banpresto</td></tr>
+<tr><td>9F</td><td>Nova</td></tr>
+<tr><td>A1</td><td>Hori Electric</td></tr>
+<tr><td>A2</td><td>Bandai</td></tr>
+<tr><td>A4</td><td>Konami</td></tr>
+<tr><td>A6</td><td>Kawada</td></tr>
+<tr><td>A7</td><td>Takara</td></tr>
+<tr><td>A9</td><td>Technos Japan</td></tr>
+<tr><td>AA</td><td>Broderbund</td></tr>
+<tr><td>AC</td><td>Toei Animation</td></tr>
+<tr><td>AD</td><td>Toho</td></tr>
+<tr><td>AF</td><td>Namco</td></tr>
+<tr><td>B0</td><td>acclaim</td></tr>
+<tr><td>B1</td><td>ASCII or Nexsoft</td></tr>
+<tr><td>B2</td><td>Bandai</td></tr>
+<tr><td>B4</td><td>Square Enix</td></tr>
+<tr><td>B6</td><td>HAL Laboratory</td></tr>
+<tr><td>B7</td><td>SNK</td></tr>
+<tr><td>B9</td><td>Pony Canyon</td></tr>
+<tr><td>BA</td><td>Culture Brain</td></tr>
+<tr><td>BB</td><td>Sunsoft</td></tr>
+<tr><td>BD</td><td>Sony Imagesoft</td></tr>
+<tr><td>BF</td><td>Sammy</td></tr>
+<tr><td>C0</td><td>Taito</td></tr>
+<tr><td>C2</td><td>Kemco</td></tr>
+<tr><td>C3</td><td>Squaresoft</td></tr>
+<tr><td>C4</td><td>Tokuma Shoten Intermedia</td></tr>
+<tr><td>C5</td><td>Data East</td></tr>
+<tr><td>C6</td><td>Tonkinhouse</td></tr>
+<tr><td>C8</td><td>Koei</td></tr>
+<tr><td>C9</td><td>UFL</td></tr>
+<tr><td>CA</td><td>Ultra</td></tr>
+<tr><td>CB</td><td>Vap</td></tr>
+<tr><td>CC</td><td>Use Corporation</td></tr>
+<tr><td>CD</td><td>Meldac</td></tr>
+<tr><td>CE</td><td>.Pony Canyon or</td></tr>
+<tr><td>CF</td><td>Angel</td></tr>
+<tr><td>D0</td><td>Taito</td></tr>
+<tr><td>D1</td><td>Sofel</td></tr>
+<tr><td>D2</td><td>Quest</td></tr>
+<tr><td>D3</td><td>Sigma Enterprises</td></tr>
+<tr><td>D4</td><td>ASK Kodansha Co.</td></tr>
+<tr><td>D6</td><td>Naxat Soft</td></tr>
+<tr><td>D7</td><td>Copya System</td></tr>
+<tr><td>D9</td><td>Banpresto</td></tr>
+<tr><td>DA</td><td>Tomy</td></tr>
+<tr><td>DB</td><td>LJN</td></tr>
+<tr><td>DD</td><td>NCS</td></tr>
+<tr><td>DE</td><td>Human</td></tr>
+<tr><td>DF</td><td>Altron</td></tr>
+<tr><td>E0</td><td>Jaleco</td></tr>
+<tr><td>E1</td><td>Towa Chiki</td></tr>
+<tr><td>E2</td><td>Yutaka</td></tr>
+<tr><td>E3</td><td>Varie</td></tr>
+<tr><td>E5</td><td>Epcoh</td></tr>
+<tr><td>E7</td><td>Athena</td></tr>
+<tr><td>E8</td><td>Asmik ACE Entertainment</td></tr>
+<tr><td>E9</td><td>Natsume</td></tr>
+<tr><td>EA</td><td>King Records</td></tr>
+<tr><td>EB</td><td>Atlus</td></tr>
+<tr><td>EC</td><td>Epic/Sony Records</td></tr>
+<tr><td>EE</td><td>IGS</td></tr>
+<tr><td>F0</td><td>A Wave</td></tr>
+<tr><td>F3</td><td>Extreme Entertainment</td></tr>
+<tr><td>FF</td><td>LJN</td></tr>
+</tbody></table>
 <h2 id="014c---mask-rom-version-number"><a class="header" href="#014c---mask-rom-version-number">014C - Mask ROM Version number</a></h2>
 <p>This byte specifies the version number of the game.
 It is usually <code>$00</code>.</p>
