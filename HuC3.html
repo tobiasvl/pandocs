@@ -171,8 +171,8 @@ microcontroller core with internal program ROM.</p>
 <h3 id="00003fff--rom-bank-00-read-only"><a class="header" href="#00003fff--rom-bank-00-read-only">0000–3FFF — ROM Bank 00 [read-only]</a></h3>
 <p>Contains the first 16 KiB of the ROM.</p>
 <h3 id="40007fff--rom-bank-007f-read-only"><a class="header" href="#40007fff--rom-bank-007f-read-only">4000–7FFF — ROM Bank 00–7F [read-only]</a></h3>
-<p>This area may contain any of the further 16 KiB banks of the ROM. It is
-unknown whether bank $00 can be selected here.</p>
+<p>This area may contain any of the further 16 KiB banks of the ROM. Like the MBC5,
+bank $00 can also be mapped to this region.</p>
 <h3 id="a000bfff--ram-bank-0003-or-rtcir-register-readwrite"><a class="header" href="#a000bfff--ram-bank-0003-or-rtcir-register-readwrite">A000–BFFF — RAM Bank 00–03, or RTC/IR register [read/write]</a></h3>
 <p>Depending on the current register selection and RAM Bank Number (see
 below), this memory space is used to access an 8 KiB external RAM Bank,

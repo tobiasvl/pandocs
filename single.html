@@ -175,7 +175,7 @@ Emulator developers may be also interested in the <a href="https://gekkio.fi/fil
 <p>You can search anywhere by pressing <kbd>s</kbd> on your keyboard or clicking the <i class="fa fa-search"></i> icon.</p>
 <p>The <i class="fa fa-edit"></i> icon allows you to suggest an edit on the current page by directly opening the source file in the git repository.</p>
 <p><a href="single.html">One-page</a> and <a href="print.html">printable</a> versions of this document are also available.</p>
-<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/b215ba5c2672f6ef632940ea8eddb22ebdeed95d"><code>b215ba5</code></a> (2022-09-18 13:36:41 +0200). </small></p>
+<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/ac4661cc54f97fc2f0d6d45eebcf710fcd43327d"><code>ac4661c</code></a> (2022-09-18 23:51:47 +0200). </small></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="acknowledgements"><a class="header" href="#acknowledgements">Acknowledgements</a></h1>
 <p>This resource wouldn’t be possible without all the passionate hackers and researchers who contributed on this document in the last three decades.</p>
 <p>We would like to thank:</p>
@@ -5049,8 +5049,8 @@ microcontroller core with internal program ROM.</p>
 <h3 id="00003fff--rom-bank-00-read-only"><a class="header" href="#00003fff--rom-bank-00-read-only">0000–3FFF — ROM Bank 00 [read-only]</a></h3>
 <p>Contains the first 16 KiB of the ROM.</p>
 <h3 id="40007fff--rom-bank-007f-read-only"><a class="header" href="#40007fff--rom-bank-007f-read-only">4000–7FFF — ROM Bank 00–7F [read-only]</a></h3>
-<p>This area may contain any of the further 16 KiB banks of the ROM. It is
-unknown whether bank $00 can be selected here.</p>
+<p>This area may contain any of the further 16 KiB banks of the ROM. Like the MBC5,
+bank $00 can also be mapped to this region.</p>
 <h3 id="a000bfff--ram-bank-0003-or-rtcir-register-readwrite"><a class="header" href="#a000bfff--ram-bank-0003-or-rtcir-register-readwrite">A000–BFFF — RAM Bank 00–03, or RTC/IR register [read/write]</a></h3>
 <p>Depending on the current register selection and RAM Bank Number (see
 below), this memory space is used to access an 8 KiB external RAM Bank,
