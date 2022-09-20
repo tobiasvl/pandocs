@@ -190,12 +190,13 @@ joypad can be read out through <a href="Joypad_Input.html#ff00--p1joyp-joypad">t
 set P14 and P15 both HIGH (deselect both Buttons and Cursor keys), you
 can now read the lower 4 bits of <code>P1</code>, which indicate the joypad ID for
 the following joypad input:</p>
-<table><thead><tr><th>Byte</th><th>Player #</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Byte</th><th>Player #</th></tr></thead><tbody>
 <tr><td>$xF</td><td>1</td></tr>
 <tr><td>$xE</td><td>2</td></tr>
 <tr><td>$xD</td><td>3</td></tr>
 <tr><td>$xC</td><td>4</td></tr>
 </tbody></table>
+</div>
 <p>Next, read joypad state normally.
 The next joypad is automatically selected when P15 goes from LOW (0) to HIGH (1) (<a href="https://github.com/CasualPokePlayer/test-roms/blob/sgb-mlt-test/src/intro.asm">source</a>), so you can simply repeat reading the joypad state normally until all two (or four) joypads have been read out.</p>
 

@@ -163,7 +163,7 @@
 <h2 id="ff40--lcdc-lcd-control"><a class="header" href="#ff40--lcdc-lcd-control">FF40 — LCDC: LCD control</a></h2>
 <p><strong>LCDC</strong> is the main <strong>LCD C</strong>ontrol register. Its bits toggle what
 elements are displayed on the screen, and how.</p>
-<table><thead><tr><th>Bit</th><th>Name</th><th>Usage notes</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Bit</th><th>Name</th><th>Usage notes</th></tr></thead><tbody>
 <tr><td>7</td><td>LCD and PPU enable</td><td>0=Off, 1=On</td></tr>
 <tr><td>6</td><td>Window tile map area</td><td>0=9800-9BFF, 1=9C00-9FFF</td></tr>
 <tr><td>5</td><td>Window enable</td><td>0=Off, 1=On</td></tr>
@@ -173,6 +173,7 @@ elements are displayed on the screen, and how.</p>
 <tr><td>1</td><td>OBJ enable</td><td>0=Off, 1=On</td></tr>
 <tr><td>0</td><td>BG and Window enable/priority</td><td>0=Off, 1=On</td></tr>
 </tbody></table>
+</div>
 <h3 id="lcdc7--lcd-enable"><a class="header" href="#lcdc7--lcd-enable">LCDC.7 — LCD enable</a></h3>
 <p>This bit controls whether the LCD is on and the PPU is active. Setting
 it to 0 turns both off, which grants immediate and full access to VRAM,

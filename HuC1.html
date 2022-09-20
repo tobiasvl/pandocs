@@ -164,13 +164,14 @@
 banking, and also provides infrared communication.
 Despite many sources on the internet claiming that HuC1 is “similar to MBC1”, it actually differs from MBC1 significantly.</p>
 <h2 id="memory-map"><a class="header" href="#memory-map">Memory Map</a></h2>
-<table><thead><tr><th>Address range</th><th>Feature</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Address range</th><th>Feature</th></tr></thead><tbody>
 <tr><td>$0000–1FFF</td><td>RAM/IR select (when writing only)</td></tr>
 <tr><td>$2000–3FFF</td><td>ROM bank select (when writing only)</td></tr>
 <tr><td>$4000–5FFF</td><td>RAM bank select (when writing only)</td></tr>
 <tr><td>$6000–7FFF</td><td>Nothing?</td></tr>
 <tr><td>$A000–BFFF</td><td>Cart RAM or IR register</td></tr>
 </tbody></table>
+</div>
 <h3 id="00001fff--ir-select-write-only"><a class="header" href="#00001fff--ir-select-write-only">0000–1FFF — IR Select [write-only]</a></h3>
 <p>Most MBCs can disable the cartridge RAM to prevent accidental writes.
 HuC1 doesn’t do this. Instead, this register swtiches the $A000–BFFF

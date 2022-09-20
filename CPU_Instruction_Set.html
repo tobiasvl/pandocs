@@ -167,7 +167,7 @@ mode), called “T-states”.  Because all Game Boy timings are divisible
 by 4, many people specify timings and clock frequency divided by 4,
 called “M-cycles”.</p>
 <h2 id="8-bit-load-instructions"><a class="header" href="#8-bit-load-instructions">8-bit Load instructions</a></h2>
-<table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
 <tr><td>ld   r,r</td><td>xx</td><td>4</td><td>––</td><td>r=r</td></tr>
 <tr><td>ld   r,n</td><td>xx nn</td><td>8</td><td>––</td><td>r=n</td></tr>
 <tr><td>ld   r,(HL)</td><td>xx</td><td>8</td><td>––</td><td>r=(HL)</td></tr>
@@ -188,16 +188,18 @@ called “M-cycles”.</p>
 <tr><td>ldd  (HL),A</td><td>32</td><td>8</td><td>––</td><td>(HL)=A, HL=HL-1</td></tr>
 <tr><td>ldd  A,(HL)</td><td>3A</td><td>8</td><td>––</td><td>A=(HL), HL=HL-1</td></tr>
 </tbody></table>
+</div>
 <h2 id="16-bit-load-instructions"><a class="header" href="#16-bit-load-instructions">16-bit Load instructions</a></h2>
-<table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
 <tr><td>ld   rr,nn</td><td>x1 nn nn</td><td>12</td><td>––</td><td>rr=nn (rr may be BC,DE,HL or SP)</td></tr>
 <tr><td>ld   (nn),SP</td><td>08 nn nn</td><td>20</td><td>––</td><td>(nn)=SP</td></tr>
 <tr><td>ld   SP,HL</td><td>F9</td><td>8</td><td>––</td><td>SP=HL</td></tr>
 <tr><td>push rr</td><td>x5</td><td>16</td><td>––</td><td>SP=SP-2  (SP)=rr ; rr may be BC,DE,HL,AF</td></tr>
 <tr><td>pop  rr</td><td>x1</td><td>12</td><td>(AF)</td><td>rr=(SP)  SP=SP+2 ; rr may be BC,DE,HL,AF</td></tr>
 </tbody></table>
+</div>
 <h2 id="8-bit-arithmeticlogic-instructions"><a class="header" href="#8-bit-arithmeticlogic-instructions">8-bit Arithmetic/Logic instructions</a></h2>
-<table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
 <tr><td>add  A,r</td><td>8x</td><td>4</td><td>z0hc</td><td>A=A+r</td></tr>
 <tr><td>add  A,n</td><td>C6 nn</td><td>8</td><td>z0hc</td><td>A=A+n</td></tr>
 <tr><td>add  A,(HL)</td><td>86</td><td>8</td><td>z0hc</td><td>A=A+(HL)</td></tr>
@@ -229,16 +231,18 @@ called “M-cycles”.</p>
 <tr><td>daa</td><td>27</td><td>4</td><td>z-0c</td><td>decimal adjust A</td></tr>
 <tr><td>cpl</td><td>2F</td><td>4</td><td>-11-</td><td>A = A xor FF</td></tr>
 </tbody></table>
+</div>
 <h2 id="16-bit-arithmeticlogic-instructions"><a class="header" href="#16-bit-arithmeticlogic-instructions">16-bit Arithmetic/Logic instructions</a></h2>
-<table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
 <tr><td>add  HL,rr</td><td>x9</td><td>8</td><td>-0hc</td><td>HL = HL+rr     ; rr may be BC,DE,HL,SP</td></tr>
 <tr><td>inc  rr</td><td>x3</td><td>8</td><td>––</td><td>rr = rr+1      ; rr may be BC,DE,HL,SP</td></tr>
 <tr><td>dec  rr</td><td>xB</td><td>8</td><td>––</td><td>rr = rr-1      ; rr may be BC,DE,HL,SP</td></tr>
 <tr><td>add  SP,dd</td><td>E8 dd</td><td>16</td><td>00hc</td><td>SP = SP +/- dd ; dd is 8-bit signed number</td></tr>
 <tr><td>ld   HL,SP+dd</td><td>F8 dd</td><td>12</td><td>00hc</td><td>HL = SP +/- dd ; dd is 8-bit signed number</td></tr>
 </tbody></table>
+</div>
 <h2 id="rotate-and-shift-instructions"><a class="header" href="#rotate-and-shift-instructions">Rotate and Shift instructions</a></h2>
-<table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
 <tr><td>rlca</td><td>07</td><td>4</td><td>000c</td><td>rotate A left</td></tr>
 <tr><td>rla</td><td>17</td><td>4</td><td>000c</td><td>rotate A left through carry</td></tr>
 <tr><td>rrca</td><td>0F</td><td>4</td><td>000c</td><td>rotate A right</td></tr>
@@ -260,8 +264,9 @@ called “M-cycles”.</p>
 <tr><td>srl  r</td><td>CB 3x</td><td>8</td><td>z00c</td><td>shift right logical (b7=0)</td></tr>
 <tr><td>srl  (HL)</td><td>CB 3E</td><td>16</td><td>z00c</td><td>shift right logical (b7=0)</td></tr>
 </tbody></table>
+</div>
 <h2 id="single-bit-operation-instructions"><a class="header" href="#single-bit-operation-instructions">Single-bit Operation instructions</a></h2>
-<table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
 <tr><td>bit  n,r</td><td>CB xx</td><td>8</td><td>z01-</td><td>test bit n</td></tr>
 <tr><td>bit  n,(HL)</td><td>CB xx</td><td>12</td><td>z01-</td><td>test bit n</td></tr>
 <tr><td>set  n,r</td><td>CB xx</td><td>8</td><td>––</td><td>set bit n</td></tr>
@@ -269,8 +274,9 @@ called “M-cycles”.</p>
 <tr><td>res  n,r</td><td>CB xx</td><td>8</td><td>––</td><td>reset bit n</td></tr>
 <tr><td>res  n,(HL)</td><td>CB xx</td><td>16</td><td>––</td><td>reset bit n</td></tr>
 </tbody></table>
+</div>
 <h2 id="cpu-control-instructions"><a class="header" href="#cpu-control-instructions">CPU Control instructions</a></h2>
-<table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
 <tr><td>ccf</td><td>3F</td><td>4</td><td>-00c</td><td>cy=cy xor 1</td></tr>
 <tr><td>scf</td><td>37</td><td>4</td><td>-001</td><td>cy=1</td></tr>
 <tr><td>nop</td><td>00</td><td>4</td><td>––</td><td>no operation</td></tr>
@@ -279,8 +285,9 @@ called “M-cycles”.</p>
 <tr><td>di</td><td>F3</td><td>4</td><td>––</td><td>disable interrupts, IME=0</td></tr>
 <tr><td>ei</td><td>FB</td><td>4</td><td>––</td><td>enable interrupts, IME=1</td></tr>
 </tbody></table>
+</div>
 <h2 id="jump-instructions"><a class="header" href="#jump-instructions">Jump instructions</a></h2>
-<table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
 <tr><td>jp   nn</td><td>C3 nn nn</td><td>16</td><td>––</td><td>jump to nn, PC=nn</td></tr>
 <tr><td>jp   HL</td><td>E9</td><td>4</td><td>––</td><td>jump to HL, PC=HL</td></tr>
 <tr><td>jp   f,nn</td><td>xx nn nn</td><td>16/12</td><td>––</td><td>conditional jump if nz,z,nc,c</td></tr>
@@ -293,7 +300,7 @@ called “M-cycles”.</p>
 <tr><td>reti</td><td>D9</td><td>16</td><td>––</td><td>return and enable interrupts (IME=1)</td></tr>
 <tr><td>rst  n</td><td>xx</td><td>16</td><td>––</td><td>call to 00,08,10,18,20,28,30,38</td></tr>
 </tbody></table>
-
+</div>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">

@@ -205,12 +205,13 @@ transfer, and if it bothered to set SC’s Bit 7, it will be cleared.</p>
 (allowing to transfer about 1 KByte per second minus overhead for delays).
 In CGB Mode four internal clock rates are available, depending on Bit 1
 of the SC register, and on whether the CGB Double Speed Mode is used:</p>
-<table><thead><tr><th>Clock freq</th><th>Transfer speed</th><th>Conditions</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Clock freq</th><th>Transfer speed</th><th>Conditions</th></tr></thead><tbody>
 <tr><td>8192Hz</td><td>1KB/s</td><td>Bit 1 cleared, Normal speed</td></tr>
 <tr><td>16384Hz</td><td>2KB/s</td><td>Bit 1 cleared, Double-speed Mode</td></tr>
 <tr><td>262144Hz</td><td>32KB/s</td><td>Bit 1 set,     Normal speed</td></tr>
 <tr><td>524288Hz</td><td>64KB/s</td><td>Bit 1 set,     Double-speed Mode</td></tr>
 </tbody></table>
+</div>
 <h3 id="external-clock"><a class="header" href="#external-clock">External Clock</a></h3>
 <p>The external clock is typically supplied by another Game Boy, but might
 be supplied by another computer (for example if connected to a PC’s

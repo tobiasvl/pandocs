@@ -178,7 +178,7 @@ hardware. It is also possible to separate between SGB and SGB2 by
 examining the initial value of the A register directly after startup.
 Note that the DMG and MGB share initial A register values with the SGB
 and SGB2 respectively.</p>
-<table><thead><tr><th>Console</th><th>A Register</th><th>C Register</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Console</th><th>A Register</th><th>C Register</th></tr></thead><tbody>
 <tr><td>DMG</td><td>$01</td><td>$13</td></tr>
 <tr><td>SGB</td><td>$01</td><td>$14</td></tr>
 <tr><td>MGB</td><td>$FF</td><td>$13</td></tr>
@@ -186,6 +186,7 @@ and SGB2 respectively.</p>
 <tr><td>CGB</td><td>$11</td><td>$00</td></tr>
 <tr><td>AGB</td><td>$11</td><td>$00</td></tr>
 </tbody></table>
+</div>
 <p>For initial register values on all systems, see the table of all <a href="Power_Up_Sequence.html#cpu-registers">CPU
 registers after power-up</a>.</p>
 <p>The SGB2 doesn’t have any extra features which’d require separate SGB2

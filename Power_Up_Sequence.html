@@ -165,7 +165,7 @@ A program called the <em>boot ROM</em>, burned inside the CPU, is mapped “over
 This program is responsible for the boot-up animation played before control is handed over to the cartridge’s ROM.
 Since the boot ROM hands off control to the game ROM at address $0100, and developers typically need not care about the boot ROM, the “start address” is usually documented as $0100 and not $0000.</p>
 <p>9 different known official boot ROMs are known to exist:</p>
-<table><thead><tr><th>Name</th><th>Size (bytes)</th><th>Notes</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Size (bytes)</th><th>Notes</th></tr></thead><tbody>
 <tr><td>DMG0</td><td>256</td><td>Blinks on failed checks, no ®</td></tr>
 <tr><td>DMG</td><td>256</td><td></td></tr>
 <tr><td>MGB</td><td>256</td><td>One-byte difference to DMG</td></tr>
@@ -176,6 +176,7 @@ Since the boot ROM hands off control to the game ROM at address $0100, and devel
 <tr><td>AGB0</td><td>256 + 1792</td><td>Increments B register for GBA identification</td></tr>
 <tr><td>AGB</td><td>256 + 1792</td><td>Fixes <a href="Power_Up_Sequence.html#bypass">“logo TOCTTOU”</a></td></tr>
 </tbody></table>
+</div>
 <p><a href="https://github.com/ISSOtm/gb-bootroms">A disassembly of all of them is available online.</a></p>
 <h2 id="monochrome-models-dmg0-dmg-mgb"><a class="header" href="#monochrome-models-dmg0-dmg-mgb">Monochrome models (DMG0, DMG, MGB)</a></h2>
 <p>The monochrome boot ROMs read <a href="The_Cartridge_Header.html#0104-0133--nintendo-logo">the logo from the header</a>, unpack it into VRAM, and then start slowly scrolling it down.
@@ -321,7 +322,7 @@ It is a good idea to enable your favorite emulator’s “break on uninitialized
 <p>While technically not related to power-on, it is worth noting that external RAM in the cartridge, when present, usually contains random garbage data when first powered on.
 It is strongly advised for the game to put a large enough known sequence of bytes at a fixed location in SRAM, and check its presence before accessing any saved data.</p>
 <h3 id="cpu-registers"><a class="header" href="#cpu-registers">CPU registers</a></h3>
-<table><thead><tr><th style="text-align: right">Register</th><th style="text-align: center">DMG0</th><th style="text-align: center">DMG</th><th style="text-align: center">MGB</th><th style="text-align: center">SGB</th><th style="text-align: center">SGB2</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: right">Register</th><th style="text-align: center">DMG0</th><th style="text-align: center">DMG</th><th style="text-align: center">MGB</th><th style="text-align: center">SGB</th><th style="text-align: center">SGB2</th></tr></thead><tbody>
 <tr><td style="text-align: right"><strong>A</strong></td><td style="text-align: center">$01</td><td style="text-align: center">$01</td><td style="text-align: center">$FF</td><td style="text-align: center">$01</td><td style="text-align: center">$FF</td></tr>
 <tr><td style="text-align: right"><strong>F</strong></td><td style="text-align: center">Z=0 N=0 H=0 C=0</td><td style="text-align: center">Z=1 N=0 H=? C=?<sup class="footnote-reference"><a href="#dmg_c">1</a></sup></td><td style="text-align: center">Z=1 N=0 H=? C=?<sup class="footnote-reference"><a href="#dmg_c">1</a></sup></td><td style="text-align: center">Z=0 N=0 H=0 C=0</td><td style="text-align: center">Z=0 N=0 H=0 C=0</td></tr>
 <tr><td style="text-align: right"><strong>B</strong></td><td style="text-align: center">$FF</td><td style="text-align: center">$00</td><td style="text-align: center">$00</td><td style="text-align: center">$00</td><td style="text-align: center">$00</td></tr>
@@ -333,10 +334,11 @@ It is strongly advised for the game to put a large enough known sequence of byte
 <tr><td style="text-align: right"><strong>PC</strong></td><td style="text-align: center">$0100</td><td style="text-align: center">$0100</td><td style="text-align: center">$0100</td><td style="text-align: center">$0100</td><td style="text-align: center">$0100</td></tr>
 <tr><td style="text-align: right"><strong>SP</strong></td><td style="text-align: center">$FFFE</td><td style="text-align: center">$FFFE</td><td style="text-align: center">$FFFE</td><td style="text-align: center">$FFFE</td><td style="text-align: center">$FFFE</td></tr>
 </tbody></table>
+</div>
 <div class="footnote-definition" id="dmg_c"><sup class="footnote-definition-label">1</sup>
 <p>If the <a href="The_Cartridge_Header.html#014d--header-checksum">header checksum</a> is $00, then the carry and half-carry flags are clear; otherwise, they are both set.</p>
 </div>
-<table><thead><tr><th style="text-align: right">Register</th><th style="text-align: center">CGB (DMG mode)</th><th style="text-align: center">AGB (DMG mode)</th><th style="text-align: center">CGB</th><th style="text-align: center">AGB</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: right">Register</th><th style="text-align: center">CGB (DMG mode)</th><th style="text-align: center">AGB (DMG mode)</th><th style="text-align: center">CGB</th><th style="text-align: center">AGB</th></tr></thead><tbody>
 <tr><td style="text-align: right"><strong>A</strong></td><td style="text-align: center">$11</td><td style="text-align: center">$11</td><td style="text-align: center">$11</td><td style="text-align: center">$11</td></tr>
 <tr><td style="text-align: right"><strong>F</strong></td><td style="text-align: center">Z=1 N=0 H=0 C=0</td><td style="text-align: center">Z=? N=0 H=? C=0<sup class="footnote-reference"><a href="#agbdmg_f">2</a></sup></td><td style="text-align: center">Z=1 N=0 H=0 C=0</td><td style="text-align: center">Z=0 N=0 H=0 C=0</td></tr>
 <tr><td style="text-align: right"><strong>B</strong></td><td style="text-align: center">??<sup class="footnote-reference"><a href="#cgbdmg_b">3</a></sup></td><td style="text-align: center">??<sup class="footnote-reference"><a href="#cgbdmg_b">3</a></sup> + 1</td><td style="text-align: center">$00</td><td style="text-align: center">$01</td></tr>
@@ -348,6 +350,7 @@ It is strongly advised for the game to put a large enough known sequence of byte
 <tr><td style="text-align: right"><strong>PC</strong></td><td style="text-align: center">$0100</td><td style="text-align: center">$0100</td><td style="text-align: center">$0100</td><td style="text-align: center">$0100</td></tr>
 <tr><td style="text-align: right"><strong>SP</strong></td><td style="text-align: center">$FFFE</td><td style="text-align: center">$FFFE</td><td style="text-align: center">$FFFE</td><td style="text-align: center">$FFFE</td></tr>
 </tbody></table>
+</div>
 <div class="footnote-definition" id="agbdmg_f"><sup class="footnote-definition-label">2</sup>
 <p>To determine the flags, take the B register you would have gotten on CGB<sup class="footnote-reference"><a href="#cgbdmg_b">3</a></sup>, and <code>inc</code> it.
 (To be precise: an <code>inc b</code> is the last operation to touch the flags.)
@@ -369,7 +372,7 @@ As indicated by the “+ 1” in the “AGB (DMG mode)” column, if on AGB, tha
 <p>The tables above were obtained from analysis of <a href="https://github.com/ISSOtm/gb-bootroms">the boot ROM’s disassemblies</a>, and confirmed using Mooneye-GB tests <a href="https://github.com/Gekkio/mooneye-gb/blob/ca7ff30b52fd3de4f1527397f27a729ffd848dfa/tests/acceptance/boot_regs-dmg0.s"><code>acceptance/boot_regs-dmg0</code></a>, <a href="https://github.com/Gekkio/mooneye-gb/blob/ca7ff30b52fd3de4f1527397f27a729ffd848dfa/tests/acceptance/boot_regs-dmgABC.s"><code>acceptance/boot_regs-dmgABC</code></a>, <a href="https://github.com/Gekkio/mooneye-gb/blob/ca7ff30b52fd3de4f1527397f27a729ffd848dfa/tests/acceptance/boot_regs-mgb.s"><code>acceptance/boot_regs-mgb</code></a>, <a href="https://github.com/Gekkio/mooneye-gb/blob/ca7ff30b52fd3de4f1527397f27a729ffd848dfa/tests/acceptance/boot_regs-sgb.s"><code>acceptance/boot_regs-sgb</code></a>, <a href="https://github.com/Gekkio/mooneye-gb/blob/ca7ff30b52fd3de4f1527397f27a729ffd848dfa/tests/acceptance/boot_regs-sgb2.s"><code>acceptance/boot_regs-sgb2</code></a>, <a href="https://github.com/Gekkio/mooneye-gb/blob/ca7ff30b52fd3de4f1527397f27a729ffd848dfa/tests/misc/boot_regs-cgb.s"><code>misc/boot_regs-cgb</code></a>, and <a href="https://github.com/Gekkio/mooneye-gb/blob/ca7ff30b52fd3de4f1527397f27a729ffd848dfa/tests/misc/boot_regs-A.s"><code>misc/boot_regs-A</code></a>, plus some extra testing.</p>
 <h2 id="hardware-registers"><a class="header" href="#hardware-registers">Hardware registers</a></h2>
 <p>As far as timing-sensitive values are concerned, these values are recorded at PC = $0100.</p>
-<table><thead><tr><th style="text-align: right">Name</th><th style="text-align: center">Address</th><th style="text-align: center">DMG0</th><th style="text-align: center">DMG / MGB</th><th style="text-align: center">SGB / SGB2</th><th style="text-align: center">CGB / AGB</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: right">Name</th><th style="text-align: center">Address</th><th style="text-align: center">DMG0</th><th style="text-align: center">DMG / MGB</th><th style="text-align: center">SGB / SGB2</th><th style="text-align: center">CGB / AGB</th></tr></thead><tbody>
 <tr><td style="text-align: right"><a href="Joypad_Input.html#ff00--p1joyp-joypad"><code>P1</code></a></td><td style="text-align: center">$FF00</td><td style="text-align: center">$CF</td><td style="text-align: center">$CF</td><td style="text-align: center">$C7 or $CF</td><td style="text-align: center">$C7 or $CF</td></tr>
 <tr><td style="text-align: right"><a href="Serial_Data_Transfer_(Link_Cable).html#ff01--sb-serial-transfer-data"><code>SB</code></a></td><td style="text-align: center">$FF01</td><td style="text-align: center">$00</td><td style="text-align: center">$00</td><td style="text-align: center">$00</td><td style="text-align: center">$00</td></tr>
 <tr><td style="text-align: right"><a href="Serial_Data_Transfer_(Link_Cable).html#ff02--sc-serial-transfer-control"><code>SC</code></a></td><td style="text-align: center">$FF02</td><td style="text-align: center">$7E</td><td style="text-align: center">$7E</td><td style="text-align: center">$7E</td><td style="text-align: center">$7F</td></tr>
@@ -426,6 +429,7 @@ As indicated by the “+ 1” in the “AGB (DMG mode)” column, if on AGB, tha
 <tr><td style="text-align: right"><a href="CGB_Registers.html#ff70--svbk-cgb-mode-only-wram-bank"><code>SVBK</code></a></td><td style="text-align: center">$FF70</td><td style="text-align: center">$FF</td><td style="text-align: center">$FF</td><td style="text-align: center">$FF</td><td style="text-align: center">$FF</td></tr>
 <tr><td style="text-align: right"><a href="Interrupts.html#ffff--ie-interrupt-enable"><code>IE</code></a></td><td style="text-align: center">$FFFF</td><td style="text-align: center">$00</td><td style="text-align: center">$00</td><td style="text-align: center">$00</td><td style="text-align: center">$00</td></tr>
 </tbody></table>
+</div>
 <div class="footnote-definition" id="unk"><sup class="footnote-definition-label">5</sup>
 <p>Since this boot ROM’s duration depends on the header’s contents, a general answer can’t be given.
 The value should be static for a given header, though.</p>

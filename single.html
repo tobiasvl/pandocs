@@ -175,7 +175,7 @@ Emulator developers may be also interested in the <a href="https://gekkio.fi/fil
 <p>You can search anywhere by pressing <kbd>s</kbd> on your keyboard or clicking the <i class="fa fa-search"></i> icon.</p>
 <p>The <i class="fa fa-edit"></i> icon allows you to suggest an edit on the current page by directly opening the source file in the git repository.</p>
 <p><a href="single.html">One-page</a> and <a href="print.html">printable</a> versions of this document are also available.</p>
-<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/9e5f7319e1d894b2c6e28ecd923147f95d5636ad"><code>9e5f731</code></a> (2022-09-19 20:35:46 +0200). </small></p>
+<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/0c8e53204ee773f2de27854399a3892012d48435"><code>0c8e532</code></a> (2022-09-20 22:56:02 +0200). </small></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="acknowledgements"><a class="header" href="#acknowledgements">Acknowledgements</a></h1>
 <p>This resource wouldn’t be possible without all the passionate hackers and researchers who contributed on this document in the last three decades.</p>
 <p>We would like to thank:</p>
@@ -273,7 +273,7 @@ The GB side of the vertical sync depends on the CPU clock<sup class="footnote-re
 </div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="memory-map"><a class="header" href="#memory-map">Memory Map</a></h1>
 <p>The Game Boy has a 16-bit address bus, which is used to address ROM, RAM, and I/O.</p>
-<table><thead><tr><th>Start</th><th>End</th><th>Description</th><th>Notes</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Start</th><th>End</th><th>Description</th><th>Notes</th></tr></thead><tbody>
 <tr><td>0000</td><td>3FFF</td><td>16 KiB ROM bank 00</td><td>From cartridge, usually a fixed bank</td></tr>
 <tr><td>4000</td><td>7FFF</td><td>16 KiB ROM Bank 01~NN</td><td>From cartridge, switchable bank via <a href="#mbcs">mapper</a> (if any)</td></tr>
 <tr><td>8000</td><td>9FFF</td><td>8 KiB Video RAM (VRAM)</td><td>In CGB mode, switchable bank 0/1</td></tr>
@@ -287,6 +287,7 @@ The GB side of the vertical sync depends on the CPU clock<sup class="footnote-re
 <tr><td>FF80</td><td>FFFE</td><td>High RAM (HRAM)</td><td></td></tr>
 <tr><td>FFFF</td><td>FFFF</td><td><a href="#interrupts">Interrupt</a> Enable register (IE)</td><td></td></tr>
 </tbody></table>
+</div>
 <h2 id="jump-vectors-in-first-rom-bank"><a class="header" href="#jump-vectors-in-first-rom-bank">Jump Vectors in first ROM bank</a></h2>
 <p>The following addresses are supposed to be used as jump vectors:</p>
 <ul>
@@ -330,7 +331,7 @@ Echo RAM is properly emulated by writing to RAM (avoid values 00 and
 FF) and checking if said value is mirrored in Echo RAM and not cart SRAM.</p>
 <h2 id="io-ranges"><a class="header" href="#io-ranges">I/O Ranges</a></h2>
 <p>The Game Boy uses the following I/O ranges:</p>
-<table><thead><tr><th>Start</th><th>End</th><th>First appeared</th><th>Purpose</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Start</th><th>End</th><th>First appeared</th><th>Purpose</th></tr></thead><tbody>
 <tr><td>$FF00</td><td></td><td>DMG</td><td><a href="#ff00--p1joyp-joypad">Joypad input</a></td></tr>
 <tr><td>$FF01</td><td>$FF02</td><td>DMG</td><td><a href="#serial-data-transfer-link-cable">Serial transfer</a></td></tr>
 <tr><td>$FF04</td><td>$FF07</td><td>DMG</td><td><a href="#timer-and-divider-registers">Timer and divider</a></td></tr>
@@ -343,6 +344,7 @@ FF) and checking if said value is mirrored in Echo RAM and not cart SRAM.</p>
 <tr><td>$FF68</td><td>$FF69</td><td>CGB</td><td><a href="#lcd-color-palettes-cgb-only">BG / OBJ Palettes</a></td></tr>
 <tr><td>$FF70</td><td></td><td>CGB</td><td><a href="#ff70--svbk-cgb-mode-only-wram-bank">WRAM Bank Select</a></td></tr>
 </tbody></table>
+</div>
 <h2 id="fea0-feff-range"><a class="header" href="#fea0-feff-range">FEA0-FEFF range</a></h2>
 <p>Nintendo indicates use of this area is prohibited.  This area returns
 $FF when OAM is blocked, and otherwise the behavior depends on the
@@ -1003,7 +1005,7 @@ the jump into the HRAM part.</p>
 <h2 id="ff40--lcdc-lcd-control"><a class="header" href="#ff40--lcdc-lcd-control">FF40 — LCDC: LCD control</a></h2>
 <p><strong>LCDC</strong> is the main <strong>LCD C</strong>ontrol register. Its bits toggle what
 elements are displayed on the screen, and how.</p>
-<table><thead><tr><th>Bit</th><th>Name</th><th>Usage notes</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Bit</th><th>Name</th><th>Usage notes</th></tr></thead><tbody>
 <tr><td>7</td><td>LCD and PPU enable</td><td>0=Off, 1=On</td></tr>
 <tr><td>6</td><td>Window tile map area</td><td>0=9800-9BFF, 1=9C00-9FFF</td></tr>
 <tr><td>5</td><td>Window enable</td><td>0=Off, 1=On</td></tr>
@@ -1013,6 +1015,7 @@ elements are displayed on the screen, and how.</p>
 <tr><td>1</td><td>OBJ enable</td><td>0=Off, 1=On</td></tr>
 <tr><td>0</td><td>BG and Window enable/priority</td><td>0=Off, 1=On</td></tr>
 </tbody></table>
+</div>
 <h3 id="lcdc7--lcd-enable"><a class="header" href="#lcdc7--lcd-enable">LCDC.7 — LCD enable</a></h3>
 <p>This bit controls whether the LCD is on and the PPU is active. Setting
 it to 0 turns both off, which grants immediate and full access to VRAM,
@@ -1126,12 +1129,13 @@ to the CPU: writes are ignored, and reads return garbage values (usually $FF).</
 <li>During mode 3, the CPU cannot access VRAM or <a href="#lcd-color-palettes-cgb-only">CGB palette data registers</a>
 ($FF69,$FF6B).</li>
 </ul>
-<table><thead><tr><th>Mode</th><th>Action</th><th>Duration</th><th>Accessible video memory</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Mode</th><th>Action</th><th>Duration</th><th>Accessible video memory</th></tr></thead><tbody>
 <tr><td>2</td><td>Searching OAM for OBJs whose Y coordinate overlap this line</td><td>80 dots (19 µs)</td><td>VRAM, CGB palettes</td></tr>
 <tr><td>3</td><td>Reading OAM and VRAM to generate the picture</td><td>168 to 291 dots (40 to 60 µs) depending on sprite count</td><td>None</td></tr>
 <tr><td>0</td><td>Nothing (HBlank)</td><td>85 to 208 dots (20 to 49 µs) depending on previous mode 3 duration</td><td>VRAM, OAM, CGB palettes</td></tr>
 <tr><td>1</td><td>Nothing (VBlank)</td><td>4560 dots (1087 µs, 10 scanlines)</td><td>VRAM, OAM, CGB palettes</td></tr>
 </tbody></table>
+</div>
 <h2 id="properties-of-stat-modes"><a class="header" href="#properties-of-stat-modes">Properties of STAT modes</a></h2>
 <p>Unlike most game consoles, the Game Boy can pause the dot clock briefly,
 making Mode 3 longer and Mode 0 shorter. It routinely takes a 6 to 11 dot
@@ -1208,12 +1212,13 @@ Bit 5-4 - Color for index 2
 Bit 3-2 - Color for index 1
 Bit 1-0 - Color for index 0
 </code></pre>
-<table><thead><tr><th>Value</th><th>Color</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Value</th><th>Color</th></tr></thead><tbody>
 <tr><td>0</td><td>White</td></tr>
 <tr><td>1</td><td>Light gray</td></tr>
 <tr><td>2</td><td>Dark gray</td></tr>
 <tr><td>3</td><td>Black</td></tr>
 </tbody></table>
+</div>
 <p>In CGB Mode the color palettes are taken from <a href="#lcd-color-palettes-cgb-only">CGB palette memory</a>
 instead.</p>
 <h3 id="ff48ff49--obp0-obp1-non-cgb-mode-only-obj-palette-0-1-data"><a class="header" href="#ff48ff49--obp0-obp1-non-cgb-mode-only-obj-palette-0-1-data">FF48–FF49 — OBP0, OBP1 (Non-CGB Mode only): OBJ palette 0, 1 data</a></h3>
@@ -1688,7 +1693,7 @@ separately for each of the output terminals.</p>
  Bit 2-0 - Number of sweep shift (n: 0-7)
 </code></pre>
 <p>Sweep Time:</p>
-<table><thead><tr><th>Value (binary)</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Value (binary)</th><th>Description</th></tr></thead><tbody>
 <tr><td>000</td><td>sweep off - no freq change</td></tr>
 <tr><td>001</td><td>7.8 ms  (1/128Hz)</td></tr>
 <tr><td>010</td><td>15.6 ms (2/128Hz)</td></tr>
@@ -1698,6 +1703,7 @@ separately for each of the output terminals.</p>
 <tr><td>110</td><td>46.9 ms (6/128Hz)</td></tr>
 <tr><td>111</td><td>54.7 ms (7/128Hz)</td></tr>
 </tbody></table>
+</div>
 <p>The change of frequency (NR13,NR14) at each shift is calculated by the
 following formula where X(0) is initial freq &amp; X(t-1) is last freq:</p>
 <p>X(t) = X(t-1) +/- X(t-1)/2^n</p>
@@ -1705,12 +1711,13 @@ following formula where X(0) is initial freq &amp; X(t-1) is last freq:</p>
 <pre><code>Bit 7-6 - Wave Pattern Duty (Read/Write)
 Bit 5-0 - Sound length data (Write Only) (t1: 0-63)
 </code></pre>
-<table><thead><tr><th>Bits 7-6</th><th>Wave duty</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Bits 7-6</th><th>Wave duty</th></tr></thead><tbody>
 <tr><td>%00</td><td>12.5% (<code>_-------_-------_-------</code>)</td></tr>
 <tr><td>%01</td><td>25%   (<code>__------__------__------</code>)</td></tr>
 <tr><td>%10</td><td>50%   (<code>____----____----____----</code>) (normal)</td></tr>
 <tr><td>%11</td><td>75%   (<code>______--______--______--</code>)</td></tr>
 </tbody></table>
+</div>
 <p>Sound Length = (64-t1)*(1/256) seconds. The Length value is used only if
 Bit 6 in NR14 is set.</p>
 <h3 id="ff12--nr12-channel-1-volume-envelope"><a class="header" href="#ff12--nr12-channel-1-volume-envelope">FF12 — NR12: Channel 1 volume envelope</a></h3>
@@ -1736,12 +1743,13 @@ have a Tone Envelope/Sweep Register.</p>
 <pre><code>Bit 7-6 - Wave Pattern Duty (Read/Write)
 Bit 5-0 - Sound length data (Write Only) (t1: 0-63)
 </code></pre>
-<table><thead><tr><th>Bits 7-6</th><th>Wave duty</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Bits 7-6</th><th>Wave duty</th></tr></thead><tbody>
 <tr><td>%00</td><td>12.5% (<code>_-------_-------_-------</code>)</td></tr>
 <tr><td>%01</td><td>25%   (<code>__------__------__------</code>)</td></tr>
 <tr><td>%10</td><td>50%   (<code>____----____----____----</code>) (normal)</td></tr>
 <tr><td>%11</td><td>75%   (<code>______--______--______--</code>)</td></tr>
 </tbody></table>
+</div>
 <p>Sound Length = (64-t1)*(1/256) seconds. The Length value is used only if
 Bit 6 in NR24 is set.</p>
 <h3 id="ff17--nr22-channel-2-volume-envelope"><a class="header" href="#ff17--nr22-channel-2-volume-envelope">FF17 — NR22: Channel 2 volume envelope</a></h3>
@@ -1777,12 +1785,13 @@ square wave. This channel doesn’t have a volume envelope register.</p>
 <h3 id="ff1c--nr32-channel-3-select-output-level"><a class="header" href="#ff1c--nr32-channel-3-select-output-level">FF1C — NR32: Channel 3 select output level</a></h3>
 <pre><code>Bits 6-5 - Select output level (Read/Write)
 </code></pre>
-<table><thead><tr><th>Bits 6-5</th><th>Output level</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Bits 6-5</th><th>Output level</th></tr></thead><tbody>
 <tr><td>%00</td><td>Mute (No sound)</td></tr>
 <tr><td>%01</td><td>100% volume (Produce Wave Pattern RAM Data as it is)</td></tr>
 <tr><td>%10</td><td>50% volume (Produce Wave Pattern RAM data shifted once to the right)</td></tr>
 <tr><td>%11</td><td>25% volume (Produce Wave Pattern RAM data shifted twice to the right)</td></tr>
 </tbody></table>
+</div>
 <h3 id="ff1d--nr33-channel-3-frequency-low-write-only"><a class="header" href="#ff1d--nr33-channel-3-frequency-low-write-only">FF1D — NR33: Channel 3 frequency low [write-only]</a></h3>
 <p>Lower 8 bits of an 11 bit frequency (x).</p>
 <h3 id="ff1e--nr34-channel-3-frequency-high--control"><a class="header" href="#ff1e--nr34-channel-3-frequency-high--control">FF1E — NR34: Channel 3 frequency high &amp; control</a></h3>
@@ -2023,12 +2032,13 @@ transfer, and if it bothered to set SC’s Bit 7, it will be cleared.</p>
 (allowing to transfer about 1 KByte per second minus overhead for delays).
 In CGB Mode four internal clock rates are available, depending on Bit 1
 of the SC register, and on whether the CGB Double Speed Mode is used:</p>
-<table><thead><tr><th>Clock freq</th><th>Transfer speed</th><th>Conditions</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Clock freq</th><th>Transfer speed</th><th>Conditions</th></tr></thead><tbody>
 <tr><td>8192Hz</td><td>1KB/s</td><td>Bit 1 cleared, Normal speed</td></tr>
 <tr><td>16384Hz</td><td>2KB/s</td><td>Bit 1 cleared, Double-speed Mode</td></tr>
 <tr><td>262144Hz</td><td>32KB/s</td><td>Bit 1 set,     Normal speed</td></tr>
 <tr><td>524288Hz</td><td>64KB/s</td><td>Bit 1 set,     Double-speed Mode</td></tr>
 </tbody></table>
+</div>
 <h3 id="external-clock"><a class="header" href="#external-clock">External Clock</a></h3>
 <p>The external clock is typically supplied by another Game Boy, but might
 be supplied by another computer (for example if connected to a PC’s
@@ -2623,12 +2633,13 @@ Their initial value is 0.</p>
 <h2 id="rp-register"><a class="header" href="#rp-register">RP Register</a></h2>
 <p>The following is just theory. This handshake is possibly an artifact of the HuC-1. Consider that the Japanese version of Pokemon TCG 1 used the HuC-1 for its IR communications, and the developers may have borrowed the “best practices” used by other HuC-1/“GB KISS” games. When bringing Pokemon TCG 1 overseas, the IR handling code was likely minimally adapted to use the GBC’s IR port, with the underlying protocol remaining unchanged in most regards. Pokemon TCG 2 ditched the HuC-1 in favor of the GBC IR port, so the IR code from non-Japanese versions of Pokemon TCG 1 was copy+pasted. The Bomberman games were made by Hudson Soft, literally the same people who created the HuC-1 in the first place. They too probably used the same protocol that had worked forever in their “GB KISS” games, so they used the same handshake method as before, just on the GBC IR port now. More research into the HuC-1 itself and the games needs to be done to confirm any of this.</p>
 <p>On the GBC, the MMIO register located at 0xFF56 controls infrared communication. Simply known as “RP” (Radiation Port? Reception Port? Red Port???), it is responsible for sending and receiving IR signals. Below is a diagram of the 8-bit register:</p>
-<table><thead><tr><th>Bit(s)</th><th>Effect</th><th>Access</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Bit(s)</th><th>Effect</th><th>Access</th></tr></thead><tbody>
 <tr><td>0</td><td>Turn IR light ON (1) or OFF (0)</td><td>R/W</td></tr>
 <tr><td>1</td><td>Bit 1 = 1</td><td>R</td></tr>
 <tr><td>2-5</td><td>Unused</td><td></td></tr>
 <tr><td>6-7</td><td>Signal Read Enable (0 = Disable) (3 = Enable)</td><td>R/W</td></tr>
 </tbody></table>
+</div>
 <p>Turning on the IR light is as simple as writing to Bit 0 of RP. Reading is a bit more complicated. Bits 6 and 7 must both be set (0xC0), to read Bit 1, otherwise Bit 1 returns 1, acting as if no signal is detected, except in edge cases detailed below in “Obscure Behavior”. With signal reading enabled, Bit 1 will determine the status of any incoming IR signals. Like other Game Boy MMIO registers, unused bits read high (set to 1).</p>
 <h2 id="signal-fade"><a class="header" href="#signal-fade">Signal Fade</a></h2>
 <p>The IR sensor in the GBC adapts to the current level of IR light. That is to say, if the GBC receives a sustained IR signal beyond a certain amount of time, eventually the sensor treats this as a new “normal” level of IR light, and Bit 1 of RP goes back to 1. This is called the signal “fade” because it may appear as if the signal disappears.</p>
@@ -2636,11 +2647,12 @@ Their initial value is 0.</p>
 <p>At about 3.0 to 3.5 inches (7.62 to 8.89 cm) signal fade time appears to be around 3ms. Optimal distance seems to be 2.5 to 4.0 inches (6.35 to 10.16 cm) to maintain a fade time close to 3ms and avoid potential miscommunication. One oddity of note is that putting two GBCs very close together (physically touching) produced unusually short fade times, far shorter than 3ms. There may be some sort of interference at that range.</p>
 <h2 id="obscure-behavior"><a class="header" href="#obscure-behavior">Obscure Behavior</a></h2>
 <p>The RP register has one very strange quirk. Disabling Bits 6 and 7 and then subsequently re-enabling them causes Bit 1 to go to zero under certain conditions. In other words, the IR sensor will act as if it is detecting a signal if reading the signal is disabled then enabled. It seems this behavior happens in the presence of any light; covering up the sensor during the read signal disable/enable causes the sensor to act normally. It’s possible that the sensor resets itself (to its lowest level of detection???) and immediately detects any infrared sources, even from ambient/environmental light. The presence of any noise may temporarily trick the sensor into “seeing” IR light. By abusing this behavior, the GBC has some rudimentary ability to gauge the type of nearby lighting:</p>
-<table><thead><tr><th>Result of 1st RP Write (0x00)</th><th>Result of 2nd RP Write (0xC0)</th><th>Type of Lighting</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Result of 1st RP Write (0x00)</th><th>Result of 2nd RP Write (0xC0)</th><th>Type of Lighting</th></tr></thead><tbody>
 <tr><td>Bit 1 = 1</td><td>Bit 1 = 1</td><td>Dark</td></tr>
 <tr><td>Bit 1 = 0</td><td>Bit 1 = 1</td><td>Ambient</td></tr>
 <tr><td>Bit 1 = 0 (sometimes 1)</td><td>Bit 1 = 0</td><td>Bright</td></tr>
 </tbody></table>
+</div>
 <p>Writing 0x00 to RP, followed by 0xC0 will trigger these results listed above. One very important thing to note is that when enabling Bits 6 and 7 (writing 0xC0), it does take some time for the sensor to register legitimate IR light coming into the sensor. I.e. if you want to use this method to detect what kind of light a GBC is looking at, the software needs to loop for a bit until Bit 1 of RP changes. Generally a few hundred cycles in double-speed mode will suffice. If Bit 1 of RP remains 1 after the loop, it’s safe to assume the lighting is either ambient or dark. This delay doesn’t seem to happen when Bits 6 and 7 are never disabled (which is what most official GBC software does). Games typically write either 0xC0 or 0xC1 to RP, with a small handful setting it to 0x00 initially when setting up other MMIO registers (Pokemon G/S/C does this).</p>
 <p>The downside to this method is that when detecting a bright IR source, the sensor quickly adjusts to this new level, and the next attempt at writing 0x00 followed by 0xC0 to RP will result in readings of dark or ambient (typically dark though). Essentially the bright result only appears briefly when transitioning from lower levels of light, then it “disappears” thanks to the short time it takes for IR signal fade. Designing a game mechanic (darkness and light) around this quirk is still possible, although it would require careful thought and planning to properly work around the observed limitations.</p>
 <p>One suggested method: once the Bright setting is detected, switch to writing only 0xC0 to RP so that the IR sensor works normally. If IR light stops being detected, switch to alternating 0x00 and 0xC0 writes as described above to determine Dark or Ambient settings. Whether it’s practical or not to do this in a game remains theoretical at this point.</p>
@@ -2743,7 +2755,7 @@ hardware. It is also possible to separate between SGB and SGB2 by
 examining the initial value of the A register directly after startup.
 Note that the DMG and MGB share initial A register values with the SGB
 and SGB2 respectively.</p>
-<table><thead><tr><th>Console</th><th>A Register</th><th>C Register</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Console</th><th>A Register</th><th>C Register</th></tr></thead><tbody>
 <tr><td>DMG</td><td>$01</td><td>$13</td></tr>
 <tr><td>SGB</td><td>$01</td><td>$14</td></tr>
 <tr><td>MGB</td><td>$FF</td><td>$13</td></tr>
@@ -2751,6 +2763,7 @@ and SGB2 respectively.</p>
 <tr><td>CGB</td><td>$11</td><td>$00</td></tr>
 <tr><td>AGB</td><td>$11</td><td>$00</td></tr>
 </tbody></table>
+</div>
 <p>For initial register values on all systems, see the table of all <a href="#cpu-registers">CPU
 registers after power-up</a>.</p>
 <p>The SGB2 doesn’t have any extra features which’d require separate SGB2
@@ -2900,7 +2913,7 @@ slightly faster than when transferring palette data by separate command
 packets.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="command-summary"><a class="header" href="#command-summary">Command Summary</a></h1>
 <h2 id="sgb-system-command-table"><a class="header" href="#sgb-system-command-table">SGB System Command Table</a></h2>
-<table><thead><tr><th>Code</th><th>Name</th><th>Explanation</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Code</th><th>Name</th><th>Explanation</th></tr></thead><tbody>
 <tr><td>$00</td><td><a href="#sgb-command-00--pal01">PAL01</a></td><td>Set SGB Palette 0 &amp; 1</td></tr>
 <tr><td>$01</td><td><a href="#sgb-command-01--pal23">PAL23</a></td><td>Set SGB Palette 2 &amp; 3</td></tr>
 <tr><td>$02</td><td><a href="#sgb-command-02--pal03">PAL03</a></td><td>Set SGB Palette 0 &amp; 3</td></tr>
@@ -2927,7 +2940,7 @@ packets.</p>
 <tr><td>$17</td><td><a href="#sgb-command-17--mask_en">MASK_EN</a></td><td>Game Boy Window Mask</td></tr>
 <tr><td>$18</td><td><a href="#sgb-command-18--obj_trn">OBJ_TRN</a></td><td>Super NES OBJ Mode</td></tr>
 </tbody></table>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="palette-commands"><a class="header" href="#palette-commands">Palette Commands</a></h1>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="palette-commands"><a class="header" href="#palette-commands">Palette Commands</a></h1>
 <h2 id="sgb-command-00--pal01"><a class="header" href="#sgb-command-00--pal01">SGB Command $00 — PAL01</a></h2>
 <p>Transmit color data for SGB palette 0, color 0-3, and for SGB palette 1,
 color 1-3 (without separate color 0).</p>
@@ -3145,11 +3158,12 @@ All 16-bit values are little-endian.</p>
  X+5-FFF  Remaining bytes ignored
 </code></pre>
 <p>Possible destinations in APU-RAM are:</p>
-<table><thead><tr><th>Memory range</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Memory range</th><th>Description</th></tr></thead><tbody>
 <tr><td>$0400-2AFF</td><td>APU-RAM Program Area (9.75KBytes)</td></tr>
 <tr><td>$2B00-4AFF</td><td>APU-RAM Sound Score Area (8Kbytes)</td></tr>
 <tr><td>$4DB0-EEFF</td><td>APU-RAM Sampling Data Area (40.25 Kbytes)</td></tr>
 </tbody></table>
+</div>
 <p>This function may be used to take control of the SNES sound chip, and/or
 to access the SNES MIDI engine. In either case it requires deeper
 knowledge of SNES sound programming.</p>
@@ -3161,7 +3175,7 @@ Sound Effect A uses channels 6 and 7, Sound Effect B uses channels
 0, 1, 4 and 5. Effects that use less channels will use only the upper channels
 (eg. 4 and 5 for a B Effect with only two channels).</p>
 <h2 id="sound-effect-a-flag-table"><a class="header" href="#sound-effect-a-flag-table">Sound Effect A Flag Table</a></h2>
-<table><thead><tr><th>Code</th><th>Description</th><th>Recommended pitch</th><th>Nb of channels used</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Code</th><th>Description</th><th>Recommended pitch</th><th>Nb of channels used</th></tr></thead><tbody>
 <tr><td>00</td><td>Dummy flag, re-trigger</td><td>-</td><td>2</td></tr>
 <tr><td>01</td><td>Nintendo</td><td>3</td><td>1</td></tr>
 <tr><td>02</td><td>Game Over</td><td>3</td><td>2</td></tr>
@@ -3213,9 +3227,10 @@ Sound Effect A uses channels 6 and 7, Sound Effect B uses channels
 <tr><td>30</td><td>Small Laser</td><td>2</td><td>2</td></tr>
 <tr><td>80</td><td>Effect A, stop/silent</td><td>-</td><td>2</td></tr>
 </tbody></table>
+</div>
 <p>Sound effect A is used for formanto sounds (percussion sounds).</p>
 <h2 id="sound-effect-b-flag-table"><a class="header" href="#sound-effect-b-flag-table">Sound Effect B Flag Table</a></h2>
-<table><thead><tr><th>Code</th><th>Description</th><th>Recommended pitch</th><th>Nb of channels used</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Code</th><th>Description</th><th>Recommended pitch</th><th>Nb of channels used</th></tr></thead><tbody>
 <tr><td>00</td><td>Dummy flag, re-trigger</td><td>-</td><td>4</td></tr>
 <tr><td>01</td><td>Applause…small group</td><td>2</td><td>1</td></tr>
 <tr><td>02</td><td>Applause…medium group</td><td>2</td><td>2</td></tr>
@@ -3244,6 +3259,7 @@ Sound Effect A uses channels 6 and 7, Sound Effect B uses channels
 <tr><td>19</td><td>Show up title, formanto</td><td>0</td><td>1</td></tr>
 <tr><td>80</td><td>Effect B, stop/silent</td><td>-</td><td>4</td></tr>
 </tbody></table>
+</div>
 <p>Sound effect B is mainly used for looping sounds (sustained sounds).</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="system-control-commands"><a class="header" href="#system-control-commands">System Control Commands</a></h1>
 <h2 id="sgb-command-17--mask_en"><a class="header" href="#sgb-command-17--mask_en">SGB Command $17 — MASK_EN</a></h2>
@@ -3407,12 +3423,13 @@ joypad can be read out through <a href="#ff00--p1joyp-joypad">the <code>P1</code
 set P14 and P15 both HIGH (deselect both Buttons and Cursor keys), you
 can now read the lower 4 bits of <code>P1</code>, which indicate the joypad ID for
 the following joypad input:</p>
-<table><thead><tr><th>Byte</th><th>Player #</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Byte</th><th>Player #</th></tr></thead><tbody>
 <tr><td>$xF</td><td>1</td></tr>
 <tr><td>$xE</td><td>2</td></tr>
 <tr><td>$xD</td><td>3</td></tr>
 <tr><td>$xC</td><td>4</td></tr>
 </tbody></table>
+</div>
 <p>Next, read joypad state normally.
 The next joypad is automatically selected when P15 goes from LOW (0) to HIGH (1) (<a href="https://github.com/CasualPokePlayer/test-roms/blob/sgb-mlt-test/src/intro.asm">source</a>), so you can simply repeat reading the joypad state normally until all two (or four) joypads have been read out.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="border-and-obj-commands"><a class="header" href="#border-and-obj-commands">Border and OBJ Commands</a></h1>
@@ -3547,7 +3564,7 @@ to set a flag in the SGB’s memory. It’s not known yet what it does,
 though.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="cpu-registers-and-flags"><a class="header" href="#cpu-registers-and-flags">CPU registers and flags</a></h1>
 <h2 id="registers"><a class="header" href="#registers">Registers</a></h2>
-<table><thead><tr><th>16-bit</th><th>Hi</th><th>Lo</th><th>Name/Function</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>16-bit</th><th>Hi</th><th>Lo</th><th>Name/Function</th></tr></thead><tbody>
 <tr><td>AF</td><td>A</td><td>-</td><td>Accumulator &amp; Flags</td></tr>
 <tr><td>BC</td><td>B</td><td>C</td><td>BC</td></tr>
 <tr><td>DE</td><td>D</td><td>E</td><td>DE</td></tr>
@@ -3555,15 +3572,17 @@ though.</p>
 <tr><td>SP</td><td>-</td><td>-</td><td>Stack Pointer</td></tr>
 <tr><td>PC</td><td>-</td><td>-</td><td>Program Counter/Pointer</td></tr>
 </tbody></table>
+</div>
 <p>As shown above, most registers can be accessed either as one 16-bit
 register, or as two separate 8-bit registers.</p>
 <h2 id="the-flags-register-lower-8-bits-of-af-register"><a class="header" href="#the-flags-register-lower-8-bits-of-af-register">The Flags Register (lower 8 bits of AF register)</a></h2>
-<table><thead><tr><th>Bit</th><th>Name</th><th>Explanation</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Bit</th><th>Name</th><th>Explanation</th></tr></thead><tbody>
 <tr><td>7</td><td>z</td><td>Zero flag</td></tr>
 <tr><td>6</td><td>n</td><td>Subtraction flag (BCD)</td></tr>
 <tr><td>5</td><td>h</td><td>Half Carry flag (BCD)</td></tr>
 <tr><td>4</td><td>c</td><td>Carry flag</td></tr>
 </tbody></table>
+</div>
 <p>Contains information about the result of the most recent instruction that has affected
 flags.</p>
 <h2 id="the-zero-flag-z"><a class="header" href="#the-zero-flag-z">The Zero Flag (Z)</a></h2>
@@ -3598,7 +3617,7 @@ mode), called “T-states”.  Because all Game Boy timings are divisible
 by 4, many people specify timings and clock frequency divided by 4,
 called “M-cycles”.</p>
 <h2 id="8-bit-load-instructions"><a class="header" href="#8-bit-load-instructions">8-bit Load instructions</a></h2>
-<table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
 <tr><td>ld   r,r</td><td>xx</td><td>4</td><td>––</td><td>r=r</td></tr>
 <tr><td>ld   r,n</td><td>xx nn</td><td>8</td><td>––</td><td>r=n</td></tr>
 <tr><td>ld   r,(HL)</td><td>xx</td><td>8</td><td>––</td><td>r=(HL)</td></tr>
@@ -3619,16 +3638,18 @@ called “M-cycles”.</p>
 <tr><td>ldd  (HL),A</td><td>32</td><td>8</td><td>––</td><td>(HL)=A, HL=HL-1</td></tr>
 <tr><td>ldd  A,(HL)</td><td>3A</td><td>8</td><td>––</td><td>A=(HL), HL=HL-1</td></tr>
 </tbody></table>
+</div>
 <h2 id="16-bit-load-instructions"><a class="header" href="#16-bit-load-instructions">16-bit Load instructions</a></h2>
-<table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
 <tr><td>ld   rr,nn</td><td>x1 nn nn</td><td>12</td><td>––</td><td>rr=nn (rr may be BC,DE,HL or SP)</td></tr>
 <tr><td>ld   (nn),SP</td><td>08 nn nn</td><td>20</td><td>––</td><td>(nn)=SP</td></tr>
 <tr><td>ld   SP,HL</td><td>F9</td><td>8</td><td>––</td><td>SP=HL</td></tr>
 <tr><td>push rr</td><td>x5</td><td>16</td><td>––</td><td>SP=SP-2  (SP)=rr ; rr may be BC,DE,HL,AF</td></tr>
 <tr><td>pop  rr</td><td>x1</td><td>12</td><td>(AF)</td><td>rr=(SP)  SP=SP+2 ; rr may be BC,DE,HL,AF</td></tr>
 </tbody></table>
+</div>
 <h2 id="8-bit-arithmeticlogic-instructions"><a class="header" href="#8-bit-arithmeticlogic-instructions">8-bit Arithmetic/Logic instructions</a></h2>
-<table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
 <tr><td>add  A,r</td><td>8x</td><td>4</td><td>z0hc</td><td>A=A+r</td></tr>
 <tr><td>add  A,n</td><td>C6 nn</td><td>8</td><td>z0hc</td><td>A=A+n</td></tr>
 <tr><td>add  A,(HL)</td><td>86</td><td>8</td><td>z0hc</td><td>A=A+(HL)</td></tr>
@@ -3660,16 +3681,18 @@ called “M-cycles”.</p>
 <tr><td>daa</td><td>27</td><td>4</td><td>z-0c</td><td>decimal adjust A</td></tr>
 <tr><td>cpl</td><td>2F</td><td>4</td><td>-11-</td><td>A = A xor FF</td></tr>
 </tbody></table>
+</div>
 <h2 id="16-bit-arithmeticlogic-instructions"><a class="header" href="#16-bit-arithmeticlogic-instructions">16-bit Arithmetic/Logic instructions</a></h2>
-<table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
 <tr><td>add  HL,rr</td><td>x9</td><td>8</td><td>-0hc</td><td>HL = HL+rr     ; rr may be BC,DE,HL,SP</td></tr>
 <tr><td>inc  rr</td><td>x3</td><td>8</td><td>––</td><td>rr = rr+1      ; rr may be BC,DE,HL,SP</td></tr>
 <tr><td>dec  rr</td><td>xB</td><td>8</td><td>––</td><td>rr = rr-1      ; rr may be BC,DE,HL,SP</td></tr>
 <tr><td>add  SP,dd</td><td>E8 dd</td><td>16</td><td>00hc</td><td>SP = SP +/- dd ; dd is 8-bit signed number</td></tr>
 <tr><td>ld   HL,SP+dd</td><td>F8 dd</td><td>12</td><td>00hc</td><td>HL = SP +/- dd ; dd is 8-bit signed number</td></tr>
 </tbody></table>
+</div>
 <h2 id="rotate-and-shift-instructions"><a class="header" href="#rotate-and-shift-instructions">Rotate and Shift instructions</a></h2>
-<table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
 <tr><td>rlca</td><td>07</td><td>4</td><td>000c</td><td>rotate A left</td></tr>
 <tr><td>rla</td><td>17</td><td>4</td><td>000c</td><td>rotate A left through carry</td></tr>
 <tr><td>rrca</td><td>0F</td><td>4</td><td>000c</td><td>rotate A right</td></tr>
@@ -3691,8 +3714,9 @@ called “M-cycles”.</p>
 <tr><td>srl  r</td><td>CB 3x</td><td>8</td><td>z00c</td><td>shift right logical (b7=0)</td></tr>
 <tr><td>srl  (HL)</td><td>CB 3E</td><td>16</td><td>z00c</td><td>shift right logical (b7=0)</td></tr>
 </tbody></table>
+</div>
 <h2 id="single-bit-operation-instructions"><a class="header" href="#single-bit-operation-instructions">Single-bit Operation instructions</a></h2>
-<table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
 <tr><td>bit  n,r</td><td>CB xx</td><td>8</td><td>z01-</td><td>test bit n</td></tr>
 <tr><td>bit  n,(HL)</td><td>CB xx</td><td>12</td><td>z01-</td><td>test bit n</td></tr>
 <tr><td>set  n,r</td><td>CB xx</td><td>8</td><td>––</td><td>set bit n</td></tr>
@@ -3700,8 +3724,9 @@ called “M-cycles”.</p>
 <tr><td>res  n,r</td><td>CB xx</td><td>8</td><td>––</td><td>reset bit n</td></tr>
 <tr><td>res  n,(HL)</td><td>CB xx</td><td>16</td><td>––</td><td>reset bit n</td></tr>
 </tbody></table>
+</div>
 <h2 id="cpu-control-instructions"><a class="header" href="#cpu-control-instructions">CPU Control instructions</a></h2>
-<table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
 <tr><td>ccf</td><td>3F</td><td>4</td><td>-00c</td><td>cy=cy xor 1</td></tr>
 <tr><td>scf</td><td>37</td><td>4</td><td>-001</td><td>cy=1</td></tr>
 <tr><td>nop</td><td>00</td><td>4</td><td>––</td><td>no operation</td></tr>
@@ -3710,8 +3735,9 @@ called “M-cycles”.</p>
 <tr><td>di</td><td>F3</td><td>4</td><td>––</td><td>disable interrupts, IME=0</td></tr>
 <tr><td>ei</td><td>FB</td><td>4</td><td>––</td><td>enable interrupts, IME=1</td></tr>
 </tbody></table>
+</div>
 <h2 id="jump-instructions"><a class="header" href="#jump-instructions">Jump instructions</a></h2>
-<table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Mnemonic</th><th>Encoding</th><th>Clock cycles</th><th>Flags</th><th>Description</th></tr></thead><tbody>
 <tr><td>jp   nn</td><td>C3 nn nn</td><td>16</td><td>––</td><td>jump to nn, PC=nn</td></tr>
 <tr><td>jp   HL</td><td>E9</td><td>4</td><td>––</td><td>jump to HL, PC=HL</td></tr>
 <tr><td>jp   f,nn</td><td>xx nn nn</td><td>16/12</td><td>––</td><td>conditional jump if nz,z,nc,c</td></tr>
@@ -3724,7 +3750,7 @@ called “M-cycles”.</p>
 <tr><td>reti</td><td>D9</td><td>16</td><td>––</td><td>return and enable interrupts (IME=1)</td></tr>
 <tr><td>rst  n</td><td>xx</td><td>16</td><td>––</td><td>call to 00,08,10,18,20,28,30,38</td></tr>
 </tbody></table>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="cpu-comparison-with-z80"><a class="header" href="#cpu-comparison-with-z80">CPU Comparison with Z80</a></h1>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="cpu-comparison-with-z80"><a class="header" href="#cpu-comparison-with-z80">CPU Comparison with Z80</a></h1>
 <h2 id="comparison-with-8080"><a class="header" href="#comparison-with-8080">Comparison with 8080</a></h2>
 <p>The Game Boy CPU has a bit more in common with an older Intel 8080 CPU
 than the more powerful Zilog Z80 CPU. It is missing a handful of 8080
@@ -3752,7 +3778,7 @@ HL accesses are added.</p>
 double speed mode), with execution time of all instructions having been
 rounded up to a multiple of 4 cycles.</p>
 <h2 id="moved-removed-and-added-opcodes"><a class="header" href="#moved-removed-and-added-opcodes">Moved, Removed, and Added Opcodes</a></h2>
-<table><thead><tr><th>Opcode</th><th>Z80</th><th>GB CPU</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Opcode</th><th>Z80</th><th>GB CPU</th></tr></thead><tbody>
 <tr><td>08</td><td>EX   AF,AF</td><td>LD   (nn),SP</td></tr>
 <tr><td>10</td><td>DJNZ PC+dd</td><td>STOP</td></tr>
 <tr><td>22</td><td>LD   (nn),HL</td><td>LDI  (HL),A</td></tr>
@@ -3781,6 +3807,7 @@ rounded up to a multiple of 4 cycles.</p>
 <tr><td>FD</td><td>&lt;IY&gt; prefix</td><td>-</td></tr>
 <tr><td>CB 3X</td><td>SLL  r/(HL)</td><td>SWAP r/(HL)</td></tr>
 </tbody></table>
+</div>
 <p>Note: The unused (-) opcodes will lock up the Game Boy CPU when used.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="the-cartridge-header"><a class="header" href="#the-cartridge-header">The Cartridge Header</a></h1>
 <p>Each cartridge contains a header, located at the address range <code>$0100</code>—<code>$014F</code>.
@@ -3817,10 +3844,11 @@ The purpose of the manufactorer code is unknown.</p>
 <p>In older cartridges this byte was part of the Title (see above).
 The CGB and later models interpret this byte to decide whether to enable Color mode (“CGB Mode”) or to fall back to monochrome compatibility mode (“Non-CGB Mode”).</p>
 <p>Typical values are:</p>
-<table><thead><tr><th>Value</th><th>Meaning</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Value</th><th>Meaning</th></tr></thead><tbody>
 <tr><td><code>$80</code></td><td>The game supports CGB enhancements, but is backwards compatible with monochrome Game Boys</td></tr>
 <tr><td><code>$C0</code></td><td>The game works on CGB only (the hardware ignores bit 6, so this really functions the same as <code>$80</code>)</td></tr>
 </tbody></table>
+</div>
 <p>Values with bit 7 and either bit 2 or 3 set will switch the Game Boy into a special non-CGB-mode called “PGB mode”.</p>
 <div class="box tip">
 <p class="box-title">Research needed</p><p>The PGB mode is not well researched or documented yet.
@@ -3830,7 +3858,7 @@ Help is welcome!</p>
 <p>This area contains a two-character ASCII “licensee code” indicating the game’s publisher.
 It is only meaningful if the [Old licensee&lt;#014B — Old licensee is exactly <code>$33</code> (which is the case for essentially all games made after the SGB was released); otherwise, the old code must be considered.</p>
 <p>Sample licensee codes:</p>
-<table><thead><tr><th>Code</th><th>Publisher</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Code</th><th>Publisher</th></tr></thead><tbody>
 <tr><td><code>00</code></td><td>None</td></tr>
 <tr><td><code>01</code></td><td>Nintendo R&amp;D1</td></tr>
 <tr><td><code>08</code></td><td>Capcom</td></tr>
@@ -3893,12 +3921,13 @@ It is only meaningful if the [Old licensee&lt;#014B — Old licensee is exactly 
 <tr><td><code>99</code></td><td>Pack in soft</td></tr>
 <tr><td><code>A4</code></td><td>Konami (Yu-Gi-Oh!)</td></tr>
 </tbody></table>
+</div>
 <h2 id="0146--sgb-flag"><a class="header" href="#0146--sgb-flag">0146 — SGB flag</a></h2>
 <p>This byte specifies whether the game supports SGB functions.
 The SGB will ignore any <a href="#command-packet-transfers">command packets</a> if this byte is set to a value other than <code>$03</code> (typically <code>$00</code>).</p>
 <h2 id="0147--cartridge-type"><a class="header" href="#0147--cartridge-type">0147 — Cartridge type</a></h2>
 <p>This byte indicates what kind of hardware is present on the cartridge — most notably its <a href="#mbcs">mapper</a>.</p>
-<table><thead><tr><th>Code</th><th>Type</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Code</th><th>Type</th></tr></thead><tbody>
 <tr><td><code>$00</code></td><td>ROM ONLY</td></tr>
 <tr><td><code>$01</code></td><td>MBC1</td></tr>
 <tr><td><code>$02</code></td><td>MBC1+RAM</td></tr>
@@ -3928,6 +3957,7 @@ The SGB will ignore any <a href="#command-packet-transfers">command packets</a> 
 <tr><td><code>$FE</code></td><td>HuC3</td></tr>
 <tr><td><code>$FF</code></td><td>HuC1+RAM+BATTERY</td></tr>
 </tbody></table>
+</div>
 <div class="footnote-definition" id="rom_ram"><sup class="footnote-definition-label">1</sup>
 <p>No licensed cartridge makes use of this option. The exact behavior is unknown.</p>
 </div>
@@ -3937,7 +3967,7 @@ The SGB will ignore any <a href="#command-packet-transfers">command packets</a> 
 <h2 id="0148--rom-size"><a class="header" href="#0148--rom-size">0148 — ROM size</a></h2>
 <p>This byte indicates how much ROM is present on the cartridge.
 In most cases, the ROM size is given by <code>32 KiB × (1 &lt;&lt; &lt;value&gt;)</code>:</p>
-<table><thead><tr><th>Value</th><th>ROM size</th><th>Number of ROM banks</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Value</th><th>ROM size</th><th>Number of ROM banks</th></tr></thead><tbody>
 <tr><td><code>$00</code></td><td>32 KiB</td><td>2 (no banking)</td></tr>
 <tr><td><code>$01</code></td><td>64 KiB</td><td>4</td></tr>
 <tr><td><code>$02</code></td><td>128 KiB</td><td>8</td></tr>
@@ -3951,6 +3981,7 @@ In most cases, the ROM size is given by <code>32 KiB × (1 &lt;&lt; &lt;value&gt
 <tr><td><code>$53</code></td><td>1.2 MiB</td><td>80 <sup class="footnote-reference"><a href="#weird_rom_sizes">3</a></sup></td></tr>
 <tr><td><code>$54</code></td><td>1.5 MiB</td><td>96 <sup class="footnote-reference"><a href="#weird_rom_sizes">3</a></sup></td></tr>
 </tbody></table>
+</div>
 <div class="footnote-definition" id="weird_rom_sizes"><sup class="footnote-definition-label">3</sup>
 <p>Only listed in unofficial docs. No cartridges or ROM files using these sizes are known.
 As the other ROM sizes are all powers of 2, these are likely inaccurate.
@@ -3960,7 +3991,7 @@ The source of these values is unknown.</p>
 <p>This byte indicates how much RAM is present on the cartridge, if any.</p>
 <p>If the <a href="#0147--cartridge-type">cartridge type</a> does not include “RAM” in its name, this should be set to 0.
 This includes MBC2, since its 512 × 4 bits of memory are built directly into the mapper.</p>
-<table><thead><tr><th>Code</th><th>SRAM size</th><th>Comment</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Code</th><th>SRAM size</th><th>Comment</th></tr></thead><tbody>
 <tr><td><code>$00</code></td><td>0</td><td>No RAM</td></tr>
 <tr><td><code>$01</code></td><td>–</td><td>Unused <sup class="footnote-reference"><a href="#2kib_sram">4</a></sup></td></tr>
 <tr><td><code>$02</code></td><td>8 KiB</td><td>1 bank</td></tr>
@@ -3968,6 +3999,7 @@ This includes MBC2, since its 512 × 4 bits of memory are built directly into th
 <tr><td><code>$04</code></td><td>128 KiB</td><td>16 banks of 8 KiB each</td></tr>
 <tr><td><code>$05</code></td><td>64 KiB</td><td>8 banks of 8 KiB each</td></tr>
 </tbody></table>
+</div>
 <div class="footnote-definition" id="2kib_sram"><sup class="footnote-definition-label">4</sup>
 <p>Listed in various unofficial docs as 2 KiB.
 However, a 2 KiB RAM chip was never used in a cartridge.
@@ -3977,16 +4009,17 @@ The source of this value is unknown.</p>
 <h2 id="014a--destination-code"><a class="header" href="#014a--destination-code">014A — Destination code</a></h2>
 <p>This byte specifies whether this version of the game is intended to be sold in Japan or elsewhere.</p>
 <p>Only two values are defined:</p>
-<table><thead><tr><th>Code</th><th>Destination</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Code</th><th>Destination</th></tr></thead><tbody>
 <tr><td><code>$00</code></td><td>Japan (and possibly overseas)</td></tr>
 <tr><td><code>$01</code></td><td>Overseas only</td></tr>
 </tbody></table>
+</div>
 <h2 id="014b--old-licensee-code"><a class="header" href="#014b--old-licensee-code">014B — Old licensee code</a></h2>
 <p>This byte is used in older (pre-SGB) cartridges to specify the game’s publisher.
 However, the value <code>$33</code> indicates that the [New licensee&lt;#0144-0145 — New licensee must be considered instead.
 (The SGB will ignore any <a href="#command-packet-transfers">command packets</a> unless this value is <code>$33</code>.)</p>
 <p>Here is a list of known Old licensee(<a href="https://raw.githubusercontent.com/gb-archive/salvage/master/txt-files/gbrom.txt">source</a>).</p>
-<table><thead><tr><th>HEX</th><th>Licensee</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>HEX</th><th>Licensee</th></tr></thead><tbody>
 <tr><td>00</td><td>None</td></tr>
 <tr><td>01</td><td>Nintendo</td></tr>
 <tr><td>08</td><td>Capcom</td></tr>
@@ -4135,6 +4168,7 @@ However, the value <code>$33</code> indicates that the [New licensee&lt;#0144-01
 <tr><td>F3</td><td>Extreme Entertainment</td></tr>
 <tr><td>FF</td><td>LJN</td></tr>
 </tbody></table>
+</div>
 <h2 id="014c--mask-rom-version-number"><a class="header" href="#014c--mask-rom-version-number">014C — Mask ROM version number</a></h2>
 <p>This byte specifies the version number of the game.
 It is usually <code>$00</code>.</p>
@@ -4794,18 +4828,20 @@ Any attempt to write to those bits while its matching bit in this register is 1 
 Writes to masked bits are prevented even in “unmapped” mode.</p>
 <p>The purpose of the mask is to lock some RAM banking bits as “game selection”, instead of letting games freely toggle them.
 Setting these bits effectively reduces the size of the ram available to the game that’s about to be booted:</p>
-<table><thead><tr><th>Mask</th><th>Game RAM</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Mask</th><th>Game RAM</th></tr></thead><tbody>
 <tr><td>00</td><td>32 KiB</td></tr>
 <tr><td>10</td><td>16 KiB</td></tr>
 <tr><td>11</td><td>8 KiB</td></tr>
 </tbody></table>
+</div>
 <p>If [multiplex is enabled[(&lt;#Multiplex Enable&gt;)], this mask still applies to the RAM Bank Low register, even though that register is used as part of the <strong>ROM</strong> bank number in multiplex mode.
 This has the effect of reducing the ROM size instead of the RAM size, as follows:</p>
-<table><thead><tr><th>Mask</th><th>Game ROM</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Mask</th><th>Game ROM</th></tr></thead><tbody>
 <tr><td>00</td><td>2 MiB</td></tr>
 <tr><td>10</td><td>1 MiB</td></tr>
 <tr><td>11</td><td>512 KiB*</td></tr>
 </tbody></table>
+</div>
 <p>Setting the RAM Bank Mask to 11 when multiplex is enabled is pointless - the whole point of multiplex mode is to support 1 MiB or larger MBC1 games.</p>
 <h4 id="bit-6-mapping-enable"><a class="header" href="#bit-6-mapping-enable">Bit 6: Mapping Enable</a></h4>
 <p><em>Can only be changed in “unmapped” mode.</em></p>
@@ -4890,13 +4926,14 @@ Writes to masked bits are prevented even in “unmapped” mode.</p>
 As a result, the lowest bit of ROM Bank Low is always writeable.</p>
 <p>The purpose of the mask is to lock some ROM banking bits as “game selection”, instead of letting games freely toggle them.
 Setting these bits effectively reduces the size of the ROM accessible to the game that’s about to be booted:</p>
-<table><thead><tr><th>Mask</th><th>Game ROM</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Mask</th><th>Game ROM</th></tr></thead><tbody>
 <tr><td>00000</td><td>512 KiB</td></tr>
 <tr><td>10000</td><td>256 KiB</td></tr>
 <tr><td>11000</td><td>128 KiB</td></tr>
 <tr><td>11100</td><td>64 KiB</td></tr>
 <tr><td>11110</td><td>32 KiB</td></tr>
 </tbody></table>
+</div>
 <p>Note: changing the mask can alter which bank would be mapped.
 Only the <em>unmasked</em> bits of <a href="#bits-0-4-rom-bank-low">ROM Bank Low</a> are used for the “<a href="#4000-7fff---rom-bank-01-7f-read-only">attempting to map bank 0 maps bank 1</a>” logic, and it updates live if the ROM Bank Mask changes.
 ROM Bank Low itself doesn’t change when this happens — only the value used for calculating the bank number.</p>
@@ -4994,13 +5031,14 @@ It may be best to have the bankswitch code placed right before $0100, so as to f
 banking, and also provides infrared communication.
 Despite many sources on the internet claiming that HuC1 is “similar to MBC1”, it actually differs from MBC1 significantly.</p>
 <h2 id="memory-map-1"><a class="header" href="#memory-map-1">Memory Map</a></h2>
-<table><thead><tr><th>Address range</th><th>Feature</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Address range</th><th>Feature</th></tr></thead><tbody>
 <tr><td>$0000–1FFF</td><td>RAM/IR select (when writing only)</td></tr>
 <tr><td>$2000–3FFF</td><td>ROM bank select (when writing only)</td></tr>
 <tr><td>$4000–5FFF</td><td>RAM bank select (when writing only)</td></tr>
 <tr><td>$6000–7FFF</td><td>Nothing?</td></tr>
 <tr><td>$A000–BFFF</td><td>Cart RAM or IR register</td></tr>
 </tbody></table>
+</div>
 <h3 id="00001fff--ir-select-write-only"><a class="header" href="#00001fff--ir-select-write-only">0000–1FFF — IR Select [write-only]</a></h3>
 <p>Most MBCs can disable the cartridge RAM to prevent accidental writes.
 HuC1 doesn’t do this. Instead, this register swtiches the $A000–BFFF
@@ -5049,7 +5087,7 @@ or a single I/O Register.</p>
 <h3 id="00001fff--ramrtcir-select-readwrite"><a class="header" href="#00001fff--ramrtcir-select-readwrite">0000–1FFF — RAM/RTC/IR Select [read/write]</a></h3>
 <p>Writing to this register maps cart RAM, RTC registers or IR registers
 into memory at $A000–BFFF. Only the lower 4 bits are significant.</p>
-<table><thead><tr><th>Value</th><th>Feature</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Value</th><th>Feature</th></tr></thead><tbody>
 <tr><td>$0</td><td>Cart RAM (read-only)</td></tr>
 <tr><td>$A</td><td>Cart RAM (read/write)</td></tr>
 <tr><td>$B</td><td>RTC command/argument (write)</td></tr>
@@ -5057,6 +5095,7 @@ into memory at $A000–BFFF. Only the lower 4 bits are significant.</p>
 <tr><td>$D</td><td>RTC semaphore (read/write)</td></tr>
 <tr><td>$E</td><td>IR (read/write)</td></tr>
 </tbody></table>
+</div>
 <p>If any other value is written, reads from $A000–BFFF return open bus
 values (often $FF, but not guaranteed), and writes are ignored.</p>
 <h3 id="20003fff--rom-bank-number-write-only-2"><a class="header" href="#20003fff--rom-bank-number-write-only-2">2000–3FFF — ROM Bank Number [write-only]</a></h3>
@@ -5112,22 +5151,24 @@ values, and a few higher-level operations.</p>
 <p>(The last two steps are not applicable for commands that don’t produce a
 response.)</p>
 <p>Known commands:</p>
-<table><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody>
 <tr><td>$1</td><td>Read value and increment access address</td></tr>
 <tr><td>$3</td><td>Write value and increment access address</td></tr>
 <tr><td>$4</td><td>Set access address least significant nybble</td></tr>
 <tr><td>$5</td><td>Set access address most significant nybble</td></tr>
 <tr><td>$6</td><td>Execute extended command specified by argument</td></tr>
 </tbody></table>
+</div>
 <p>Pocket Family GB2 uses command $2 with argument $0, its purpose is
 unknown. Commands $0 and $7 have not been observed.</p>
 <p>The following extended commands have been observed:</p>
-<table><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody>
 <tr><td>$0</td><td>Copy current time to locations $00–06</td></tr>
 <tr><td>$1</td><td>Copy locations $00–06 to current time, and update event time</td></tr>
 <tr><td>$2</td><td>Seems to be some kind of status request</td></tr>
 <tr><td>$E</td><td>Executing twice triggers tone generator</td></tr>
 </tbody></table>
+</div>
 <p>Commands $0 and $1 are used to read and write the current time
 atomically. Writing the current time in this way also updates the event
 time to maintain the remaining duration until the event occurs.</p>
@@ -5135,7 +5176,7 @@ time to maintain the remaining duration until the event occurs.</p>
 request. The games will not start if the result is not $1.</p>
 <h3 id="rtc-location-map"><a class="header" href="#rtc-location-map">RTC Location Map</a></h3>
 <p>The purpose of some locations has been inferred by observing behavior:</p>
-<table><thead><tr><th>Location</th><th>Purpose</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Location</th><th>Purpose</th></tr></thead><tbody>
 <tr><td>$00–06</td><td>Output or input space for reading or writing current time</td></tr>
 <tr><td>$10–12</td><td>Minute of day counter (rolls over at 1440)</td></tr>
 <tr><td>$13–15</td><td>Day counter</td></tr>
@@ -5144,6 +5185,7 @@ request. The games will not start if the result is not $1.</p>
 <tr><td>$58–5A</td><td>Event time minutes</td></tr>
 <tr><td>$5B–5D</td><td>Event time days</td></tr>
 </tbody></table>
+</div>
 <h2 id="external-links-3"><a class="header" href="#external-links-3">External links</a></h2>
 <ul>
 <li>Source: <a href="https://gbdev.gg8.se/forums/viewtopic.php?id=744">GBDev Forums thread</a></li>
@@ -5263,7 +5305,7 @@ bitmap area of 160*200 (8192/160*4) pixels between prints.</p>
 port. It accepts variable length data packets and then answers back its
 status after two $00 writes.</p>
 <p>The packets all follow this format:</p>
-<table><thead><tr><th>Content</th><th>Size (bytes)</th><th>GB -&gt; Printer</th><th>Printer -&gt; GB</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Content</th><th>Size (bytes)</th><th>GB -&gt; Printer</th><th>Printer -&gt; GB</th></tr></thead><tbody>
 <tr><td>Magic bytes</td><td>2</td><td>$88, $33</td><td>$00</td></tr>
 <tr><td>Command</td><td>1</td><td>See below</td><td>$00</td></tr>
 <tr><td>Compression flag</td><td>1</td><td>0/1</td><td>$00</td></tr>
@@ -5273,6 +5315,7 @@ status after two $00 writes.</p>
 <tr><td>Alive indicator</td><td>1</td><td></td><td>$00</td></tr>
 <tr><td>Status</td><td>1</td><td>See below</td><td>$00</td></tr>
 </tbody></table>
+</div>
 <p>The checksum is simply a sum of every byte sent except the magic bytes
 and obviously, the checksum itself.</p>
 <h2 id="detection"><a class="header" href="#detection">Detection</a></h2>
@@ -5309,7 +5352,7 @@ data, otherwise the print command will be ignored.</p>
 byte.</p>
 <h4 id="status-byte"><a class="header" href="#status-byte">Status byte</a></h4>
 <p>A non-zero value for the higher nibble indicates something went wrong.</p>
-<table><thead><tr><th>Bit #</th><th>Name</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Bit #</th><th>Name</th><th>Description</th></tr></thead><tbody>
 <tr><td>7</td><td>Low Battery</td><td>Set when the voltage is below threshold</td></tr>
 <tr><td>6</td><td>Other error</td><td></td></tr>
 <tr><td>5</td><td>Paper jam</td><td>Set when the encoder gives no pulses when the motor is powered</td></tr>
@@ -5319,6 +5362,7 @@ byte.</p>
 <tr><td>1</td><td>Currently printing</td><td>Set as long as the printer’s burnin’ paper</td></tr>
 <tr><td>0</td><td>Checksum error</td><td>Set when the calculated checksum doesn’t match the received one</td></tr>
 </tbody></table>
+</div>
 <h2 id="example"><a class="header" href="#example">Example</a></h2>
 <ul>
 <li>Send command 1, the answer should be $81, $00</li>
@@ -5362,11 +5406,12 @@ to be copied here)</p>
 <h2 id="camera-cartridge"><a class="header" href="#camera-cartridge">Camera Cartridge</a></h2>
 <p>The Game Boy Camera cartridge contains 4 ICs: the usual ROM and RAM ICs, a big controller IC (like a MBC) and a sensor (M64282FP “retina” chip).</p>
 <p>The main board contains all ICs except from the sensor.</p>
-<table><thead><tr><th>Component#</th><th>Part#/inscription</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Component#</th><th>Part#/inscription</th><th>Description</th></tr></thead><tbody>
 <tr><td>U1</td><td>MAC-GBD Nintendo 9807 SA</td><td>I/O, memory control.</td></tr>
 <tr><td>U2</td><td>GBD-PCAX-0 F M538011-E - 08 8145507</td><td>1MB ROM</td></tr>
 <tr><td>U3</td><td>52CV1000SF85LL SHARP JAPAN 9805 5 0A</td><td>128KB RAM</td></tr>
 </tbody></table>
+</div>
 <p>The U1 is the only one connected to the GB cartridge pins (besides some address pins of the ROM IC). The U2 and U3 (ROM and RAM) are connected to U1. The M64282FP “retina” chip is in a separate PCB, and is connected to the U1.
 The M64282FP handles most of the configuration of the capturing process. The U1 transforms the commands from the Game Boy CPU into the correct signals needed for the M64282FP. The detailed timings are described below.
 It is a good idea to have the datasheet of the M64282FP, but it is very poorly explained, so this document will try to explain everything about it (except from limits like voltage or signal timings). There are datasheets of similar sensors (M64283FP and M64285FP) that can be very useful to understand some things about the sensor of the GB Camera.</p>
@@ -5759,23 +5804,25 @@ receive 4 bytes as part of the ping packet at a rate of about 2048 bits
 per second, or about 256 bytes per second. Essentially, the ping seems to
 run 1/4 as fast as the clock used for normal serial transfers on the DMG
 (1KB/s). The ping data looks like this:</p>
-<table><thead><tr><th>Byte</th><th>Value</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Byte</th><th>Value</th><th>Description</th></tr></thead><tbody>
 <tr><td>1</td><td>0xFE</td><td>ID Byte</td></tr>
 <tr><td>2</td><td>0x??</td><td>STAT1</td></tr>
 <tr><td>3</td><td>0x??</td><td>STAT2</td></tr>
 <tr><td>4</td><td>0x??</td><td>STAT3</td></tr>
 </tbody></table>
+</div>
 <p>3 “STAT” bytes are sent indicating the current connection status of the other
 Game Boys. Each byte is usually the same, however, sometimes the status can
 change midway through a ping, typically on STAT2 or STAT3. Each STAT byte
 looks like such:</p>
-<table><thead><tr><th>Bit</th><th>Name</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Bit</th><th>Name</th></tr></thead><tbody>
 <tr><td>7</td><td>Player 4 Connected</td></tr>
 <tr><td>6</td><td>Player 3 Connected</td></tr>
 <tr><td>5</td><td>Player 2 Connected</td></tr>
 <tr><td>4</td><td>Player 1 Connected</td></tr>
 <tr><td>0-2</td><td>Player ID (1-4)</td></tr>
 </tbody></table>
+</div>
 <p>The Player ID’s value is determined by whichever port a Game Boy is connected
 to. As more Game Boys connect, the upper bits of the STAT bytes are turned on.</p>
 <p>When talking about Game Boys and the “connection”, this refers to a Game Boy
@@ -5789,13 +5836,14 @@ STAT1, in which case the upper-half of STAT1, STAT2, and STAT3 are updated to
 show that a Game Boy is “connected”. If for whatever reason, the
 acknowledgement codes are not sent, the above bits are unset.</p>
 <p>Some examples of ping packets are shown below:</p>
-<table><thead><tr><th>Packet</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Packet</th><th>Description</th></tr></thead><tbody>
 <tr><td><code>0xFE 0x01 0x01 0x01</code></td><td>Ping packet received by Player 1 with no other Game Boys connected.</td></tr>
 <tr><td><code>0xFE 0x11 0x11 0x11</code></td><td>Ping packet received by Player 1 when Player 1 has connected.</td></tr>
 <tr><td><code>0xFE 0x31 0x31 0x31</code></td><td>Ping packet received by Player 1 when Players 1 &amp; 2 have connected.</td></tr>
 <tr><td><code>0xFE 0x71 0x71 0x71</code></td><td>Ping packet received by Player 1 when Players 1, 2, &amp; 3 have connected.</td></tr>
 <tr><td><code>0xFE 0x62 0x62 0x62</code></td><td>Ping packet received by Player 2 when Players 2 &amp; 3 are connected (but not Player 1).</td></tr>
 </tbody></table>
+</div>
 <p>It’s possible to have situations where some players are connected but others
 are not; the gaps don’t matter. For example, Player 1 and Player 4 can be
 connected, while Player 2 and Player 3 can be disconnected (or non-existent,
@@ -5838,7 +5886,7 @@ Game Boys. All data is buffered, so there is a 4 packet delay after each Game
 Boy submits their data (the delay is still 4 packets long even if some Game Boys
 are not connected). For example, say the packet size is 4 bytes; the flow of
 data would look like this when sending:</p>
-<table><thead><tr><th>P1 send</th><th>P2 send</th><th>P3 send</th><th>P4 send</th><th>Transfer count</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>P1 send</th><th>P2 send</th><th>P3 send</th><th>P4 send</th><th>Transfer count</th></tr></thead><tbody>
 <tr><td>P1 (byte 1)</td><td>P2 (byte 1)</td><td>P3 (byte 1)</td><td>P4 (byte 1)</td><td>0</td></tr>
 <tr><td>P1 (byte 2)</td><td>P2 (byte 2)</td><td>P3 (byte 2)</td><td>P4 (byte 2)</td><td>1</td></tr>
 <tr><td>P1 (byte 3)</td><td>P2 (byte 3)</td><td>P3 (byte 3)</td><td>P4 (byte 3)</td><td>2</td></tr>
@@ -5856,8 +5904,9 @@ data would look like this when sending:</p>
 <tr><td>0</td><td>0</td><td>0</td><td>0</td><td>14</td></tr>
 <tr><td>0</td><td>0</td><td>0</td><td>0</td><td>15</td></tr>
 </tbody></table>
+</div>
 <p>And when receiving, the flow of data would look like this:</p>
-<table><thead><tr><th>P1 receive</th><th>P2 receive</th><th>P3 receive</th><th>P4 receive</th><th>Transfer count</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>P1 receive</th><th>P2 receive</th><th>P3 receive</th><th>P4 receive</th><th>Transfer count</th></tr></thead><tbody>
 <tr><td>P1 (byte 1)</td><td>P1 (byte 1)</td><td>P1 (byte 1)</td><td>P1 (byte 1)</td><td>16</td></tr>
 <tr><td>P1 (byte 2)</td><td>P1 (byte 2)</td><td>P1 (byte 2)</td><td>P1 (byte 2)</td><td>17</td></tr>
 <tr><td>P1 (byte 3)</td><td>P1 (byte 3)</td><td>P1 (byte 3)</td><td>P1 (byte 3)</td><td>18</td></tr>
@@ -5875,6 +5924,7 @@ data would look like this when sending:</p>
 <tr><td>P4 (byte 3)</td><td>P4 (byte 3)</td><td>P4 (byte 3)</td><td>P4 (byte 3)</td><td>30</td></tr>
 <tr><td>P4 (byte 4)</td><td>P4 (byte 4)</td><td>P4 (byte 4)</td><td>P4 (byte 4)</td><td>31</td></tr>
 </tbody></table>
+</div>
 <p>Again, due to buffering, data output to the DMG-07 is actually delayed by
 several transfers according to the size of the packets. All connected Game
 Boys should send their data into the buffer during the first few transfers.
@@ -5936,7 +5986,7 @@ A program called the <em>boot ROM</em>, burned inside the CPU, is mapped “over
 This program is responsible for the boot-up animation played before control is handed over to the cartridge’s ROM.
 Since the boot ROM hands off control to the game ROM at address $0100, and developers typically need not care about the boot ROM, the “start address” is usually documented as $0100 and not $0000.</p>
 <p>9 different known official boot ROMs are known to exist:</p>
-<table><thead><tr><th>Name</th><th>Size (bytes)</th><th>Notes</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Size (bytes)</th><th>Notes</th></tr></thead><tbody>
 <tr><td>DMG0</td><td>256</td><td>Blinks on failed checks, no ®</td></tr>
 <tr><td>DMG</td><td>256</td><td></td></tr>
 <tr><td>MGB</td><td>256</td><td>One-byte difference to DMG</td></tr>
@@ -5947,6 +5997,7 @@ Since the boot ROM hands off control to the game ROM at address $0100, and devel
 <tr><td>AGB0</td><td>256 + 1792</td><td>Increments B register for GBA identification</td></tr>
 <tr><td>AGB</td><td>256 + 1792</td><td>Fixes <a href="#bypass">“logo TOCTTOU”</a></td></tr>
 </tbody></table>
+</div>
 <p><a href="https://github.com/ISSOtm/gb-bootroms">A disassembly of all of them is available online.</a></p>
 <h2 id="monochrome-models-dmg0-dmg-mgb"><a class="header" href="#monochrome-models-dmg0-dmg-mgb">Monochrome models (DMG0, DMG, MGB)</a></h2>
 <p>The monochrome boot ROMs read <a href="#0104-0133--nintendo-logo">the logo from the header</a>, unpack it into VRAM, and then start slowly scrolling it down.
@@ -6092,7 +6143,7 @@ It is a good idea to enable your favorite emulator’s “break on uninitialized
 <p>While technically not related to power-on, it is worth noting that external RAM in the cartridge, when present, usually contains random garbage data when first powered on.
 It is strongly advised for the game to put a large enough known sequence of bytes at a fixed location in SRAM, and check its presence before accessing any saved data.</p>
 <h3 id="cpu-registers"><a class="header" href="#cpu-registers">CPU registers</a></h3>
-<table><thead><tr><th style="text-align: right">Register</th><th style="text-align: center">DMG0</th><th style="text-align: center">DMG</th><th style="text-align: center">MGB</th><th style="text-align: center">SGB</th><th style="text-align: center">SGB2</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: right">Register</th><th style="text-align: center">DMG0</th><th style="text-align: center">DMG</th><th style="text-align: center">MGB</th><th style="text-align: center">SGB</th><th style="text-align: center">SGB2</th></tr></thead><tbody>
 <tr><td style="text-align: right"><strong>A</strong></td><td style="text-align: center">$01</td><td style="text-align: center">$01</td><td style="text-align: center">$FF</td><td style="text-align: center">$01</td><td style="text-align: center">$FF</td></tr>
 <tr><td style="text-align: right"><strong>F</strong></td><td style="text-align: center">Z=0 N=0 H=0 C=0</td><td style="text-align: center">Z=1 N=0 H=? C=?<sup class="footnote-reference"><a href="#dmg_c">1</a></sup></td><td style="text-align: center">Z=1 N=0 H=? C=?<sup class="footnote-reference"><a href="#dmg_c">1</a></sup></td><td style="text-align: center">Z=0 N=0 H=0 C=0</td><td style="text-align: center">Z=0 N=0 H=0 C=0</td></tr>
 <tr><td style="text-align: right"><strong>B</strong></td><td style="text-align: center">$FF</td><td style="text-align: center">$00</td><td style="text-align: center">$00</td><td style="text-align: center">$00</td><td style="text-align: center">$00</td></tr>
@@ -6104,10 +6155,11 @@ It is strongly advised for the game to put a large enough known sequence of byte
 <tr><td style="text-align: right"><strong>PC</strong></td><td style="text-align: center">$0100</td><td style="text-align: center">$0100</td><td style="text-align: center">$0100</td><td style="text-align: center">$0100</td><td style="text-align: center">$0100</td></tr>
 <tr><td style="text-align: right"><strong>SP</strong></td><td style="text-align: center">$FFFE</td><td style="text-align: center">$FFFE</td><td style="text-align: center">$FFFE</td><td style="text-align: center">$FFFE</td><td style="text-align: center">$FFFE</td></tr>
 </tbody></table>
+</div>
 <div class="footnote-definition" id="dmg_c"><sup class="footnote-definition-label">1</sup>
 <p>If the <a href="#014d--header-checksum">header checksum</a> is $00, then the carry and half-carry flags are clear; otherwise, they are both set.</p>
 </div>
-<table><thead><tr><th style="text-align: right">Register</th><th style="text-align: center">CGB (DMG mode)</th><th style="text-align: center">AGB (DMG mode)</th><th style="text-align: center">CGB</th><th style="text-align: center">AGB</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: right">Register</th><th style="text-align: center">CGB (DMG mode)</th><th style="text-align: center">AGB (DMG mode)</th><th style="text-align: center">CGB</th><th style="text-align: center">AGB</th></tr></thead><tbody>
 <tr><td style="text-align: right"><strong>A</strong></td><td style="text-align: center">$11</td><td style="text-align: center">$11</td><td style="text-align: center">$11</td><td style="text-align: center">$11</td></tr>
 <tr><td style="text-align: right"><strong>F</strong></td><td style="text-align: center">Z=1 N=0 H=0 C=0</td><td style="text-align: center">Z=? N=0 H=? C=0<sup class="footnote-reference"><a href="#agbdmg_f">2</a></sup></td><td style="text-align: center">Z=1 N=0 H=0 C=0</td><td style="text-align: center">Z=0 N=0 H=0 C=0</td></tr>
 <tr><td style="text-align: right"><strong>B</strong></td><td style="text-align: center">??<sup class="footnote-reference"><a href="#cgbdmg_b">3</a></sup></td><td style="text-align: center">??<sup class="footnote-reference"><a href="#cgbdmg_b">3</a></sup> + 1</td><td style="text-align: center">$00</td><td style="text-align: center">$01</td></tr>
@@ -6119,6 +6171,7 @@ It is strongly advised for the game to put a large enough known sequence of byte
 <tr><td style="text-align: right"><strong>PC</strong></td><td style="text-align: center">$0100</td><td style="text-align: center">$0100</td><td style="text-align: center">$0100</td><td style="text-align: center">$0100</td></tr>
 <tr><td style="text-align: right"><strong>SP</strong></td><td style="text-align: center">$FFFE</td><td style="text-align: center">$FFFE</td><td style="text-align: center">$FFFE</td><td style="text-align: center">$FFFE</td></tr>
 </tbody></table>
+</div>
 <div class="footnote-definition" id="agbdmg_f"><sup class="footnote-definition-label">2</sup>
 <p>To determine the flags, take the B register you would have gotten on CGB<sup class="footnote-reference"><a href="#cgbdmg_b">3</a></sup>, and <code>inc</code> it.
 (To be precise: an <code>inc b</code> is the last operation to touch the flags.)
@@ -6140,7 +6193,7 @@ As indicated by the “+ 1” in the “AGB (DMG mode)” column, if on AGB, tha
 <p>The tables above were obtained from analysis of <a href="https://github.com/ISSOtm/gb-bootroms">the boot ROM’s disassemblies</a>, and confirmed using Mooneye-GB tests <a href="https://github.com/Gekkio/mooneye-gb/blob/ca7ff30b52fd3de4f1527397f27a729ffd848dfa/tests/acceptance/boot_regs-dmg0.s"><code>acceptance/boot_regs-dmg0</code></a>, <a href="https://github.com/Gekkio/mooneye-gb/blob/ca7ff30b52fd3de4f1527397f27a729ffd848dfa/tests/acceptance/boot_regs-dmgABC.s"><code>acceptance/boot_regs-dmgABC</code></a>, <a href="https://github.com/Gekkio/mooneye-gb/blob/ca7ff30b52fd3de4f1527397f27a729ffd848dfa/tests/acceptance/boot_regs-mgb.s"><code>acceptance/boot_regs-mgb</code></a>, <a href="https://github.com/Gekkio/mooneye-gb/blob/ca7ff30b52fd3de4f1527397f27a729ffd848dfa/tests/acceptance/boot_regs-sgb.s"><code>acceptance/boot_regs-sgb</code></a>, <a href="https://github.com/Gekkio/mooneye-gb/blob/ca7ff30b52fd3de4f1527397f27a729ffd848dfa/tests/acceptance/boot_regs-sgb2.s"><code>acceptance/boot_regs-sgb2</code></a>, <a href="https://github.com/Gekkio/mooneye-gb/blob/ca7ff30b52fd3de4f1527397f27a729ffd848dfa/tests/misc/boot_regs-cgb.s"><code>misc/boot_regs-cgb</code></a>, and <a href="https://github.com/Gekkio/mooneye-gb/blob/ca7ff30b52fd3de4f1527397f27a729ffd848dfa/tests/misc/boot_regs-A.s"><code>misc/boot_regs-A</code></a>, plus some extra testing.</p>
 <h2 id="hardware-registers"><a class="header" href="#hardware-registers">Hardware registers</a></h2>
 <p>As far as timing-sensitive values are concerned, these values are recorded at PC = $0100.</p>
-<table><thead><tr><th style="text-align: right">Name</th><th style="text-align: center">Address</th><th style="text-align: center">DMG0</th><th style="text-align: center">DMG / MGB</th><th style="text-align: center">SGB / SGB2</th><th style="text-align: center">CGB / AGB</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: right">Name</th><th style="text-align: center">Address</th><th style="text-align: center">DMG0</th><th style="text-align: center">DMG / MGB</th><th style="text-align: center">SGB / SGB2</th><th style="text-align: center">CGB / AGB</th></tr></thead><tbody>
 <tr><td style="text-align: right"><a href="#ff00--p1joyp-joypad"><code>P1</code></a></td><td style="text-align: center">$FF00</td><td style="text-align: center">$CF</td><td style="text-align: center">$CF</td><td style="text-align: center">$C7 or $CF</td><td style="text-align: center">$C7 or $CF</td></tr>
 <tr><td style="text-align: right"><a href="#ff01--sb-serial-transfer-data"><code>SB</code></a></td><td style="text-align: center">$FF01</td><td style="text-align: center">$00</td><td style="text-align: center">$00</td><td style="text-align: center">$00</td><td style="text-align: center">$00</td></tr>
 <tr><td style="text-align: right"><a href="#ff02--sc-serial-transfer-control"><code>SC</code></a></td><td style="text-align: center">$FF02</td><td style="text-align: center">$7E</td><td style="text-align: center">$7E</td><td style="text-align: center">$7E</td><td style="text-align: center">$7F</td></tr>
@@ -6197,6 +6250,7 @@ As indicated by the “+ 1” in the “AGB (DMG mode)” column, if on AGB, tha
 <tr><td style="text-align: right"><a href="#ff70--svbk-cgb-mode-only-wram-bank"><code>SVBK</code></a></td><td style="text-align: center">$FF70</td><td style="text-align: center">$FF</td><td style="text-align: center">$FF</td><td style="text-align: center">$FF</td><td style="text-align: center">$FF</td></tr>
 <tr><td style="text-align: right"><a href="#ffff--ie-interrupt-enable"><code>IE</code></a></td><td style="text-align: center">$FFFF</td><td style="text-align: center">$00</td><td style="text-align: center">$00</td><td style="text-align: center">$00</td><td style="text-align: center">$00</td></tr>
 </tbody></table>
+</div>
 <div class="footnote-definition" id="unk"><sup class="footnote-definition-label">5</sup>
 <p>Since this boot ROM’s duration depends on the header’s contents, a general answer can’t be given.
 The value should be static for a given header, though.</p>
@@ -6475,7 +6529,7 @@ normal read corruption is then applied.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="external-connectors"><a class="header" href="#external-connectors">External Connectors</a></h1>
 <h2 id="cartridge-slot"><a class="header" href="#cartridge-slot">Cartridge Slot</a></h2>
-<table><thead><tr><th>Pin</th><th>Name</th><th>Explanation</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Pin</th><th>Name</th><th>Explanation</th></tr></thead><tbody>
 <tr><td>1</td><td>VDD</td><td>Power Supply +5V DC</td></tr>
 <tr><td>2</td><td>PHI</td><td>System Clock</td></tr>
 <tr><td>3</td><td>/WR</td><td>Write</td></tr>
@@ -6487,12 +6541,13 @@ normal read corruption is then applied.</li>
 <tr><td>31</td><td>VIN</td><td>External Sound Input</td></tr>
 <tr><td>32</td><td>GND</td><td>Ground</td></tr>
 </tbody></table>
+</div>
 <h2 id="link-port"><a class="header" href="#link-port">Link Port</a></h2>
 <p>Pin numbers are arranged as 2,4,6 in upper row, 1,3,5 in lower row;
 outside view of Game Boy socket; flat side of socket upside. Colors as
 used in most or all standard link cables, because SIN and SOUT are
 crossed, colors Red and Orange are exchanged at one cable end.</p>
-<table><thead><tr><th>Pin</th><th>Name</th><th>Color</th><th>Explanation</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Pin</th><th>Name</th><th>Color</th><th>Explanation</th></tr></thead><tbody>
 <tr><td>1</td><td>VCC</td><td>-</td><td>+5V DC</td></tr>
 <tr><td>2</td><td>SOUT</td><td>red</td><td>Data Out</td></tr>
 <tr><td>3</td><td>SIN</td><td>orange</td><td>Data In</td></tr>
@@ -6500,15 +6555,17 @@ crossed, colors Red and Orange are exchanged at one cable end.</p>
 <tr><td>5</td><td>SCK</td><td>green</td><td>Shift Clock</td></tr>
 <tr><td>6</td><td>GND</td><td>blue</td><td>Ground</td></tr>
 </tbody></table>
+</div>
 <p>Note: The original Game Boy used larger plugs than Game Boy Pocket and
 newer. Linking between older/newer Game Boy systems is possible by using cables
 with one large and one small plug though.</p>
 <h2 id="stereo-sound-connector-35mm-female"><a class="header" href="#stereo-sound-connector-35mm-female">Stereo Sound Connector (3.5mm, female)</a></h2>
-<table><thead><tr><th>Pin</th><th>Explanation</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Pin</th><th>Explanation</th></tr></thead><tbody>
 <tr><td>Tip</td><td>Sound Left</td></tr>
 <tr><td>Middle</td><td>Sound Right</td></tr>
 <tr><td>Base</td><td>Ground</td></tr>
 </tbody></table>
+</div>
 <h2 id="external-power-supply"><a class="header" href="#external-power-supply">External Power Supply</a></h2>
 <p>…</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="gbc-approval-process"><a class="header" href="#gbc-approval-process">GBC Approval Process</a></h1>
@@ -6547,7 +6604,7 @@ other aspects of game design.</p>
 <ul>
 <li><a href="https://github.com/AntonioND/giibiiadvance/tree/master/docs">Antonio Niño Díaz - The Cycle-Accurate Game Boy Docs</a></li>
 <li><a href="https://github.com/AntonioND/gbcam-rev-engineer">Antonio Niño Díaz - Game Boy Camera RE</a></li>
-<li><a href="http://www.its.caltech.edu/%7Ecostis/sgb_hack/">Costis Sideris. The quest for dumping GameBoy Boot ROMs!</a></li>
+<li><a href="http://www.its.caltech.edu/~costis/sgb_hack/">Costis Sideris. The quest for dumping GameBoy Boot ROMs!</a></li>
 <li><a href="https://wiki.tauwasser.eu/view/MBC1">Tauwasser. MBC1 - Tauwasser’s Wiki</a></li>
 <li><a href="https://wiki.tauwasser.eu/view/MBC2">Tauwasser. MBC2 - Tauwasser’s Wiki</a></li>
 <li><a href="https://web.archive.org/web/20090220190205/http://www.semis.demon.co.uk/Gameboy/Gbmain.htm">MBC5 Schematic</a></li>

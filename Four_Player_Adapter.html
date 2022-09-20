@@ -182,23 +182,25 @@ receive 4 bytes as part of the ping packet at a rate of about 2048 bits
 per second, or about 256 bytes per second. Essentially, the ping seems to
 run 1/4 as fast as the clock used for normal serial transfers on the DMG
 (1KB/s). The ping data looks like this:</p>
-<table><thead><tr><th>Byte</th><th>Value</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Byte</th><th>Value</th><th>Description</th></tr></thead><tbody>
 <tr><td>1</td><td>0xFE</td><td>ID Byte</td></tr>
 <tr><td>2</td><td>0x??</td><td>STAT1</td></tr>
 <tr><td>3</td><td>0x??</td><td>STAT2</td></tr>
 <tr><td>4</td><td>0x??</td><td>STAT3</td></tr>
 </tbody></table>
+</div>
 <p>3 “STAT” bytes are sent indicating the current connection status of the other
 Game Boys. Each byte is usually the same, however, sometimes the status can
 change midway through a ping, typically on STAT2 or STAT3. Each STAT byte
 looks like such:</p>
-<table><thead><tr><th>Bit</th><th>Name</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Bit</th><th>Name</th></tr></thead><tbody>
 <tr><td>7</td><td>Player 4 Connected</td></tr>
 <tr><td>6</td><td>Player 3 Connected</td></tr>
 <tr><td>5</td><td>Player 2 Connected</td></tr>
 <tr><td>4</td><td>Player 1 Connected</td></tr>
 <tr><td>0-2</td><td>Player ID (1-4)</td></tr>
 </tbody></table>
+</div>
 <p>The Player ID’s value is determined by whichever port a Game Boy is connected
 to. As more Game Boys connect, the upper bits of the STAT bytes are turned on.</p>
 <p>When talking about Game Boys and the “connection”, this refers to a Game Boy
@@ -212,13 +214,14 @@ STAT1, in which case the upper-half of STAT1, STAT2, and STAT3 are updated to
 show that a Game Boy is “connected”. If for whatever reason, the
 acknowledgement codes are not sent, the above bits are unset.</p>
 <p>Some examples of ping packets are shown below:</p>
-<table><thead><tr><th>Packet</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Packet</th><th>Description</th></tr></thead><tbody>
 <tr><td><code>0xFE 0x01 0x01 0x01</code></td><td>Ping packet received by Player 1 with no other Game Boys connected.</td></tr>
 <tr><td><code>0xFE 0x11 0x11 0x11</code></td><td>Ping packet received by Player 1 when Player 1 has connected.</td></tr>
 <tr><td><code>0xFE 0x31 0x31 0x31</code></td><td>Ping packet received by Player 1 when Players 1 &amp; 2 have connected.</td></tr>
 <tr><td><code>0xFE 0x71 0x71 0x71</code></td><td>Ping packet received by Player 1 when Players 1, 2, &amp; 3 have connected.</td></tr>
 <tr><td><code>0xFE 0x62 0x62 0x62</code></td><td>Ping packet received by Player 2 when Players 2 &amp; 3 are connected (but not Player 1).</td></tr>
 </tbody></table>
+</div>
 <p>It’s possible to have situations where some players are connected but others
 are not; the gaps don’t matter. For example, Player 1 and Player 4 can be
 connected, while Player 2 and Player 3 can be disconnected (or non-existent,
@@ -261,7 +264,7 @@ Game Boys. All data is buffered, so there is a 4 packet delay after each Game
 Boy submits their data (the delay is still 4 packets long even if some Game Boys
 are not connected). For example, say the packet size is 4 bytes; the flow of
 data would look like this when sending:</p>
-<table><thead><tr><th>P1 send</th><th>P2 send</th><th>P3 send</th><th>P4 send</th><th>Transfer count</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>P1 send</th><th>P2 send</th><th>P3 send</th><th>P4 send</th><th>Transfer count</th></tr></thead><tbody>
 <tr><td>P1 (byte 1)</td><td>P2 (byte 1)</td><td>P3 (byte 1)</td><td>P4 (byte 1)</td><td>0</td></tr>
 <tr><td>P1 (byte 2)</td><td>P2 (byte 2)</td><td>P3 (byte 2)</td><td>P4 (byte 2)</td><td>1</td></tr>
 <tr><td>P1 (byte 3)</td><td>P2 (byte 3)</td><td>P3 (byte 3)</td><td>P4 (byte 3)</td><td>2</td></tr>
@@ -279,8 +282,9 @@ data would look like this when sending:</p>
 <tr><td>0</td><td>0</td><td>0</td><td>0</td><td>14</td></tr>
 <tr><td>0</td><td>0</td><td>0</td><td>0</td><td>15</td></tr>
 </tbody></table>
+</div>
 <p>And when receiving, the flow of data would look like this:</p>
-<table><thead><tr><th>P1 receive</th><th>P2 receive</th><th>P3 receive</th><th>P4 receive</th><th>Transfer count</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>P1 receive</th><th>P2 receive</th><th>P3 receive</th><th>P4 receive</th><th>Transfer count</th></tr></thead><tbody>
 <tr><td>P1 (byte 1)</td><td>P1 (byte 1)</td><td>P1 (byte 1)</td><td>P1 (byte 1)</td><td>16</td></tr>
 <tr><td>P1 (byte 2)</td><td>P1 (byte 2)</td><td>P1 (byte 2)</td><td>P1 (byte 2)</td><td>17</td></tr>
 <tr><td>P1 (byte 3)</td><td>P1 (byte 3)</td><td>P1 (byte 3)</td><td>P1 (byte 3)</td><td>18</td></tr>
@@ -298,6 +302,7 @@ data would look like this when sending:</p>
 <tr><td>P4 (byte 3)</td><td>P4 (byte 3)</td><td>P4 (byte 3)</td><td>P4 (byte 3)</td><td>30</td></tr>
 <tr><td>P4 (byte 4)</td><td>P4 (byte 4)</td><td>P4 (byte 4)</td><td>P4 (byte 4)</td><td>31</td></tr>
 </tbody></table>
+</div>
 <p>Again, due to buffering, data output to the DMG-07 is actually delayed by
 several transfers according to the size of the packets. All connected Game
 Boys should send their data into the buffer during the first few transfers.

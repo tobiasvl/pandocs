@@ -276,18 +276,20 @@ Any attempt to write to those bits while its matching bit in this register is 1 
 Writes to masked bits are prevented even in “unmapped” mode.</p>
 <p>The purpose of the mask is to lock some RAM banking bits as “game selection”, instead of letting games freely toggle them.
 Setting these bits effectively reduces the size of the ram available to the game that’s about to be booted:</p>
-<table><thead><tr><th>Mask</th><th>Game RAM</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Mask</th><th>Game RAM</th></tr></thead><tbody>
 <tr><td>00</td><td>32 KiB</td></tr>
 <tr><td>10</td><td>16 KiB</td></tr>
 <tr><td>11</td><td>8 KiB</td></tr>
 </tbody></table>
+</div>
 <p>If [multiplex is enabled[(&lt;#Multiplex Enable&gt;)], this mask still applies to the RAM Bank Low register, even though that register is used as part of the <strong>ROM</strong> bank number in multiplex mode.
 This has the effect of reducing the ROM size instead of the RAM size, as follows:</p>
-<table><thead><tr><th>Mask</th><th>Game ROM</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Mask</th><th>Game ROM</th></tr></thead><tbody>
 <tr><td>00</td><td>2 MiB</td></tr>
 <tr><td>10</td><td>1 MiB</td></tr>
 <tr><td>11</td><td>512 KiB*</td></tr>
 </tbody></table>
+</div>
 <p>Setting the RAM Bank Mask to 11 when multiplex is enabled is pointless - the whole point of multiplex mode is to support 1 MiB or larger MBC1 games.</p>
 <h4 id="bit-6-mapping-enable"><a class="header" href="#bit-6-mapping-enable">Bit 6: Mapping Enable</a></h4>
 <p><em>Can only be changed in “unmapped” mode.</em></p>
@@ -372,13 +374,14 @@ Writes to masked bits are prevented even in “unmapped” mode.</p>
 As a result, the lowest bit of ROM Bank Low is always writeable.</p>
 <p>The purpose of the mask is to lock some ROM banking bits as “game selection”, instead of letting games freely toggle them.
 Setting these bits effectively reduces the size of the ROM accessible to the game that’s about to be booted:</p>
-<table><thead><tr><th>Mask</th><th>Game ROM</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Mask</th><th>Game ROM</th></tr></thead><tbody>
 <tr><td>00000</td><td>512 KiB</td></tr>
 <tr><td>10000</td><td>256 KiB</td></tr>
 <tr><td>11000</td><td>128 KiB</td></tr>
 <tr><td>11100</td><td>64 KiB</td></tr>
 <tr><td>11110</td><td>32 KiB</td></tr>
 </tbody></table>
+</div>
 <p>Note: changing the mask can alter which bank would be mapped.
 Only the <em>unmasked</em> bits of <a href="MMM01.html#bits-0-4-rom-bank-low">ROM Bank Low</a> are used for the “<a href="MMM01.html#4000-7fff---rom-bank-01-7f-read-only">attempting to map bank 0 maps bank 1</a>” logic, and it updates live if the ROM Bank Mask changes.
 ROM Bank Low itself doesn’t change when this happens — only the value used for calculating the bank number.</p>

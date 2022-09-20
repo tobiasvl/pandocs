@@ -187,7 +187,7 @@ HL accesses are added.</p>
 double speed mode), with execution time of all instructions having been
 rounded up to a multiple of 4 cycles.</p>
 <h2 id="moved-removed-and-added-opcodes"><a class="header" href="#moved-removed-and-added-opcodes">Moved, Removed, and Added Opcodes</a></h2>
-<table><thead><tr><th>Opcode</th><th>Z80</th><th>GB CPU</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Opcode</th><th>Z80</th><th>GB CPU</th></tr></thead><tbody>
 <tr><td>08</td><td>EX   AF,AF</td><td>LD   (nn),SP</td></tr>
 <tr><td>10</td><td>DJNZ PC+dd</td><td>STOP</td></tr>
 <tr><td>22</td><td>LD   (nn),HL</td><td>LDI  (HL),A</td></tr>
@@ -216,6 +216,7 @@ rounded up to a multiple of 4 cycles.</p>
 <tr><td>FD</td><td>&lt;IY&gt; prefix</td><td>-</td></tr>
 <tr><td>CB 3X</td><td>SLL  r/(HL)</td><td>SWAP r/(HL)</td></tr>
 </tbody></table>
+</div>
 <p>Note: The unused (-) opcodes will lock up the Game Boy CPU when used.</p>
 
                     </main>

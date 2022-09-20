@@ -166,11 +166,12 @@
 <h2 id="camera-cartridge"><a class="header" href="#camera-cartridge">Camera Cartridge</a></h2>
 <p>The Game Boy Camera cartridge contains 4 ICs: the usual ROM and RAM ICs, a big controller IC (like a MBC) and a sensor (M64282FP “retina” chip).</p>
 <p>The main board contains all ICs except from the sensor.</p>
-<table><thead><tr><th>Component#</th><th>Part#/inscription</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Component#</th><th>Part#/inscription</th><th>Description</th></tr></thead><tbody>
 <tr><td>U1</td><td>MAC-GBD Nintendo 9807 SA</td><td>I/O, memory control.</td></tr>
 <tr><td>U2</td><td>GBD-PCAX-0 F M538011-E - 08 8145507</td><td>1MB ROM</td></tr>
 <tr><td>U3</td><td>52CV1000SF85LL SHARP JAPAN 9805 5 0A</td><td>128KB RAM</td></tr>
 </tbody></table>
+</div>
 <p>The U1 is the only one connected to the GB cartridge pins (besides some address pins of the ROM IC). The U2 and U3 (ROM and RAM) are connected to U1. The M64282FP “retina” chip is in a separate PCB, and is connected to the U1.
 The M64282FP handles most of the configuration of the capturing process. The U1 transforms the commands from the Game Boy CPU into the correct signals needed for the M64282FP. The detailed timings are described below.
 It is a good idea to have the datasheet of the M64282FP, but it is very poorly explained, so this document will try to explain everything about it (except from limits like voltage or signal timings). There are datasheets of similar sensors (M64283FP and M64285FP) that can be very useful to understand some things about the sensor of the GB Camera.</p>

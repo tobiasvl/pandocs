@@ -181,7 +181,7 @@ or a single I/O Register.</p>
 <h3 id="00001fff--ramrtcir-select-readwrite"><a class="header" href="#00001fff--ramrtcir-select-readwrite">0000–1FFF — RAM/RTC/IR Select [read/write]</a></h3>
 <p>Writing to this register maps cart RAM, RTC registers or IR registers
 into memory at $A000–BFFF. Only the lower 4 bits are significant.</p>
-<table><thead><tr><th>Value</th><th>Feature</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Value</th><th>Feature</th></tr></thead><tbody>
 <tr><td>$0</td><td>Cart RAM (read-only)</td></tr>
 <tr><td>$A</td><td>Cart RAM (read/write)</td></tr>
 <tr><td>$B</td><td>RTC command/argument (write)</td></tr>
@@ -189,6 +189,7 @@ into memory at $A000–BFFF. Only the lower 4 bits are significant.</p>
 <tr><td>$D</td><td>RTC semaphore (read/write)</td></tr>
 <tr><td>$E</td><td>IR (read/write)</td></tr>
 </tbody></table>
+</div>
 <p>If any other value is written, reads from $A000–BFFF return open bus
 values (often $FF, but not guaranteed), and writes are ignored.</p>
 <h3 id="20003fff--rom-bank-number-write-only"><a class="header" href="#20003fff--rom-bank-number-write-only">2000–3FFF — ROM Bank Number [write-only]</a></h3>
@@ -244,22 +245,24 @@ values, and a few higher-level operations.</p>
 <p>(The last two steps are not applicable for commands that don’t produce a
 response.)</p>
 <p>Known commands:</p>
-<table><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody>
 <tr><td>$1</td><td>Read value and increment access address</td></tr>
 <tr><td>$3</td><td>Write value and increment access address</td></tr>
 <tr><td>$4</td><td>Set access address least significant nybble</td></tr>
 <tr><td>$5</td><td>Set access address most significant nybble</td></tr>
 <tr><td>$6</td><td>Execute extended command specified by argument</td></tr>
 </tbody></table>
+</div>
 <p>Pocket Family GB2 uses command $2 with argument $0, its purpose is
 unknown. Commands $0 and $7 have not been observed.</p>
 <p>The following extended commands have been observed:</p>
-<table><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody>
 <tr><td>$0</td><td>Copy current time to locations $00–06</td></tr>
 <tr><td>$1</td><td>Copy locations $00–06 to current time, and update event time</td></tr>
 <tr><td>$2</td><td>Seems to be some kind of status request</td></tr>
 <tr><td>$E</td><td>Executing twice triggers tone generator</td></tr>
 </tbody></table>
+</div>
 <p>Commands $0 and $1 are used to read and write the current time
 atomically. Writing the current time in this way also updates the event
 time to maintain the remaining duration until the event occurs.</p>
@@ -267,7 +270,7 @@ time to maintain the remaining duration until the event occurs.</p>
 request. The games will not start if the result is not $1.</p>
 <h3 id="rtc-location-map"><a class="header" href="#rtc-location-map">RTC Location Map</a></h3>
 <p>The purpose of some locations has been inferred by observing behavior:</p>
-<table><thead><tr><th>Location</th><th>Purpose</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Location</th><th>Purpose</th></tr></thead><tbody>
 <tr><td>$00–06</td><td>Output or input space for reading or writing current time</td></tr>
 <tr><td>$10–12</td><td>Minute of day counter (rolls over at 1440)</td></tr>
 <tr><td>$13–15</td><td>Day counter</td></tr>
@@ -276,6 +279,7 @@ request. The games will not start if the result is not $1.</p>
 <tr><td>$58–5A</td><td>Event time minutes</td></tr>
 <tr><td>$5B–5D</td><td>Event time days</td></tr>
 </tbody></table>
+</div>
 <h2 id="external-links"><a class="header" href="#external-links">External links</a></h2>
 <ul>
 <li>Source: <a href="https://gbdev.gg8.se/forums/viewtopic.php?id=744">GBDev Forums thread</a></li>

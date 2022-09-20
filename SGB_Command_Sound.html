@@ -205,11 +205,12 @@ All 16-bit values are little-endian.</p>
  X+5-FFF  Remaining bytes ignored
 </code></pre>
 <p>Possible destinations in APU-RAM are:</p>
-<table><thead><tr><th>Memory range</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Memory range</th><th>Description</th></tr></thead><tbody>
 <tr><td>$0400-2AFF</td><td>APU-RAM Program Area (9.75KBytes)</td></tr>
 <tr><td>$2B00-4AFF</td><td>APU-RAM Sound Score Area (8Kbytes)</td></tr>
 <tr><td>$4DB0-EEFF</td><td>APU-RAM Sampling Data Area (40.25 Kbytes)</td></tr>
 </tbody></table>
+</div>
 <p>This function may be used to take control of the SNES sound chip, and/or
 to access the SNES MIDI engine. In either case it requires deeper
 knowledge of SNES sound programming.</p>
@@ -221,7 +222,7 @@ Sound Effect A uses channels 6 and 7, Sound Effect B uses channels
 0, 1, 4 and 5. Effects that use less channels will use only the upper channels
 (eg. 4 and 5 for a B Effect with only two channels).</p>
 <h2 id="sound-effect-a-flag-table"><a class="header" href="#sound-effect-a-flag-table">Sound Effect A Flag Table</a></h2>
-<table><thead><tr><th>Code</th><th>Description</th><th>Recommended pitch</th><th>Nb of channels used</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Code</th><th>Description</th><th>Recommended pitch</th><th>Nb of channels used</th></tr></thead><tbody>
 <tr><td>00</td><td>Dummy flag, re-trigger</td><td>-</td><td>2</td></tr>
 <tr><td>01</td><td>Nintendo</td><td>3</td><td>1</td></tr>
 <tr><td>02</td><td>Game Over</td><td>3</td><td>2</td></tr>
@@ -273,9 +274,10 @@ Sound Effect A uses channels 6 and 7, Sound Effect B uses channels
 <tr><td>30</td><td>Small Laser</td><td>2</td><td>2</td></tr>
 <tr><td>80</td><td>Effect A, stop/silent</td><td>-</td><td>2</td></tr>
 </tbody></table>
+</div>
 <p>Sound effect A is used for formanto sounds (percussion sounds).</p>
 <h2 id="sound-effect-b-flag-table"><a class="header" href="#sound-effect-b-flag-table">Sound Effect B Flag Table</a></h2>
-<table><thead><tr><th>Code</th><th>Description</th><th>Recommended pitch</th><th>Nb of channels used</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Code</th><th>Description</th><th>Recommended pitch</th><th>Nb of channels used</th></tr></thead><tbody>
 <tr><td>00</td><td>Dummy flag, re-trigger</td><td>-</td><td>4</td></tr>
 <tr><td>01</td><td>Applause…small group</td><td>2</td><td>1</td></tr>
 <tr><td>02</td><td>Applause…medium group</td><td>2</td><td>2</td></tr>
@@ -304,6 +306,7 @@ Sound Effect A uses channels 6 and 7, Sound Effect B uses channels
 <tr><td>19</td><td>Show up title, formanto</td><td>0</td><td>1</td></tr>
 <tr><td>80</td><td>Effect B, stop/silent</td><td>-</td><td>4</td></tr>
 </tbody></table>
+</div>
 <p>Sound effect B is mainly used for looping sounds (sustained sounds).</p>
 
                     </main>

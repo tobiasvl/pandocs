@@ -183,7 +183,7 @@ separately for each of the output terminals.</p>
  Bit 2-0 - Number of sweep shift (n: 0-7)
 </code></pre>
 <p>Sweep Time:</p>
-<table><thead><tr><th>Value (binary)</th><th>Description</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Value (binary)</th><th>Description</th></tr></thead><tbody>
 <tr><td>000</td><td>sweep off - no freq change</td></tr>
 <tr><td>001</td><td>7.8 ms  (1/128Hz)</td></tr>
 <tr><td>010</td><td>15.6 ms (2/128Hz)</td></tr>
@@ -193,6 +193,7 @@ separately for each of the output terminals.</p>
 <tr><td>110</td><td>46.9 ms (6/128Hz)</td></tr>
 <tr><td>111</td><td>54.7 ms (7/128Hz)</td></tr>
 </tbody></table>
+</div>
 <p>The change of frequency (NR13,NR14) at each shift is calculated by the
 following formula where X(0) is initial freq &amp; X(t-1) is last freq:</p>
 <p>X(t) = X(t-1) +/- X(t-1)/2^n</p>
@@ -200,12 +201,13 @@ following formula where X(0) is initial freq &amp; X(t-1) is last freq:</p>
 <pre><code>Bit 7-6 - Wave Pattern Duty (Read/Write)
 Bit 5-0 - Sound length data (Write Only) (t1: 0-63)
 </code></pre>
-<table><thead><tr><th>Bits 7-6</th><th>Wave duty</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Bits 7-6</th><th>Wave duty</th></tr></thead><tbody>
 <tr><td>%00</td><td>12.5% (<code>_-------_-------_-------</code>)</td></tr>
 <tr><td>%01</td><td>25%   (<code>__------__------__------</code>)</td></tr>
 <tr><td>%10</td><td>50%   (<code>____----____----____----</code>) (normal)</td></tr>
 <tr><td>%11</td><td>75%   (<code>______--______--______--</code>)</td></tr>
 </tbody></table>
+</div>
 <p>Sound Length = (64-t1)*(1/256) seconds. The Length value is used only if
 Bit 6 in NR14 is set.</p>
 <h3 id="ff12--nr12-channel-1-volume-envelope"><a class="header" href="#ff12--nr12-channel-1-volume-envelope">FF12 — NR12: Channel 1 volume envelope</a></h3>
@@ -231,12 +233,13 @@ have a Tone Envelope/Sweep Register.</p>
 <pre><code>Bit 7-6 - Wave Pattern Duty (Read/Write)
 Bit 5-0 - Sound length data (Write Only) (t1: 0-63)
 </code></pre>
-<table><thead><tr><th>Bits 7-6</th><th>Wave duty</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Bits 7-6</th><th>Wave duty</th></tr></thead><tbody>
 <tr><td>%00</td><td>12.5% (<code>_-------_-------_-------</code>)</td></tr>
 <tr><td>%01</td><td>25%   (<code>__------__------__------</code>)</td></tr>
 <tr><td>%10</td><td>50%   (<code>____----____----____----</code>) (normal)</td></tr>
 <tr><td>%11</td><td>75%   (<code>______--______--______--</code>)</td></tr>
 </tbody></table>
+</div>
 <p>Sound Length = (64-t1)*(1/256) seconds. The Length value is used only if
 Bit 6 in NR24 is set.</p>
 <h3 id="ff17--nr22-channel-2-volume-envelope"><a class="header" href="#ff17--nr22-channel-2-volume-envelope">FF17 — NR22: Channel 2 volume envelope</a></h3>
@@ -272,12 +275,13 @@ square wave. This channel doesn’t have a volume envelope register.</p>
 <h3 id="ff1c--nr32-channel-3-select-output-level"><a class="header" href="#ff1c--nr32-channel-3-select-output-level">FF1C — NR32: Channel 3 select output level</a></h3>
 <pre><code>Bits 6-5 - Select output level (Read/Write)
 </code></pre>
-<table><thead><tr><th>Bits 6-5</th><th>Output level</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Bits 6-5</th><th>Output level</th></tr></thead><tbody>
 <tr><td>%00</td><td>Mute (No sound)</td></tr>
 <tr><td>%01</td><td>100% volume (Produce Wave Pattern RAM Data as it is)</td></tr>
 <tr><td>%10</td><td>50% volume (Produce Wave Pattern RAM data shifted once to the right)</td></tr>
 <tr><td>%11</td><td>25% volume (Produce Wave Pattern RAM data shifted twice to the right)</td></tr>
 </tbody></table>
+</div>
 <h3 id="ff1d--nr33-channel-3-frequency-low-write-only"><a class="header" href="#ff1d--nr33-channel-3-frequency-low-write-only">FF1D — NR33: Channel 3 frequency low [write-only]</a></h3>
 <p>Lower 8 bits of an 11 bit frequency (x).</p>
 <h3 id="ff1e--nr34-channel-3-frequency-high--control"><a class="header" href="#ff1e--nr34-channel-3-frequency-high--control">FF1E — NR34: Channel 3 frequency high &amp; control</a></h3>

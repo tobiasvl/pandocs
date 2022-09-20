@@ -196,12 +196,13 @@ to the CPU: writes are ignored, and reads return garbage values (usually $FF).</
 <li>During mode 3, the CPU cannot access VRAM or <a href="Palettes.html#lcd-color-palettes-cgb-only">CGB palette data registers</a>
 ($FF69,$FF6B).</li>
 </ul>
-<table><thead><tr><th>Mode</th><th>Action</th><th>Duration</th><th>Accessible video memory</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Mode</th><th>Action</th><th>Duration</th><th>Accessible video memory</th></tr></thead><tbody>
 <tr><td>2</td><td>Searching OAM for OBJs whose Y coordinate overlap this line</td><td>80 dots (19 µs)</td><td>VRAM, CGB palettes</td></tr>
 <tr><td>3</td><td>Reading OAM and VRAM to generate the picture</td><td>168 to 291 dots (40 to 60 µs) depending on sprite count</td><td>None</td></tr>
 <tr><td>0</td><td>Nothing (HBlank)</td><td>85 to 208 dots (20 to 49 µs) depending on previous mode 3 duration</td><td>VRAM, OAM, CGB palettes</td></tr>
 <tr><td>1</td><td>Nothing (VBlank)</td><td>4560 dots (1087 µs, 10 scanlines)</td><td>VRAM, OAM, CGB palettes</td></tr>
 </tbody></table>
+</div>
 <h2 id="properties-of-stat-modes"><a class="header" href="#properties-of-stat-modes">Properties of STAT modes</a></h2>
 <p>Unlike most game consoles, the Game Boy can pause the dot clock briefly,
 making Mode 3 longer and Mode 0 shorter. It routinely takes a 6 to 11 dot

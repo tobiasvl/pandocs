@@ -161,7 +161,7 @@
                     <main>
                         <h1 id="memory-map"><a class="header" href="#memory-map">Memory Map</a></h1>
 <p>The Game Boy has a 16-bit address bus, which is used to address ROM, RAM, and I/O.</p>
-<table><thead><tr><th>Start</th><th>End</th><th>Description</th><th>Notes</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Start</th><th>End</th><th>Description</th><th>Notes</th></tr></thead><tbody>
 <tr><td>0000</td><td>3FFF</td><td>16 KiB ROM bank 00</td><td>From cartridge, usually a fixed bank</td></tr>
 <tr><td>4000</td><td>7FFF</td><td>16 KiB ROM Bank 01~NN</td><td>From cartridge, switchable bank via <a href="MBCs.html#mbcs">mapper</a> (if any)</td></tr>
 <tr><td>8000</td><td>9FFF</td><td>8 KiB Video RAM (VRAM)</td><td>In CGB mode, switchable bank 0/1</td></tr>
@@ -175,6 +175,7 @@
 <tr><td>FF80</td><td>FFFE</td><td>High RAM (HRAM)</td><td></td></tr>
 <tr><td>FFFF</td><td>FFFF</td><td><a href="Interrupts.html#interrupts">Interrupt</a> Enable register (IE)</td><td></td></tr>
 </tbody></table>
+</div>
 <h2 id="jump-vectors-in-first-rom-bank"><a class="header" href="#jump-vectors-in-first-rom-bank">Jump Vectors in first ROM bank</a></h2>
 <p>The following addresses are supposed to be used as jump vectors:</p>
 <ul>
@@ -218,7 +219,7 @@ Echo RAM is properly emulated by writing to RAM (avoid values 00 and
 FF) and checking if said value is mirrored in Echo RAM and not cart SRAM.</p>
 <h2 id="io-ranges"><a class="header" href="#io-ranges">I/O Ranges</a></h2>
 <p>The Game Boy uses the following I/O ranges:</p>
-<table><thead><tr><th>Start</th><th>End</th><th>First appeared</th><th>Purpose</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Start</th><th>End</th><th>First appeared</th><th>Purpose</th></tr></thead><tbody>
 <tr><td>$FF00</td><td></td><td>DMG</td><td><a href="Joypad_Input.html#ff00--p1joyp-joypad">Joypad input</a></td></tr>
 <tr><td>$FF01</td><td>$FF02</td><td>DMG</td><td><a href="Serial_Data_Transfer_(Link_Cable).html#serial-data-transfer-link-cable">Serial transfer</a></td></tr>
 <tr><td>$FF04</td><td>$FF07</td><td>DMG</td><td><a href="Timer_and_Divider_Registers.html#timer-and-divider-registers">Timer and divider</a></td></tr>
@@ -231,6 +232,7 @@ FF) and checking if said value is mirrored in Echo RAM and not cart SRAM.</p>
 <tr><td>$FF68</td><td>$FF69</td><td>CGB</td><td><a href="Palettes.html#lcd-color-palettes-cgb-only">BG / OBJ Palettes</a></td></tr>
 <tr><td>$FF70</td><td></td><td>CGB</td><td><a href="CGB_Registers.html#ff70--svbk-cgb-mode-only-wram-bank">WRAM Bank Select</a></td></tr>
 </tbody></table>
+</div>
 <h2 id="fea0-feff-range"><a class="header" href="#fea0-feff-range">FEA0-FEFF range</a></h2>
 <p>Nintendo indicates use of this area is prohibited.  This area returns
 $FF when OAM is blocked, and otherwise the behavior depends on the
