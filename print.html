@@ -174,7 +174,7 @@ Emulator developers may be also interested in the <a href="https://gekkio.fi/fil
 <p>You can search anywhere by pressing <kbd>s</kbd> on your keyboard or clicking the <i class="fa fa-search"></i> icon.</p>
 <p>The <i class="fa fa-edit"></i> icon allows you to suggest an edit on the current page by directly opening the source file in the git repository.</p>
 <p><a href="single.html">One-page</a> and <a href="print.html">printable</a> versions of this document are also available.</p>
-<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/ae89342abe259502402247e268db2912ab848314"><code>ae89342</code></a> (2022-09-21 09:13:09 +0200). </small></p>
+<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/0fbd0ecac75abdb44cf68d3d15a8f9dcb61b2051"><code>0fbd0ec</code></a> (2022-10-09 12:31:49 +0200). </small></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="acknowledgements"><a class="header" href="#acknowledgements">Acknowledgements</a></h1>
 <p>This resource wouldn’t be possible without all the passionate hackers and researchers who contributed on this document in the last three decades.</p>
 <p>We would like to thank:</p>
@@ -3453,7 +3453,8 @@ to transfer more than 128 tiles, call this function twice (once for
 tiles 00h-7Fh, and once for tiles 80h-FFh). Note: The BG/OBJ Bit seems
 to have no effect and writes to the same VRAM addresses for both BG and
 OBJ ???</p>
-<p>TODO: explain tile format</p>
+<p>Each tile is stored in 4-bit-per-pixel format consisting of bit planes 0 and 1 interleaved by row, followed by bit planes 2 and 3 interleaved by row.
+In effect, each tile consists of two Game Boy tiles, the first to determine bits 0 and 1 (choosing among color 0, 1, 2, or 3 within a 4-color subpalette), and the second to determine bits 2 and 3 (choosing among colors 0-3, 4-7, 8-11, or 12-15).</p>
 <h2 id="sgb-command-14--pct_trn"><a class="header" href="#sgb-command-14--pct_trn">SGB Command $14 — PCT_TRN</a></h2>
 <p>Used to transfer tile map data and palette data to SNES BG Map memory in
 VRAM to be used for the SGB border. The actual tiles must be separately
@@ -3465,13 +3466,13 @@ transferred by using the CHR_TRN function.</p>
 <p>The map data is sent by VRAM-Transfer (4 KBytes).</p>
 <pre><code> 000-6FF  BG Map 32x28 Entries of 16 bits each (1792 bytes)
  700-7FF  Not used, don't care
- 800-87F  BG Palette Data (Palettes 4-7, each 16 colors of 16 bits each)
- 880-FFF  Not used, don't care
+ 800-85F  BG Palette Data (Palettes 4-6, 16 little-endian RGB555 colors each)
+ 860-FFF  Not used, don't care
 </code></pre>
 <p>Each BG Map Entry consists of a 16-bit value as such:
 `VH01 PP00 NNNN NNNN```</p>
 <pre><code> Bit 0-9   - Character Number (use only 00h-FFh, upper 2 bits zero)
- Bit 10-12 - Palette Number   (use only 4-7, officially use only 4-6)
+ Bit 10-12 - Palette Number   (use only 4-6)
  Bit 13    - BG Priority      (use only 0)
  Bit 14    - X-Flip           (0=Normal, 1=Mirror horizontally)
  Bit 15    - Y-Flip           (0=Normal, 1=Mirror vertically)
@@ -3482,16 +3483,19 @@ to a blank (solid color 0) tile as transparent space for the Game Boy
 window to be displayed inside. Non-transparent border data will cover
 the Game Boy window (for example, <em>Mario’s Picross</em> does this, as does
 <em>WildSnake</em> to a lesser extent).</p>
+<p>A border designed for a modern (post-2006) widescreen television may use the center 256×176 pixels and leave the top and bottom 24 lines blank.
+Using letterbox allows more tile variety in the portion of the border that a widescreen TV’s zoom mode does not cut off.</p>
 <p>All borders repeat tiles. Assuming that the blank space for the GB
-screen is a single tile, as is the letterbox in a widescreen border, a
+screen is a blank tile, and the letterbox (if any) is a solid tile, a
 border defining all unique tiles would have to define this many tiles:</p>
 <ul>
-<li>(256*224-160*144)/64+1 = 537 tiles in fullscreen border</li>
-<li>(256*176-160*144)/64+2 = 346 tiles in widescreen border</li>
+<li>(256*224-160*144)/64+1 = 537 tiles in full-screen border</li>
+<li>(256*176-160*144)/64+2 = 346 tiles in letterboxed border</li>
 </ul>
-<p>But the CHR RAM allocated by SGB for border holds only 256 tiles. This
-means a fullscreen border must repeat at least 281 tiles and a
-widescreen border at least 90.</p>
+<p>Because the CHR RAM allocated by SGB for border holds only 256 tiles, a full-screen border must repeat at least 281 tiles and a letterboxed border at least 90.</p>
+<p>The Super NES supports 8 background palettes.
+The SGB system software (when run in a LLE such as Mesen-S) has been observed to use background palette 0 for the GB screen, palettes 1, 2, 3, and 7 for the menus, and palettes 4, 5, and 6 for the border.
+Thus a border can use three 15-color palettes.</p>
 <h2 id="sgb-command-18--obj_trn"><a class="header" href="#sgb-command-18--obj_trn">SGB Command $18 — OBJ_TRN</a></h2>
 <p>Used to transfer OBJ attributes to SNES OAM memory. Unlike all other
 functions with the ending _TRN, this function does not use the usual
