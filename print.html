@@ -174,7 +174,7 @@ Emulator developers may be also interested in the <a href="https://gekkio.fi/fil
 <p>You can search anywhere by pressing <kbd>s</kbd> on your keyboard or clicking the <i class="fa fa-search"></i> icon.</p>
 <p>The <i class="fa fa-edit"></i> icon allows you to suggest an edit on the current page by directly opening the source file in the git repository.</p>
 <p><a href="single.html">One-page</a> and <a href="print.html">printable</a> versions of this document are also available.</p>
-<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/0fbd0ecac75abdb44cf68d3d15a8f9dcb61b2051"><code>0fbd0ec</code></a> (2022-10-09 12:31:49 +0200). </small></p>
+<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/571dfb56210c995d520f9fd67d285bce9fbf8f69"><code>571dfb5</code></a> (2022-10-13 01:24:28 +0200). </small></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="acknowledgements"><a class="header" href="#acknowledgements">Acknowledgements</a></h1>
 <p>This resource wouldn’t be possible without all the passionate hackers and researchers who contributed on this document in the last three decades.</p>
 <p>We would like to thank:</p>
@@ -3859,7 +3859,7 @@ Help is welcome!</p>
 </div>
 <h2 id="0144-0145--new-licensee-code"><a class="header" href="#0144-0145--new-licensee-code">0144-0145 — New licensee code</a></h2>
 <p>This area contains a two-character ASCII “licensee code” indicating the game’s publisher.
-It is only meaningful if the [Old licensee&lt;#014B — Old licensee is exactly <code>$33</code> (which is the case for essentially all games made after the SGB was released); otherwise, the old code must be considered.</p>
+It is only meaningful if the <a href="The_Cartridge_Header.html#014b--old-licensee-code">Old licensee</a> is exactly <code>$33</code> (which is the case for essentially all games made after the SGB was released); otherwise, the old code must be considered.</p>
 <p>Sample licensee codes:</p>
 <div class="table-wrapper"><table><thead><tr><th>Code</th><th>Publisher</th></tr></thead><tbody>
 <tr><td><code>00</code></td><td>None</td></tr>
@@ -4019,9 +4019,9 @@ The source of this value is unknown.</p>
 </div>
 <h2 id="014b--old-licensee-code"><a class="header" href="#014b--old-licensee-code">014B — Old licensee code</a></h2>
 <p>This byte is used in older (pre-SGB) cartridges to specify the game’s publisher.
-However, the value <code>$33</code> indicates that the [New licensee&lt;#0144-0145 — New licensee must be considered instead.
+However, the value <code>$33</code> indicates that the <a href="The_Cartridge_Header.html#0144%E2%80%930145%20%E2%80%94%20New%20licensee%20code">New licensee codes</a> must be considered instead.
 (The SGB will ignore any <a href="SGB_Command_Packet.html#command-packet-transfers">command packets</a> unless this value is <code>$33</code>.)</p>
-<p>Here is a list of known Old licensee(<a href="https://raw.githubusercontent.com/gb-archive/salvage/master/txt-files/gbrom.txt">source</a>).</p>
+<p>Here is a list of known Old licensee codes (<a href="https://raw.githubusercontent.com/gb-archive/salvage/master/txt-files/gbrom.txt">source</a>).</p>
 <div class="table-wrapper"><table><thead><tr><th>HEX</th><th>Licensee</th></tr></thead><tbody>
 <tr><td>00</td><td>None</td></tr>
 <tr><td>01</td><td>Nintendo</td></tr>
@@ -4043,7 +4043,7 @@ However, the value <code>$33</code> indicates that the [New licensee&lt;#0144-01
 <tr><td>30</td><td>Infogrames</td></tr>
 <tr><td>31</td><td>Nintendo</td></tr>
 <tr><td>32</td><td>Bandai</td></tr>
-<tr><td>33</td><td>Indicates that the [New licensee&lt;#0144-0145 - New licensee should be used instead.</td></tr>
+<tr><td>33</td><td>Indicates that the <a href="The_Cartridge_Header.html#0144%E2%80%930145%20%E2%80%94%20New%20licensee%20code">New licensee code</a> should be used instead.</td></tr>
 <tr><td>34</td><td>Konami</td></tr>
 <tr><td>35</td><td>HectorSoft</td></tr>
 <tr><td>38</td><td>Capcom</td></tr>
