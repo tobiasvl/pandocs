@@ -177,7 +177,7 @@ Emulator developers may be also interested in the <a href="https://gekkio.fi/fil
 <p>You can search anywhere by pressing <kbd>s</kbd> on your keyboard or clicking the <i class="fa fa-search"></i> icon.</p>
 <p>The <i class="fa fa-edit"></i> icon allows you to suggest an edit on the current page by directly opening the source file in the git repository.</p>
 <p><a href="single.html">One-page</a> and <a href="print.html">printable</a> versions of this document are also available.</p>
-<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/1a6ca717c44bbbad4046cf97f3690a483cf7d50a"><code>1a6ca71</code></a> (2022-11-02 21:25:24 +0100). </small></p>
+<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/382e5563cf5aebc994c0ba98feec8699ce0abbec"><code>382e556</code></a> (2022-11-03 00:45:23 +0100). </small></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="acknowledgements"><a class="header" href="#acknowledgements">Acknowledgements</a></h1>
 <p>This resource wouldn’t be possible without all the passionate hackers and researchers who contributed on this document in the last three decades.</p>
 <p>We would like to thank:</p>
@@ -2042,7 +2042,7 @@ Bit 5-0 - Initial length timer (Write Only)
 Bit 3   - Envelope direction (0=Decrease, 1=Increase)
 Bit 2-0 - Sweep pace (0=No Sweep)
 </code></pre>
-<p>Setting bits 3-7 of this register all to 0 turns the DAC off (and thus, the channel as well).</p>
+<p>Setting bits 3-7 of this register all to 0 turns the DAC off (and thus, the channel as well), which <a href="#mixer">may cause an audio pop</a>.</p>
 <p>The envelope ticks at 64 Hz, and the channel’s envelope will be increased / decreased (depending on bit 3) every <var>Sweep pace</var> of those ticks.</p>
 <p>Writes to this register while the channel is on require retriggering it afterwards.</p>
 <h3 id="ff13--nr13-channel-1-wavelength-low-write-only"><a class="header" href="#ff13--nr13-channel-1-wavelength-low-write-only">FF13 — NR13: Channel 1 wavelength low [write-only]</a></h3>
@@ -2078,10 +2078,11 @@ It’s also possible to artificially “increase” the wave’s length by loadi
 Like other channels, turning the DAC off immediately turns the channel off as well.</p>
 <pre><code>Bit 7 - Sound Channel 3 DAC  (0=Off, 1=On)
 </code></pre>
-<p>The channel is often turned off just before writing to <a href="#ff30ff3f--wave-pattern-ram">wave RAM</a> to avoid issues with accessing it; see there for more info.</p>
+<p>The DAC is often turned off just before writing to <a href="#ff30ff3f--wave-pattern-ram">wave RAM</a> to avoid issues with accessing it; see further below for more info.</p>
+<p>Turning the DAC off <a href="#mixer">may cause an audio pop</a>.</p>
 <h3 id="ff1b--nr31-channel-3-length-timer-write-only"><a class="header" href="#ff1b--nr31-channel-3-length-timer-write-only">FF1B — NR31: Channel 3 length timer [write-only]</a></h3>
 <p>This register controls the channel’s <a href="#length-timer">length timer</a>.</p>
-<pre><code>Bit 5-0 - length timer
+<pre><code>Bit 7-0 - length timer
 </code></pre>
 <p>The higher the <a href="#length-timer">length timer</a>, the shorter the time before the channel is cut.</p>
 <h3 id="ff1c--nr32-channel-3-output-level"><a class="header" href="#ff1c--nr32-channel-3-output-level">FF1C — NR32: Channel 3 output level</a></h3>
@@ -2140,10 +2141,13 @@ This is especially relevant on GBA, since <a href="#game-boy-advance-audio">“D
 So, from the CPU’s point of view, wave RAM reads out the same byte, regardless of the address.</p>
 </div>
 <h2 id="sound-channel-4--noise"><a class="header" href="#sound-channel-4--noise">Sound Channel 4 — Noise</a></h2>
-<p>This channel is used to output white noise, which is done by randomly switching the amplitude between two levels fairly fast.</p>
+<p>This channel is used to output white noise<sup class="footnote-reference"><a href="#not_white">7</a></sup>, which is done by randomly switching the amplitude between two levels fairly fast.</p>
 <p>The frequency can be adjusted in order to make the noise appear “harder” (lower frequency) or “softer” (higher frequency).</p>
 <p>The random function that switches the output level can also be manipulated.
 Certain settings can cause the wave to be more regular, sounding closer to a pulse than noise.</p>
+<div class="footnote-definition" id="not_white"><sup class="footnote-definition-label">7</sup>
+<p>By default, the noise will sound close to white; but it can be manipulated to sound differently.</p>
+</div>
 <h3 id="ff20--nr41-channel-4-length-timer-write-only"><a class="header" href="#ff20--nr41-channel-4-length-timer-write-only">FF20 — NR41: Channel 4 length timer [write-only]</a></h3>
 <p>This register controls the channel’s <a href="#length-timer">length timer</a>.</p>
 <pre><code>Bit 5-0 - length timer
@@ -2155,7 +2159,7 @@ Certain settings can cause the wave to be more regular, sounding closer to a pul
 Bit 3   - Envelope direction (0=Decrease, 1=Increase)
 Bit 2-0 - Sweep pace (0=No Sweep)
 </code></pre>
-<p>Setting bits 3-7 of this register all to 0 turns the DAC off (and thus, the channel as well).</p>
+<p>Setting bits 3-7 of this register all to 0 turns the DAC off (and thus, the channel as well), which <a href="#mixer">may cause an audio pop</a>.</p>
 <p>The envelope ticks at 64 Hz, and the channel’s envelope will be increased / decreased (depending on bit 3) every <var>Sweep pace</var> of those ticks.</p>
 <h3 id="ff22--nr43-channel-4-frequency--randomness"><a class="header" href="#ff22--nr43-channel-4-frequency--randomness">FF22 — NR43: Channel 4 frequency &amp; randomness</a></h3>
 <p>This register allows controlling the way the amplitude is randomly switched.</p>
@@ -2517,10 +2521,13 @@ Thus, the counter can be made to increase faster by writing to <code>DIV</code> 
 <h3 id="mixer"><a class="header" href="#mixer">Mixer</a></h3>
 <p>A high-pass filter (HPF) removes constant biases over time.
 The HPFs therefore remove the DC offset created by inactive channels with an enabled DAC, and off-center waveforms.</p>
-<p>Enabling or disabling a DAC (<a href="#dacs">see below</a>), adding or removing it using NR51, or changing the volume in NR50, will cause an audio “pop”.
+<div class="box tip">
+<p class="box-title">Avoiding audio pops</p><p>Enabling or disabling a DAC (<a href="#dacs">see below</a>), adding or removing it using NR51, or changing the volume in NR50, will cause an audio pop.
 (All of these actions cause a change in DC offset, which is smoothed out by the HPFs over time, but still creates a pop.)</p>
+<p>To avoid this, a sound driver should avoid turning the DACs off; this can be done by writing $08 to <code>NRx2</code> (silences the channel but keeps the DAC on) then $80 to <code>NRx4</code> to retrigger the channel and reload <code>NRx2</code>.</p>
+</div>
 <p>The HPF is more aggressive on GBA than on GBC, which itself is more aggressive than on DMG.
-(The more “aggressive” a HPF, the faster it pulls the signal towards “analog 0”; this reduces the pops, but tends to also distort waveforms.)</p>
+(The more “aggressive” a HPF, the faster it pulls the signal towards “analog 0”; this tends to also distort waveforms.)</p>
 <h3 id="dacs"><a class="header" href="#dacs">DACs</a></h3>
 <p>Channel <var>x</var>’s DAC is enabled if and only if <code>[NRx2] &amp; $F8 != 0</code>; the exception is CH3, whose DAC is directly controlled by bit 7 of NR30 instead.
 Note that the envelope functionality changes the volume, but not the value stored in NRx2, and thus doesn’t disable the DACs.</p>
@@ -2616,7 +2623,7 @@ The LFSR is 16-bit internally, but really acts as if it was 15-bit.</p>
 <h2 id="game-boy-advance-audio"><a class="header" href="#game-boy-advance-audio">Game Boy Advance audio</a></h2>
 <p>The APU was reworked pretty heavily for the GBA, which introduces some slightly different behavior:</p>
 <ul>
-<li>Instead of mixing being done analogically, it’s instead done digitally; then, sound is converted to an analog signal and an offset is added (see <code>SOUNDBIAS</code> in <a href="http://problemkaputt.de/gbatek.htm#gbasoundcontrolregisters">GBATEK</a> for more details).</li>
+<li>Instead of mixing being done by analog circuitry, it’s instead done digitally; then, sound is converted to an analog signal and an offset is added (see <code>SOUNDBIAS</code> in <a href="http://problemkaputt.de/gbatek.htm#gbasoundcontrolregisters">GBATEK</a> for more details).</li>
 <li>This also means that the GBA APU has no DACs.
 Instead, they are emulated digitally such that a disabled “DAC” behaves like an enabled DAC receiving 0 as its input.</li>
 <li>Additionally, CH3’s DAC has its output inverted.

@@ -503,10 +503,13 @@ Thus, the counter can be made to increase faster by writing to <code>DIV</code> 
 <h3 id="mixer"><a class="header" href="#mixer">Mixer</a></h3>
 <p>A high-pass filter (HPF) removes constant biases over time.
 The HPFs therefore remove the DC offset created by inactive channels with an enabled DAC, and off-center waveforms.</p>
-<p>Enabling or disabling a DAC (<a href="Audio_details.html#dacs">see below</a>), adding or removing it using NR51, or changing the volume in NR50, will cause an audio “pop”.
+<div class="box tip">
+<p class="box-title">Avoiding audio pops</p><p>Enabling or disabling a DAC (<a href="Audio_details.html#dacs">see below</a>), adding or removing it using NR51, or changing the volume in NR50, will cause an audio pop.
 (All of these actions cause a change in DC offset, which is smoothed out by the HPFs over time, but still creates a pop.)</p>
+<p>To avoid this, a sound driver should avoid turning the DACs off; this can be done by writing $08 to <code>NRx2</code> (silences the channel but keeps the DAC on) then $80 to <code>NRx4</code> to retrigger the channel and reload <code>NRx2</code>.</p>
+</div>
 <p>The HPF is more aggressive on GBA than on GBC, which itself is more aggressive than on DMG.
-(The more “aggressive” a HPF, the faster it pulls the signal towards “analog 0”; this reduces the pops, but tends to also distort waveforms.)</p>
+(The more “aggressive” a HPF, the faster it pulls the signal towards “analog 0”; this tends to also distort waveforms.)</p>
 <h3 id="dacs"><a class="header" href="#dacs">DACs</a></h3>
 <p>Channel <var>x</var>’s DAC is enabled if and only if <code>[NRx2] &amp; $F8 != 0</code>; the exception is CH3, whose DAC is directly controlled by bit 7 of NR30 instead.
 Note that the envelope functionality changes the volume, but not the value stored in NRx2, and thus doesn’t disable the DACs.</p>
@@ -602,7 +605,7 @@ The LFSR is 16-bit internally, but really acts as if it was 15-bit.</p>
 <h2 id="game-boy-advance-audio"><a class="header" href="#game-boy-advance-audio">Game Boy Advance audio</a></h2>
 <p>The APU was reworked pretty heavily for the GBA, which introduces some slightly different behavior:</p>
 <ul>
-<li>Instead of mixing being done analogically, it’s instead done digitally; then, sound is converted to an analog signal and an offset is added (see <code>SOUNDBIAS</code> in <a href="http://problemkaputt.de/gbatek.htm#gbasoundcontrolregisters">GBATEK</a> for more details).</li>
+<li>Instead of mixing being done by analog circuitry, it’s instead done digitally; then, sound is converted to an analog signal and an offset is added (see <code>SOUNDBIAS</code> in <a href="http://problemkaputt.de/gbatek.htm#gbasoundcontrolregisters">GBATEK</a> for more details).</li>
 <li>This also means that the GBA APU has no DACs.
 Instead, they are emulated digitally such that a disabled “DAC” behaves like an enabled DAC receiving 0 as its input.</li>
 <li>Additionally, CH3’s DAC has its output inverted.
