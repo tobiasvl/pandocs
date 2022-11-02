@@ -17,6 +17,9 @@
         <!-- Twitter meta tags -->
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@gbdev0" />
+        
+        <!-- MathML polyfill for Chrome -->
+        <script src="https://fred-wang.github.io/mathml.css/mspace.js"></script>
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="The single, most comprehensive technical reference to Game Boy available to the public.">
@@ -92,7 +95,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item affix "><a href="About.html">Foreword</a></li><li class="chapter-item affix "><a href="Authors.html">Acknowledgements</a></li><li class="chapter-item affix "><a href="History.html">History</a></li><li class="spacer"></li><li class="chapter-item affix "><li class="part-title">Overview</li><li class="chapter-item "><a href="Specifications.html"><strong aria-hidden="true">1.</strong> Specifications</a></li><li class="chapter-item "><a href="Memory_Map.html"><strong aria-hidden="true">2.</strong> Memory Map</a></li><li class="chapter-item affix "><li class="part-title">I/O Ports</li><li class="chapter-item "><a href="Rendering.html"><strong aria-hidden="true">3.</strong> Rendering</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Tile_Data.html"><strong aria-hidden="true">3.1.</strong> Tile Data</a></li><li class="chapter-item "><a href="Tile_Maps.html"><strong aria-hidden="true">3.2.</strong> Tile Maps</a></li><li class="chapter-item "><a href="OAM.html"><strong aria-hidden="true">3.3.</strong> OAM</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="OAM_DMA_Transfer.html"><strong aria-hidden="true">3.3.1.</strong> OAM DMA Transfer</a></li></ol></li><li class="chapter-item "><a href="LCDC.html"><strong aria-hidden="true">3.4.</strong> LCD Control</a></li><li class="chapter-item "><a href="STAT.html"><strong aria-hidden="true">3.5.</strong> LCD Status</a></li><li class="chapter-item "><a href="Scrolling.html"><strong aria-hidden="true">3.6.</strong> Scrolling</a></li><li class="chapter-item "><a href="Palettes.html"><strong aria-hidden="true">3.7.</strong> Palettes</a></li><li class="chapter-item "><a href="pixel_fifo.html"><strong aria-hidden="true">3.8.</strong> Pixel FIFO</a></li></ol></li><li class="chapter-item "><a href="Sound_Controller.html"><strong aria-hidden="true">4.</strong> Sound Controller</a></li><li class="chapter-item "><a href="Joypad_Input.html"><strong aria-hidden="true">5.</strong> Joypad Input</a></li><li class="chapter-item "><a href="Serial_Data_Transfer_(Link_Cable).html"><strong aria-hidden="true">6.</strong> Serial Data Transfer</a></li><li class="chapter-item "><a href="Timer_and_Divider_Registers.html"><strong aria-hidden="true">7.</strong> Timer and Divider Registers</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Timer_Obscure_Behaviour.html"><strong aria-hidden="true">7.1.</strong> Timer Obscure Behaviour</a></li></ol></li><li class="chapter-item "><a href="Interrupts.html"><strong aria-hidden="true">8.</strong> Interrupts</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Interrupt_Sources.html"><strong aria-hidden="true">8.1.</strong> Interrupt Sources</a></li><li class="chapter-item "><a href="halt.html"><strong aria-hidden="true">8.2.</strong> HALT</a></li></ol></li><li class="chapter-item "><a href="CGB_Registers.html"><strong aria-hidden="true">9.</strong> CGB Registers</a></li><li class="chapter-item "><a href="IR.html"><strong aria-hidden="true">10.</strong> Infrared Communication</a></li><li class="chapter-item "><a href="SGB_Functions.html"><strong aria-hidden="true">11.</strong> SGB Functions</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="SGB_Unlocking.html"><strong aria-hidden="true">11.1.</strong> Unlocking and Detecting SGB Functions</a></li><li class="chapter-item "><a href="SGB_Command_Packet.html"><strong aria-hidden="true">11.2.</strong> Command Packet Transfers</a></li><li class="chapter-item "><a href="SGB_VRAM_Transfer.html"><strong aria-hidden="true">11.3.</strong> VRAM Transfers</a></li><li class="chapter-item "><a href="SGB_Color_Palettes.html"><strong aria-hidden="true">11.4.</strong> Color Palettes Overview</a></li><li class="chapter-item "><a href="SGB_Command_Summary.html"><strong aria-hidden="true">11.5.</strong> Command Summary</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="SGB_Command_Palettes.html"><strong aria-hidden="true">11.5.1.</strong> Palette Commands</a></li><li class="chapter-item "><a href="SGB_Command_Attribute.html"><strong aria-hidden="true">11.5.2.</strong> Color Attribute Commands</a></li><li class="chapter-item "><a href="SGB_Command_Sound.html"><strong aria-hidden="true">11.5.3.</strong> Sound Functions</a></li></ol></li><li class="chapter-item "><a href="SGB_Command_System.html"><strong aria-hidden="true">11.6.</strong> System Control Commands</a></li><li class="chapter-item "><a href="SGB_Command_Multiplayer.html"><strong aria-hidden="true">11.7.</strong> Multiplayer Command</a></li><li class="chapter-item "><a href="SGB_Command_Border.html"><strong aria-hidden="true">11.8.</strong> Border and OBJ Commands</a></li><li class="chapter-item "><a href="SGB_Command_Undocumented.html"><strong aria-hidden="true">11.9.</strong> Undocumented SGB commands</a></li></ol></li><li class="chapter-item "><li class="part-title">CPU Specifications</li><li class="chapter-item "><a href="CPU_Registers_and_Flags.html"><strong aria-hidden="true">12.</strong> CPU Registers and Flags</a></li><li class="chapter-item "><a href="CPU_Instruction_Set.html"><strong aria-hidden="true">13.</strong> CPU Instruction Set</a></li><li class="chapter-item "><a href="CPU_Comparison_with_Z80.html"><strong aria-hidden="true">14.</strong> CPU Comparison with Z80</a></li><li class="chapter-item affix "><li class="part-title">Cartridges</li><li class="chapter-item "><a href="The_Cartridge_Header.html"><strong aria-hidden="true">15.</strong> The Cartridge Header</a></li><li class="chapter-item "><a href="MBCs.html"><strong aria-hidden="true">16.</strong> MBCs</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="nombc.html"><strong aria-hidden="true">16.1.</strong> No MBC</a></li><li class="chapter-item "><a href="MBC1.html"><strong aria-hidden="true">16.2.</strong> MBC1</a></li><li class="chapter-item "><a href="MBC2.html"><strong aria-hidden="true">16.3.</strong> MBC2</a></li><li class="chapter-item "><a href="MBC3.html"><strong aria-hidden="true">16.4.</strong> MBC3</a></li><li class="chapter-item "><a href="MBC5.html"><strong aria-hidden="true">16.5.</strong> MBC5</a></li><li class="chapter-item "><a href="MBC6.html"><strong aria-hidden="true">16.6.</strong> MBC6</a></li><li class="chapter-item "><a href="MBC7.html"><strong aria-hidden="true">16.7.</strong> MBC7</a></li><li class="chapter-item "><a href="MMM01.html"><strong aria-hidden="true">16.8.</strong> MMM01</a></li><li class="chapter-item "><a href="M161.html"><strong aria-hidden="true">16.9.</strong> M161</a></li><li class="chapter-item "><a href="HuC1.html"><strong aria-hidden="true">16.10.</strong> HuC1</a></li><li class="chapter-item "><a href="HuC3.html"><strong aria-hidden="true">16.11.</strong> HuC-3</a></li><li class="chapter-item "><a href="othermbc.html"><strong aria-hidden="true">16.12.</strong> Other MBCs</a></li></ol></li><li class="chapter-item "><li class="part-title">Accessories</li><li class="chapter-item "><a href="Gameboy_Printer.html"><strong aria-hidden="true">17.</strong> Game Boy Printer</a></li><li class="chapter-item "><a href="Gameboy_Camera.html"><strong aria-hidden="true">18.</strong> Game Boy Camera</a></li><li class="chapter-item "><a href="Four_Player_Adapter.html"><strong aria-hidden="true">19.</strong> 4-Player Adapter</a></li><li class="chapter-item "><a href="Shark_Cheats.html"><strong aria-hidden="true">20.</strong> Game Genie/Shark Cheats</a></li><li class="chapter-item affix "><li class="part-title">Other</li><li class="chapter-item "><a href="Power_Up_Sequence.html"><strong aria-hidden="true">21.</strong> Power-Up Sequence</a></li><li class="chapter-item "><a href="Reducing_Power_Consumption.html"><strong aria-hidden="true">22.</strong> Reducing Power Consumption</a></li><li class="chapter-item "><a href="Accessing_VRAM_and_OAM.html"><strong aria-hidden="true">23.</strong> Accessing VRAM and OAM</a></li><li class="chapter-item "><a href="OAM_Corruption_Bug.html"><strong aria-hidden="true">24.</strong> OAM Corruption Bug</a></li><li class="chapter-item "><a href="External_Connectors.html"><strong aria-hidden="true">25.</strong> External Connectors</a></li><li class="chapter-item "><a href="GBC_Approval_Process.html"><strong aria-hidden="true">26.</strong> GBC Approval Process</a></li><li class="spacer"></li><li class="chapter-item affix "><a href="References.html">References</a></li></ol>
+                <ol class="chapter"><li class="chapter-item affix "><a href="About.html">Foreword</a></li><li class="chapter-item affix "><a href="Authors.html">Acknowledgements</a></li><li class="chapter-item affix "><a href="History.html">History</a></li><li class="spacer"></li><li class="chapter-item affix "><li class="part-title">Overview</li><li class="chapter-item "><a href="Specifications.html"><strong aria-hidden="true">1.</strong> Specifications</a></li><li class="chapter-item "><a href="Memory_Map.html"><strong aria-hidden="true">2.</strong> Memory Map</a></li><li class="chapter-item affix "><li class="part-title">I/O Ports</li><li class="chapter-item "><a href="Rendering.html"><strong aria-hidden="true">3.</strong> Rendering</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Tile_Data.html"><strong aria-hidden="true">3.1.</strong> Tile Data</a></li><li class="chapter-item "><a href="Tile_Maps.html"><strong aria-hidden="true">3.2.</strong> Tile Maps</a></li><li class="chapter-item "><a href="OAM.html"><strong aria-hidden="true">3.3.</strong> OAM</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="OAM_DMA_Transfer.html"><strong aria-hidden="true">3.3.1.</strong> OAM DMA Transfer</a></li></ol></li><li class="chapter-item "><a href="LCDC.html"><strong aria-hidden="true">3.4.</strong> LCD Control</a></li><li class="chapter-item "><a href="STAT.html"><strong aria-hidden="true">3.5.</strong> LCD Status</a></li><li class="chapter-item "><a href="Scrolling.html"><strong aria-hidden="true">3.6.</strong> Scrolling</a></li><li class="chapter-item "><a href="Palettes.html"><strong aria-hidden="true">3.7.</strong> Palettes</a></li><li class="chapter-item "><a href="pixel_fifo.html"><strong aria-hidden="true">3.8.</strong> Pixel FIFO</a></li></ol></li><li class="chapter-item "><a href="Audio.html"><strong aria-hidden="true">4.</strong> Audio</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Audio_Registers.html"><strong aria-hidden="true">4.1.</strong> Audio Registers</a></li><li class="chapter-item "><a href="Audio_details.html"><strong aria-hidden="true">4.2.</strong> Audio Details</a></li></ol></li><li class="chapter-item "><a href="Joypad_Input.html"><strong aria-hidden="true">5.</strong> Joypad Input</a></li><li class="chapter-item "><a href="Serial_Data_Transfer_(Link_Cable).html"><strong aria-hidden="true">6.</strong> Serial Data Transfer</a></li><li class="chapter-item "><a href="Timer_and_Divider_Registers.html"><strong aria-hidden="true">7.</strong> Timer and Divider Registers</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Timer_Obscure_Behaviour.html"><strong aria-hidden="true">7.1.</strong> Timer Obscure Behaviour</a></li></ol></li><li class="chapter-item "><a href="Interrupts.html"><strong aria-hidden="true">8.</strong> Interrupts</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Interrupt_Sources.html"><strong aria-hidden="true">8.1.</strong> Interrupt Sources</a></li><li class="chapter-item "><a href="halt.html"><strong aria-hidden="true">8.2.</strong> HALT</a></li></ol></li><li class="chapter-item "><a href="CGB_Registers.html"><strong aria-hidden="true">9.</strong> CGB Registers</a></li><li class="chapter-item "><a href="IR.html"><strong aria-hidden="true">10.</strong> Infrared Communication</a></li><li class="chapter-item "><a href="SGB_Functions.html"><strong aria-hidden="true">11.</strong> SGB Functions</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="SGB_Unlocking.html"><strong aria-hidden="true">11.1.</strong> Unlocking and Detecting SGB Functions</a></li><li class="chapter-item "><a href="SGB_Command_Packet.html"><strong aria-hidden="true">11.2.</strong> Command Packet Transfers</a></li><li class="chapter-item "><a href="SGB_VRAM_Transfer.html"><strong aria-hidden="true">11.3.</strong> VRAM Transfers</a></li><li class="chapter-item "><a href="SGB_Color_Palettes.html"><strong aria-hidden="true">11.4.</strong> Color Palettes Overview</a></li><li class="chapter-item "><a href="SGB_Command_Summary.html"><strong aria-hidden="true">11.5.</strong> Command Summary</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="SGB_Command_Palettes.html"><strong aria-hidden="true">11.5.1.</strong> Palette Commands</a></li><li class="chapter-item "><a href="SGB_Command_Attribute.html"><strong aria-hidden="true">11.5.2.</strong> Color Attribute Commands</a></li><li class="chapter-item "><a href="SGB_Command_Sound.html"><strong aria-hidden="true">11.5.3.</strong> Sound Functions</a></li></ol></li><li class="chapter-item "><a href="SGB_Command_System.html"><strong aria-hidden="true">11.6.</strong> System Control Commands</a></li><li class="chapter-item "><a href="SGB_Command_Multiplayer.html"><strong aria-hidden="true">11.7.</strong> Multiplayer Command</a></li><li class="chapter-item "><a href="SGB_Command_Border.html"><strong aria-hidden="true">11.8.</strong> Border and OBJ Commands</a></li><li class="chapter-item "><a href="SGB_Command_Undocumented.html"><strong aria-hidden="true">11.9.</strong> Undocumented SGB commands</a></li></ol></li><li class="chapter-item "><li class="part-title">CPU Specifications</li><li class="chapter-item "><a href="CPU_Registers_and_Flags.html"><strong aria-hidden="true">12.</strong> CPU Registers and Flags</a></li><li class="chapter-item "><a href="CPU_Instruction_Set.html"><strong aria-hidden="true">13.</strong> CPU Instruction Set</a></li><li class="chapter-item "><a href="CPU_Comparison_with_Z80.html"><strong aria-hidden="true">14.</strong> CPU Comparison with Z80</a></li><li class="chapter-item affix "><li class="part-title">Cartridges</li><li class="chapter-item "><a href="The_Cartridge_Header.html"><strong aria-hidden="true">15.</strong> The Cartridge Header</a></li><li class="chapter-item "><a href="MBCs.html"><strong aria-hidden="true">16.</strong> MBCs</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="nombc.html"><strong aria-hidden="true">16.1.</strong> No MBC</a></li><li class="chapter-item "><a href="MBC1.html"><strong aria-hidden="true">16.2.</strong> MBC1</a></li><li class="chapter-item "><a href="MBC2.html"><strong aria-hidden="true">16.3.</strong> MBC2</a></li><li class="chapter-item "><a href="MBC3.html"><strong aria-hidden="true">16.4.</strong> MBC3</a></li><li class="chapter-item "><a href="MBC5.html"><strong aria-hidden="true">16.5.</strong> MBC5</a></li><li class="chapter-item "><a href="MBC6.html"><strong aria-hidden="true">16.6.</strong> MBC6</a></li><li class="chapter-item "><a href="MBC7.html"><strong aria-hidden="true">16.7.</strong> MBC7</a></li><li class="chapter-item "><a href="MMM01.html"><strong aria-hidden="true">16.8.</strong> MMM01</a></li><li class="chapter-item "><a href="M161.html"><strong aria-hidden="true">16.9.</strong> M161</a></li><li class="chapter-item "><a href="HuC1.html"><strong aria-hidden="true">16.10.</strong> HuC1</a></li><li class="chapter-item "><a href="HuC3.html"><strong aria-hidden="true">16.11.</strong> HuC-3</a></li><li class="chapter-item "><a href="othermbc.html"><strong aria-hidden="true">16.12.</strong> Other MBCs</a></li></ol></li><li class="chapter-item "><li class="part-title">Accessories</li><li class="chapter-item "><a href="Gameboy_Printer.html"><strong aria-hidden="true">17.</strong> Game Boy Printer</a></li><li class="chapter-item "><a href="Gameboy_Camera.html"><strong aria-hidden="true">18.</strong> Game Boy Camera</a></li><li class="chapter-item "><a href="Four_Player_Adapter.html"><strong aria-hidden="true">19.</strong> 4-Player Adapter</a></li><li class="chapter-item "><a href="Shark_Cheats.html"><strong aria-hidden="true">20.</strong> Game Genie/Shark Cheats</a></li><li class="chapter-item affix "><li class="part-title">Other</li><li class="chapter-item "><a href="Power_Up_Sequence.html"><strong aria-hidden="true">21.</strong> Power-Up Sequence</a></li><li class="chapter-item "><a href="Reducing_Power_Consumption.html"><strong aria-hidden="true">22.</strong> Reducing Power Consumption</a></li><li class="chapter-item "><a href="Accessing_VRAM_and_OAM.html"><strong aria-hidden="true">23.</strong> Accessing VRAM and OAM</a></li><li class="chapter-item "><a href="OAM_Corruption_Bug.html"><strong aria-hidden="true">24.</strong> OAM Corruption Bug</a></li><li class="chapter-item "><a href="External_Connectors.html"><strong aria-hidden="true">25.</strong> External Connectors</a></li><li class="chapter-item "><a href="GBC_Approval_Process.html"><strong aria-hidden="true">26.</strong> GBC Approval Process</a></li><li class="spacer"></li><li class="chapter-item affix "><a href="References.html">References</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -174,7 +177,7 @@ Emulator developers may be also interested in the <a href="https://gekkio.fi/fil
 <p>You can search anywhere by pressing <kbd>s</kbd> on your keyboard or clicking the <i class="fa fa-search"></i> icon.</p>
 <p>The <i class="fa fa-edit"></i> icon allows you to suggest an edit on the current page by directly opening the source file in the git repository.</p>
 <p><a href="single.html">One-page</a> and <a href="print.html">printable</a> versions of this document are also available.</p>
-<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/571dfb56210c995d520f9fd67d285bce9fbf8f69"><code>571dfb5</code></a> (2022-10-13 01:24:28 +0200). </small></p>
+<p><br><br><small>This document version was produced from git commit <a href="https://github.com/gbdev/pandocs/tree/1a6ca717c44bbbad4046cf97f3690a483cf7d50a"><code>1a6ca71</code></a> (2022-11-02 21:25:24 +0100). </small></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="acknowledgements"><a class="header" href="#acknowledgements">Acknowledgements</a></h1>
 <p>This resource wouldn’t be possible without all the passionate hackers and researchers who contributed on this document in the last three decades.</p>
 <p>We would like to thank:</p>
@@ -334,7 +337,7 @@ FF) and checking if said value is mirrored in Echo RAM and not cart SRAM.</p>
 <tr><td>$FF00</td><td></td><td>DMG</td><td><a href="#ff00--p1joyp-joypad">Joypad input</a></td></tr>
 <tr><td>$FF01</td><td>$FF02</td><td>DMG</td><td><a href="#serial-data-transfer-link-cable">Serial transfer</a></td></tr>
 <tr><td>$FF04</td><td>$FF07</td><td>DMG</td><td><a href="#timer-and-divider-registers">Timer and divider</a></td></tr>
-<tr><td>$FF10</td><td>$FF26</td><td>DMG</td><td><a href="#sound-controller">Sound</a></td></tr>
+<tr><td>$FF10</td><td>$FF26</td><td>DMG</td><td><a href="#audio-registers">Audio</a></td></tr>
 <tr><td>$FF30</td><td>$FF3F</td><td>DMG</td><td><a href="#ff30ff3f--wave-pattern-ram">Wave pattern</a></td></tr>
 <tr><td>$FF40</td><td>$FF4B</td><td>DMG</td><td>LCD <a href="#ff40--lcdc-lcd-control">Control</a>, <a href="#ff41--stat-lcd-status">Status</a>, <a href="#lcd-position-and-scrolling">Position, Scrolling</a>, and <a href="#palettes">Palettes</a></td></tr>
 <tr><td>$FF4F</td><td></td><td>CGB</td><td><a href="#ff4f--vbk-cgb-mode-only-vram-bank">VRAM Bank Select</a></td></tr>
@@ -1668,299 +1671,958 @@ the <a href="#fifo-pixel-fetcher">fetcher</a> is advanced one step. This advance
 lengthens mode 3 by 1 dot if the current pixel is not 160. If the
 current pixel is 160 the PPU stops processing sprites because they won’t
 be visible.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="sound-controller"><a class="header" href="#sound-controller">Sound Controller</a></h1>
-<p>There are two sound channels connected to the output terminals right output and
-left output. There is also an input terminal Vin connected to the cartridge. It
-can be routed to either of both output terminals. Game Boy circuitry
-allows producing sound in four different ways:</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="audio-overview"><a class="header" href="#audio-overview">Audio Overview</a></h1>
+<p>Game Boy audio is sometimes called “8-bit”.
+This does not refer to the bit depth of the sound generated, but rather that it has sound capabilities typical of 8-bit consoles.
+Like much of its contemporary hardware, the Game Boy produces sound generated by simple digital circuits.</p>
+<h2 id="architecture"><a class="header" href="#architecture">Architecture</a></h2>
+<svg viewBox="0 0 480 220" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style type="text/css"><![CDATA[
+      text {
+        fill: var(--fg);
+        dominant-baseline: middle;
+      }
+      .centered { text-anchor: middle; }
+      .right    { text-anchor: end; }
+      rect, path, use {
+        stroke: var(--fg);
+        fill: var(--fg);
+      }
+      .inverted {
+        stroke: var(--bg);
+        fill: var(--bg);
+      }
+      .unfilled {
+        fill: none !important;
+      }
+      .no-stroke {
+        stroke: none !important;
+      }
+    ]]></style>
+    <path d="M 0,-5
+             v 10
+             l 10,-5
+             z" id="arrow-head"/>
+  </defs>
+  <text x="85" y="36" class="right">Channel 1</text>
+  <rect x="95" y="15" width="40" height="40"/>
+  <path d="M 95,45
+           h 10
+           v -20
+           h 10
+           v 20
+           h 10
+           v -20
+           h 10" class="inverted unfilled"/>
+  <text x="85" y="86" class="right">Channel 2</text>
+  <rect x="95" y="65" width="40" height="40"/>
+  <path d="M 95,95
+           h 10
+           v -20
+           h 10
+           v 20
+           h 10
+           v -20
+           h 10" class="inverted unfilled"/>
+  <text x="85" y="136" class="right">Channel 3</text>
+  <rect x="95" y="115" width="40" height="40"/>
+  <path d="M 95,141
+           h 2
+           v -2
+           h 2
+           v -3
+           h 2
+           v -3
+           h 2
+           v -3
+           h 2
+           v -2
+           h 2
+           v -1
+           h 2
+           v 1
+           h 2
+           v 2
+           h 2
+           v 5
+           h 2
+           v 4
+           h 2
+           v 2
+           h 2
+           v 1
+           h 4
+           v -10
+           h 2
+           v -5
+           h 2
+           v 15
+           h 2
+           v -14
+           h 2
+           v 7
+           h 2
+           v 4
+           h 2
+           v 2
+           h 4
+           v 1
+           h 4
+           v -1
+           h 2
+           v -1
+           h 2
+           v -2
+           h 2
+           v -2
+           h 2
+           v -3
+           h 2
+           v -2
+           h 2
+           v -2
+           h 2" class="inverted unfilled"/>
+  <text x="85" y="186" class="right">Channel 4</text>
+  <rect x="95" y="165" width="40" height="40"/>
+  <path d="M 95,195
+           h 2
+           v -20
+           h 2
+           v 20
+           h 5
+           v -20
+           h 2
+           v 20
+           h 1
+           v -20
+           h 6
+           v 20
+           h 3
+           v -20
+           h 2
+           v 20
+           h 1
+           v -20
+           h 2
+           v 20
+           h 5
+           v -20
+           h 1
+           v 20
+           h 4
+           v -20
+           h 2
+           v 20
+           h 1
+           v -20
+           h 1" class="inverted unfilled"/>
+  <path d="M 135,35
+           h 30
+           m -30,50
+           h 30
+           m -30,50
+           h 30
+           m -30,50
+           h 30
+           v -150
+           m 0,75
+           h 30" class="unfilled"/>
+  <use x="185" y="110" href="#arrow-head"/>
+  <rect x="195" y="95" width="60" height="30"/>
+  <text x="225" y="110" class="centered inverted no-stroke">Mixer</text>
+  <path d="M 255,102
+           h 30" class="unfilled"/>
+  <use x="275" y="102" href="#arrow-head"/>
+  <path d="M 255,118
+           h 30" class="unfilled"/>
+  <use x="275" y="118" href="#arrow-head"/>
+  <rect x="285" y="95" width="80" height="30"/>
+  <text x="325" y="110" class="centered inverted no-stroke">Amplifier</text>
+  <path d="M 365,102
+           h 30" class="unfilled"/>
+  <use x="385" y="102" href="#arrow-head"/>
+  <path d="M 365,118
+           h 30" class="unfilled"/>
+  <use x="385" y="118" href="#arrow-head"/>
+  <rect x="395" y="95" width="80" height="30"/>
+  <text x="435" y="110" class="centered inverted no-stroke">Output</text>
+</svg>
+<p>The Game Boy has four sound generation units, called <strong>channels</strong> 1 through 4, notated “CH1”, “CH2”, etc.
+Unlike some other sound chips, such as the C64’s SID or the Atari 5200’s POKEY, each sound channel is specialized in a way largely different from the other channels.</p>
+<p>Each channel generates an electronic signal; these signals are then mixed into two new channels (for stereo: one for the left ear, one for the right ear), which are then individually amplified, and then output either to the headphone jack, or the speaker<sup class="footnote-reference"><a href="#speaker_mono">1</a></sup>.</p>
+<p>Channels 1 and 2, the “pulse channels”, produce <a href="https://en.wikipedia.org/wiki/Pulse-width_modulation">pulse width modulated waves</a> with 4 fixed pulse width settings.
+Channel 3, the “wave” channel, produces arbitrary user-supplied waves.
+Channel 4 is the “<a href="https://en.wikipedia.org/wiki/Noise_in_music">noise</a>” channel, producing a pseudo-random wave.</p>
+<p>The VIN channel is an analog signal received directly from the cartridge, allowing external hardware to supply a fifth sound channel.
+No licensed games used this feature, and it was omitted from the Game Boy Advance.</p>
+<div class="box tip">
+<p class="box-title">POCKET MUSIC</p><p>Despite some online claims, <em>Pocket Music</em> does not use VIN.
+It refuses to run on the GBA for a different reason: the developer couldn’t figure out how to silence buzzing associated with sample playback on the wave channel.</p>
+</div>
+<div class="footnote-definition" id="speaker_mono"><sup class="footnote-definition-label">1</sup>
+<p>The speaker merges back the two channels, losing the stereo aspect entirely.</p>
+</div>
+<h2 id="common-concepts"><a class="header" href="#common-concepts">Common concepts</a></h2>
+<h3 id="apu"><a class="header" href="#apu">APU</a></h3>
+<p>The Game Boy’s sound chip is called the <abbr title="Audio Processing Unit">APU</abbr>.</p>
+<p>The APU runs off the same master clock as the rest of the Game Boy, which is to say, it is fully synced with the CPU and <a href="#rendering-overview">PPU</a>.
+This also means that the APU runs about 2.4% faster on the SGB1, increasing frequencies by as much and thus sounding slightly higher-pitched.
+The SGB2 rectifies this issue.</p>
+<p>All interfaces to the APU use <strong>durations</strong> instead of frequencies, which may be confusing as signal theory and music are more typically based on the latter.
+Thus, durations will be expressed from their frequencies: for example, a “256 Hz tick” means “1 ∕ 256th of a second”.</p>
+<p>The length of APU ticks is not affected by <a href="#ff4d--key1-cgb-mode-only-prepare-speed-switch">CGB double speed</a>, so the APU works just the same regardless of CPU speed.</p>
+<div class="box warning">
+<p>The Game Boy’s APU is actually full of tricky details; this chapter will mostly describe the intended / common behavior, and often paper over bugs &amp; quirks.
+Readers wishing to learn more should read the <a href="#audio-details">APU details</a> chapter.</p>
+</div>
+<h3 id="triggering"><a class="header" href="#triggering">Triggering</a></h3>
+<p><strong>Triggering</strong> a channel causes it to turn on if it wasn’t<sup class="footnote-reference"><a href="#trig_dac_off">2</a></sup>, and to start playing its wave from the beginning<sup class="footnote-reference"><a href="#pulse_restart">3</a></sup>.
+Most changes to a channel’s parameters take effect immediately, but some require re-triggering the channel.</p>
+<h3 id="volume--envelope"><a class="header" href="#volume--envelope">Volume &amp; envelope</a></h3>
+<p>The volume can be controlled in two ways: there is a “master volume” control<sup class="footnote-reference"><a href="#vol_knob">4</a></sup> (which has separate settings for the left and right outputs), and each channel’s volume can be individually set as well (CH3’s less precisely than the others).</p>
+<p>Additionally, an <a href="https://en.wikipedia.org/wiki/Envelope_(music)"><strong>envelope</strong></a> can be configured for CH1, CH2 and CH4, which allows automatically adjusting the volume over time.
+The parameters that can be controlled are the initial volume, the envelope’s direction (but not its slope), and its duration.
+Internally, all envelopes are ticked at 64 Hz, and every 1–7 of those ticks, the volume will be increased or decreased.</p>
+<h3 id="length-timer"><a class="header" href="#length-timer">Length timer</a></h3>
+<p>All channels can be individually set to automatically shut themselves down after a certain amount of time.</p>
+<p>If the functionality is enabled, a channel’s <strong>length timer</strong> ticks up<sup class="footnote-reference"><a href="#len_cnt_dir">5</a></sup> at 256 Hz (tied to <a href="#div-apu">DIV-APU</a>) from the value it’s initially set at.
+When the length timer reaches 64, the channel is turned off.</p>
+<h3 id="frequency"><a class="header" href="#frequency">Frequency</a></h3>
+<p>Music notes and audio waves are typically manipulated in terms of <strong>frequency</strong><sup class="footnote-reference"><a href="#pitch">6</a></sup>, i.e. how often the signal repeats per second.
+However, as explained above, the Game Boy APU primarily works with durations; thus, <strong>wavelengths</strong> will be used instead of frequency.<sup class="footnote-reference"><a href="#len_raw">7</a></sup></p>
+<div class="box warning">
+<p>The term “wavelength” throughout this document does <em>not</em> designate the inverse of the frequency, but instead a quantity akin to it.
+See the description of each NRx3 register for more information.</p>
+</div>
+<hr />
+<div class="footnote-definition" id="trig_dac_off"><sup class="footnote-definition-label">2</sup>
+<p>If <a href="#dacs">the channel’s DAC</a> is off, the channel will not turn on.</p>
+</div>
+<div class="footnote-definition" id="pulse_restart"><sup class="footnote-definition-label">3</sup>
+<p>Except for pulse channels, whose phase position is only ever reset by turning the APU off.
+This is usually not noticeable unless changing the duty cycle mid-note.</p>
+</div>
+<div class="footnote-definition" id="vol_knob"><sup class="footnote-definition-label">4</sup>
+<p>This is separate from the physical volume knob located on the side of the console.</p>
+</div>
+<div class="footnote-definition" id="len_cnt_dir"><sup class="footnote-definition-label">5</sup>
+<p>Internally, the length timer is inverted when written, and <em>that</em> ticks down until it reaches 0.
+But the effect is as if the counter ticked up.</p>
+</div>
+<div class="footnote-definition" id="pitch"><sup class="footnote-definition-label">6</sup>
+<p>There is also <strong>pitch</strong>, which is merely a measure of how we perceive frequency.
+The higher the frequency, the higher the pitch; therefore, pitch will be omitted from the rest of the document.</p>
+</div>
+<div class="footnote-definition" id="len_raw"><sup class="footnote-definition-label">7</sup>
+<p>Actually, the APU interfaces don’t work with any wavelengths either, but with values that are more akin to wavelengths than frequencies.</p>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="audio-registers"><a class="header" href="#audio-registers">Audio Registers</a></h1>
+<p>Audio registers are named following a <code>NRxy</code> scheme, where <code>x</code> is the channel number (or <code>5</code> for “global” registers), and <code>y</code> is the register’s ID within the channel.
+Since many registers share common properties, a notation is often used where e.g. <code>NRx2</code> is used to designate <code>NR12</code>, <code>NR22</code>, <code>NR32</code>, and <code>NR42</code> at the same time, for simplicity.</p>
+<p>As a rule of thumb, for any <code>x</code> in <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>:</p>
 <ul>
-<li>Quadrangular wave patterns with sweep and envelope functions (CH1)</li>
-<li>Quadrangular wave patterns with envelope functions (CH2)</li>
-<li>Voluntary wave patterns from wave RAM (CH3)</li>
-<li>White noise with an envelope function (CH4)</li>
+<li><code>NRx0</code> is some channel-specific feature (if present),</li>
+<li><code>NRx1</code> controls the length timer,</li>
+<li><code>NRx2</code> controls the volume and envelope,</li>
+<li><code>NRx3</code> controls the wavelength (maybe only partially),</li>
+<li><code>NRx4</code> has the channel’s trigger and length timer enable bits;</li>
 </ul>
-<p>These four sounds can be controlled independently and then mixed
-separately for each of the output terminals.</p>
-<p>Sound registers may be set at all times while producing sound.</p>
-<p>(Sounds will have a 2.4% higher frequency on Super GB.)</p>
-<h2 id="sound-channel-1-tone--sweep"><a class="header" href="#sound-channel-1-tone--sweep">Sound Channel 1: Tone &amp; Sweep</a></h2>
+<p>…but there are some exceptions.</p>
+<p>One of the pitfalls of the <code>NRxy</code> naming convention is that the register’s purpose is not immediately clear from its name, so some alternative names have been proposed, <a href="https://github.com/gbdev/hardware.inc/blob/05f5a9b6c7172abe1d7488080c1c050284c09226/hardware.inc#L415">such as <code>AUDENA</code> for <code>NR52</code></a>.</p>
+<h2 id="global-control-registers"><a class="header" href="#global-control-registers">Global control registers</a></h2>
+<h3 id="ff26--nr52-sound-onoff"><a class="header" href="#ff26--nr52-sound-onoff">FF26 — NR52: Sound on/off</a></h3>
+<p>This register controls whether the APU is powered on at all (akin to <a href="#lcdc7--lcd-enable"><code>LCDC</code> bit 7</a>), and allows checking whether channels are active<sup class="footnote-reference"><a href="#nr52_dac">1</a></sup>.
+Turning the APU off drains less power (around 16%), but clears all APU registers and makes them read-only until turned back on, except <code>NR52</code><sup class="footnote-reference"><a href="#dmg_apu_off">2</a></sup>.</p>
+<pre><code> Bit 7 - All sound on/off  (0: turn the APU off) (Read/Write)
+ Bit 3 - Channel 4 ON flag (Read Only)
+ Bit 2 - Channel 3 ON flag (Read Only)
+ Bit 1 - Channel 2 ON flag (Read Only)
+ Bit 0 - Channel 1 ON flag (Read Only)
+</code></pre>
+<p>Bits 0-3 of this register are read-only status bits.
+Writing to those does NOT enable or disable the channels, despite many emulators behaving as if.</p>
+<p>A channel is turned on by triggering it (i.e. setting bit 7 of <code>NRx4</code>)<sup class="footnote-reference"><a href="#dac_off">3</a></sup>.
+A channel is turned off when any of the following occurs:</p>
+<ul>
+<li>The channel’s length timer, if enabled in <code>NRx4</code>, expires</li>
+<li>For CH1: when the wavelength sweep overflows<sup class="footnote-reference"><a href="#freq_sweep_underflow">4</a></sup></li>
+<li><a href="#dacs">The channel’s DAC</a> is turned off</li>
+</ul>
+<p>The envelope reaching a volume of 0 does NOT turn the channel off!</p>
+<div class="footnote-definition" id="nr52_dac"><sup class="footnote-definition-label">1</sup>
+<p>Actually, the low nibble of NR52 only reports whether the channels’ <em>generation</em> circuits are enabled, not if <a href="#dacs">the DACs</a> are.</p>
+</div>
+<div class="footnote-definition" id="dmg_apu_off"><sup class="footnote-definition-label">2</sup>
+<p>…and the length timers (in <code>NRx1</code>) on monochrome models.</p>
+</div>
+<div class="footnote-definition" id="dac_off"><sup class="footnote-definition-label">3</sup>
+<p>If <a href="#dacs">the DAC</a> is off, then the write to NRx4 will be ineffective and won’t turn the channel on.</p>
+</div>
+<div class="footnote-definition" id="freq_sweep_underflow"><sup class="footnote-definition-label">4</sup>
+<p>The wavelength sweep cannot normally underflow, so a “decreasing” sweep (<code>NR10</code> bit 3 set) won’t turn the channel off.</p>
+</div>
+<h3 id="ff25--nr51-sound-panning"><a class="header" href="#ff25--nr51-sound-panning">FF25 — NR51: Sound panning</a></h3>
+<p>Each channel can be panned hard left, center, hard right, or ignored entirely.</p>
+<pre><code>Bit 7 - Mix channel 4 into left output
+Bit 6 - Mix channel 3 into left output
+Bit 5 - Mix channel 2 into left output
+Bit 4 - Mix channel 1 into left output
+Bit 3 - Mix channel 4 into right output
+Bit 2 - Mix channel 3 into right output
+Bit 1 - Mix channel 2 into right output
+Bit 0 - Mix channel 1 into right output
+</code></pre>
+<h3 id="ff24--nr50-master-volume--vin-panning"><a class="header" href="#ff24--nr50-master-volume--vin-panning">FF24 — NR50: Master volume &amp; VIN panning</a></h3>
+<p>The volume bits specify the master volume, i.e. how much each output should be scaled.
+A value of 0 is treated as a volume of 1 (very quiet), and a value of 7 is treated as a volume of 8 (no volume reduction).
+Importantly, the amplifier <strong>never mutes</strong> a non-silent input.</p>
+<p>The VIN mixing bits work exactly like bits in <a href="#ff25--nr51-sound-panning"><code>NR51</code></a>.</p>
+<pre><code>Bit 7   - Mix VIN into left output  (1=Enable)
+Bit 6-4 - Left output volume        (0-7)
+Bit 3   - Mix VIN into right output (1=Enable)
+Bit 2-0 - Right output volume       (0-7)
+</code></pre>
+<h2 id="sound-channel-1--pulse-with-wavelength-sweep"><a class="header" href="#sound-channel-1--pulse-with-wavelength-sweep">Sound Channel 1 — Pulse with wavelength sweep</a></h2>
 <h3 id="ff10--nr10-channel-1-sweep"><a class="header" href="#ff10--nr10-channel-1-sweep">FF10 — NR10: Channel 1 sweep</a></h3>
-<pre><code> Bit 6-4 - Sweep Time
- Bit 3   - Sweep Increase/Decrease
-            0: Addition    (frequency increases)
-            1: Subtraction (frequency decreases)
- Bit 2-0 - Number of sweep shift (n: 0-7)
+<p>This register controls CH1’s wavelength sweep functionality.</p>
+<pre><code>Bit 6-4 - Sweep pace
+Bit 3   - Sweep increase/decrease
+           0: Addition    (wavelength increases)
+           1: Subtraction (wavelength decreases)
+Bit 2-0 - Sweep slope control (n: 0-7)
 </code></pre>
-<p>Sweep Time:</p>
-<div class="table-wrapper"><table><thead><tr><th>Value (binary)</th><th>Description</th></tr></thead><tbody>
-<tr><td>000</td><td>sweep off - no freq change</td></tr>
-<tr><td>001</td><td>7.8 ms  (1/128Hz)</td></tr>
-<tr><td>010</td><td>15.6 ms (2/128Hz)</td></tr>
-<tr><td>011</td><td>23.4 ms (3/128Hz)</td></tr>
-<tr><td>100</td><td>31.3 ms (4/128Hz)</td></tr>
-<tr><td>101</td><td>39.1 ms (5/128Hz)</td></tr>
-<tr><td>110</td><td>46.9 ms (6/128Hz)</td></tr>
-<tr><td>111</td><td>54.7 ms (7/128Hz)</td></tr>
+<p>The <var>sweep pace</var> dictates how often the wavelength gets changed, in units of 128 Hz ticks<sup class="footnote-reference"><a href="#div_apu">5</a></sup> (7.8 ms).
+The pace is only reloaded after the following sweep iteration, or when (re)triggering the channel.
+However, if bits 4–6 are all set to 0, then iterations are instantly disabled, and the pace will be reloaded immediately if it’s set to something else.</p>
+<p>On each sweep iteration, the wavelength in <a href="#ff13--nr13-channel-1-wavelength-low-write-only"><code>NR13</code></a> and <a href="#ff14--nr14-channel-1-wavelength-high--control"><code>NR14</code></a> is modified and written back.
+That is, unless <var>n</var> (the slope) is 0, in which case iterations do nothing (in this case, subtraction mode should be set, see below).</p>
+<p>On each tick, the new wavelength <math><msub><mi>L</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub></math> is computed from the current one <math><msub><mi>L</mi><mi>t</mi></msub></math> as follows:</p>
+<math display="block">
+  <msub><mi>L</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub> <mo>=</mo> <msub><mi>L</mi><mi>t</mi></msub> <mo>±</mo> <mfrac><msub><mi>L</mi><mi>t</mi></msub><msup><mn>2</mn><mi>n</mi></msup></mfrac>
+</math>
+<p>In addition mode, if the wavelength would overflow (i.e. <math><msub><mi>L</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub></math> is strictly more than $7FF), the channel is turned off instead.
+<strong>This occurs even if sweep iterations are disabled</strong> by <var>n</var> = 0.</p>
+<p>Note that if the wavelength ever becomes 0, the wavelength sweep will never be able to change it.
+For the same reason, the wavelength sweep cannot underflow the wavelength (which would turn the channel off).</p>
+<div class="footnote-definition" id="div_apu"><sup class="footnote-definition-label">5</sup>
+<p><a href="#div-apu">As long as <code>DIV</code> is not written to</a>.</p>
+</div>
+<h3 id="ff11--nr11-channel-1-length-timer--duty-cycle"><a class="header" href="#ff11--nr11-channel-1-length-timer--duty-cycle">FF11 — NR11: Channel 1 length timer &amp; duty cycle</a></h3>
+<p>This register controls both the channel’s <a href="#length-timer">length timer</a> and <a href="https://en.wikipedia.org/wiki/Duty_cycle">duty cycle</a> (the ratio of the time spent low vs. high).
+However, the selected duty cycle also alters the phase, although the effect is hardly noticeable.</p>
+<pre><code>Bit 7-6 - Wave duty            (Read/Write)
+Bit 5-0 - Initial length timer (Write Only)
+</code></pre>
+<style>
+.waveform {
+  display: block;
+  width: 16rem;
+  background-image: repeating-linear-gradient(to right, var(--bg), var(--bg) 1rem, var(--table-alternate-bg) 1rem, var(--table-alternate-bg) 2rem);
+  border: 1px solid var(--table-header-bg);
+}
+.waveform polyline {
+  stroke-width: 1px;
+  stroke: var(--inline-code-color);
+  fill: none;
+}
+</style>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: right">Wave duty (binary)</th><th style="text-align: center">Duty cycle</th><th>Waveform</th></tr></thead><tbody>
+<tr><td style="text-align: right">00</td><td style="text-align: center">12.5 %</td><td><svg viewBox="0 -1 80 12" preserveAspectRatio="xMidYMid meet" class="waveform"><polyline points="0,0 35,0 35,10 40,10 40,0 75,0 75,10 80,10 80,0"/></svg></td></tr>
+<tr><td style="text-align: right">01</td><td style="text-align: center">25 %</td><td><svg viewBox="0 -1 80 12" preserveAspectRatio="xMidYMid meet" class="waveform"><polyline points="0,10 5,10 5,0 35,0 35,10 45,10 45,0 75,0 75,10 80,10"/></svg></td></tr>
+<tr><td style="text-align: right">10</td><td style="text-align: center">50 %</td><td><svg viewBox="0 -1 80 12" preserveAspectRatio="xMidYMid meet" class="waveform"><polyline points="0,10 5,10 5,0 25,0 25,10 45,10 45,0 65,0 65,10 80,10"/></svg></td></tr>
+<tr><td style="text-align: right">11</td><td style="text-align: center">75 %</td><td><svg viewBox="0 -1 80 12" preserveAspectRatio="xMidYMid meet" class="waveform"><polyline points="0,0 5,0 5,10 35,10 35,0 45,0 45,10 75,10 75,0 80,0"/></svg></td></tr>
 </tbody></table>
 </div>
-<p>The change of frequency (NR13,NR14) at each shift is calculated by the
-following formula where X(0) is initial freq &amp; X(t-1) is last freq:</p>
-<p>X(t) = X(t-1) +/- X(t-1)/2^n</p>
-<h3 id="ff11--nr11-channel-1-sound-length--wave-pattern-duty"><a class="header" href="#ff11--nr11-channel-1-sound-length--wave-pattern-duty">FF11 — NR11: Channel 1 sound length &amp; wave pattern duty</a></h3>
-<pre><code>Bit 7-6 - Wave Pattern Duty (Read/Write)
-Bit 5-0 - Sound length data (Write Only) (t1: 0-63)
+<p>It’s worth noting that there is no audible difference between the 25 % and 75 % duty cycle settings.</p>
+<p>The higher the <a href="#length-timer">length timer</a> field, the shorter the time before the channel is cut.</p>
+<h3 id="ff12--nr12-channel-1-volume--envelope"><a class="header" href="#ff12--nr12-channel-1-volume--envelope">FF12 — NR12: Channel 1 volume &amp; envelope</a></h3>
+<p>This register controls the digital amplitude of the “high” part of the pulse, and the sweep applied to that setting.</p>
+<pre><code>Bit 7-4 - Initial volume of envelope (0-F) (0=No Sound)
+Bit 3   - Envelope direction (0=Decrease, 1=Increase)
+Bit 2-0 - Sweep pace (0=No Sweep)
 </code></pre>
-<div class="table-wrapper"><table><thead><tr><th>Bits 7-6</th><th>Wave duty</th></tr></thead><tbody>
-<tr><td>%00</td><td>12.5% (<code>_-------_-------_-------</code>)</td></tr>
-<tr><td>%01</td><td>25%   (<code>__------__------__------</code>)</td></tr>
-<tr><td>%10</td><td>50%   (<code>____----____----____----</code>) (normal)</td></tr>
-<tr><td>%11</td><td>75%   (<code>______--______--______--</code>)</td></tr>
-</tbody></table>
-</div>
-<p>Sound Length = (64-t1)*(1/256) seconds. The Length value is used only if
-Bit 6 in NR14 is set.</p>
-<h3 id="ff12--nr12-channel-1-volume-envelope"><a class="header" href="#ff12--nr12-channel-1-volume-envelope">FF12 — NR12: Channel 1 volume envelope</a></h3>
-<pre><code> Bit 7-4 - Initial Volume of envelope (0-0Fh) (0=No Sound)
- Bit 3   - Envelope Direction (0=Decrease, 1=Increase)
- Bit 2-0 - Number of envelope sweep (n: 0-7)
-           (If zero, stop envelope operation.)
-</code></pre>
-<p>Length of 1 step = n*(1/64) seconds</p>
-<h3 id="ff13--nr13-channel-1-frequency-low-write-only"><a class="header" href="#ff13--nr13-channel-1-frequency-low-write-only">FF13 — NR13: Channel 1 frequency low [write-only]</a></h3>
-<p>Lower 8 bits of 11 bit frequency (x). Next 3 bit are in NR14 ($FF14)</p>
-<h3 id="ff14--nr14-channel-1-frequency-high--control"><a class="header" href="#ff14--nr14-channel-1-frequency-high--control">FF14 — NR14: Channel 1 frequency high &amp; control</a></h3>
-<pre><code>Bit 7   - Initial (1=Restart Sound)     (Write Only)
-Bit 6   - Counter/consecutive selection (Read/Write)
+<p>Setting bits 3-7 of this register all to 0 turns the DAC off (and thus, the channel as well).</p>
+<p>The envelope ticks at 64 Hz, and the channel’s envelope will be increased / decreased (depending on bit 3) every <var>Sweep pace</var> of those ticks.</p>
+<p>Writes to this register while the channel is on require retriggering it afterwards.</p>
+<h3 id="ff13--nr13-channel-1-wavelength-low-write-only"><a class="header" href="#ff13--nr13-channel-1-wavelength-low-write-only">FF13 — NR13: Channel 1 wavelength low [write-only]</a></h3>
+<p>This register stores the low 8 bits of the channel’s 11-bit “<a href="#frequency">wavelength</a>”.
+The upper 3 bits are stored in the low 3 bits of <code>NR14</code>.</p>
+<p>The actual signal frequency is <math><mfrac><mn>131072</mn><mrow><mn>2048</mn><mo>-</mo><mi>wavelen</mi></mrow></mfrac></math> Hz: the higher the value, the higher the frequency.
+This is the whole wave’s frequency; the rate at which the channel steps through the 8 “steps” in its wave form is 8× that, i.e. <math><mfrac><mn>1048576</mn><mrow><mn>2048</mn><mo>-</mo><mi>wavelen</mi></mrow></mfrac></math> Hz = <math><mfrac><mn>1</mn><mrow><mn>2048</mn><mo>-</mo><mn>wavelen</mn></mrow></mfrac></math> MiHz.</p>
+<h3 id="ff14--nr14-channel-1-wavelength-high--control"><a class="header" href="#ff14--nr14-channel-1-wavelength-high--control">FF14 — NR14: Channel 1 wavelength high &amp; control</a></h3>
+<pre><code>Bit 7   - Trigger (1=Restart channel)  (Write Only)
+Bit 6   - Sound Length enable          (Read/Write)
           (1=Stop output when length in NR11 expires)
-Bit 2-0 - Frequency's higher 3 bits (x) (Write Only)
+Bit 2-0 - &quot;Wavelength&quot;'s higher 3 bits (Write Only)
 </code></pre>
-<p>Frequency = 131072/(2048-x) Hz</p>
-<h2 id="sound-channel-2-tone"><a class="header" href="#sound-channel-2-tone">Sound Channel 2: Tone</a></h2>
-<p>This sound channel works exactly as channel 1, except that it doesn’t
-have a Tone Envelope/Sweep Register.</p>
-<h3 id="ff16--nr21-channel-2-sound-length--wave-pattern-duty"><a class="header" href="#ff16--nr21-channel-2-sound-length--wave-pattern-duty">FF16 — NR21: Channel 2 sound length &amp; wave pattern duty</a></h3>
-<pre><code>Bit 7-6 - Wave Pattern Duty (Read/Write)
-Bit 5-0 - Sound length data (Write Only) (t1: 0-63)
+<p>Writing a value here with bit 7 set <a href="#triggering">triggers</a> the channel.</p>
+<p>Bit 6 takes effect immediately upon writing to this register.</p>
+<h2 id="sound-channel-2--pulse"><a class="header" href="#sound-channel-2--pulse">Sound Channel 2 — Pulse</a></h2>
+<p>This sound channel works exactly like channel 1, except that it lacks a wavelength sweep (and thus an equivalent to <a href="#ff10--nr10-channel-1-sweep"><code>NR10</code></a>).
+Please refer to the corresponding CH1 register:</p>
+<ul>
+<li><code>NR21</code> → <a href="#ff11--nr11-channel-1-length-timer--duty-cycle"><code>NR11</code></a></li>
+<li><code>NR22</code> → <a href="#ff12--nr12-channel-1-volume--envelope"><code>NR12</code></a></li>
+<li><code>NR23</code> → <a href="#ff13--nr13-channel-1-wavelength-low-write-only"><code>NR13</code></a></li>
+<li><code>NR24</code> → <a href="#ff14--nr14-channel-1-wavelength-high--control"><code>NR14</code></a></li>
+</ul>
+<h2 id="sound-channel-3--wave-output"><a class="header" href="#sound-channel-3--wave-output">Sound Channel 3 — Wave output</a></h2>
+<p>While other channels only offer limited control over the waveform they generate, this channel allows outputting any wave.
+It’s thus sometimes called a “voluntary wave” channel.</p>
+<p>While the “length” of the wave is fixed at 32 “samples”, 4-bit each, the speed at which it is read can be customized.
+It’s possible to “shorten” the wave by either feeding it a repeating pattern, or doubling each sample and doubling the read rate.
+It’s also possible to artificially “increase” the wave’s length by loading a new wave as soon as the whole buffer has been read; this is sometimes used for full-on sample playback.</p>
+<h3 id="ff1a--nr30-channel-3-dac-enable"><a class="header" href="#ff1a--nr30-channel-3-dac-enable">FF1A — NR30: Channel 3 DAC enable</a></h3>
+<p>This register controls CH3’s DAC.
+Like other channels, turning the DAC off immediately turns the channel off as well.</p>
+<pre><code>Bit 7 - Sound Channel 3 DAC  (0=Off, 1=On)
 </code></pre>
-<div class="table-wrapper"><table><thead><tr><th>Bits 7-6</th><th>Wave duty</th></tr></thead><tbody>
-<tr><td>%00</td><td>12.5% (<code>_-------_-------_-------</code>)</td></tr>
-<tr><td>%01</td><td>25%   (<code>__------__------__------</code>)</td></tr>
-<tr><td>%10</td><td>50%   (<code>____----____----____----</code>) (normal)</td></tr>
-<tr><td>%11</td><td>75%   (<code>______--______--______--</code>)</td></tr>
+<p>The channel is often turned off just before writing to <a href="#ff30ff3f--wave-pattern-ram">wave RAM</a> to avoid issues with accessing it; see there for more info.</p>
+<h3 id="ff1b--nr31-channel-3-length-timer-write-only"><a class="header" href="#ff1b--nr31-channel-3-length-timer-write-only">FF1B — NR31: Channel 3 length timer [write-only]</a></h3>
+<p>This register controls the channel’s <a href="#length-timer">length timer</a>.</p>
+<pre><code>Bit 5-0 - length timer
+</code></pre>
+<p>The higher the <a href="#length-timer">length timer</a>, the shorter the time before the channel is cut.</p>
+<h3 id="ff1c--nr32-channel-3-output-level"><a class="header" href="#ff1c--nr32-channel-3-output-level">FF1C — NR32: Channel 3 output level</a></h3>
+<p>This channel lacks the envelope functionality that the other three channels have.</p>
+<pre><code>Bits 6-5 - Output level selection
+</code></pre>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: right">Bits 6-5 (binary)</th><th>Output level</th></tr></thead><tbody>
+<tr><td style="text-align: right">%00</td><td>Mute (No sound)</td></tr>
+<tr><td style="text-align: right">%01</td><td>100% volume (use samples read from Wave RAM as-is)</td></tr>
+<tr><td style="text-align: right">%10</td><td>50% volume (shift samples read from Wave RAM right once)</td></tr>
+<tr><td style="text-align: right">%11</td><td>25% volume (shift samples read from Wave RAM right twice)</td></tr>
 </tbody></table>
 </div>
-<p>Sound Length = (64-t1)*(1/256) seconds. The Length value is used only if
-Bit 6 in NR24 is set.</p>
-<h3 id="ff17--nr22-channel-2-volume-envelope"><a class="header" href="#ff17--nr22-channel-2-volume-envelope">FF17 — NR22: Channel 2 volume envelope</a></h3>
-<pre><code>Bit 7-4 - Initial Volume of envelope (0-0Fh) (0=No Sound)
-Bit 3   - Envelope Direction (0=Decrease, 1=Increase)
-Bit 2-0 - Number of envelope sweep (n: 0-7)
-          (If zero, stop envelope operation.)
-</code></pre>
-<p>Length of 1 step = n*(1/64) seconds</p>
-<h3 id="ff18--nr23-channel-2-frequency-low-write-only"><a class="header" href="#ff18--nr23-channel-2-frequency-low-write-only">FF18 — NR23: Channel 2 frequency low [write-only]</a></h3>
-<p>Frequency’s lower 8 bits of 11 bit data (x). Next 3 bits are in NR24
-($FF19).</p>
-<h3 id="ff19--nr24-channel-2-frequency-high--control"><a class="header" href="#ff19--nr24-channel-2-frequency-high--control">FF19 — NR24: Channel 2 frequency high &amp; control</a></h3>
-<pre><code>Bit 7   - Initial (1=Restart Sound)     (Write Only)
-Bit 6   - Counter/consecutive selection (Read/Write)
-          (1=Stop output when length in NR21 expires)
-Bit 2-0 - Frequency's higher 3 bits (x) (Write Only)
-</code></pre>
-<p>Frequency = 131072/(2048-x) Hz</p>
-<h2 id="sound-channel-3-wave-output"><a class="header" href="#sound-channel-3-wave-output">Sound Channel 3: Wave Output</a></h2>
-<p>This channel can be used to output digital sound, the length of the
-sample buffer (Wave RAM) is limited to 32 digits. This sound channel can
-be also used to output normal tones when initializing the Wave RAM by a
-square wave. This channel doesn’t have a volume envelope register.</p>
-<h3 id="ff1a--nr30-channel-3-sound-onoff"><a class="header" href="#ff1a--nr30-channel-3-sound-onoff">FF1A — NR30: Channel 3 sound on/off</a></h3>
-<pre><code>Bit 7 - Sound Channel 3 Off  (0=Stop, 1=Playback)  (Read/Write)
-</code></pre>
-<h3 id="ff1b--nr31-channel-3-sound-length-write-only"><a class="header" href="#ff1b--nr31-channel-3-sound-length-write-only">FF1B — NR31: Channel 3 sound length [write-only]</a></h3>
-<pre><code>Bit 7-0 - Sound length (Write only) (t1: 0 - 255)
-</code></pre>
-<p>Sound Length = (256-t1)*(1/256) seconds This value is used only if Bit
-6 in NR34 is set.</p>
-<h3 id="ff1c--nr32-channel-3-select-output-level"><a class="header" href="#ff1c--nr32-channel-3-select-output-level">FF1C — NR32: Channel 3 select output level</a></h3>
-<pre><code>Bits 6-5 - Select output level (Read/Write)
-</code></pre>
-<div class="table-wrapper"><table><thead><tr><th>Bits 6-5</th><th>Output level</th></tr></thead><tbody>
-<tr><td>%00</td><td>Mute (No sound)</td></tr>
-<tr><td>%01</td><td>100% volume (Produce Wave Pattern RAM Data as it is)</td></tr>
-<tr><td>%10</td><td>50% volume (Produce Wave Pattern RAM data shifted once to the right)</td></tr>
-<tr><td>%11</td><td>25% volume (Produce Wave Pattern RAM data shifted twice to the right)</td></tr>
-</tbody></table>
+<h3 id="ff1d--nr33-channel-3-wavelength-low-write-only"><a class="header" href="#ff1d--nr33-channel-3-wavelength-low-write-only">FF1D — NR33: Channel 3 wavelength low [write-only]</a></h3>
+<p>This register stores the low 8 bits of the channel’s 11-bit “<a href="#frequency">wavelength</a>”.
+The upper 3 bits are stored in the low 3 bits of <code>NR34</code>.</p>
+<p>The actual signal frequency is <math><mfrac><mn>65536</mn><mrow><mn>2048</mn><mo>-</mo><mi>wavelen</mi></mrow></mfrac></math> Hz: the higher the value, the higher the frequency.
+This is the whole wave’s frequency; the rate at which the channel steps through the 8 “indices” in its wave form is 32 times that, i.e. <math><mfrac><mn>2097152</mn><mrow><mn>2048</mn><mo>-</mo><mi>wavelen</mi></mrow></mfrac></math>) Hz = <math><mfrac><mn>2</mn><mrow><mn>2048</mn><mo>-</mo><mi>wavelen</mi></mrow></mfrac></math> MiHz.</p>
+<div class="box warning">
+<p class="box-title">DELAY</p><p>Wavelength changes (written to <code>NR33</code> or <code>NR34</code>) only take effect after the following time wave RAM is read.
+(<a href="https://github.com/LIJI32/SameSuite/blob/master/apu/channel_3/channel_3_freq_change_delay.asm">Source</a>)</p>
 </div>
-<h3 id="ff1d--nr33-channel-3-frequency-low-write-only"><a class="header" href="#ff1d--nr33-channel-3-frequency-low-write-only">FF1D — NR33: Channel 3 frequency low [write-only]</a></h3>
-<p>Lower 8 bits of an 11 bit frequency (x).</p>
-<h3 id="ff1e--nr34-channel-3-frequency-high--control"><a class="header" href="#ff1e--nr34-channel-3-frequency-high--control">FF1E — NR34: Channel 3 frequency high &amp; control</a></h3>
-<pre><code>Bit 7   - Initial (1=Restart Sound)     (Write Only)
-Bit 6   - Counter/consecutive selection (Read/Write)
+<h3 id="ff1e--nr34-channel-3-wavelength-high--control"><a class="header" href="#ff1e--nr34-channel-3-wavelength-high--control">FF1E — NR34: Channel 3 wavelength high &amp; control</a></h3>
+<pre><code>Bit 7   - Trigger (1=Restart Sound)    (Write Only)
+Bit 6   - Sound Length enable          (Read/Write)
           (1=Stop output when length in NR31 expires)
-Bit 2-0 - Frequency's higher 3 bits (x) (Write Only)
+Bit 2-0 - &quot;Wavelength&quot;'s higher 3 bits (Write Only)
 </code></pre>
-<p>Frequency = 4194304/(64*(2048-x)) Hz = 65536/(2048-x) Hz</p>
+<p>Writing a value here with bit 7 set <a href="#triggering">triggers</a> the channel.</p>
+<div class="box warning">
+<p class="box-title">RETRIGGERING CAUTION</p><p>On monochrome consoles only, retriggering CH3 while it’s about to read a byte from wave RAM causes wave RAM to be corrupted in a generally unpredictable manner.</p>
+</div>
+<p>Bit 6 takes effect immediately upon writing to this register.</p>
+<div class="box warning">
+<p class="box-title">PLAYBACK DELAY</p><p>Triggering the wave channel does not immediately start playing wave RAM; instead, the <em>last</em> sample ever read (which is reset to 0 when the APU is off) is output until the channel next reads a sample.</p>
+</div>
 <h3 id="ff30ff3f--wave-pattern-ram"><a class="header" href="#ff30ff3f--wave-pattern-ram">FF30–FF3F — Wave pattern RAM</a></h3>
-<pre><code>Contents - Waveform storage for arbitrary sound data
+<p>Wave RAM is 16 bytes long; each byte holds two “samples”, each 4 bits.</p>
+<p>As CH3 plays, it reads wave RAM left to right, upper nibble first.
+That is, $FF30’s upper nibble, $FF30’s lower nibble, $FF31’s upper nibble, and so on.</p>
+<div class="box warning">
+<p class="box-title">ACCESS ORDER</p><p>When CH3 is started, the first sample read is the one at index <em>1</em>, i.e. the lower nibble of the first byte, NOT the upper nibble.
+(<a href="https://github.com/LIJI32/SameSuite/blob/master/apu/channel_3/channel_3_first_sample.asm">Source</a>)</p>
+</div>
+<p>Accessing wave RAM while CH3 is <strong>active</strong> (i.e. playing) causes accesses to misbehave:</p>
+<ul>
+<li>On AGB, reads return $FF, and writes are ignored. (<a href="https://github.com/LIJI32/SameSuite/blob/master/apu/channel_3/channel_3_wave_ram_locked_write.asm">Source</a>)</li>
+<li>On monochrome consoles, wave RAM can only be accessed on the same cycle that CH3 does.
+Otherwise, reads return $FF, and writes are ignored.</li>
+<li>On other consoles, the byte accessed will be the one CH3 is currently reading<sup class="footnote-reference"><a href="#wave_access">6</a></sup>; that is, if CH3 is currently reading one of the first two samples, the CPU will really access $FF30, regardless of the address being used. (<a href="https://github.com/LIJI32/SameSuite/blob/master/apu/channel_3/channel_3_wave_ram_locked_write.asm">Source</a>)</li>
+</ul>
+<p>Wave RAM <em>can</em> be accessed normally even if the DAC is on, as long as the channel is not active. (<a href="https://github.com/LIJI32/SameSuite/blob/master/apu/channel_3/channel_3_wave_ram_dac_on_rw.asm">Source</a>)
+This is especially relevant on GBA, since <a href="#game-boy-advance-audio">“DACs” are always enabled there</a>.</p>
+<div class="footnote-definition" id="wave_access"><sup class="footnote-definition-label">6</sup>
+<p>The way it works is that wave RAM is a 16-byte memory buffer, and while it’s playing, CH3 has priority over the CPU when choosing which of those 16 bytes is accessed.
+So, from the CPU’s point of view, wave RAM reads out the same byte, regardless of the address.</p>
+</div>
+<h2 id="sound-channel-4--noise"><a class="header" href="#sound-channel-4--noise">Sound Channel 4 — Noise</a></h2>
+<p>This channel is used to output white noise, which is done by randomly switching the amplitude between two levels fairly fast.</p>
+<p>The frequency can be adjusted in order to make the noise appear “harder” (lower frequency) or “softer” (higher frequency).</p>
+<p>The random function that switches the output level can also be manipulated.
+Certain settings can cause the wave to be more regular, sounding closer to a pulse than noise.</p>
+<h3 id="ff20--nr41-channel-4-length-timer-write-only"><a class="header" href="#ff20--nr41-channel-4-length-timer-write-only">FF20 — NR41: Channel 4 length timer [write-only]</a></h3>
+<p>This register controls the channel’s <a href="#length-timer">length timer</a>.</p>
+<pre><code>Bit 5-0 - length timer
 </code></pre>
-<p>This storage area holds 32 4-bit samples that are played back, upper 4
-bits first.</p>
-<p>Wave RAM should only be accessed while CH3 is disabled (NR30 bit 7
-reset), otherwise accesses will behave weirdly.</p>
-<p>On almost all models, the byte will be written at the offset CH3 is
-currently reading. On GBA, the write will simply be ignored.</p>
-<h2 id="sound-channel-4-noise"><a class="header" href="#sound-channel-4-noise">Sound Channel 4: Noise</a></h2>
-<p>This channel is used to output white noise. This is done by randomly
-switching the amplitude between high and low at a given frequency.
-Depending on the frequency the noise will appear “harder” or
-“softer”.</p>
-<p>It is also possible to influence the function of the random generator,
-so the that the output becomes more regular, resulting in a limited
-ability to output Tone instead of Noise.</p>
-<h3 id="ff20--nr41-channel-4-sound-length-write-only"><a class="header" href="#ff20--nr41-channel-4-sound-length-write-only">FF20 — NR41: Channel 4 sound length [write-only]</a></h3>
-<pre><code>Bit 5-0 - Sound length data (Write only) (t1: 0-63)
+<p>The higher the <a href="#length-timer">length timer</a>, the shorter the time before the channel is cut.</p>
+<h3 id="ff21--nr42-channel-4-volume--envelope"><a class="header" href="#ff21--nr42-channel-4-volume--envelope">FF21 — NR42: Channel 4 volume &amp; envelope</a></h3>
+<p>This register controls the digital amplitude produced when the LFSR outputs a 1, and the sweep applied to that setting.</p>
+<pre><code>Bit 7-4 - Initial volume of envelope (0-F) (0=No Sound)
+Bit 3   - Envelope direction (0=Decrease, 1=Increase)
+Bit 2-0 - Sweep pace (0=No Sweep)
 </code></pre>
-<p>Sound Length = (64-t1)*(1/256) seconds The Length value is used only if
-Bit 6 in NR44 is set.</p>
-<h3 id="ff21--nr42-channel-4-volume-envelope"><a class="header" href="#ff21--nr42-channel-4-volume-envelope">FF21 — NR42: Channel 4 volume envelope</a></h3>
-<pre><code> Bit 7-4 - Initial Volume of envelope (0-0Fh) (0=No Sound)
- Bit 3   - Envelope Direction (0=Decrease, 1=Increase)
- Bit 2-0 - Number of envelope sweep (n: 0-7)
-           (If zero, stop envelope operation.)
+<p>Setting bits 3-7 of this register all to 0 turns the DAC off (and thus, the channel as well).</p>
+<p>The envelope ticks at 64 Hz, and the channel’s envelope will be increased / decreased (depending on bit 3) every <var>Sweep pace</var> of those ticks.</p>
+<h3 id="ff22--nr43-channel-4-frequency--randomness"><a class="header" href="#ff22--nr43-channel-4-frequency--randomness">FF22 — NR43: Channel 4 frequency &amp; randomness</a></h3>
+<p>This register allows controlling the way the amplitude is randomly switched.</p>
+<pre><code>Bit 7-4 - Clock shift (s)
+Bit 3   - LFSR width (0=15 bits, 1=7 bits)
+Bit 2-0 - Clock divider (r)
 </code></pre>
-<p>Length of 1 step = n*(1/64) seconds</p>
-<h3 id="ff22--nr43-channel-4-polynomial-counter"><a class="header" href="#ff22--nr43-channel-4-polynomial-counter">FF22 — NR43: Channel 4 polynomial counter</a></h3>
-<p>The amplitude is randomly switched between high and low at the given
-frequency. A higher frequency will make the noise to appear “softer”.
-When Bit 3 is set, the output will become more regular, and some
-frequencies will sound more like Tone than Noise.</p>
-<pre><code>Bit 7-4 - Shift Clock Frequency (s)
-Bit 3   - Counter Step/Width (0=15 bits, 1=7 bits)
-Bit 2-0 - Dividing Ratio of Frequencies (r)
-</code></pre>
-<p>Frequency = 524288 Hz / r / 2^(s+1) ;For r=0 assume r=0.5 instead</p>
+<p>The frequency at which the LFSR is clocked is <math><mfrac><mn>262144</mn><mrow><mi>r</mi><mo>×</mo><msup><mn>2</mn><mi>s</mi></msup></mrow></mfrac></math> Hz.
+(<var>r</var> = 0 is treated as <var>r</var> = 0.5 instead.)
+If the bit shifted out is a 0, the channel emits a 0; otherwise, it emits the volume selected in <code>NR42</code>.</p>
+<p>If the LFSR is set to 7-bit mode, the output will become more regular, and some frequencies will sound more like Pulse than Noise.
+Note that switching from 15- to 7-bit mode when the LFSR <a href="#noise-channel-ch4">is in a certain state</a> can “lock it up”, which essentially silences CH4; this can be avoided by retriggering CH4, which resets the LFSR.</p>
 <h3 id="ff23--nr44-channel-4-control"><a class="header" href="#ff23--nr44-channel-4-control">FF23 — NR44: Channel 4 control</a></h3>
-<pre><code>Bit 7   - Initial (1=Restart Sound)     (Write Only)
-Bit 6   - Counter/consecutive selection (Read/Write)
+<pre><code>Bit 7   - Trigger (1=Restart channel)  (Write Only)
+Bit 6   - Sound Length enable          (Read/Write)
           (1=Stop output when length in NR41 expires)
 </code></pre>
-<h2 id="sound-control-registers"><a class="header" href="#sound-control-registers">Sound Control Registers</a></h2>
-<h3 id="ff24--nr50-sound-volume"><a class="header" href="#ff24--nr50-sound-volume">FF24 — NR50: Sound volume</a></h3>
-<p>The volume bits specify the “Master Volume” for Left/Right sound
-output. left output goes to the left headphone, and right output goes to the right.</p>
-<pre><code>Bit 7   - Enable Vin into left output (1=Enable)
-Bit 6-4 - Left output volume  (0-7)
-Bit 3   - Enable Vin into right output (1=Enable)
-Bit 2-0 - Right output volume  (0-7)
-</code></pre>
-<p>The Vin signal is an analog signal received from the game cartridge bus,
-allowing external hardware in the cartridge to supply a fifth sound
-channel, additionally to the Game Boy’s internal four channels. No
-licensed games used this feature, and it was omitted from the Game Boy
-Advance.</p>
-<p>(Despite rumors, <em>Pocket Music</em> does not use Vin. It blocks use on the
-GBA for a different reason: the developer couldn’t figure out how to
-silence buzzing associated with the wave channel’s DAC.)</p>
-<h3 id="ff25--nr51-sound-panning"><a class="header" href="#ff25--nr51-sound-panning">FF25 — NR51: Sound panning</a></h3>
-<p>Each channel can be panned hard left, center, or hard right.</p>
-<pre><code>Bit 7 - Enable channel 4 into left output
-Bit 6 - Enable channel 3 into left output
-Bit 5 - Enable channel 2 into left output
-Bit 4 - Enable channel 1 into left output
-Bit 3 - Enable channel 4 into right output
-Bit 2 - Enable channel 3 into right output
-Bit 1 - Enable channel 2 into right output
-Bit 0 - Enable channel 1 into right output
-</code></pre>
-<h3 id="ff26--nr52-sound-onoff"><a class="header" href="#ff26--nr52-sound-onoff">FF26 — NR52: Sound on/off</a></h3>
-<p>If your GB programs don’t use sound then write 00h to this register to
-save 16% or more on GB power consumption. Disabling the sound
-controller by clearing Bit 7 destroys the contents of all sound
-registers. Also, it is not possible to access any sound registers
-(execpt FF26) while the sound controller is disabled.</p>
-<pre><code> Bit 7 - All sound on/off  (0: stop all sound circuits) (Read/Write)
- Bit 3 - Sound 4 ON flag (Read Only)
- Bit 2 - Sound 3 ON flag (Read Only)
- Bit 1 - Sound 2 ON flag (Read Only)
- Bit 0 - Sound 1 ON flag (Read Only)
-</code></pre>
-<p>Bits 0-3 of this register are read only status bits, writing to these
-bits does NOT enable/disable sound. The flags get set when sound output
-is restarted by setting the Initial flag (Bit 7 in NR14-NR44), the flag
-remains set until the sound length has expired (if enabled). A volume
-envelopes which has decreased to zero volume will NOT cause the sound
-flag to go off.</p>
-<h2 id="pitfalls"><a class="header" href="#pitfalls">Pitfalls</a></h2>
+<p>Writing a value here with bit 7 set <a href="#triggering">triggers</a> the channel.</p>
+<p>Bit 6 takes effect immediately upon writing to this register.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="audio-details"><a class="header" href="#audio-details">Audio Details</a></h1>
+<p>tl;dr:</p>
+<blockquote>
+<p>The PPU is a bunch of state machines, and the APU is a bunch of counters.</p>
+</blockquote>
+<!-- Styles in <svg> tags apply to the whole page, and we have two on this one. Hoist this to be less confusing. -->
+<style>
+  text {
+    fill: var(--fg);
+    dominant-baseline: middle;
+    font-size: .6em;
+  }
+  #dsg { font-size: 1em; }
+  .centered { text-anchor: middle; }
+  .right    { text-anchor: end; }
+  .tabnum { font-feature-settings: "tnum"; }
+  svg > rect, svg > use {
+    stroke: var(--fg);
+    fill: var(--fg);
+  }
+  svg > path, svg > circle {
+    stroke: var(--fg);
+    fill: none;
+  }
+  .dashed { stroke-dasharray: 2; }
+  .opa50 { opacity: .5; }
+  .fill50 { fill-opacity: .5; }
+  .digital   { stroke: #df0000; fill: #df0000; }
+  .analog    { stroke: #005f98; fill: #005f98; }
+  .misc_data { stroke: #a4269c; fill: #a4269c; }
+  .dac_ena   { stroke: #ffa700; fill: #ffa700; }
+  .ch_active { stroke: #17cc00; fill: #17cc00; }
+  rect.legend { width: 5px; height: 5px; }
+  text.legend { font-size: .7em; }
+  .arrow { stroke-width: 2px; opacity: .35; }
+  .unfilled {
+    fill: none;
+  }
+  .no-stroke {
+    stroke: none;
+  }
+</style>
+<figure>
+<svg viewBox="115 99 470 390" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <path d="M 0,-2
+             v 4
+             l 4,-2
+             z" id="arrow-head"/>
+  </defs>
+  <rect x="570" y="110" class="legend digital"/>
+  <text x="565" y="113" class="legend right">Digital waveform</text>
+  <rect x="570" y="125" class="legend analog"/>
+  <text x="565" y="128" class="legend right">Analog waveform</text>
+  <rect x="570" y="140" class="legend misc_data"/>
+  <text x="565" y="143" class="legend right">Misc. digital data</text>
+  <rect x="570" y="155" class="legend dac_ena"/>
+  <text x="565" y="158" class="legend right">DAC enable flag</text>
+  <rect x="570" y="170" class="legend ch_active"/>
+  <text x="565" y="173" class="legend right">Channel active flag</text>
+  <rect x="150" y="100" width="230" height="275" class="unfilled opa50"/>
+  <text x="265" y="118" id="dsg" class="centered">Digital Sound Generator</text>
+  <rect x="160" y="140" width="150" height="20" class="unfilled"/>
+  <text x="235" y="151" class="centered tabnum">Channel 1</text>
+  <rect x="160" y="160" width="30" height="20" class="unfilled"/>
+  <text x="175" y="172" class="centered tabnum">NR10</text>
+  <rect x="190" y="160" width="30" height="20" class="unfilled"/>
+  <text x="205" y="172" class="centered tabnum">NR11</text>
+  <rect x="220" y="160" width="30" height="20" class="unfilled"/>
+  <text x="235" y="172" class="centered tabnum">NR12</text>
+  <rect x="250" y="160" width="30" height="20" class="unfilled"/>
+  <text x="265" y="172" class="centered tabnum">NR13</text>
+  <rect x="280" y="160" width="30" height="20" class="unfilled"/>
+  <text x="295" y="172" class="centered tabnum">NR14</text>
+  <rect x="160" y="190" width="150" height="20" class="unfilled"/>
+  <text x="235" y="201" class="centered tabnum">Channel 2</text>
+  <rect x="160" y="210" width="30" height="20" class="fill50"/>
+  <rect x="190" y="210" width="30" height="20" class="unfilled"/>
+  <text x="205" y="222" class="centered tabnum">NR21</text>
+  <rect x="220" y="210" width="30" height="20" class="unfilled"/>
+  <text x="235" y="222" class="centered tabnum">NR22</text>
+  <rect x="250" y="210" width="30" height="20" class="unfilled"/>
+  <text x="265" y="222" class="centered tabnum">NR23</text>
+  <rect x="280" y="210" width="30" height="20" class="unfilled"/>
+  <text x="295" y="222" class="centered tabnum">NR24</text>
+  <rect x="160" y="240" width="150" height="20" class="unfilled"/>
+  <text x="235" y="251" class="centered tabnum">Channel 3</text>
+  <rect x="160" y="260" width="30" height="20" class="unfilled"/>
+  <text x="175" y="272" class="centered tabnum">NR30</text>
+  <rect x="190" y="260" width="30" height="20" class="unfilled"/>
+  <text x="205" y="272" class="centered tabnum">NR31</text>
+  <rect x="220" y="260" width="30" height="20" class="unfilled"/>
+  <text x="235" y="272" class="centered tabnum">NR32</text>
+  <rect x="250" y="260" width="30" height="20" class="unfilled"/>
+  <text x="265" y="272" class="centered tabnum">NR33</text>
+  <rect x="280" y="260" width="30" height="20" class="unfilled"/>
+  <text x="295" y="272" class="centered tabnum">NR34</text>
+  <rect x="160" y="290" width="150" height="20" class="unfilled"/>
+  <text x="235" y="301" class="centered tabnum">Channel 4</text>
+  <rect x="160" y="310" width="30" height="20" class="fill50"/>
+  <rect x="190" y="310" width="30" height="20" class="unfilled"/>
+  <text x="205" y="322" class="centered tabnum">NR41</text>
+  <rect x="220" y="310" width="30" height="20" class="unfilled"/>
+  <text x="235" y="322" class="centered tabnum">NR42</text>
+  <rect x="250" y="310" width="30" height="20" class="unfilled"/>
+  <text x="265" y="322" class="centered tabnum">NR43</text>
+  <rect x="280" y="310" width="30" height="20" class="unfilled"/>
+  <text x="295" y="322" class="centered tabnum">NR44</text>
+  <rect x="340" y="148" width="30" height="20" class="unfilled"/>
+  <text x="355" y="160" class="centered tabnum">NR50</text>
+  <rect x="340" y="183" width="30" height="20" class="unfilled"/>
+  <text x="355" y="195" class="centered tabnum">NR51</text>
+  <rect x="340" y="218" width="30" height="20" class="unfilled"/>
+  <text x="355" y="230" class="centered tabnum">NR52</text>
+  <rect x="185" y="350" width="40" height="20" class="unfilled"/>
+  <text x="205" y="362" class="centered tabnum">PCM12</text>
+  <rect x="245" y="350" width="40" height="20" class="unfilled"/>
+  <text x="265" y="362" class="centered tabnum">PCM34</text>
+  <rect x="140" y="430" width="40" height="30" class="unfilled"/>
+  <text x="160" y="446" class="centered tabnum">DAC 1</text>
+  <rect x="190" y="430" width="40" height="30" class="unfilled"/>
+  <text x="210" y="446" class="centered tabnum">DAC 2</text>
+  <rect x="240" y="430" width="40" height="30" class="unfilled"/>
+  <text x="260" y="446" class="centered tabnum">DAC 3</text>
+  <rect x="290" y="430" width="40" height="30" class="unfilled"/>
+  <text x="310" y="446" class="centered tabnum">DAC 4</text>
+  <rect x="370" y="430" width="40" height="30" class="unfilled"/>
+  <text x="390" y="446" class="centered tabnum">Mixer</text>
+  <rect x="430" y="430" width="40" height="30" class="unfilled"/>
+  <text x="450" y="446" class="centered tabnum">Volume</text>
+  <rect x="490" y="420" width="30" height="20" class="unfilled"/>
+  <text x="505" y="431" class="centered tabnum">HPF</text>
+  <rect x="490" y="450" width="30" height="20" class="unfilled"/>
+  <text x="505" y="461" class="centered tabnum">HPF</text>
+  <rect x="540" y="430" width="40" height="30" class="unfilled"/>
+  <text x="560" y="446" class="centered tabnum">Out</text>
+  <!-- Keep in mind that later things are drawn over earlier ones. Order matters! -->
+  <path d="M 235,180
+           v 5
+           h -115
+           v 230
+           h 30
+           v 11" class="dac_ena unfilled"/>
+  <use x="150" y="426" href="#arrow-head" class="dac_ena" transform="rotate(90,150,426)"/>
+  <path d="M 235,230
+           v 5
+           h -100
+           v 165
+           h 65
+           v 26" class="dac_ena unfilled"/>
+  <use x="200" y="426" href="#arrow-head" class="dac_ena" transform="rotate(90,200,426)"/>
+  <path d="M 175,280
+           v 5
+           h -20
+           v 100
+           h 95
+           v 41" class="dac_ena unfilled"/>
+  <use x="250" y="426" href="#arrow-head" class="dac_ena" transform="rotate(90,250,426)"/>
+  <path d="M 235,330
+           v 5
+           h 65
+           v 91" class="dac_ena unfilled"/>
+  <use x="300" y="426" href="#arrow-head" class="dac_ena" transform="rotate(90,300,426)"/>
+  <path d="M 160,150
+           h -35
+           v 32
+           a 8 4 0 0 1 0,6
+           v 222
+           h 45
+           v 16" class="digital unfilled"/>
+  <use x="170" y="426" href="#arrow-head" class="digital" transform="rotate(90,170,426)"/>
+  <path d="M 181,355
+           h -23
+           a 4 8 0 0 0 -6,0
+           h -14
+           a 4 8 0 0 0 -6,0
+           h -7" class="digital unfilled"/>
+  <use x="181" y="355" href="#arrow-head" class="digital"/>
+  <path d="M 160,200
+           h -20
+           v 32
+           a 8 4 0 0 1 0,6
+           v 114
+           a 8 4 0 0 1 0,6
+           v 37
+           h 80
+           v 31" class="digital unfilled"/>
+  <use x="220" y="426" href="#arrow-head" class="digital" transform="rotate(90,220,426)"/>
+  <path d="M 181,365
+           h -23
+           a 4 8 0 0 0 -6,0
+           h -12" class="digital unfilled"/>
+  <use x="181" y="365" href="#arrow-head" class="digital"/>
+  <path d="M 310,254
+           h 25
+           v 131
+           h -12
+           a 4 8 0 0 0 -6,0
+           h -14
+           a 4 8 0 0 0 -6,0
+           h -27
+           v 41" class="digital unfilled"/>
+  <use x="270" y="426" href="#arrow-head" class="digital" transform="rotate(90,270,426)"/>
+  <path d="M 289,355
+           h 8
+           a 4 8 0 0 1 6,0
+           h 14
+           a 4 8 0 0 1 6,0
+           h 12" class="digital unfilled"/>
+  <use x="289" y="355" href="#arrow-head" class="digital" transform="rotate(-180,289,355)"/>
+  <path d="M 310,304
+           h 10
+           v 122" class="digital unfilled"/>
+  <use x="320" y="426" href="#arrow-head" class="digital" transform="rotate(90,320,426)"/>
+  <path d="M 289,365
+           h 8
+           a 4 8 0 0 1 6,0
+           h 17" class="digital unfilled"/>
+  <use x="289" y="365" href="#arrow-head" class="digital" transform="rotate(-180,289,365)"/>
+  <path d="M 310,150
+           h 18
+           v 73
+           h 8" class="ch_active unfilled"/>
+  <use x="336" y="223" href="#arrow-head" class="ch_active"/>
+  <path d="M 310,200
+           h 8
+           v 33
+           h 18" class="ch_active unfilled"/>
+  <use x="336" y="233" href="#arrow-head" class="ch_active"/>
+  <path d="M 310,246
+           h 40
+           v -3" class="ch_active unfilled"/>
+  <use x="350" y="243" href="#arrow-head" class="ch_active" transform="rotate(-90,350,243)"/>
+  <path d="M 310,296
+           h 22
+           a 4 8 0 0 1 6,0
+           h 22
+           v -53" class="ch_active unfilled"/>
+  <use x="360" y="243" href="#arrow-head" class="ch_active" transform="rotate(-90,360,243)"/>
+  <path d="M 310,460
+           v 10
+           h 31
+           v -37
+           h 25" class="analog unfilled"/>
+  <use x="366" y="433" href="#arrow-head" class="analog"/>
+  <path d="M 260,460
+           v 15
+           h 86
+           v -34
+           h 20" class="analog unfilled"/>
+  <use x="366" y="441" href="#arrow-head" class="analog"/>
+  <path d="M 210,460
+           v 20
+           h 141
+           v -31
+           h 15" class="analog unfilled"/>
+  <use x="366" y="449" href="#arrow-head" class="analog"/>
+  <path d="M 160,460
+           v 25
+           h 196
+           v -28
+           h 10" class="analog unfilled"/>
+  <use x="366" y="457" href="#arrow-head" class="analog"/>
+  <path d="M 410,438
+           h 16" class="analog unfilled"/>
+  <use x="426" y="438" href="#arrow-head" class="analog"/>
+  <path d="M 410,452
+           h 16" class="analog unfilled"/>
+  <use x="426" y="452" href="#arrow-head" class="analog"/>
+  <path d="M 470,438
+           h 8
+           v -8
+           h 8" class="analog unfilled"/>
+  <use x="486" y="430" href="#arrow-head" class="analog"/>
+  <path d="M 470,452
+           h 8
+           v 8
+           h 8" class="analog unfilled"/>
+  <use x="486" y="460" href="#arrow-head" class="analog"/>
+  <path d="M 520,430
+           h 8
+           v 8
+           h 8" class="analog unfilled"/>
+  <use x="536" y="438" href="#arrow-head" class="analog"/>
+  <path d="M 520,460
+           h 8
+           v -8
+           h 8" class="analog unfilled"/>
+  <use x="536" y="452" href="#arrow-head" class="analog"/>
+  <path d="M 370,193
+           h 20
+           v 233" class="misc_data unfilled"/>
+  <use x="390" y="426" href="#arrow-head" class="misc_data" transform="rotate(90,390,426)"/>
+  <path d="M 370,158
+           h 30
+           v 248
+           h 50
+           v 20" class="misc_data unfilled"/>
+  <use x="450" y="426" href="#arrow-head" class="misc_data" transform="rotate(90,450,426)"/>
+</svg>
+<figcaption>Source: Lior "LIJI32" Halphon</figcaption>
+</figure>
+<p>Each of the four “conceptual” channels is composed of a “generation” circuit (designated “channel” in the above diagram), and a <a href="https://en.wikipedia.org/wiki/Digital-to-analog_converter">DAC</a>.
+The digital value produced by the generator, which ranges between $0 and $F (0 and 15), is linearly translated by the DAC into an analog<sup class="footnote-reference"><a href="#digital_analog">1</a></sup> value between -1 and 1 (the unit is arbitrary).</p>
+<p>The four analog channel outputs are then fed into the mixer<sup class="footnote-reference"><a href="#vin">2</a></sup>, which selectively adds them (depending on <a href="#ff25--nr51-sound-panning"><code>NR51</code></a>) into two analog outputs (Left and Right).
+Thus, the analog range of those outputs is 4× that of each channel, -4 to 4.</p>
+<p>Then, both of these two get their respective volume scaled, once from <a href="#ff24--nr50-master-volume--vin-panning"><code>NR50</code></a>, and once from the volume knob (if the console has one).
+Note that the former step never mutes a non-silent input, but the latter can.</p>
+<p>Each of the two analog outputs then goes through a <a href="https://en.wikipedia.org/wiki/High-pass_filter">high-pass filter</a> (HPF).
+For short, a HPF constantly tries to “pull” the signal towards analog 0 (neutral); the reason for that is explained further below.</p>
+<div class="footnote-definition" id="digital_analog"><sup class="footnote-definition-label">1</sup>
+<p>To be clear: digital values are discrete and clear-cut; conversely, the analog domain is continuous.
+The former is what computers use, the latter is what the real world is made of.</p>
+</div>
+<div class="footnote-definition" id="vin"><sup class="footnote-definition-label">2</sup>
+<p>Actually, VIN acts as a 5<sup>th</sup> channel fed into the mixer, whose control bits are in NR50 instead of NR51.
+This was omitted from the diagram for simplicity.</p>
+</div>
+<h2 id="pcm-registers"><a class="header" href="#pcm-registers">PCM registers</a></h2>
+<p>These two registers, only present in the Game Boy Color and later models, allow reading the output of the generation circuits directly; this is very useful for testing “internal” APU behavior.
+These registers are not documented in any known Nintendo manual.</p>
+<h3 id="ff76--pcm12-cgb-mode-only-digital-outputs-1--2-read-only"><a class="header" href="#ff76--pcm12-cgb-mode-only-digital-outputs-1--2-read-only">FF76 — PCM12 (CGB Mode only): Digital outputs 1 &amp; 2 [read-only]</a></h3>
+<p>The low nibble is a copy of sound channel 1’s digital output, the high nibble a copy of sound channel 2’s.</p>
+<h3 id="ff77--pcm34-cgb-mode-only-digital-outputs-3--4-read-only"><a class="header" href="#ff77--pcm34-cgb-mode-only-digital-outputs-3--4-read-only">FF77 — PCM34 (CGB Mode only): Digital outputs 3 &amp; 4 [read-only]</a></h3>
+<p>Same, but with channels 3 and 4.</p>
+<h2 id="finer-technical-explanation"><a class="header" href="#finer-technical-explanation">Finer technical explanation</a></h2>
+<h3 id="div-apu"><a class="header" href="#div-apu">DIV-APU</a></h3>
+<p>A “DIV-APU” counter is increased every time <code>DIV</code>’s bit 4 (5 in <a href="#ff4d--key1-cgb-mode-only-prepare-speed-switch">double-speed mode</a>) goes from 1 to 0, therefore at a frequency of 512 Hz (regardless of whether double-speed is active).
+Thus, the counter can be made to increase faster by writing to <code>DIV</code> while its relevant bit is set (which clears <code>DIV</code>, and triggers the falling edge).</p>
+<p>The following events occur every <var>N</var> DIV-APU ticks:</p>
+<div class="table-wrapper"><table><thead><tr><th>Event</th><th>Rate</th><th>Frequency<sup class="footnote-reference"><a href="#div_apu_freq">3</a></sup></th></tr></thead><tbody>
+<tr><td>Envelope sweep</td><td>8</td><td>64 Hz</td></tr>
+<tr><td>Sound length</td><td>2</td><td>256 Hz</td></tr>
+<tr><td>CH1 freq sweep</td><td>4</td><td>128 Hz</td></tr>
+</tbody></table>
+</div>
+<div class="footnote-definition" id="div_apu_freq"><sup class="footnote-definition-label">3</sup>
+<p>Indicated values are under normal operation; the frequencies will obviously differ if writing to <code>DIV</code> to increase the counter faster.</p>
+</div>
+<h3 id="mixer"><a class="header" href="#mixer">Mixer</a></h3>
+<p>A high-pass filter (HPF) removes constant biases over time.
+The HPFs therefore remove the DC offset created by inactive channels with an enabled DAC, and off-center waveforms.</p>
+<p>Enabling or disabling a DAC (<a href="#dacs">see below</a>), adding or removing it using NR51, or changing the volume in NR50, will cause an audio “pop”.
+(All of these actions cause a change in DC offset, which is smoothed out by the HPFs over time, but still creates a pop.)</p>
+<p>The HPF is more aggressive on GBA than on GBC, which itself is more aggressive than on DMG.
+(The more “aggressive” a HPF, the faster it pulls the signal towards “analog 0”; this reduces the pops, but tends to also distort waveforms.)</p>
+<h3 id="dacs"><a class="header" href="#dacs">DACs</a></h3>
+<p>Channel <var>x</var>’s DAC is enabled if and only if <code>[NRx2] &amp; $F8 != 0</code>; the exception is CH3, whose DAC is directly controlled by bit 7 of NR30 instead.
+Note that the envelope functionality changes the volume, but not the value stored in NRx2, and thus doesn’t disable the DACs.</p>
+<p>If a DAC is enabled, the digital range $0 to $F is linearly translated to the analog range -1 to 1, in arbitrary units.
+Importantly, the slope is negative: “digital 0” maps to “analog 1”, not “analog -1”.</p>
+<p>If a DAC is disabled, it fades to an analog value of 0.
+The nature of this fade is not entirely deterministic and varies between models.</p>
+<p>NR52’s low 4 bits report whether the channels are turned on, not their DACs.</p>
+<h3 id="channels"><a class="header" href="#channels">Channels</a></h3>
+<p>A channel is activated by a write to NRx4’s MSB, unless its DAC is off, which forces it to be disabled as well.
+The opposite is not true, however: a disabled channel outputs 0, which an enabled DAC will dutifully convert into “analog 1”.</p>
+<p>A channel can be deactivated in one of the following ways:</p>
 <ul>
-<li>Enabling or disabling a DAC (resetting NR30 bit 7 or writing %0000
-0XXX to NRx2 for other channels), adding or removing it using NR51,
-or changing the volume in NR50, will cause an audio pop. (This
-causes a change in DC offset, which is smoothed out by a high-pass
-circuit over time, but still creates a pop)</li>
-<li>The final output goes through a high-pass filter, which is more
-aggressive on GBA than on GBC, which is more aggressive than on DMG.
-(What this means is that the output is “pulled” towards 0V with
-various degrees of “aggressiveness”)</li>
-<li>When first starting up a pulse channel, it will <em>always</em> output a
-(digital) zero.</li>
-<li>The pulse channels’ “duty step” (at which position in the duty
-cycle they are) can’t be reset. The exception to this is turning
-off the APU, which causes them to start over from 0 when turning it
-on.</li>
-<li>Restarting a pulse channel causes its “duty step timer” to reset,
-meaning that “tickling” a pulse channel regularly enough will
-cause its “duty step” to never advance.</li>
-<li>When restarting CH3, it resumes playing the last 4-bit sample it
-read from wave RAM, or 0 if no sample has been read since APU reset.
-(Sample latching is independent of output level control in NR32.)
-After the latched sample completes, it starts with the second sample
-in wave RAM (low 4 bits of $FF30). The first sample (high 4 bits of
-$FF30) is played last.</li>
-<li>CH3 output level control does not, in fact, alter the output level.
-It shifts the <strong>digital</strong> value CH3 is outputting (read below), not
-the analog value.</li>
-<li>On GBA, CH3 is inverted. This causes the channel to output a loud
-spike when disabled; it’s a good idea to “remove” the channel
-using NR51 before refreshing wave RAM.</li>
+<li>Turning off its DAC</li>
+<li>Its <a href="#length-timer">length timer</a> expiring</li>
+<li>(CH1 only) <a href="#ff10--nr10-channel-1-sweep">Frequency sweep</a> overflowing the frequency</li>
 </ul>
-<h2 id="apu-technical-explanation"><a class="header" href="#apu-technical-explanation">APU technical explanation</a></h2>
-<p align="center">
-<img src="imgs/gb_apu.png">
-<br>
-  <i>Source: Lior Halphon</i>
-</p>
-<h3 id="game-boy-game-boy-color"><a class="header" href="#game-boy-game-boy-color">Game Boy, Game Boy Color</a></h3>
-<p>Each of the 4 channels work pretty identically. First, there’s a
-“generation” circuit, which usually outputs either a 0 or another
-value (CH3 differs in that it can output multiple values, but
-regardless). That value is digital, and can range between 0 and 0xF.
-This is then fed to a
-<a href="https://en.wikipedia.org/wiki/Digital-to-analog_converter">DAC</a>, which
-maps this to an analog value; 7 maps to the lowest (negative) voltage, 0
-to the highest (positive) one. Finally, all channels are mixed through
-NR51, scaled through NR50, and sent to the output.</p>
-<p>Each DAC is controlled independently from the generation circuit. For
-CH3, the DAC is controlled by NR30 bit 7; for other channels, the DAC is
-turned on unless bits 3-7 of NRx2 are reset, and the envelope will be
-set to <code>[NRx2] &gt;&gt; 4</code>. (Note: the envelope sweep function changes the
-envelope, but not the value in NRx2! It won’t disable the DAC, either.)
-The generation circuits are turned on by restarting them for the first
-time, and this is what sets the corresponding bit in NR52. Yes, it’s
-possible to turn on a DAC but not the generation circuit. Finally,
-disabling a DAC also kills the generation circuit.</p>
-<p>Note that each DAC has a DC offset, so enabling, disabling, adding to or
-removing from NR51, will all cause an audio pop; changing the volume in
-NR50 will as well.</p>
-<p>Finally, all the output goes through a high-pass filter to remove the DC
-offsets from the DACs.</p>
-<h3 id="game-boy-advance"><a class="header" href="#game-boy-advance">Game Boy Advance</a></h3>
-<p>The APU was reworked pretty heavily for the GBA. Instead of mixing being
-done analogically, it’s instead done digitally; then, sound is
-converted to an analog signal and an offset is added (see SOUNDBIAS in
-<a href="http://problemkaputt.de/gbatek.htm#gbasoundcontrolregisters">GBATEK</a>
-for more details).</p>
-<p>This means that the APU has no DACs, or if modelling the GBA as a GB,
-they’re always on.</p>
+<h3 id="pulse-channels-ch1-ch2"><a class="header" href="#pulse-channels-ch1-ch2">Pulse channels (CH1, CH2)</a></h3>
+<p>Each pulse channel has an internal “duty step” counter, which is used to index into <a href="#ff11--nr11-channel-1-length-timer--duty-cycle">the selected waveform</a> (each background stripe corresponds to one “duty step”)<sup class="footnote-reference"><a href="#pulse_lut">4</a></sup>.
+The “duty step” increments at 8 times <a href="#ff13--nr13-channel-1-wavelength-low-write-only">the channel’s frequency</a>).</p>
+<p>The “duty step” counter cannot be reset, except by turning the APU off, which sets both back to 0.
+Retriggering a pulse channel causes its “duty step timer” to reset, thus retriggering a pulse channel often enough will cause its “duty step” to never advance.</p>
+<p>When first starting up a pulse channel, it will <em>always</em> output a (digital) zero.</p>
+<div class="footnote-definition" id="pulse_lut"><sup class="footnote-definition-label">4</sup>
+<p>Actually, there is not LUT, but the manipulations done to the counter’s bits are equivalent.</p>
+</div>
+<h3 id="wave-channel-ch3"><a class="header" href="#wave-channel-ch3">Wave channel (CH3)</a></h3>
+<p>CH3 has an internal “sample index” counter.
+Each time it is ticked (as determined by the “wavelength” in NR33/NR34), that “sample index” is incremented, and then the corresponding “sample” (nibble) is read from wave RAM.
+(This means that sample #0 is skipped when first starting up CH3.)</p>
+<p>CH3 does not emit samples directly, but stores every sample read into a buffer, and emits that continuously; (re)triggering the channel does <em>not</em> clear nor refresh this buffer, so the last sample ever read will be emitted again.
+This buffer <em>is</em> cleared when turning the APU on, so CH3 will emit a “digital 0” when first powered on.</p>
+<p>CH3 output level control does not, in fact, alter the output level.
+It shifts the <strong>digital</strong> value CH3 is outputting, not the analog value.
+This only matters when changing the setting mid-playback: the digital values being shifted bias them towards 0, which biases the analog output towards “1”; the HPF will smooth this over time, but not instantly.</p>
+<h3 id="noise-channel-ch4"><a class="header" href="#noise-channel-ch4">Noise channel (CH4)</a></h3>
+<svg viewBox="0 0 322 60" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <path d="M 0,-5
+             v 10
+             l 10,-5
+             z" id="arrow-head"/>
+  </defs>
+  <rect x="1" y="10" width="20" height="20" class="unfilled"/> <text x="11" y="5" class="centered">15</text>
+  <rect x="21" y="10" width="20" height="20" class="unfilled"/> <text x="31" y="5" class="centered">14</text>
+  <rect x="41" y="10" width="20" height="20" class="unfilled"/> <text x="51" y="5" class="centered">13</text>
+  <rect x="61" y="10" width="20" height="20" class="unfilled"/> <text x="71" y="5" class="centered">12</text>
+  <rect x="81" y="10" width="20" height="20" class="unfilled"/> <text x="91" y="5" class="centered">11</text>
+  <rect x="101" y="10" width="20" height="20" class="unfilled"/> <text x="111" y="5" class="centered">10</text>
+  <rect x="121" y="10" width="20" height="20" class="unfilled"/> <text x="131" y="5" class="centered">9</text>
+  <rect x="141" y="10" width="20" height="20" class="unfilled"/> <text x="151" y="5" class="centered">8</text>
+  <rect x="161" y="10" width="20" height="20" class="unfilled"/> <text x="171" y="5" class="centered">7</text>
+  <rect x="181" y="10" width="20" height="20" class="unfilled"/> <text x="191" y="5" class="centered">6</text>
+  <rect x="201" y="10" width="20" height="20" class="unfilled"/> <text x="211" y="5" class="centered">5</text>
+  <rect x="221" y="10" width="20" height="20" class="unfilled"/> <text x="231" y="5" class="centered">4</text>
+  <rect x="241" y="10" width="20" height="20" class="unfilled"/> <text x="251" y="5" class="centered">3</text>
+  <rect x="261" y="10" width="20" height="20" class="unfilled"/> <text x="271" y="5" class="centered">2</text>
+  <rect x="281" y="10" width="20" height="20" class="unfilled"/> <text x="291" y="5" class="centered">1</text>
+  <rect x="301" y="10" width="20" height="20" class="unfilled"/> <text x="311" y="5" class="centered">0</text>
+  <path d="M 311,30
+           v 21
+           h -30"/>
+  <path d="M 291,30
+           v 15
+           h -10"/>
+  <path d="M 267,38
+           c 0,0 -10,0 -17,10  7,10 17,10 17,10
+           h 13
+           c -5,-5 -5,-15 0,-20
+           z
+           m 17,20
+           c -5,-5 -5,-15 0,-20"/>
+  <circle cx="248" cy="48" r="2"/>
+  <path d="M 246,48
+           h -235
+           v -13"/> <use x="11" y="35" href="#arrow-head" transform="rotate(-90,11,35)"/>
+  <path d="M 171,48
+           v -13" class="dashed"/> <use x="171" y="35" href="#arrow-head" transform="rotate(-90,171,35)"/>
+</svg>
+<p>CH4 revolves around a <a href="https://en.wikipedia.org/wiki/Linear-feedback_shift_register">LFSR</a>, pictured above.
+The LFSR is 16-bit internally, but really acts as if it was 15-bit.</p>
+<p>When CH4 is ticked (at the frequency specified via <a href="#ff22--nr43-channel-4-frequency--randomness"><code>NR43</code></a>):</p>
+<ol>
+<li>The result of <math><menclose notation="top"><msub><mi>LFSR</mi><mn>0</mn></msub> <mo>⊕</mo> <msub><mi>LFSR</mi><mn>1</mn></msub></menclose></math> (<code>1</code> if bit 0 and bit 1 are identical, <code>0</code> otherwise) is written to bit 15.</li>
+<li>If “short mode” was selected in <a href="#ff22--nr43-channel-4-frequency--randomness"><code>NR43</code></a>, then bit 15 is copied to bit 7 as well.</li>
+<li>Finally, the entire LFSR is shifted right, and bit 0 selects between 0 and <a href="#ff21--nr42-channel-4-volume--envelope">the chosen volume</a>.</li>
+</ol>
+<p>The LFSR is set to 0 when (re)triggering the channel.</p>
+<div class="box tip">
+<p class="box-title">Lock-up</p><p>If the “active” portion of the LFSR only contains “1” bits, only “1” bits will be generated; this prevents CH4 from ever changing values (until retriggered), essentially silencing it.</p>
+<p>This does not happen under regular operation, but can be achieved by switching from 15-bit to 7-bit mode when the LFSR’s bottom 7 bits are all “1“s (which occurs relatively early after triggering the channel, for example).</p>
+</div>
+<h2 id="game-boy-advance-audio"><a class="header" href="#game-boy-advance-audio">Game Boy Advance audio</a></h2>
+<p>The APU was reworked pretty heavily for the GBA, which introduces some slightly different behavior:</p>
+<ul>
+<li>Instead of mixing being done analogically, it’s instead done digitally; then, sound is converted to an analog signal and an offset is added (see <code>SOUNDBIAS</code> in <a href="http://problemkaputt.de/gbatek.htm#gbasoundcontrolregisters">GBATEK</a> for more details).</li>
+<li>This also means that the GBA APU has no DACs.
+Instead, they are emulated digitally such that a disabled “DAC” behaves like an enabled DAC receiving 0 as its input.</li>
+<li>Additionally, CH3’s DAC has its output inverted.
+In particular, this causes the channel to emit a loud spike when disabled; therefore, it’s a good idea to “disconnect” the channel using NR51 before accessing wave RAM.</li>
+</ul>
+<p>None of the additional features (more wave RAM, digital FIFOs, etc.) are available to CGB programs.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="joypad-input"><a class="header" href="#joypad-input">Joypad Input</a></h1>
 <h2 id="ff00--p1joyp-joypad"><a class="header" href="#ff00--p1joyp-joypad">FF00 — P1/JOYP: Joypad</a></h2>
 <p>The eight Game Boy action/direction buttons are arranged as a 2x4
@@ -2605,10 +3267,6 @@ Its initial value is $00.</p>
 <h3 id="ff75--bits-46-cgb-mode-only"><a class="header" href="#ff75--bits-46-cgb-mode-only">FF75 — Bits 4–6 (CGB Mode only)</a></h3>
 <p>Only bits 4, 5 and 6 of this register are read/write enabled.
 Their initial value is 0.</p>
-<h3 id="ff76--pcm12-cgb-mode-only-pcm-amplitudes-1--2-read-only"><a class="header" href="#ff76--pcm12-cgb-mode-only-pcm-amplitudes-1--2-read-only">FF76 — PCM12 (CGB Mode only): PCM amplitudes 1 &amp; 2 [read-only]</a></h3>
-<p>The low nibble is a copy of sound channel #1’s PCM amplitude, the high nibble a copy of sound channel #2’s.</p>
-<h3 id="ff77--pcm34-cgb-mode-only-pcm-amplitudes-3--4-read-only"><a class="header" href="#ff77--pcm34-cgb-mode-only-pcm-amplitudes-3--4-read-only">FF77 — PCM34 (CGB Mode only): PCM amplitudes 3 &amp; 4 [read-only]</a></h3>
-<p>Same, but with channels 3 and 4.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="gbc-infrared-communication"><a class="header" href="#gbc-infrared-communication">GBC Infrared Communication</a></h1>
 <p><small>This section was originally compiled by Shonumi in the “Dan Docs”. Upstream source can be found <a href="https://shonumi.github.io/dandocs.html" target="_blank">here</a>.</small></p>
 <p>The Game Boy Color came with an infrared port on the very top of the handheld. Previously, where IR communications had to be done with special cartridges (like the HuC-1 variants), the Game Boy itself now had the hardware built-in. Unfortunately, the feature was never popular outside of a few games and accessories. The IR port essentially sends out signals and is also capable of receiving them, allowing for fast, wireless, line-of-sight transmission.</p>
@@ -6206,24 +6864,24 @@ As indicated by the “+ 1” in the “AGB (DMG mode)” column, if on AGB, tha
 <tr><td style="text-align: right"><a href="#ff07--tac-timer-control"><code>TAC</code></a></td><td style="text-align: center">$FF07</td><td style="text-align: center">$F8</td><td style="text-align: center">$F8</td><td style="text-align: center">$F8</td><td style="text-align: center">$F8</td></tr>
 <tr><td style="text-align: right"><a href="#ff0f--if-interrupt-flag"><code>IF</code></a></td><td style="text-align: center">$FF0F</td><td style="text-align: center">$E1</td><td style="text-align: center">$E1</td><td style="text-align: center">$E1</td><td style="text-align: center">$E1</td></tr>
 <tr><td style="text-align: right"><a href="#ff10--nr10-channel-1-sweep"><code>NR10</code></a></td><td style="text-align: center">$FF10</td><td style="text-align: center">$80</td><td style="text-align: center">$80</td><td style="text-align: center">$80</td><td style="text-align: center">$80</td></tr>
-<tr><td style="text-align: right"><a href="#ff11--nr11-channel-1-sound-length--wave-pattern-duty"><code>NR11</code></a></td><td style="text-align: center">$FF11</td><td style="text-align: center">$BF</td><td style="text-align: center">$BF</td><td style="text-align: center">$BF</td><td style="text-align: center">$BF</td></tr>
-<tr><td style="text-align: right"><a href="#ff12--nr12-channel-1-volume-envelope"><code>NR12</code></a></td><td style="text-align: center">$FF12</td><td style="text-align: center">$F3</td><td style="text-align: center">$F3</td><td style="text-align: center">$F3</td><td style="text-align: center">$F3</td></tr>
-<tr><td style="text-align: right"><a href="#ff13--nr13-channel-1-frequency-low-write-only"><code>NR13</code></a></td><td style="text-align: center">$FF13</td><td style="text-align: center">$FF</td><td style="text-align: center">$FF</td><td style="text-align: center">$FF</td><td style="text-align: center">$FF</td></tr>
-<tr><td style="text-align: right"><a href="#ff14--nr14-channel-1-frequency-high--control"><code>NR14</code></a></td><td style="text-align: center">$FF14</td><td style="text-align: center">$BF</td><td style="text-align: center">$BF</td><td style="text-align: center">$BF</td><td style="text-align: center">$BF</td></tr>
-<tr><td style="text-align: right"><a href="#ff16--nr21-channel-2-sound-length--wave-pattern-duty"><code>NR21</code></a></td><td style="text-align: center">$FF16</td><td style="text-align: center">$3F</td><td style="text-align: center">$3F</td><td style="text-align: center">$3F</td><td style="text-align: center">$3F</td></tr>
-<tr><td style="text-align: right"><a href="#ff17--nr22-channel-2-volume-envelope"><code>NR22</code></a></td><td style="text-align: center">$FF17</td><td style="text-align: center">$00</td><td style="text-align: center">$00</td><td style="text-align: center">$00</td><td style="text-align: center">$00</td></tr>
-<tr><td style="text-align: right"><a href="#ff18--nr23-channel-2-frequency-low-write-only"><code>NR23</code></a></td><td style="text-align: center">$FF18</td><td style="text-align: center">$FF</td><td style="text-align: center">$FF</td><td style="text-align: center">$FF</td><td style="text-align: center">$FF</td></tr>
-<tr><td style="text-align: right"><a href="#ff19--nr24-channel-2-frequency-high--control"><code>NR24</code></a></td><td style="text-align: center">$FF19</td><td style="text-align: center">$BF</td><td style="text-align: center">$BF</td><td style="text-align: center">$BF</td><td style="text-align: center">$BF</td></tr>
-<tr><td style="text-align: right"><a href="#ff1a--nr30-channel-3-sound-onoff"><code>NR30</code></a></td><td style="text-align: center">$FF1A</td><td style="text-align: center">$7F</td><td style="text-align: center">$7F</td><td style="text-align: center">$7F</td><td style="text-align: center">$7F</td></tr>
-<tr><td style="text-align: right"><a href="#ff1b--nr31-channel-3-sound-length-write-only"><code>NR31</code></a></td><td style="text-align: center">$FF1B</td><td style="text-align: center">$FF</td><td style="text-align: center">$FF</td><td style="text-align: center">$FF</td><td style="text-align: center">$FF</td></tr>
-<tr><td style="text-align: right"><a href="#ff1c--nr32-channel-3-select-output-level"><code>NR32</code></a></td><td style="text-align: center">$FF1C</td><td style="text-align: center">$9F</td><td style="text-align: center">$9F</td><td style="text-align: center">$9F</td><td style="text-align: center">$9F</td></tr>
-<tr><td style="text-align: right"><a href="#ff1d--nr33-channel-3-frequency-low-write-only"><code>NR33</code></a></td><td style="text-align: center">$FF1D</td><td style="text-align: center">$FF</td><td style="text-align: center">$FF</td><td style="text-align: center">$FF</td><td style="text-align: center">$FF</td></tr>
-<tr><td style="text-align: right"><a href="#ff1e--nr34-channel-3-frequency-high--control"><code>NR34</code></a></td><td style="text-align: center">$FF1E</td><td style="text-align: center">$BF</td><td style="text-align: center">$BF</td><td style="text-align: center">$BF</td><td style="text-align: center">$BF</td></tr>
-<tr><td style="text-align: right"><a href="#ff20--nr41-channel-4-sound-length-write-only"><code>NR41</code></a></td><td style="text-align: center">$FF20</td><td style="text-align: center">$FF</td><td style="text-align: center">$FF</td><td style="text-align: center">$FF</td><td style="text-align: center">$FF</td></tr>
-<tr><td style="text-align: right"><a href="#ff21--nr42-channel-4-volume-envelope"><code>NR42</code></a></td><td style="text-align: center">$FF21</td><td style="text-align: center">$00</td><td style="text-align: center">$00</td><td style="text-align: center">$00</td><td style="text-align: center">$00</td></tr>
-<tr><td style="text-align: right"><a href="#ff22--nr43-channel-4-polynomial-counter"><code>NR43</code></a></td><td style="text-align: center">$FF22</td><td style="text-align: center">$00</td><td style="text-align: center">$00</td><td style="text-align: center">$00</td><td style="text-align: center">$00</td></tr>
+<tr><td style="text-align: right"><a href="#ff11--nr11-channel-1-length-timer--duty-cycle"><code>NR11</code></a></td><td style="text-align: center">$FF11</td><td style="text-align: center">$BF</td><td style="text-align: center">$BF</td><td style="text-align: center">$BF</td><td style="text-align: center">$BF</td></tr>
+<tr><td style="text-align: right"><a href="#ff12--nr12-channel-1-volume--envelope"><code>NR12</code></a></td><td style="text-align: center">$FF12</td><td style="text-align: center">$F3</td><td style="text-align: center">$F3</td><td style="text-align: center">$F3</td><td style="text-align: center">$F3</td></tr>
+<tr><td style="text-align: right"><a href="#ff13--nr13-channel-1-wavelength-low-write-only"><code>NR13</code></a></td><td style="text-align: center">$FF13</td><td style="text-align: center">$FF</td><td style="text-align: center">$FF</td><td style="text-align: center">$FF</td><td style="text-align: center">$FF</td></tr>
+<tr><td style="text-align: right"><a href="#ff14--nr14-channel-1-wavelength-high--control"><code>NR14</code></a></td><td style="text-align: center">$FF14</td><td style="text-align: center">$BF</td><td style="text-align: center">$BF</td><td style="text-align: center">$BF</td><td style="text-align: center">$BF</td></tr>
+<tr><td style="text-align: right"><a href="#sound-channel-2--pulse"><code>NR21</code></a></td><td style="text-align: center">$FF16</td><td style="text-align: center">$3F</td><td style="text-align: center">$3F</td><td style="text-align: center">$3F</td><td style="text-align: center">$3F</td></tr>
+<tr><td style="text-align: right"><a href="#sound-channel-2--pulse"><code>NR22</code></a></td><td style="text-align: center">$FF17</td><td style="text-align: center">$00</td><td style="text-align: center">$00</td><td style="text-align: center">$00</td><td style="text-align: center">$00</td></tr>
+<tr><td style="text-align: right"><a href="#sound-channel-2--pulse"><code>NR23</code></a></td><td style="text-align: center">$FF18</td><td style="text-align: center">$FF</td><td style="text-align: center">$FF</td><td style="text-align: center">$FF</td><td style="text-align: center">$FF</td></tr>
+<tr><td style="text-align: right"><a href="#sound-channel-2--pulse"><code>NR24</code></a></td><td style="text-align: center">$FF19</td><td style="text-align: center">$BF</td><td style="text-align: center">$BF</td><td style="text-align: center">$BF</td><td style="text-align: center">$BF</td></tr>
+<tr><td style="text-align: right"><a href="#ff1a--nr30-channel-3-dac-enable"><code>NR30</code></a></td><td style="text-align: center">$FF1A</td><td style="text-align: center">$7F</td><td style="text-align: center">$7F</td><td style="text-align: center">$7F</td><td style="text-align: center">$7F</td></tr>
+<tr><td style="text-align: right"><a href="#ff1b--nr31-channel-3-length-timer-write-only"><code>NR31</code></a></td><td style="text-align: center">$FF1B</td><td style="text-align: center">$FF</td><td style="text-align: center">$FF</td><td style="text-align: center">$FF</td><td style="text-align: center">$FF</td></tr>
+<tr><td style="text-align: right"><a href="#ff1c--nr32-channel-3-output-level"><code>NR32</code></a></td><td style="text-align: center">$FF1C</td><td style="text-align: center">$9F</td><td style="text-align: center">$9F</td><td style="text-align: center">$9F</td><td style="text-align: center">$9F</td></tr>
+<tr><td style="text-align: right"><a href="#ff1d--nr33-channel-3-wavelength-low-write-only"><code>NR33</code></a></td><td style="text-align: center">$FF1D</td><td style="text-align: center">$FF</td><td style="text-align: center">$FF</td><td style="text-align: center">$FF</td><td style="text-align: center">$FF</td></tr>
+<tr><td style="text-align: right"><a href="#ff1e--nr34-channel-3-wavelength-high--control"><code>NR34</code></a></td><td style="text-align: center">$FF1E</td><td style="text-align: center">$BF</td><td style="text-align: center">$BF</td><td style="text-align: center">$BF</td><td style="text-align: center">$BF</td></tr>
+<tr><td style="text-align: right"><a href="#ff20--nr41-channel-4-length-timer-write-only"><code>NR41</code></a></td><td style="text-align: center">$FF20</td><td style="text-align: center">$FF</td><td style="text-align: center">$FF</td><td style="text-align: center">$FF</td><td style="text-align: center">$FF</td></tr>
+<tr><td style="text-align: right"><a href="#ff21--nr42-channel-4-volume--envelope"><code>NR42</code></a></td><td style="text-align: center">$FF21</td><td style="text-align: center">$00</td><td style="text-align: center">$00</td><td style="text-align: center">$00</td><td style="text-align: center">$00</td></tr>
+<tr><td style="text-align: right"><a href="#ff22--nr43-channel-4-frequency--randomness"><code>NR43</code></a></td><td style="text-align: center">$FF22</td><td style="text-align: center">$00</td><td style="text-align: center">$00</td><td style="text-align: center">$00</td><td style="text-align: center">$00</td></tr>
 <tr><td style="text-align: right"><a href="#ff23--nr44-channel-4-control"><code>NR44</code></a></td><td style="text-align: center">$FF23</td><td style="text-align: center">$BF</td><td style="text-align: center">$BF</td><td style="text-align: center">$BF</td><td style="text-align: center">$BF</td></tr>
-<tr><td style="text-align: right"><a href="#ff24--nr50-sound-volume"><code>NR50</code></a></td><td style="text-align: center">$FF24</td><td style="text-align: center">$77</td><td style="text-align: center">$77</td><td style="text-align: center">$77</td><td style="text-align: center">$77</td></tr>
+<tr><td style="text-align: right"><a href="#ff24--nr50-master-volume--vin-panning"><code>NR50</code></a></td><td style="text-align: center">$FF24</td><td style="text-align: center">$77</td><td style="text-align: center">$77</td><td style="text-align: center">$77</td><td style="text-align: center">$77</td></tr>
 <tr><td style="text-align: right"><a href="#ff25--nr51-sound-panning"><code>NR51</code></a></td><td style="text-align: center">$FF25</td><td style="text-align: center">$F3</td><td style="text-align: center">$F3</td><td style="text-align: center">$F3</td><td style="text-align: center">$F3</td></tr>
 <tr><td style="text-align: right"><a href="#ff26--nr52-sound-onoff"><code>NR52</code></a></td><td style="text-align: center">$FF26</td><td style="text-align: center">$F1</td><td style="text-align: center">$F1</td><td style="text-align: center">$F0</td><td style="text-align: center">$F1</td></tr>
 <tr><td style="text-align: right"><a href="#ff40--lcdc-lcd-control"><code>LCDC</code></a></td><td style="text-align: center">$FF40</td><td style="text-align: center">$91</td><td style="text-align: center">$91</td><td style="text-align: center">$91</td><td style="text-align: center">$91</td></tr>

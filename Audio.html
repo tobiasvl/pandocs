@@ -1,0 +1,460 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Audio - Pan Docs</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Open Graph tags-->
+        <meta name="og:site_name" content="summary" />
+        <meta name="og:image" content="https://gbdev.io/pandocs/favicon.png" />
+        <meta name="og:title" content="Audio - Pan Docs" />
+        <meta name="og:description" content="The single, most comprehensive technical reference to Game Boy available to the public." />
+        
+        <!-- Twitter meta tags -->
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@gbdev0" />
+        
+        <!-- MathML polyfill for Chrome -->
+        <script src="https://fred-wang.github.io/mathml.css/mspace.js"></script>
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The single, most comprehensive technical reference to Game Boy available to the public.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="custom/style.css">
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><a href="About.html">Foreword</a></li><li class="chapter-item affix "><a href="Authors.html">Acknowledgements</a></li><li class="chapter-item affix "><a href="History.html">History</a></li><li class="spacer"></li><li class="chapter-item affix "><li class="part-title">Overview</li><li class="chapter-item "><a href="Specifications.html"><strong aria-hidden="true">1.</strong> Specifications</a></li><li class="chapter-item "><a href="Memory_Map.html"><strong aria-hidden="true">2.</strong> Memory Map</a></li><li class="chapter-item affix "><li class="part-title">I/O Ports</li><li class="chapter-item "><a href="Rendering.html"><strong aria-hidden="true">3.</strong> Rendering</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Tile_Data.html"><strong aria-hidden="true">3.1.</strong> Tile Data</a></li><li class="chapter-item "><a href="Tile_Maps.html"><strong aria-hidden="true">3.2.</strong> Tile Maps</a></li><li class="chapter-item "><a href="OAM.html"><strong aria-hidden="true">3.3.</strong> OAM</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="OAM_DMA_Transfer.html"><strong aria-hidden="true">3.3.1.</strong> OAM DMA Transfer</a></li></ol></li><li class="chapter-item "><a href="LCDC.html"><strong aria-hidden="true">3.4.</strong> LCD Control</a></li><li class="chapter-item "><a href="STAT.html"><strong aria-hidden="true">3.5.</strong> LCD Status</a></li><li class="chapter-item "><a href="Scrolling.html"><strong aria-hidden="true">3.6.</strong> Scrolling</a></li><li class="chapter-item "><a href="Palettes.html"><strong aria-hidden="true">3.7.</strong> Palettes</a></li><li class="chapter-item "><a href="pixel_fifo.html"><strong aria-hidden="true">3.8.</strong> Pixel FIFO</a></li></ol></li><li class="chapter-item expanded "><a href="Audio.html" class="active"><strong aria-hidden="true">4.</strong> Audio</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Audio_Registers.html"><strong aria-hidden="true">4.1.</strong> Audio Registers</a></li><li class="chapter-item "><a href="Audio_details.html"><strong aria-hidden="true">4.2.</strong> Audio Details</a></li></ol></li><li class="chapter-item "><a href="Joypad_Input.html"><strong aria-hidden="true">5.</strong> Joypad Input</a></li><li class="chapter-item "><a href="Serial_Data_Transfer_(Link_Cable).html"><strong aria-hidden="true">6.</strong> Serial Data Transfer</a></li><li class="chapter-item "><a href="Timer_and_Divider_Registers.html"><strong aria-hidden="true">7.</strong> Timer and Divider Registers</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Timer_Obscure_Behaviour.html"><strong aria-hidden="true">7.1.</strong> Timer Obscure Behaviour</a></li></ol></li><li class="chapter-item "><a href="Interrupts.html"><strong aria-hidden="true">8.</strong> Interrupts</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Interrupt_Sources.html"><strong aria-hidden="true">8.1.</strong> Interrupt Sources</a></li><li class="chapter-item "><a href="halt.html"><strong aria-hidden="true">8.2.</strong> HALT</a></li></ol></li><li class="chapter-item "><a href="CGB_Registers.html"><strong aria-hidden="true">9.</strong> CGB Registers</a></li><li class="chapter-item "><a href="IR.html"><strong aria-hidden="true">10.</strong> Infrared Communication</a></li><li class="chapter-item "><a href="SGB_Functions.html"><strong aria-hidden="true">11.</strong> SGB Functions</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="SGB_Unlocking.html"><strong aria-hidden="true">11.1.</strong> Unlocking and Detecting SGB Functions</a></li><li class="chapter-item "><a href="SGB_Command_Packet.html"><strong aria-hidden="true">11.2.</strong> Command Packet Transfers</a></li><li class="chapter-item "><a href="SGB_VRAM_Transfer.html"><strong aria-hidden="true">11.3.</strong> VRAM Transfers</a></li><li class="chapter-item "><a href="SGB_Color_Palettes.html"><strong aria-hidden="true">11.4.</strong> Color Palettes Overview</a></li><li class="chapter-item "><a href="SGB_Command_Summary.html"><strong aria-hidden="true">11.5.</strong> Command Summary</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="SGB_Command_Palettes.html"><strong aria-hidden="true">11.5.1.</strong> Palette Commands</a></li><li class="chapter-item "><a href="SGB_Command_Attribute.html"><strong aria-hidden="true">11.5.2.</strong> Color Attribute Commands</a></li><li class="chapter-item "><a href="SGB_Command_Sound.html"><strong aria-hidden="true">11.5.3.</strong> Sound Functions</a></li></ol></li><li class="chapter-item "><a href="SGB_Command_System.html"><strong aria-hidden="true">11.6.</strong> System Control Commands</a></li><li class="chapter-item "><a href="SGB_Command_Multiplayer.html"><strong aria-hidden="true">11.7.</strong> Multiplayer Command</a></li><li class="chapter-item "><a href="SGB_Command_Border.html"><strong aria-hidden="true">11.8.</strong> Border and OBJ Commands</a></li><li class="chapter-item "><a href="SGB_Command_Undocumented.html"><strong aria-hidden="true">11.9.</strong> Undocumented SGB commands</a></li></ol></li><li class="chapter-item "><li class="part-title">CPU Specifications</li><li class="chapter-item "><a href="CPU_Registers_and_Flags.html"><strong aria-hidden="true">12.</strong> CPU Registers and Flags</a></li><li class="chapter-item "><a href="CPU_Instruction_Set.html"><strong aria-hidden="true">13.</strong> CPU Instruction Set</a></li><li class="chapter-item "><a href="CPU_Comparison_with_Z80.html"><strong aria-hidden="true">14.</strong> CPU Comparison with Z80</a></li><li class="chapter-item affix "><li class="part-title">Cartridges</li><li class="chapter-item "><a href="The_Cartridge_Header.html"><strong aria-hidden="true">15.</strong> The Cartridge Header</a></li><li class="chapter-item "><a href="MBCs.html"><strong aria-hidden="true">16.</strong> MBCs</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="nombc.html"><strong aria-hidden="true">16.1.</strong> No MBC</a></li><li class="chapter-item "><a href="MBC1.html"><strong aria-hidden="true">16.2.</strong> MBC1</a></li><li class="chapter-item "><a href="MBC2.html"><strong aria-hidden="true">16.3.</strong> MBC2</a></li><li class="chapter-item "><a href="MBC3.html"><strong aria-hidden="true">16.4.</strong> MBC3</a></li><li class="chapter-item "><a href="MBC5.html"><strong aria-hidden="true">16.5.</strong> MBC5</a></li><li class="chapter-item "><a href="MBC6.html"><strong aria-hidden="true">16.6.</strong> MBC6</a></li><li class="chapter-item "><a href="MBC7.html"><strong aria-hidden="true">16.7.</strong> MBC7</a></li><li class="chapter-item "><a href="MMM01.html"><strong aria-hidden="true">16.8.</strong> MMM01</a></li><li class="chapter-item "><a href="M161.html"><strong aria-hidden="true">16.9.</strong> M161</a></li><li class="chapter-item "><a href="HuC1.html"><strong aria-hidden="true">16.10.</strong> HuC1</a></li><li class="chapter-item "><a href="HuC3.html"><strong aria-hidden="true">16.11.</strong> HuC-3</a></li><li class="chapter-item "><a href="othermbc.html"><strong aria-hidden="true">16.12.</strong> Other MBCs</a></li></ol></li><li class="chapter-item "><li class="part-title">Accessories</li><li class="chapter-item "><a href="Gameboy_Printer.html"><strong aria-hidden="true">17.</strong> Game Boy Printer</a></li><li class="chapter-item "><a href="Gameboy_Camera.html"><strong aria-hidden="true">18.</strong> Game Boy Camera</a></li><li class="chapter-item "><a href="Four_Player_Adapter.html"><strong aria-hidden="true">19.</strong> 4-Player Adapter</a></li><li class="chapter-item "><a href="Shark_Cheats.html"><strong aria-hidden="true">20.</strong> Game Genie/Shark Cheats</a></li><li class="chapter-item affix "><li class="part-title">Other</li><li class="chapter-item "><a href="Power_Up_Sequence.html"><strong aria-hidden="true">21.</strong> Power-Up Sequence</a></li><li class="chapter-item "><a href="Reducing_Power_Consumption.html"><strong aria-hidden="true">22.</strong> Reducing Power Consumption</a></li><li class="chapter-item "><a href="Accessing_VRAM_and_OAM.html"><strong aria-hidden="true">23.</strong> Accessing VRAM and OAM</a></li><li class="chapter-item "><a href="OAM_Corruption_Bug.html"><strong aria-hidden="true">24.</strong> OAM Corruption Bug</a></li><li class="chapter-item "><a href="External_Connectors.html"><strong aria-hidden="true">25.</strong> External Connectors</a></li><li class="chapter-item "><a href="GBC_Approval_Process.html"><strong aria-hidden="true">26.</strong> GBC Approval Process</a></li><li class="spacer"></li><li class="chapter-item affix "><a href="References.html">References</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Pan Docs</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/gbdev/pandocs" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/gbdev/pandocs/edit/master/src/Audio.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="audio-overview"><a class="header" href="#audio-overview">Audio Overview</a></h1>
+<p>Game Boy audio is sometimes called “8-bit”.
+This does not refer to the bit depth of the sound generated, but rather that it has sound capabilities typical of 8-bit consoles.
+Like much of its contemporary hardware, the Game Boy produces sound generated by simple digital circuits.</p>
+<h2 id="architecture"><a class="header" href="#architecture">Architecture</a></h2>
+<svg viewBox="0 0 480 220" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style type="text/css"><![CDATA[
+      text {
+        fill: var(--fg);
+        dominant-baseline: middle;
+      }
+      .centered { text-anchor: middle; }
+      .right    { text-anchor: end; }
+      rect, path, use {
+        stroke: var(--fg);
+        fill: var(--fg);
+      }
+      .inverted {
+        stroke: var(--bg);
+        fill: var(--bg);
+      }
+      .unfilled {
+        fill: none !important;
+      }
+      .no-stroke {
+        stroke: none !important;
+      }
+    ]]></style>
+    <path d="M 0,-5
+             v 10
+             l 10,-5
+             z" id="arrow-head"/>
+  </defs>
+  <text x="85" y="36" class="right">Channel 1</text>
+  <rect x="95" y="15" width="40" height="40"/>
+  <path d="M 95,45
+           h 10
+           v -20
+           h 10
+           v 20
+           h 10
+           v -20
+           h 10" class="inverted unfilled"/>
+  <text x="85" y="86" class="right">Channel 2</text>
+  <rect x="95" y="65" width="40" height="40"/>
+  <path d="M 95,95
+           h 10
+           v -20
+           h 10
+           v 20
+           h 10
+           v -20
+           h 10" class="inverted unfilled"/>
+  <text x="85" y="136" class="right">Channel 3</text>
+  <rect x="95" y="115" width="40" height="40"/>
+  <path d="M 95,141
+           h 2
+           v -2
+           h 2
+           v -3
+           h 2
+           v -3
+           h 2
+           v -3
+           h 2
+           v -2
+           h 2
+           v -1
+           h 2
+           v 1
+           h 2
+           v 2
+           h 2
+           v 5
+           h 2
+           v 4
+           h 2
+           v 2
+           h 2
+           v 1
+           h 4
+           v -10
+           h 2
+           v -5
+           h 2
+           v 15
+           h 2
+           v -14
+           h 2
+           v 7
+           h 2
+           v 4
+           h 2
+           v 2
+           h 4
+           v 1
+           h 4
+           v -1
+           h 2
+           v -1
+           h 2
+           v -2
+           h 2
+           v -2
+           h 2
+           v -3
+           h 2
+           v -2
+           h 2
+           v -2
+           h 2" class="inverted unfilled"/>
+  <text x="85" y="186" class="right">Channel 4</text>
+  <rect x="95" y="165" width="40" height="40"/>
+  <path d="M 95,195
+           h 2
+           v -20
+           h 2
+           v 20
+           h 5
+           v -20
+           h 2
+           v 20
+           h 1
+           v -20
+           h 6
+           v 20
+           h 3
+           v -20
+           h 2
+           v 20
+           h 1
+           v -20
+           h 2
+           v 20
+           h 5
+           v -20
+           h 1
+           v 20
+           h 4
+           v -20
+           h 2
+           v 20
+           h 1
+           v -20
+           h 1" class="inverted unfilled"/>
+  <path d="M 135,35
+           h 30
+           m -30,50
+           h 30
+           m -30,50
+           h 30
+           m -30,50
+           h 30
+           v -150
+           m 0,75
+           h 30" class="unfilled"/>
+  <use x="185" y="110" href="#arrow-head"/>
+  <rect x="195" y="95" width="60" height="30"/>
+  <text x="225" y="110" class="centered inverted no-stroke">Mixer</text>
+  <path d="M 255,102
+           h 30" class="unfilled"/>
+  <use x="275" y="102" href="#arrow-head"/>
+  <path d="M 255,118
+           h 30" class="unfilled"/>
+  <use x="275" y="118" href="#arrow-head"/>
+  <rect x="285" y="95" width="80" height="30"/>
+  <text x="325" y="110" class="centered inverted no-stroke">Amplifier</text>
+  <path d="M 365,102
+           h 30" class="unfilled"/>
+  <use x="385" y="102" href="#arrow-head"/>
+  <path d="M 365,118
+           h 30" class="unfilled"/>
+  <use x="385" y="118" href="#arrow-head"/>
+  <rect x="395" y="95" width="80" height="30"/>
+  <text x="435" y="110" class="centered inverted no-stroke">Output</text>
+</svg>
+<p>The Game Boy has four sound generation units, called <strong>channels</strong> 1 through 4, notated “CH1”, “CH2”, etc.
+Unlike some other sound chips, such as the C64’s SID or the Atari 5200’s POKEY, each sound channel is specialized in a way largely different from the other channels.</p>
+<p>Each channel generates an electronic signal; these signals are then mixed into two new channels (for stereo: one for the left ear, one for the right ear), which are then individually amplified, and then output either to the headphone jack, or the speaker<sup class="footnote-reference"><a href="#speaker_mono">1</a></sup>.</p>
+<p>Channels 1 and 2, the “pulse channels”, produce <a href="https://en.wikipedia.org/wiki/Pulse-width_modulation">pulse width modulated waves</a> with 4 fixed pulse width settings.
+Channel 3, the “wave” channel, produces arbitrary user-supplied waves.
+Channel 4 is the “<a href="https://en.wikipedia.org/wiki/Noise_in_music">noise</a>” channel, producing a pseudo-random wave.</p>
+<p>The VIN channel is an analog signal received directly from the cartridge, allowing external hardware to supply a fifth sound channel.
+No licensed games used this feature, and it was omitted from the Game Boy Advance.</p>
+<div class="box tip">
+<p class="box-title">POCKET MUSIC</p><p>Despite some online claims, <em>Pocket Music</em> does not use VIN.
+It refuses to run on the GBA for a different reason: the developer couldn’t figure out how to silence buzzing associated with sample playback on the wave channel.</p>
+</div>
+<div class="footnote-definition" id="speaker_mono"><sup class="footnote-definition-label">1</sup>
+<p>The speaker merges back the two channels, losing the stereo aspect entirely.</p>
+</div>
+<h2 id="common-concepts"><a class="header" href="#common-concepts">Common concepts</a></h2>
+<h3 id="apu"><a class="header" href="#apu">APU</a></h3>
+<p>The Game Boy’s sound chip is called the <abbr title="Audio Processing Unit">APU</abbr>.</p>
+<p>The APU runs off the same master clock as the rest of the Game Boy, which is to say, it is fully synced with the CPU and <a href="Rendering.html#rendering-overview">PPU</a>.
+This also means that the APU runs about 2.4% faster on the SGB1, increasing frequencies by as much and thus sounding slightly higher-pitched.
+The SGB2 rectifies this issue.</p>
+<p>All interfaces to the APU use <strong>durations</strong> instead of frequencies, which may be confusing as signal theory and music are more typically based on the latter.
+Thus, durations will be expressed from their frequencies: for example, a “256 Hz tick” means “1 ∕ 256th of a second”.</p>
+<p>The length of APU ticks is not affected by <a href="CGB_Registers.html#ff4d--key1-cgb-mode-only-prepare-speed-switch">CGB double speed</a>, so the APU works just the same regardless of CPU speed.</p>
+<div class="box warning">
+<p>The Game Boy’s APU is actually full of tricky details; this chapter will mostly describe the intended / common behavior, and often paper over bugs &amp; quirks.
+Readers wishing to learn more should read the <a href="Audio_details.html#audio-details">APU details</a> chapter.</p>
+</div>
+<h3 id="triggering"><a class="header" href="#triggering">Triggering</a></h3>
+<p><strong>Triggering</strong> a channel causes it to turn on if it wasn’t<sup class="footnote-reference"><a href="#trig_dac_off">2</a></sup>, and to start playing its wave from the beginning<sup class="footnote-reference"><a href="#pulse_restart">3</a></sup>.
+Most changes to a channel’s parameters take effect immediately, but some require re-triggering the channel.</p>
+<h3 id="volume--envelope"><a class="header" href="#volume--envelope">Volume &amp; envelope</a></h3>
+<p>The volume can be controlled in two ways: there is a “master volume” control<sup class="footnote-reference"><a href="#vol_knob">4</a></sup> (which has separate settings for the left and right outputs), and each channel’s volume can be individually set as well (CH3’s less precisely than the others).</p>
+<p>Additionally, an <a href="https://en.wikipedia.org/wiki/Envelope_(music)"><strong>envelope</strong></a> can be configured for CH1, CH2 and CH4, which allows automatically adjusting the volume over time.
+The parameters that can be controlled are the initial volume, the envelope’s direction (but not its slope), and its duration.
+Internally, all envelopes are ticked at 64 Hz, and every 1–7 of those ticks, the volume will be increased or decreased.</p>
+<h3 id="length-timer"><a class="header" href="#length-timer">Length timer</a></h3>
+<p>All channels can be individually set to automatically shut themselves down after a certain amount of time.</p>
+<p>If the functionality is enabled, a channel’s <strong>length timer</strong> ticks up<sup class="footnote-reference"><a href="#len_cnt_dir">5</a></sup> at 256 Hz (tied to <a href="Audio_details.html#div-apu">DIV-APU</a>) from the value it’s initially set at.
+When the length timer reaches 64, the channel is turned off.</p>
+<h3 id="frequency"><a class="header" href="#frequency">Frequency</a></h3>
+<p>Music notes and audio waves are typically manipulated in terms of <strong>frequency</strong><sup class="footnote-reference"><a href="#pitch">6</a></sup>, i.e. how often the signal repeats per second.
+However, as explained above, the Game Boy APU primarily works with durations; thus, <strong>wavelengths</strong> will be used instead of frequency.<sup class="footnote-reference"><a href="#len_raw">7</a></sup></p>
+<div class="box warning">
+<p>The term “wavelength” throughout this document does <em>not</em> designate the inverse of the frequency, but instead a quantity akin to it.
+See the description of each NRx3 register for more information.</p>
+</div>
+<hr />
+<div class="footnote-definition" id="trig_dac_off"><sup class="footnote-definition-label">2</sup>
+<p>If <a href="Audio_details.html#dacs">the channel’s DAC</a> is off, the channel will not turn on.</p>
+</div>
+<div class="footnote-definition" id="pulse_restart"><sup class="footnote-definition-label">3</sup>
+<p>Except for pulse channels, whose phase position is only ever reset by turning the APU off.
+This is usually not noticeable unless changing the duty cycle mid-note.</p>
+</div>
+<div class="footnote-definition" id="vol_knob"><sup class="footnote-definition-label">4</sup>
+<p>This is separate from the physical volume knob located on the side of the console.</p>
+</div>
+<div class="footnote-definition" id="len_cnt_dir"><sup class="footnote-definition-label">5</sup>
+<p>Internally, the length timer is inverted when written, and <em>that</em> ticks down until it reaches 0.
+But the effect is as if the counter ticked up.</p>
+</div>
+<div class="footnote-definition" id="pitch"><sup class="footnote-definition-label">6</sup>
+<p>There is also <strong>pitch</strong>, which is merely a measure of how we perceive frequency.
+The higher the frequency, the higher the pitch; therefore, pitch will be omitted from the rest of the document.</p>
+</div>
+<div class="footnote-definition" id="len_raw"><sup class="footnote-definition-label">7</sup>
+<p>Actually, the APU interfaces don’t work with any wavelengths either, but with values that are more akin to wavelengths than frequencies.</p>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="pixel_fifo.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="Audio_Registers.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="pixel_fifo.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="Audio_Registers.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

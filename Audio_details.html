@@ -1,0 +1,662 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Audio Details - Pan Docs</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Open Graph tags-->
+        <meta name="og:site_name" content="summary" />
+        <meta name="og:image" content="https://gbdev.io/pandocs/favicon.png" />
+        <meta name="og:title" content="Audio Details - Pan Docs" />
+        <meta name="og:description" content="The single, most comprehensive technical reference to Game Boy available to the public." />
+        
+        <!-- Twitter meta tags -->
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@gbdev0" />
+        
+        <!-- MathML polyfill for Chrome -->
+        <script src="https://fred-wang.github.io/mathml.css/mspace.js"></script>
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The single, most comprehensive technical reference to Game Boy available to the public.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="custom/style.css">
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><a href="About.html">Foreword</a></li><li class="chapter-item affix "><a href="Authors.html">Acknowledgements</a></li><li class="chapter-item affix "><a href="History.html">History</a></li><li class="spacer"></li><li class="chapter-item affix "><li class="part-title">Overview</li><li class="chapter-item "><a href="Specifications.html"><strong aria-hidden="true">1.</strong> Specifications</a></li><li class="chapter-item "><a href="Memory_Map.html"><strong aria-hidden="true">2.</strong> Memory Map</a></li><li class="chapter-item affix "><li class="part-title">I/O Ports</li><li class="chapter-item "><a href="Rendering.html"><strong aria-hidden="true">3.</strong> Rendering</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Tile_Data.html"><strong aria-hidden="true">3.1.</strong> Tile Data</a></li><li class="chapter-item "><a href="Tile_Maps.html"><strong aria-hidden="true">3.2.</strong> Tile Maps</a></li><li class="chapter-item "><a href="OAM.html"><strong aria-hidden="true">3.3.</strong> OAM</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="OAM_DMA_Transfer.html"><strong aria-hidden="true">3.3.1.</strong> OAM DMA Transfer</a></li></ol></li><li class="chapter-item "><a href="LCDC.html"><strong aria-hidden="true">3.4.</strong> LCD Control</a></li><li class="chapter-item "><a href="STAT.html"><strong aria-hidden="true">3.5.</strong> LCD Status</a></li><li class="chapter-item "><a href="Scrolling.html"><strong aria-hidden="true">3.6.</strong> Scrolling</a></li><li class="chapter-item "><a href="Palettes.html"><strong aria-hidden="true">3.7.</strong> Palettes</a></li><li class="chapter-item "><a href="pixel_fifo.html"><strong aria-hidden="true">3.8.</strong> Pixel FIFO</a></li></ol></li><li class="chapter-item expanded "><a href="Audio.html"><strong aria-hidden="true">4.</strong> Audio</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Audio_Registers.html"><strong aria-hidden="true">4.1.</strong> Audio Registers</a></li><li class="chapter-item expanded "><a href="Audio_details.html" class="active"><strong aria-hidden="true">4.2.</strong> Audio Details</a></li></ol></li><li class="chapter-item "><a href="Joypad_Input.html"><strong aria-hidden="true">5.</strong> Joypad Input</a></li><li class="chapter-item "><a href="Serial_Data_Transfer_(Link_Cable).html"><strong aria-hidden="true">6.</strong> Serial Data Transfer</a></li><li class="chapter-item "><a href="Timer_and_Divider_Registers.html"><strong aria-hidden="true">7.</strong> Timer and Divider Registers</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Timer_Obscure_Behaviour.html"><strong aria-hidden="true">7.1.</strong> Timer Obscure Behaviour</a></li></ol></li><li class="chapter-item "><a href="Interrupts.html"><strong aria-hidden="true">8.</strong> Interrupts</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Interrupt_Sources.html"><strong aria-hidden="true">8.1.</strong> Interrupt Sources</a></li><li class="chapter-item "><a href="halt.html"><strong aria-hidden="true">8.2.</strong> HALT</a></li></ol></li><li class="chapter-item "><a href="CGB_Registers.html"><strong aria-hidden="true">9.</strong> CGB Registers</a></li><li class="chapter-item "><a href="IR.html"><strong aria-hidden="true">10.</strong> Infrared Communication</a></li><li class="chapter-item "><a href="SGB_Functions.html"><strong aria-hidden="true">11.</strong> SGB Functions</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="SGB_Unlocking.html"><strong aria-hidden="true">11.1.</strong> Unlocking and Detecting SGB Functions</a></li><li class="chapter-item "><a href="SGB_Command_Packet.html"><strong aria-hidden="true">11.2.</strong> Command Packet Transfers</a></li><li class="chapter-item "><a href="SGB_VRAM_Transfer.html"><strong aria-hidden="true">11.3.</strong> VRAM Transfers</a></li><li class="chapter-item "><a href="SGB_Color_Palettes.html"><strong aria-hidden="true">11.4.</strong> Color Palettes Overview</a></li><li class="chapter-item "><a href="SGB_Command_Summary.html"><strong aria-hidden="true">11.5.</strong> Command Summary</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="SGB_Command_Palettes.html"><strong aria-hidden="true">11.5.1.</strong> Palette Commands</a></li><li class="chapter-item "><a href="SGB_Command_Attribute.html"><strong aria-hidden="true">11.5.2.</strong> Color Attribute Commands</a></li><li class="chapter-item "><a href="SGB_Command_Sound.html"><strong aria-hidden="true">11.5.3.</strong> Sound Functions</a></li></ol></li><li class="chapter-item "><a href="SGB_Command_System.html"><strong aria-hidden="true">11.6.</strong> System Control Commands</a></li><li class="chapter-item "><a href="SGB_Command_Multiplayer.html"><strong aria-hidden="true">11.7.</strong> Multiplayer Command</a></li><li class="chapter-item "><a href="SGB_Command_Border.html"><strong aria-hidden="true">11.8.</strong> Border and OBJ Commands</a></li><li class="chapter-item "><a href="SGB_Command_Undocumented.html"><strong aria-hidden="true">11.9.</strong> Undocumented SGB commands</a></li></ol></li><li class="chapter-item "><li class="part-title">CPU Specifications</li><li class="chapter-item "><a href="CPU_Registers_and_Flags.html"><strong aria-hidden="true">12.</strong> CPU Registers and Flags</a></li><li class="chapter-item "><a href="CPU_Instruction_Set.html"><strong aria-hidden="true">13.</strong> CPU Instruction Set</a></li><li class="chapter-item "><a href="CPU_Comparison_with_Z80.html"><strong aria-hidden="true">14.</strong> CPU Comparison with Z80</a></li><li class="chapter-item affix "><li class="part-title">Cartridges</li><li class="chapter-item "><a href="The_Cartridge_Header.html"><strong aria-hidden="true">15.</strong> The Cartridge Header</a></li><li class="chapter-item "><a href="MBCs.html"><strong aria-hidden="true">16.</strong> MBCs</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="nombc.html"><strong aria-hidden="true">16.1.</strong> No MBC</a></li><li class="chapter-item "><a href="MBC1.html"><strong aria-hidden="true">16.2.</strong> MBC1</a></li><li class="chapter-item "><a href="MBC2.html"><strong aria-hidden="true">16.3.</strong> MBC2</a></li><li class="chapter-item "><a href="MBC3.html"><strong aria-hidden="true">16.4.</strong> MBC3</a></li><li class="chapter-item "><a href="MBC5.html"><strong aria-hidden="true">16.5.</strong> MBC5</a></li><li class="chapter-item "><a href="MBC6.html"><strong aria-hidden="true">16.6.</strong> MBC6</a></li><li class="chapter-item "><a href="MBC7.html"><strong aria-hidden="true">16.7.</strong> MBC7</a></li><li class="chapter-item "><a href="MMM01.html"><strong aria-hidden="true">16.8.</strong> MMM01</a></li><li class="chapter-item "><a href="M161.html"><strong aria-hidden="true">16.9.</strong> M161</a></li><li class="chapter-item "><a href="HuC1.html"><strong aria-hidden="true">16.10.</strong> HuC1</a></li><li class="chapter-item "><a href="HuC3.html"><strong aria-hidden="true">16.11.</strong> HuC-3</a></li><li class="chapter-item "><a href="othermbc.html"><strong aria-hidden="true">16.12.</strong> Other MBCs</a></li></ol></li><li class="chapter-item "><li class="part-title">Accessories</li><li class="chapter-item "><a href="Gameboy_Printer.html"><strong aria-hidden="true">17.</strong> Game Boy Printer</a></li><li class="chapter-item "><a href="Gameboy_Camera.html"><strong aria-hidden="true">18.</strong> Game Boy Camera</a></li><li class="chapter-item "><a href="Four_Player_Adapter.html"><strong aria-hidden="true">19.</strong> 4-Player Adapter</a></li><li class="chapter-item "><a href="Shark_Cheats.html"><strong aria-hidden="true">20.</strong> Game Genie/Shark Cheats</a></li><li class="chapter-item affix "><li class="part-title">Other</li><li class="chapter-item "><a href="Power_Up_Sequence.html"><strong aria-hidden="true">21.</strong> Power-Up Sequence</a></li><li class="chapter-item "><a href="Reducing_Power_Consumption.html"><strong aria-hidden="true">22.</strong> Reducing Power Consumption</a></li><li class="chapter-item "><a href="Accessing_VRAM_and_OAM.html"><strong aria-hidden="true">23.</strong> Accessing VRAM and OAM</a></li><li class="chapter-item "><a href="OAM_Corruption_Bug.html"><strong aria-hidden="true">24.</strong> OAM Corruption Bug</a></li><li class="chapter-item "><a href="External_Connectors.html"><strong aria-hidden="true">25.</strong> External Connectors</a></li><li class="chapter-item "><a href="GBC_Approval_Process.html"><strong aria-hidden="true">26.</strong> GBC Approval Process</a></li><li class="spacer"></li><li class="chapter-item affix "><a href="References.html">References</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Pan Docs</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/gbdev/pandocs" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/gbdev/pandocs/edit/master/src/Audio_details.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="audio-details"><a class="header" href="#audio-details">Audio Details</a></h1>
+<p>tl;dr:</p>
+<blockquote>
+<p>The PPU is a bunch of state machines, and the APU is a bunch of counters.</p>
+</blockquote>
+<!-- Styles in <svg> tags apply to the whole page, and we have two on this one. Hoist this to be less confusing. -->
+<style>
+  text {
+    fill: var(--fg);
+    dominant-baseline: middle;
+    font-size: .6em;
+  }
+  #dsg { font-size: 1em; }
+  .centered { text-anchor: middle; }
+  .right    { text-anchor: end; }
+  .tabnum { font-feature-settings: "tnum"; }
+  svg > rect, svg > use {
+    stroke: var(--fg);
+    fill: var(--fg);
+  }
+  svg > path, svg > circle {
+    stroke: var(--fg);
+    fill: none;
+  }
+  .dashed { stroke-dasharray: 2; }
+  .opa50 { opacity: .5; }
+  .fill50 { fill-opacity: .5; }
+  .digital   { stroke: #df0000; fill: #df0000; }
+  .analog    { stroke: #005f98; fill: #005f98; }
+  .misc_data { stroke: #a4269c; fill: #a4269c; }
+  .dac_ena   { stroke: #ffa700; fill: #ffa700; }
+  .ch_active { stroke: #17cc00; fill: #17cc00; }
+  rect.legend { width: 5px; height: 5px; }
+  text.legend { font-size: .7em; }
+  .arrow { stroke-width: 2px; opacity: .35; }
+  .unfilled {
+    fill: none;
+  }
+  .no-stroke {
+    stroke: none;
+  }
+</style>
+<figure>
+<svg viewBox="115 99 470 390" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <path d="M 0,-2
+             v 4
+             l 4,-2
+             z" id="arrow-head"/>
+  </defs>
+  <rect x="570" y="110" class="legend digital"/>
+  <text x="565" y="113" class="legend right">Digital waveform</text>
+  <rect x="570" y="125" class="legend analog"/>
+  <text x="565" y="128" class="legend right">Analog waveform</text>
+  <rect x="570" y="140" class="legend misc_data"/>
+  <text x="565" y="143" class="legend right">Misc. digital data</text>
+  <rect x="570" y="155" class="legend dac_ena"/>
+  <text x="565" y="158" class="legend right">DAC enable flag</text>
+  <rect x="570" y="170" class="legend ch_active"/>
+  <text x="565" y="173" class="legend right">Channel active flag</text>
+  <rect x="150" y="100" width="230" height="275" class="unfilled opa50"/>
+  <text x="265" y="118" id="dsg" class="centered">Digital Sound Generator</text>
+  <rect x="160" y="140" width="150" height="20" class="unfilled"/>
+  <text x="235" y="151" class="centered tabnum">Channel 1</text>
+  <rect x="160" y="160" width="30" height="20" class="unfilled"/>
+  <text x="175" y="172" class="centered tabnum">NR10</text>
+  <rect x="190" y="160" width="30" height="20" class="unfilled"/>
+  <text x="205" y="172" class="centered tabnum">NR11</text>
+  <rect x="220" y="160" width="30" height="20" class="unfilled"/>
+  <text x="235" y="172" class="centered tabnum">NR12</text>
+  <rect x="250" y="160" width="30" height="20" class="unfilled"/>
+  <text x="265" y="172" class="centered tabnum">NR13</text>
+  <rect x="280" y="160" width="30" height="20" class="unfilled"/>
+  <text x="295" y="172" class="centered tabnum">NR14</text>
+  <rect x="160" y="190" width="150" height="20" class="unfilled"/>
+  <text x="235" y="201" class="centered tabnum">Channel 2</text>
+  <rect x="160" y="210" width="30" height="20" class="fill50"/>
+  <rect x="190" y="210" width="30" height="20" class="unfilled"/>
+  <text x="205" y="222" class="centered tabnum">NR21</text>
+  <rect x="220" y="210" width="30" height="20" class="unfilled"/>
+  <text x="235" y="222" class="centered tabnum">NR22</text>
+  <rect x="250" y="210" width="30" height="20" class="unfilled"/>
+  <text x="265" y="222" class="centered tabnum">NR23</text>
+  <rect x="280" y="210" width="30" height="20" class="unfilled"/>
+  <text x="295" y="222" class="centered tabnum">NR24</text>
+  <rect x="160" y="240" width="150" height="20" class="unfilled"/>
+  <text x="235" y="251" class="centered tabnum">Channel 3</text>
+  <rect x="160" y="260" width="30" height="20" class="unfilled"/>
+  <text x="175" y="272" class="centered tabnum">NR30</text>
+  <rect x="190" y="260" width="30" height="20" class="unfilled"/>
+  <text x="205" y="272" class="centered tabnum">NR31</text>
+  <rect x="220" y="260" width="30" height="20" class="unfilled"/>
+  <text x="235" y="272" class="centered tabnum">NR32</text>
+  <rect x="250" y="260" width="30" height="20" class="unfilled"/>
+  <text x="265" y="272" class="centered tabnum">NR33</text>
+  <rect x="280" y="260" width="30" height="20" class="unfilled"/>
+  <text x="295" y="272" class="centered tabnum">NR34</text>
+  <rect x="160" y="290" width="150" height="20" class="unfilled"/>
+  <text x="235" y="301" class="centered tabnum">Channel 4</text>
+  <rect x="160" y="310" width="30" height="20" class="fill50"/>
+  <rect x="190" y="310" width="30" height="20" class="unfilled"/>
+  <text x="205" y="322" class="centered tabnum">NR41</text>
+  <rect x="220" y="310" width="30" height="20" class="unfilled"/>
+  <text x="235" y="322" class="centered tabnum">NR42</text>
+  <rect x="250" y="310" width="30" height="20" class="unfilled"/>
+  <text x="265" y="322" class="centered tabnum">NR43</text>
+  <rect x="280" y="310" width="30" height="20" class="unfilled"/>
+  <text x="295" y="322" class="centered tabnum">NR44</text>
+  <rect x="340" y="148" width="30" height="20" class="unfilled"/>
+  <text x="355" y="160" class="centered tabnum">NR50</text>
+  <rect x="340" y="183" width="30" height="20" class="unfilled"/>
+  <text x="355" y="195" class="centered tabnum">NR51</text>
+  <rect x="340" y="218" width="30" height="20" class="unfilled"/>
+  <text x="355" y="230" class="centered tabnum">NR52</text>
+  <rect x="185" y="350" width="40" height="20" class="unfilled"/>
+  <text x="205" y="362" class="centered tabnum">PCM12</text>
+  <rect x="245" y="350" width="40" height="20" class="unfilled"/>
+  <text x="265" y="362" class="centered tabnum">PCM34</text>
+  <rect x="140" y="430" width="40" height="30" class="unfilled"/>
+  <text x="160" y="446" class="centered tabnum">DAC 1</text>
+  <rect x="190" y="430" width="40" height="30" class="unfilled"/>
+  <text x="210" y="446" class="centered tabnum">DAC 2</text>
+  <rect x="240" y="430" width="40" height="30" class="unfilled"/>
+  <text x="260" y="446" class="centered tabnum">DAC 3</text>
+  <rect x="290" y="430" width="40" height="30" class="unfilled"/>
+  <text x="310" y="446" class="centered tabnum">DAC 4</text>
+  <rect x="370" y="430" width="40" height="30" class="unfilled"/>
+  <text x="390" y="446" class="centered tabnum">Mixer</text>
+  <rect x="430" y="430" width="40" height="30" class="unfilled"/>
+  <text x="450" y="446" class="centered tabnum">Volume</text>
+  <rect x="490" y="420" width="30" height="20" class="unfilled"/>
+  <text x="505" y="431" class="centered tabnum">HPF</text>
+  <rect x="490" y="450" width="30" height="20" class="unfilled"/>
+  <text x="505" y="461" class="centered tabnum">HPF</text>
+  <rect x="540" y="430" width="40" height="30" class="unfilled"/>
+  <text x="560" y="446" class="centered tabnum">Out</text>
+  <!-- Keep in mind that later things are drawn over earlier ones. Order matters! -->
+  <path d="M 235,180
+           v 5
+           h -115
+           v 230
+           h 30
+           v 11" class="dac_ena unfilled"/>
+  <use x="150" y="426" href="#arrow-head" class="dac_ena" transform="rotate(90,150,426)"/>
+  <path d="M 235,230
+           v 5
+           h -100
+           v 165
+           h 65
+           v 26" class="dac_ena unfilled"/>
+  <use x="200" y="426" href="#arrow-head" class="dac_ena" transform="rotate(90,200,426)"/>
+  <path d="M 175,280
+           v 5
+           h -20
+           v 100
+           h 95
+           v 41" class="dac_ena unfilled"/>
+  <use x="250" y="426" href="#arrow-head" class="dac_ena" transform="rotate(90,250,426)"/>
+  <path d="M 235,330
+           v 5
+           h 65
+           v 91" class="dac_ena unfilled"/>
+  <use x="300" y="426" href="#arrow-head" class="dac_ena" transform="rotate(90,300,426)"/>
+  <path d="M 160,150
+           h -35
+           v 32
+           a 8 4 0 0 1 0,6
+           v 222
+           h 45
+           v 16" class="digital unfilled"/>
+  <use x="170" y="426" href="#arrow-head" class="digital" transform="rotate(90,170,426)"/>
+  <path d="M 181,355
+           h -23
+           a 4 8 0 0 0 -6,0
+           h -14
+           a 4 8 0 0 0 -6,0
+           h -7" class="digital unfilled"/>
+  <use x="181" y="355" href="#arrow-head" class="digital"/>
+  <path d="M 160,200
+           h -20
+           v 32
+           a 8 4 0 0 1 0,6
+           v 114
+           a 8 4 0 0 1 0,6
+           v 37
+           h 80
+           v 31" class="digital unfilled"/>
+  <use x="220" y="426" href="#arrow-head" class="digital" transform="rotate(90,220,426)"/>
+  <path d="M 181,365
+           h -23
+           a 4 8 0 0 0 -6,0
+           h -12" class="digital unfilled"/>
+  <use x="181" y="365" href="#arrow-head" class="digital"/>
+  <path d="M 310,254
+           h 25
+           v 131
+           h -12
+           a 4 8 0 0 0 -6,0
+           h -14
+           a 4 8 0 0 0 -6,0
+           h -27
+           v 41" class="digital unfilled"/>
+  <use x="270" y="426" href="#arrow-head" class="digital" transform="rotate(90,270,426)"/>
+  <path d="M 289,355
+           h 8
+           a 4 8 0 0 1 6,0
+           h 14
+           a 4 8 0 0 1 6,0
+           h 12" class="digital unfilled"/>
+  <use x="289" y="355" href="#arrow-head" class="digital" transform="rotate(-180,289,355)"/>
+  <path d="M 310,304
+           h 10
+           v 122" class="digital unfilled"/>
+  <use x="320" y="426" href="#arrow-head" class="digital" transform="rotate(90,320,426)"/>
+  <path d="M 289,365
+           h 8
+           a 4 8 0 0 1 6,0
+           h 17" class="digital unfilled"/>
+  <use x="289" y="365" href="#arrow-head" class="digital" transform="rotate(-180,289,365)"/>
+  <path d="M 310,150
+           h 18
+           v 73
+           h 8" class="ch_active unfilled"/>
+  <use x="336" y="223" href="#arrow-head" class="ch_active"/>
+  <path d="M 310,200
+           h 8
+           v 33
+           h 18" class="ch_active unfilled"/>
+  <use x="336" y="233" href="#arrow-head" class="ch_active"/>
+  <path d="M 310,246
+           h 40
+           v -3" class="ch_active unfilled"/>
+  <use x="350" y="243" href="#arrow-head" class="ch_active" transform="rotate(-90,350,243)"/>
+  <path d="M 310,296
+           h 22
+           a 4 8 0 0 1 6,0
+           h 22
+           v -53" class="ch_active unfilled"/>
+  <use x="360" y="243" href="#arrow-head" class="ch_active" transform="rotate(-90,360,243)"/>
+  <path d="M 310,460
+           v 10
+           h 31
+           v -37
+           h 25" class="analog unfilled"/>
+  <use x="366" y="433" href="#arrow-head" class="analog"/>
+  <path d="M 260,460
+           v 15
+           h 86
+           v -34
+           h 20" class="analog unfilled"/>
+  <use x="366" y="441" href="#arrow-head" class="analog"/>
+  <path d="M 210,460
+           v 20
+           h 141
+           v -31
+           h 15" class="analog unfilled"/>
+  <use x="366" y="449" href="#arrow-head" class="analog"/>
+  <path d="M 160,460
+           v 25
+           h 196
+           v -28
+           h 10" class="analog unfilled"/>
+  <use x="366" y="457" href="#arrow-head" class="analog"/>
+  <path d="M 410,438
+           h 16" class="analog unfilled"/>
+  <use x="426" y="438" href="#arrow-head" class="analog"/>
+  <path d="M 410,452
+           h 16" class="analog unfilled"/>
+  <use x="426" y="452" href="#arrow-head" class="analog"/>
+  <path d="M 470,438
+           h 8
+           v -8
+           h 8" class="analog unfilled"/>
+  <use x="486" y="430" href="#arrow-head" class="analog"/>
+  <path d="M 470,452
+           h 8
+           v 8
+           h 8" class="analog unfilled"/>
+  <use x="486" y="460" href="#arrow-head" class="analog"/>
+  <path d="M 520,430
+           h 8
+           v 8
+           h 8" class="analog unfilled"/>
+  <use x="536" y="438" href="#arrow-head" class="analog"/>
+  <path d="M 520,460
+           h 8
+           v -8
+           h 8" class="analog unfilled"/>
+  <use x="536" y="452" href="#arrow-head" class="analog"/>
+  <path d="M 370,193
+           h 20
+           v 233" class="misc_data unfilled"/>
+  <use x="390" y="426" href="#arrow-head" class="misc_data" transform="rotate(90,390,426)"/>
+  <path d="M 370,158
+           h 30
+           v 248
+           h 50
+           v 20" class="misc_data unfilled"/>
+  <use x="450" y="426" href="#arrow-head" class="misc_data" transform="rotate(90,450,426)"/>
+</svg>
+<figcaption>Source: Lior "LIJI32" Halphon</figcaption>
+</figure>
+<p>Each of the four “conceptual” channels is composed of a “generation” circuit (designated “channel” in the above diagram), and a <a href="https://en.wikipedia.org/wiki/Digital-to-analog_converter">DAC</a>.
+The digital value produced by the generator, which ranges between $0 and $F (0 and 15), is linearly translated by the DAC into an analog<sup class="footnote-reference"><a href="#digital_analog">1</a></sup> value between -1 and 1 (the unit is arbitrary).</p>
+<p>The four analog channel outputs are then fed into the mixer<sup class="footnote-reference"><a href="#vin">2</a></sup>, which selectively adds them (depending on <a href="Audio_Registers.html#ff25--nr51-sound-panning"><code>NR51</code></a>) into two analog outputs (Left and Right).
+Thus, the analog range of those outputs is 4× that of each channel, -4 to 4.</p>
+<p>Then, both of these two get their respective volume scaled, once from <a href="Audio_Registers.html#ff24--nr50-master-volume--vin-panning"><code>NR50</code></a>, and once from the volume knob (if the console has one).
+Note that the former step never mutes a non-silent input, but the latter can.</p>
+<p>Each of the two analog outputs then goes through a <a href="https://en.wikipedia.org/wiki/High-pass_filter">high-pass filter</a> (HPF).
+For short, a HPF constantly tries to “pull” the signal towards analog 0 (neutral); the reason for that is explained further below.</p>
+<div class="footnote-definition" id="digital_analog"><sup class="footnote-definition-label">1</sup>
+<p>To be clear: digital values are discrete and clear-cut; conversely, the analog domain is continuous.
+The former is what computers use, the latter is what the real world is made of.</p>
+</div>
+<div class="footnote-definition" id="vin"><sup class="footnote-definition-label">2</sup>
+<p>Actually, VIN acts as a 5<sup>th</sup> channel fed into the mixer, whose control bits are in NR50 instead of NR51.
+This was omitted from the diagram for simplicity.</p>
+</div>
+<h2 id="pcm-registers"><a class="header" href="#pcm-registers">PCM registers</a></h2>
+<p>These two registers, only present in the Game Boy Color and later models, allow reading the output of the generation circuits directly; this is very useful for testing “internal” APU behavior.
+These registers are not documented in any known Nintendo manual.</p>
+<h3 id="ff76--pcm12-cgb-mode-only-digital-outputs-1--2-read-only"><a class="header" href="#ff76--pcm12-cgb-mode-only-digital-outputs-1--2-read-only">FF76 — PCM12 (CGB Mode only): Digital outputs 1 &amp; 2 [read-only]</a></h3>
+<p>The low nibble is a copy of sound channel 1’s digital output, the high nibble a copy of sound channel 2’s.</p>
+<h3 id="ff77--pcm34-cgb-mode-only-digital-outputs-3--4-read-only"><a class="header" href="#ff77--pcm34-cgb-mode-only-digital-outputs-3--4-read-only">FF77 — PCM34 (CGB Mode only): Digital outputs 3 &amp; 4 [read-only]</a></h3>
+<p>Same, but with channels 3 and 4.</p>
+<h2 id="finer-technical-explanation"><a class="header" href="#finer-technical-explanation">Finer technical explanation</a></h2>
+<h3 id="div-apu"><a class="header" href="#div-apu">DIV-APU</a></h3>
+<p>A “DIV-APU” counter is increased every time <code>DIV</code>’s bit 4 (5 in <a href="CGB_Registers.html#ff4d--key1-cgb-mode-only-prepare-speed-switch">double-speed mode</a>) goes from 1 to 0, therefore at a frequency of 512 Hz (regardless of whether double-speed is active).
+Thus, the counter can be made to increase faster by writing to <code>DIV</code> while its relevant bit is set (which clears <code>DIV</code>, and triggers the falling edge).</p>
+<p>The following events occur every <var>N</var> DIV-APU ticks:</p>
+<div class="table-wrapper"><table><thead><tr><th>Event</th><th>Rate</th><th>Frequency<sup class="footnote-reference"><a href="#div_apu_freq">3</a></sup></th></tr></thead><tbody>
+<tr><td>Envelope sweep</td><td>8</td><td>64 Hz</td></tr>
+<tr><td>Sound length</td><td>2</td><td>256 Hz</td></tr>
+<tr><td>CH1 freq sweep</td><td>4</td><td>128 Hz</td></tr>
+</tbody></table>
+</div>
+<div class="footnote-definition" id="div_apu_freq"><sup class="footnote-definition-label">3</sup>
+<p>Indicated values are under normal operation; the frequencies will obviously differ if writing to <code>DIV</code> to increase the counter faster.</p>
+</div>
+<h3 id="mixer"><a class="header" href="#mixer">Mixer</a></h3>
+<p>A high-pass filter (HPF) removes constant biases over time.
+The HPFs therefore remove the DC offset created by inactive channels with an enabled DAC, and off-center waveforms.</p>
+<p>Enabling or disabling a DAC (<a href="Audio_details.html#dacs">see below</a>), adding or removing it using NR51, or changing the volume in NR50, will cause an audio “pop”.
+(All of these actions cause a change in DC offset, which is smoothed out by the HPFs over time, but still creates a pop.)</p>
+<p>The HPF is more aggressive on GBA than on GBC, which itself is more aggressive than on DMG.
+(The more “aggressive” a HPF, the faster it pulls the signal towards “analog 0”; this reduces the pops, but tends to also distort waveforms.)</p>
+<h3 id="dacs"><a class="header" href="#dacs">DACs</a></h3>
+<p>Channel <var>x</var>’s DAC is enabled if and only if <code>[NRx2] &amp; $F8 != 0</code>; the exception is CH3, whose DAC is directly controlled by bit 7 of NR30 instead.
+Note that the envelope functionality changes the volume, but not the value stored in NRx2, and thus doesn’t disable the DACs.</p>
+<p>If a DAC is enabled, the digital range $0 to $F is linearly translated to the analog range -1 to 1, in arbitrary units.
+Importantly, the slope is negative: “digital 0” maps to “analog 1”, not “analog -1”.</p>
+<p>If a DAC is disabled, it fades to an analog value of 0.
+The nature of this fade is not entirely deterministic and varies between models.</p>
+<p>NR52’s low 4 bits report whether the channels are turned on, not their DACs.</p>
+<h3 id="channels"><a class="header" href="#channels">Channels</a></h3>
+<p>A channel is activated by a write to NRx4’s MSB, unless its DAC is off, which forces it to be disabled as well.
+The opposite is not true, however: a disabled channel outputs 0, which an enabled DAC will dutifully convert into “analog 1”.</p>
+<p>A channel can be deactivated in one of the following ways:</p>
+<ul>
+<li>Turning off its DAC</li>
+<li>Its <a href="Audio.html#length-timer">length timer</a> expiring</li>
+<li>(CH1 only) <a href="Audio_Registers.html#ff10--nr10-channel-1-sweep">Frequency sweep</a> overflowing the frequency</li>
+</ul>
+<h3 id="pulse-channels-ch1-ch2"><a class="header" href="#pulse-channels-ch1-ch2">Pulse channels (CH1, CH2)</a></h3>
+<p>Each pulse channel has an internal “duty step” counter, which is used to index into <a href="Audio_Registers.html#ff11--nr11-channel-1-length-timer--duty-cycle">the selected waveform</a> (each background stripe corresponds to one “duty step”)<sup class="footnote-reference"><a href="#pulse_lut">4</a></sup>.
+The “duty step” increments at 8 times <a href="Audio_Registers.html#ff13--nr13-channel-1-wavelength-low-write-only">the channel’s frequency</a>).</p>
+<p>The “duty step” counter cannot be reset, except by turning the APU off, which sets both back to 0.
+Retriggering a pulse channel causes its “duty step timer” to reset, thus retriggering a pulse channel often enough will cause its “duty step” to never advance.</p>
+<p>When first starting up a pulse channel, it will <em>always</em> output a (digital) zero.</p>
+<div class="footnote-definition" id="pulse_lut"><sup class="footnote-definition-label">4</sup>
+<p>Actually, there is not LUT, but the manipulations done to the counter’s bits are equivalent.</p>
+</div>
+<h3 id="wave-channel-ch3"><a class="header" href="#wave-channel-ch3">Wave channel (CH3)</a></h3>
+<p>CH3 has an internal “sample index” counter.
+Each time it is ticked (as determined by the “wavelength” in NR33/NR34), that “sample index” is incremented, and then the corresponding “sample” (nibble) is read from wave RAM.
+(This means that sample #0 is skipped when first starting up CH3.)</p>
+<p>CH3 does not emit samples directly, but stores every sample read into a buffer, and emits that continuously; (re)triggering the channel does <em>not</em> clear nor refresh this buffer, so the last sample ever read will be emitted again.
+This buffer <em>is</em> cleared when turning the APU on, so CH3 will emit a “digital 0” when first powered on.</p>
+<p>CH3 output level control does not, in fact, alter the output level.
+It shifts the <strong>digital</strong> value CH3 is outputting, not the analog value.
+This only matters when changing the setting mid-playback: the digital values being shifted bias them towards 0, which biases the analog output towards “1”; the HPF will smooth this over time, but not instantly.</p>
+<h3 id="noise-channel-ch4"><a class="header" href="#noise-channel-ch4">Noise channel (CH4)</a></h3>
+<svg viewBox="0 0 322 60" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <path d="M 0,-5
+             v 10
+             l 10,-5
+             z" id="arrow-head"/>
+  </defs>
+  <rect x="1" y="10" width="20" height="20" class="unfilled"/> <text x="11" y="5" class="centered">15</text>
+  <rect x="21" y="10" width="20" height="20" class="unfilled"/> <text x="31" y="5" class="centered">14</text>
+  <rect x="41" y="10" width="20" height="20" class="unfilled"/> <text x="51" y="5" class="centered">13</text>
+  <rect x="61" y="10" width="20" height="20" class="unfilled"/> <text x="71" y="5" class="centered">12</text>
+  <rect x="81" y="10" width="20" height="20" class="unfilled"/> <text x="91" y="5" class="centered">11</text>
+  <rect x="101" y="10" width="20" height="20" class="unfilled"/> <text x="111" y="5" class="centered">10</text>
+  <rect x="121" y="10" width="20" height="20" class="unfilled"/> <text x="131" y="5" class="centered">9</text>
+  <rect x="141" y="10" width="20" height="20" class="unfilled"/> <text x="151" y="5" class="centered">8</text>
+  <rect x="161" y="10" width="20" height="20" class="unfilled"/> <text x="171" y="5" class="centered">7</text>
+  <rect x="181" y="10" width="20" height="20" class="unfilled"/> <text x="191" y="5" class="centered">6</text>
+  <rect x="201" y="10" width="20" height="20" class="unfilled"/> <text x="211" y="5" class="centered">5</text>
+  <rect x="221" y="10" width="20" height="20" class="unfilled"/> <text x="231" y="5" class="centered">4</text>
+  <rect x="241" y="10" width="20" height="20" class="unfilled"/> <text x="251" y="5" class="centered">3</text>
+  <rect x="261" y="10" width="20" height="20" class="unfilled"/> <text x="271" y="5" class="centered">2</text>
+  <rect x="281" y="10" width="20" height="20" class="unfilled"/> <text x="291" y="5" class="centered">1</text>
+  <rect x="301" y="10" width="20" height="20" class="unfilled"/> <text x="311" y="5" class="centered">0</text>
+  <path d="M 311,30
+           v 21
+           h -30"/>
+  <path d="M 291,30
+           v 15
+           h -10"/>
+  <path d="M 267,38
+           c 0,0 -10,0 -17,10  7,10 17,10 17,10
+           h 13
+           c -5,-5 -5,-15 0,-20
+           z
+           m 17,20
+           c -5,-5 -5,-15 0,-20"/>
+  <circle cx="248" cy="48" r="2"/>
+  <path d="M 246,48
+           h -235
+           v -13"/> <use x="11" y="35" href="#arrow-head" transform="rotate(-90,11,35)"/>
+  <path d="M 171,48
+           v -13" class="dashed"/> <use x="171" y="35" href="#arrow-head" transform="rotate(-90,171,35)"/>
+</svg>
+<p>CH4 revolves around a <a href="https://en.wikipedia.org/wiki/Linear-feedback_shift_register">LFSR</a>, pictured above.
+The LFSR is 16-bit internally, but really acts as if it was 15-bit.</p>
+<p>When CH4 is ticked (at the frequency specified via <a href="Audio_Registers.html#ff22--nr43-channel-4-frequency--randomness"><code>NR43</code></a>):</p>
+<ol>
+<li>The result of <math><menclose notation="top"><msub><mi>LFSR</mi><mn>0</mn></msub> <mo>⊕</mo> <msub><mi>LFSR</mi><mn>1</mn></msub></menclose></math> (<code>1</code> if bit 0 and bit 1 are identical, <code>0</code> otherwise) is written to bit 15.</li>
+<li>If “short mode” was selected in <a href="Audio_Registers.html#ff22--nr43-channel-4-frequency--randomness"><code>NR43</code></a>, then bit 15 is copied to bit 7 as well.</li>
+<li>Finally, the entire LFSR is shifted right, and bit 0 selects between 0 and <a href="Audio_Registers.html#ff21--nr42-channel-4-volume--envelope">the chosen volume</a>.</li>
+</ol>
+<p>The LFSR is set to 0 when (re)triggering the channel.</p>
+<div class="box tip">
+<p class="box-title">Lock-up</p><p>If the “active” portion of the LFSR only contains “1” bits, only “1” bits will be generated; this prevents CH4 from ever changing values (until retriggered), essentially silencing it.</p>
+<p>This does not happen under regular operation, but can be achieved by switching from 15-bit to 7-bit mode when the LFSR’s bottom 7 bits are all “1“s (which occurs relatively early after triggering the channel, for example).</p>
+</div>
+<h2 id="game-boy-advance-audio"><a class="header" href="#game-boy-advance-audio">Game Boy Advance audio</a></h2>
+<p>The APU was reworked pretty heavily for the GBA, which introduces some slightly different behavior:</p>
+<ul>
+<li>Instead of mixing being done analogically, it’s instead done digitally; then, sound is converted to an analog signal and an offset is added (see <code>SOUNDBIAS</code> in <a href="http://problemkaputt.de/gbatek.htm#gbasoundcontrolregisters">GBATEK</a> for more details).</li>
+<li>This also means that the GBA APU has no DACs.
+Instead, they are emulated digitally such that a disabled “DAC” behaves like an enabled DAC receiving 0 as its input.</li>
+<li>Additionally, CH3’s DAC has its output inverted.
+In particular, this causes the channel to emit a loud spike when disabled; therefore, it’s a good idea to “disconnect” the channel using NR51 before accessing wave RAM.</li>
+</ul>
+<p>None of the additional features (more wave RAM, digital FIFOs, etc.) are available to CGB programs.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="Audio_Registers.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="Joypad_Input.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="Audio_Registers.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="Joypad_Input.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>
