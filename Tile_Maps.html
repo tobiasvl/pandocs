@@ -185,13 +185,44 @@ Bit 4    Not used
 Bit 3    Tile VRAM Bank number      (0=Bank 0, 1=Bank 1)
 Bit 2-0  Background Palette number  (BGP0-7)
 </code></pre>
-<p>When Bit 7 is set, the corresponding BG tile will have priority above
-all OBJs (regardless of the priority bits in OAM memory). There’s also
-a Master Priority flag in LCDC register Bit 0 which overrides all other
-priority bits when cleared.</p>
 <p>Note that, if the map entry at <code>0:9800</code> is tile $2A, the attribute at
 <code>1:9800</code> doesn’t define properties for ALL tiles $2A on-screen, but only
 the one at <code>0:9800</code>!</p>
+<h3 id="bg-to-obj-priority-in-cgb-mode"><a class="header" href="#bg-to-obj-priority-in-cgb-mode">BG-to-OBJ Priority in CGB Mode</a></h3>
+<p>In CGB Mode, the priority between the BG (and window) layer and the OBJ layer is declared in three different places:</p>
+<ul>
+<li><a href="Tile_Maps.html#bg-map-attributes-cgb-mode-only">BG Map Attribute bit 7</a></li>
+<li><a href="LCDC.html#lcdc0--bg-and-window-enablepriority">LCDC bit 0</a></li>
+<li><a href="OAM.html#byte-3--attributesflags">OAM Attributes bit 7</a></li>
+</ul>
+<p>We can infer the following rules from the table below:</p>
+<ul>
+<li>If the BG color index is 0, the OBJ will always have priority;</li>
+<li>Otherwise, if LCDC bit 0 is clear, the OBJ will always have priority;</li>
+<li>Otherwise, if both the BG Attributes and the OAM Attributes have bit 7 clear, the OBJ will have priority;</li>
+<li>Otherwise, BG will have priority.</li>
+</ul>
+<p>The following table shows the relations between the 3 flags:</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: center">LCDC bit 0</th><th style="text-align: center">OAM attr bit 7</th><th style="text-align: center">BG attr bit 7</th><th>Priority</th></tr></thead><tbody>
+<tr><td style="text-align: center">0</td><td style="text-align: center">0</td><td style="text-align: center">0</td><td>OBJ</td></tr>
+<tr><td style="text-align: center">0</td><td style="text-align: center">0</td><td style="text-align: center">1</td><td>OBJ</td></tr>
+<tr><td style="text-align: center">0</td><td style="text-align: center">1</td><td style="text-align: center">0</td><td>OBJ</td></tr>
+<tr><td style="text-align: center">0</td><td style="text-align: center">1</td><td style="text-align: center">1</td><td>OBJ</td></tr>
+<tr><td style="text-align: center">1</td><td style="text-align: center">0</td><td style="text-align: center">0</td><td>OBJ</td></tr>
+<tr><td style="text-align: center">1</td><td style="text-align: center">0</td><td style="text-align: center">1</td><td>BG color 1–3, otherwise OBJ</td></tr>
+<tr><td style="text-align: center">1</td><td style="text-align: center">1</td><td style="text-align: center">0</td><td>BG color 1–3, otherwise OBJ</td></tr>
+<tr><td style="text-align: center">1</td><td style="text-align: center">1</td><td style="text-align: center">1</td><td>BG color 1–3, otherwise OBJ</td></tr>
+</tbody></table>
+</div>
+<p><a href="https://github.com/alloncm/MagenTests">This test ROM</a> can be used to observe the above.</p>
+<div class="box warning">
+<p>Keep in mind that:</p>
+<ul>
+<li>OAM Attributes bit 7 will grant OBJ priority when <strong>clear</strong>, not when <strong>set</strong>.</li>
+<li>Priority between all OBJs is resolved <strong>before</strong> priority with the BG layer is considered.
+Please refer <a href="OAM.html#drawing-priority">to this page</a> for more details.</li>
+</ul>
+</div>
 <h2 id="background-bg"><a class="header" href="#background-bg">Background (BG)</a></h2>
 <p>The <a href="Scrolling.html#ff42ff43--scy-scx-viewport-y-position-x-position">SCY and SCX</a>
 registers can be used to scroll the Background, specifying the origin of the visible
