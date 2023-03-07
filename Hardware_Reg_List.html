@@ -1,0 +1,276 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Summary - Pan Docs</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Open Graph tags-->
+        <meta name="og:site_name" content="Pan Docs" />
+        <meta name="og:image" content="https://gbdev.io/pandocs/favicon.png" />
+        <meta name="og:title" content="Summary" />
+        <meta name="og:description" content="The single, most comprehensive technical reference to Game Boy available to the public." />
+        
+        <!-- Twitter meta tags -->
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@gbdev0" />
+        
+        <!-- MathML polyfill for Chrome -->
+        <script src="https://fred-wang.github.io/mathml.css/mspace.js"></script>
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The single, most comprehensive technical reference to Game Boy available to the public.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="custom/style.css">
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><a href="About.html">Foreword</a></li><li class="chapter-item affix "><a href="Authors.html">Acknowledgements</a></li><li class="chapter-item affix "><a href="History.html">History</a></li><li class="spacer"></li><li class="chapter-item affix "><li class="part-title">Overview</li><li class="chapter-item "><a href="Specifications.html"><strong aria-hidden="true">1.</strong> Specifications</a></li><li class="chapter-item "><a href="Memory_Map.html"><strong aria-hidden="true">2.</strong> Memory Map</a></li><li class="chapter-item affix "><li class="part-title">I/O Ports</li><li class="chapter-item expanded "><a href="Hardware_Reg_List.html" class="active"><strong aria-hidden="true">3.</strong> Summary</a></li><li class="chapter-item "><a href="Rendering.html"><strong aria-hidden="true">4.</strong> Rendering</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Tile_Data.html"><strong aria-hidden="true">4.1.</strong> Tile Data</a></li><li class="chapter-item "><a href="Tile_Maps.html"><strong aria-hidden="true">4.2.</strong> Tile Maps</a></li><li class="chapter-item "><a href="OAM.html"><strong aria-hidden="true">4.3.</strong> OAM</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="OAM_DMA_Transfer.html"><strong aria-hidden="true">4.3.1.</strong> OAM DMA Transfer</a></li></ol></li><li class="chapter-item "><a href="LCDC.html"><strong aria-hidden="true">4.4.</strong> LCD Control</a></li><li class="chapter-item "><a href="STAT.html"><strong aria-hidden="true">4.5.</strong> LCD Status</a></li><li class="chapter-item "><a href="Scrolling.html"><strong aria-hidden="true">4.6.</strong> Scrolling</a></li><li class="chapter-item "><a href="Palettes.html"><strong aria-hidden="true">4.7.</strong> Palettes</a></li><li class="chapter-item "><a href="pixel_fifo.html"><strong aria-hidden="true">4.8.</strong> Pixel FIFO</a></li></ol></li><li class="chapter-item "><a href="Audio.html"><strong aria-hidden="true">5.</strong> Audio</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Audio_Registers.html"><strong aria-hidden="true">5.1.</strong> Audio Registers</a></li><li class="chapter-item "><a href="Audio_details.html"><strong aria-hidden="true">5.2.</strong> Audio Details</a></li></ol></li><li class="chapter-item "><a href="Joypad_Input.html"><strong aria-hidden="true">6.</strong> Joypad Input</a></li><li class="chapter-item "><a href="Serial_Data_Transfer_(Link_Cable).html"><strong aria-hidden="true">7.</strong> Serial Data Transfer</a></li><li class="chapter-item "><a href="Timer_and_Divider_Registers.html"><strong aria-hidden="true">8.</strong> Timer and Divider Registers</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Timer_Obscure_Behaviour.html"><strong aria-hidden="true">8.1.</strong> Timer Obscure Behaviour</a></li></ol></li><li class="chapter-item "><a href="Interrupts.html"><strong aria-hidden="true">9.</strong> Interrupts</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Interrupt_Sources.html"><strong aria-hidden="true">9.1.</strong> Interrupt Sources</a></li><li class="chapter-item "><a href="halt.html"><strong aria-hidden="true">9.2.</strong> HALT</a></li></ol></li><li class="chapter-item "><a href="CGB_Registers.html"><strong aria-hidden="true">10.</strong> CGB Registers</a></li><li class="chapter-item "><a href="IR.html"><strong aria-hidden="true">11.</strong> Infrared Communication</a></li><li class="chapter-item "><a href="SGB_Functions.html"><strong aria-hidden="true">12.</strong> SGB Functions</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="SGB_Unlocking.html"><strong aria-hidden="true">12.1.</strong> Unlocking and Detecting SGB Functions</a></li><li class="chapter-item "><a href="SGB_Command_Packet.html"><strong aria-hidden="true">12.2.</strong> Command Packet Transfers</a></li><li class="chapter-item "><a href="SGB_VRAM_Transfer.html"><strong aria-hidden="true">12.3.</strong> VRAM Transfers</a></li><li class="chapter-item "><a href="SGB_Color_Palettes.html"><strong aria-hidden="true">12.4.</strong> Color Palettes Overview</a></li><li class="chapter-item "><a href="SGB_Command_Summary.html"><strong aria-hidden="true">12.5.</strong> Command Summary</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="SGB_Command_Palettes.html"><strong aria-hidden="true">12.5.1.</strong> Palette Commands</a></li><li class="chapter-item "><a href="SGB_Command_Attribute.html"><strong aria-hidden="true">12.5.2.</strong> Color Attribute Commands</a></li><li class="chapter-item "><a href="SGB_Command_Sound.html"><strong aria-hidden="true">12.5.3.</strong> Sound Functions</a></li></ol></li><li class="chapter-item "><a href="SGB_Command_System.html"><strong aria-hidden="true">12.6.</strong> System Control Commands</a></li><li class="chapter-item "><a href="SGB_Command_Multiplayer.html"><strong aria-hidden="true">12.7.</strong> Multiplayer Command</a></li><li class="chapter-item "><a href="SGB_Command_Border.html"><strong aria-hidden="true">12.8.</strong> Border and OBJ Commands</a></li><li class="chapter-item "><a href="SGB_Command_Undocumented.html"><strong aria-hidden="true">12.9.</strong> Undocumented SGB commands</a></li></ol></li><li class="chapter-item "><li class="part-title">CPU Specifications</li><li class="chapter-item "><a href="CPU_Registers_and_Flags.html"><strong aria-hidden="true">13.</strong> CPU Registers and Flags</a></li><li class="chapter-item "><a href="CPU_Instruction_Set.html"><strong aria-hidden="true">14.</strong> CPU Instruction Set</a></li><li class="chapter-item "><a href="CPU_Comparison_with_Z80.html"><strong aria-hidden="true">15.</strong> CPU Comparison with Z80</a></li><li class="chapter-item affix "><li class="part-title">Cartridges</li><li class="chapter-item "><a href="The_Cartridge_Header.html"><strong aria-hidden="true">16.</strong> The Cartridge Header</a></li><li class="chapter-item "><a href="MBCs.html"><strong aria-hidden="true">17.</strong> MBCs</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="nombc.html"><strong aria-hidden="true">17.1.</strong> No MBC</a></li><li class="chapter-item "><a href="MBC1.html"><strong aria-hidden="true">17.2.</strong> MBC1</a></li><li class="chapter-item "><a href="MBC2.html"><strong aria-hidden="true">17.3.</strong> MBC2</a></li><li class="chapter-item "><a href="MBC3.html"><strong aria-hidden="true">17.4.</strong> MBC3</a></li><li class="chapter-item "><a href="MBC5.html"><strong aria-hidden="true">17.5.</strong> MBC5</a></li><li class="chapter-item "><a href="MBC6.html"><strong aria-hidden="true">17.6.</strong> MBC6</a></li><li class="chapter-item "><a href="MBC7.html"><strong aria-hidden="true">17.7.</strong> MBC7</a></li><li class="chapter-item "><a href="MMM01.html"><strong aria-hidden="true">17.8.</strong> MMM01</a></li><li class="chapter-item "><a href="M161.html"><strong aria-hidden="true">17.9.</strong> M161</a></li><li class="chapter-item "><a href="HuC1.html"><strong aria-hidden="true">17.10.</strong> HuC1</a></li><li class="chapter-item "><a href="HuC3.html"><strong aria-hidden="true">17.11.</strong> HuC-3</a></li><li class="chapter-item "><a href="othermbc.html"><strong aria-hidden="true">17.12.</strong> Other MBCs</a></li></ol></li><li class="chapter-item "><li class="part-title">Accessories</li><li class="chapter-item "><a href="Gameboy_Printer.html"><strong aria-hidden="true">18.</strong> Game Boy Printer</a></li><li class="chapter-item "><a href="Gameboy_Camera.html"><strong aria-hidden="true">19.</strong> Game Boy Camera</a></li><li class="chapter-item "><a href="Four_Player_Adapter.html"><strong aria-hidden="true">20.</strong> 4-Player Adapter</a></li><li class="chapter-item "><a href="Shark_Cheats.html"><strong aria-hidden="true">21.</strong> Game Genie/Shark Cheats</a></li><li class="chapter-item affix "><li class="part-title">Other</li><li class="chapter-item "><a href="Power_Up_Sequence.html"><strong aria-hidden="true">22.</strong> Power-Up Sequence</a></li><li class="chapter-item "><a href="Reducing_Power_Consumption.html"><strong aria-hidden="true">23.</strong> Reducing Power Consumption</a></li><li class="chapter-item "><a href="Accessing_VRAM_and_OAM.html"><strong aria-hidden="true">24.</strong> Accessing VRAM and OAM</a></li><li class="chapter-item "><a href="OAM_Corruption_Bug.html"><strong aria-hidden="true">25.</strong> OAM Corruption Bug</a></li><li class="chapter-item "><a href="External_Connectors.html"><strong aria-hidden="true">26.</strong> External Connectors</a></li><li class="chapter-item "><a href="GBC_Approval_Process.html"><strong aria-hidden="true">27.</strong> GBC Approval Process</a></li><li class="spacer"></li><li class="chapter-item affix "><a href="References.html">References</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Pan Docs</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/gbdev/pandocs" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/gbdev/pandocs/edit/master/src/Hardware_Reg_List.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="hardware-registers"><a class="header" href="#hardware-registers">Hardware Registers</a></h1>
+<div class="table-wrapper"><table><thead><tr><th>Address</th><th>Name</th><th>Description</th><th>Readable / Writable</th><th>Models</th></tr></thead><tbody>
+<tr><td>$FF00</td><td><a href="Joypad_Input.html#ff00--p1joyp-joypad">P1/JOYP</a></td><td>Joypad</td><td>Mixed</td><td>All</td></tr>
+<tr><td>$FF01</td><td><a href="Serial_Data_Transfer_(Link_Cable).html#ff01--sb-serial-transfer-data">SB</a></td><td>Serial transfer data</td><td>R/W</td><td>All</td></tr>
+<tr><td>$FF02</td><td><a href="Serial_Data_Transfer_(Link_Cable).html#ff02--sc-serial-transfer-control">SC</a></td><td>Serial transfer control</td><td>R/W</td><td>Mixed</td></tr>
+<tr><td>$FF04</td><td><a href="Timer_and_Divider_Registers.html#ff04--div-divider-register">DIV</a></td><td>Divider register</td><td>R/W</td><td>All</td></tr>
+<tr><td>$FF05</td><td><a href="Timer_and_Divider_Registers.html#ff05--tima-timer-counter">TIMA</a></td><td>Timer counter</td><td>R/W</td><td>All</td></tr>
+<tr><td>$FF06</td><td><a href="Timer_and_Divider_Registers.html#ff06--tma-timer-modulo">TMA</a></td><td>Timer modulo</td><td>R/W</td><td>All</td></tr>
+<tr><td>$FF07</td><td><a href="Timer_and_Divider_Registers.html#ff07--tac-timer-control">TAC</a></td><td>Timer control</td><td>R/W</td><td>All</td></tr>
+<tr><td>$FF0F</td><td><a href="Interrupts.html#ff0f--if-interrupt-flag">IF</a></td><td>Interrupt flag</td><td>R/W</td><td>All</td></tr>
+<tr><td>$FF10</td><td><a href="Audio_Registers.html#ff10--nr10-channel-1-sweep">NR10</a></td><td>Sound channel 1 sweep</td><td>R/W</td><td>All</td></tr>
+<tr><td>$FF11</td><td><a href="Audio_Registers.html#ff11--nr11-channel-1-length-timer--duty-cycle">NR11</a></td><td>Sound channel 1 length timer &amp; duty cycle</td><td>Mixed</td><td>All</td></tr>
+<tr><td>$FF12</td><td><a href="Audio_Registers.html#ff12--nr12-channel-1-volume--envelope">NR12</a></td><td>Sound channel 1 volume &amp; envelope</td><td>R/W</td><td>All</td></tr>
+<tr><td>$FF13</td><td><a href="Audio_Registers.html#ff13--nr13-channel-1-wavelength-low-write-only">NR13</a></td><td>Sound channel 1 wavelength low</td><td>W</td><td>All</td></tr>
+<tr><td>$FF14</td><td><a href="Audio_Registers.html#ff14--nr14-channel-1-wavelength-high--control">NR14</a></td><td>Sound channel 1 wavelength high &amp; control</td><td>Mixed</td><td>All</td></tr>
+<tr><td>$FF16</td><td><a href="Audio_Registers.html#sound-channel-2--pulse">NR21</a></td><td>Sound channel 2 length timer &amp; duty cycle</td><td>Mixed</td><td>All</td></tr>
+<tr><td>$FF17</td><td><a href="Audio_Registers.html#sound-channel-2--pulse">NR22</a></td><td>Sound channel 2 volume &amp; envelope</td><td>R/W</td><td>All</td></tr>
+<tr><td>$FF18</td><td><a href="Audio_Registers.html#sound-channel-2--pulse">NR23</a></td><td>Sound channel 2 wavelength low</td><td>W</td><td>All</td></tr>
+<tr><td>$FF19</td><td><a href="Audio_Registers.html#sound-channel-2--pulse">NR24</a></td><td>Sound channel 2 wavelength high &amp; control</td><td>Mixed</td><td>All</td></tr>
+<tr><td>$FF1A</td><td><a href="Audio_Registers.html#ff1a--nr30-channel-3-dac-enable">NR30</a></td><td>Sound channel 3 DAC enable</td><td>R/W</td><td>All</td></tr>
+<tr><td>$FF1B</td><td><a href="Audio_Registers.html#ff1b--nr31-channel-3-length-timer-write-only">NR31</a></td><td>Sound channel 3 length timer</td><td>W</td><td>All</td></tr>
+<tr><td>$FF1C</td><td><a href="Audio_Registers.html#ff1c--nr32-channel-3-output-level">NR32</a></td><td>Sound channel 3 output level</td><td>R/W</td><td>All</td></tr>
+<tr><td>$FF1D</td><td><a href="Audio_Registers.html#ff1d--nr33-channel-3-wavelength-low-write-only">NR33</a></td><td>Sound channel 3 wavelength low</td><td>W</td><td>All</td></tr>
+<tr><td>$FF1E</td><td><a href="Audio_Registers.html#ff1e--nr34-channel-3-wavelength-high--control">NR34</a></td><td>Sound channel 3 wavelength high &amp; control</td><td>Mixed</td><td>All</td></tr>
+<tr><td>$FF20</td><td><a href="Audio_Registers.html#ff20--nr41-channel-4-length-timer-write-only">NR41</a></td><td>Sound channel 4 length timer</td><td>W</td><td>All</td></tr>
+<tr><td>$FF21</td><td><a href="Audio_Registers.html#ff21--nr42-channel-4-volume--envelope">NR42</a></td><td>Sound channel 4 volume &amp; envelope</td><td>R/W</td><td>All</td></tr>
+<tr><td>$FF22</td><td><a href="Audio_Registers.html#ff22--nr43-channel-4-frequency--randomness">NR43</a></td><td>Sound channel 4 frequency &amp; randomness</td><td>R/W</td><td>All</td></tr>
+<tr><td>$FF23</td><td><a href="Audio_Registers.html#ff23--nr44-channel-4-control">NR44</a></td><td>Sound channel 4 control</td><td>Mixed</td><td>All</td></tr>
+<tr><td>$FF24</td><td><a href="Audio_Registers.html#ff24--nr50-master-volume--vin-panning">NR50</a></td><td>Master volume &amp; VIN panning</td><td>R/W</td><td>All</td></tr>
+<tr><td>$FF25</td><td><a href="Audio_Registers.html#ff25--nr51-sound-panning">NR51</a></td><td>Sound panning</td><td>R/W</td><td>All</td></tr>
+<tr><td>$FF26</td><td><a href="Audio_Registers.html#ff26--nr52-sound-onoff">NR52</a></td><td>Sound on/off</td><td>Mixed</td><td>All</td></tr>
+<tr><td>$FF30-FF3F</td><td><a href="Audio_Registers.html#ff30ff3f--wave-pattern-ram">Wave RAM</a></td><td>Storage for one of the sound channels’ waveform</td><td>R/W</td><td>All</td></tr>
+<tr><td>$FF40</td><td><a href="LCDC.html#ff40--lcdc-lcd-control">LCDC</a></td><td>LCD control</td><td>R/W</td><td>All</td></tr>
+<tr><td>$FF41</td><td><a href="STAT.html#ff41--stat-lcd-status">STAT</a></td><td>LCD status</td><td>Mixed</td><td>All</td></tr>
+<tr><td>$FF42</td><td><a href="Scrolling.html#ff42ff43--scy-scx-viewport-y-position-x-position">SCY</a></td><td>Viewport Y position</td><td>R/W</td><td>All</td></tr>
+<tr><td>$FF43</td><td><a href="Scrolling.html#ff42ff43--scy-scx-viewport-y-position-x-position">SCX</a></td><td>Viewport X position</td><td>R/W</td><td>All</td></tr>
+<tr><td>$FF44</td><td><a href="Scrolling.html#ff44--ly-lcd-y-coordinate-read-only">LY</a></td><td>LCD Y coordinate</td><td>R</td><td>All</td></tr>
+<tr><td>$FF45</td><td><a href="Scrolling.html#ff45--lyc-ly-compare">LYC</a></td><td>LY compare</td><td>R/W</td><td>All</td></tr>
+<tr><td>$FF46</td><td><a href="OAM_DMA_Transfer.html#ff46--dma-oam-dma-source-address--start">DMA</a></td><td>OAM DMA source address &amp; start</td><td>R/W</td><td>All</td></tr>
+<tr><td>$FF47</td><td><a href="Palettes.html#ff47--bgp-non-cgb-mode-only-bg-palette-data">BGP</a></td><td>BG palette data</td><td>R/W</td><td>DMG</td></tr>
+<tr><td>$FF48</td><td><a href="Palettes.html#ff48ff49--obp0-obp1-non-cgb-mode-only-obj-palette-0-1-data">OBP0</a></td><td>OBJ palette 0 data</td><td>R/W</td><td>DMG</td></tr>
+<tr><td>$FF49</td><td><a href="Palettes.html#ff48ff49--obp0-obp1-non-cgb-mode-only-obj-palette-0-1-data">OBP1</a></td><td>OBJ palette 1 data</td><td>R/W</td><td>DMG</td></tr>
+<tr><td>$FF4A</td><td><a href="Scrolling.html#ff4aff4b--wy-wx-window-y-position-x-position-plus-7">WY</a></td><td>Window Y position</td><td>R/W</td><td>All</td></tr>
+<tr><td>$FF4B</td><td><a href="Scrolling.html#ff4aff4b--wy-wx-window-y-position-x-position-plus-7">WX</a></td><td>Window X position plus 7</td><td>R/W</td><td>All</td></tr>
+<tr><td>$FF4D</td><td><a href="CGB_Registers.html#ff4d--key1-cgb-mode-only-prepare-speed-switch">KEY1</a></td><td>Prepare speed switch</td><td>Mixed</td><td>CGB</td></tr>
+<tr><td>$FF4F</td><td><a href="CGB_Registers.html#ff4f--vbk-cgb-mode-only-vram-bank">VBK</a></td><td>VRAM bank</td><td>R/W</td><td>CGB</td></tr>
+<tr><td>$FF51</td><td><a href="CGB_Registers.html#ff51ff52--hdma1-hdma2-cgb-mode-only-vram-dma-source-high-low-write-only">HDMA1</a></td><td>VRAM DMA source high</td><td>W</td><td>CGB</td></tr>
+<tr><td>$FF52</td><td><a href="CGB_Registers.html#ff51ff52--hdma1-hdma2-cgb-mode-only-vram-dma-source-high-low-write-only">HDMA2</a></td><td>VRAM DMA source low</td><td>W</td><td>CGB</td></tr>
+<tr><td>$FF53</td><td><a href="CGB_Registers.html#ff53ff54--hdma3-hdma4-cgb-mode-only-vram-dma-destination-high-low-write-only">HDMA3</a></td><td>VRAM DMA destination high</td><td>W</td><td>CGB</td></tr>
+<tr><td>$FF54</td><td><a href="CGB_Registers.html#ff53ff54--hdma3-hdma4-cgb-mode-only-vram-dma-destination-high-low-write-only">HDMA4</a></td><td>VRAM DMA destination low</td><td>W</td><td>CGB</td></tr>
+<tr><td>$FF55</td><td><a href="CGB_Registers.html#ff55--hdma5-cgb-mode-only-vram-dma-lengthmodestart">HDMA5</a></td><td>VRAM DMA length/mode/start</td><td>R/W</td><td>CGB</td></tr>
+<tr><td>$FF56</td><td><a href="CGB_Registers.html#ff56--rp-cgb-mode-only-infrared-communications-port">RP</a></td><td>Infrared communications port</td><td>Mixed</td><td>CGB</td></tr>
+<tr><td>$FF68</td><td><a href="Palettes.html#ff68--bcpsbgpi-cgb-mode-only-background-color-palette-specification--background-palette-index">BCPS/BGPI</a></td><td>Background color palette specification / Background palette index</td><td>R/W</td><td>CGB</td></tr>
+<tr><td>$FF69</td><td><a href="Palettes.html#ff69--bcpdbgpd-cgb-mode-only-background-color-palette-data--background-palette-data">BCPD/BGPD</a></td><td>Background color palette data / Background palette data</td><td>R/W</td><td>CGB</td></tr>
+<tr><td>$FF6A</td><td><a href="Palettes.html#ff6aff6b--ocpsobpi-ocpdobpd-cgb-mode-only-obj-color-palette-specification--obj-palette-index-obj-color-palette-data--obj-palette-data">OCPS/OBPI</a></td><td>OBJ color palette specification / OBJ palette index</td><td>R/W</td><td>CGB</td></tr>
+<tr><td>$FF6B</td><td><a href="Palettes.html#ff6aff6b--ocpsobpi-ocpdobpd-cgb-mode-only-obj-color-palette-specification--obj-palette-index-obj-color-palette-data--obj-palette-data">OCPD/OBPD</a></td><td>OBJ color palette data / OBJ palette data</td><td>R/W</td><td>CGB</td></tr>
+<tr><td>$FF6C</td><td><a href="CGB_Registers.html#ff6c--opri-cgb-mode-only-object-priority-mode">OPRI</a></td><td>Object priority mode</td><td>R/W</td><td>CGB</td></tr>
+<tr><td>$FF70</td><td><a href="CGB_Registers.html#ff70--svbk-cgb-mode-only-wram-bank">SVBK</a></td><td>WRAM bank</td><td>R/W</td><td>CGB</td></tr>
+<tr><td>$FF76</td><td><a href="Audio_details.html#ff76--pcm12-cgb-mode-only-digital-outputs-1--2-read-only">PCM12</a></td><td>Audio digital outputs 1 &amp; 2</td><td>R</td><td>CGB</td></tr>
+<tr><td>$FF77</td><td><a href="Audio_details.html#ff77--pcm34-cgb-mode-only-digital-outputs-3--4-read-only">PCM34</a></td><td>Audio digital outputs 3 &amp; 4</td><td>R</td><td>CGB</td></tr>
+<tr><td>$FFFF</td><td><a href="Interrupts.html#ffff--ie-interrupt-enable">IE</a></td><td>Interrupt enable</td><td>R/W</td><td>All</td></tr>
+</tbody></table>
+</div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="Memory_Map.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="Rendering.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="Memory_Map.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="Rendering.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>
